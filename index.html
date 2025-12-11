@@ -2,763 +2,728 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ENGLISH WITH AI BAYAN – Grade 3 Vocabulary & Grammar</title>
+  <title>ENGLISH WITH AI BAYAN – Grade 3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root {
-      --green-main: #1b5e20;
-      --green-soft: #c8e6c9;
-      --teal-bg: #006064;
-      --card: #ffffff;
-      --accent: #ffd54f;
-      --text: #063b3b;
-      --danger: #c62828;
+    :root{
+      /* Главное меню – зелёное */
+      --menu-bg-dark:#1b5e20;
+      --menu-bg:#2e7d32;
+      --menu-soft:#a5d6a7;
+      --accent-gold:#ffd54f;
+      --text-main:#05313a;
+
+      /* Цвета юнитов (Variant B – яркие) */
+      --u1:#1565c0; /* Hello English! */
+      --u2:#ef6c00; /* My school */
+      --u3:#d81b60; /* People I love */
+      --u4:#039be5; /* Weather */
+      --u5:#8e24aa; /* My free time */
+      --u6:#c62828; /* Health */
+      --u7:#6d4c41; /* Buildings */
+      --u8:#9e9d24; /* My holidays */
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--teal-bg);
-      color: var(--text);
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#004d40;
+      color:var(--text-main);
+    }
+    .app{
+      max-width:900px;
+      margin:0 auto;
+      min-height:100vh;
+      background:linear-gradient(180deg,var(--menu-bg-dark),var(--menu-bg));
+      padding-bottom:2.5rem;
     }
 
-    .app-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      min-height: 100vh;
-      background: linear-gradient(180deg, #004d40, #0097a7);
-      padding-bottom: 3rem;
+    header.app-header{
+      text-align:center;
+      color:#e8f5e9;
+      padding:1.1rem 0 0.7rem;
+    }
+    .logo-circle{
+      width:140px;height:140px;border-radius:50%;
+      border:6px solid var(--accent-gold);
+      margin:0 auto 0.6rem;
+      background:#fff;
+      background-size:cover;
+      background-position:center;
+      background-image:url("img/ai-bayan-logo.png"); /* сюда свою картинку */
+    }
+    header h1{
+      font-size:1.4rem;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+    header h2{
+      font-size:0.9rem;
+      margin-top:0.15rem;
+      opacity:.9;
     }
 
-    header.app-header {
-      text-align: center;
-      padding: 1.2rem 0 0.8rem;
-      color: #fffde7;
-    }
-    header.app-header h1 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-    }
-    header.app-header h2 {
-      font-size: 0.9rem;
-      margin-top: 0.1rem;
-      opacity: 0.9;
+    .card{
+      background:#ffffff;
+      margin:.8rem 1rem;
+      border-radius:18px;
+      padding:1rem 1.1rem;
+      border:3px solid var(--accent-gold);
+      box-shadow:0 6px 14px rgba(0,0,0,.25);
     }
 
-    .logo-circle {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 6px solid var(--accent);
-      margin: 0.5rem auto 0.6rem;
-      background: #fff;
-      background-size: cover;
-      background-position: center;
-      /* поставь свою картинку логотипа сюда */
-      background-image: url("img/ai-bayan-logo.png");
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 18px;
-      margin: 0.8rem 1rem;
-      padding: 1rem 1.1rem;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-      border: 3px solid var(--accent);
-    }
-
-    .btn {
-      display: inline-block;
-      border: none;
-      border-radius: 999px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      background: var(--green-main);
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: transform 0.08s, box-shadow 0.08s, opacity 0.12s;
-    }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 5px 12px rgba(0,0,0,0.35); }
-    .btn:active { transform: translateY(1px); box-shadow: 0 2px 6px rgba(0,0,0,0.25); opacity: 0.85; }
-
-    .btn-secondary {
-      background: #01579b;
-    }
-    .btn-danger {
-      background: var(--danger);
-    }
-
-    .input {
-      width: 100%;
-      padding: 0.6rem 0.75rem;
-      border-radius: 10px;
-      border: 2px solid #b0bec5;
-      font-size: 1rem;
-      margin-top: 0.2rem;
-    }
-
-    .center { text-align: center; }
-
-    .menu-greeting {
-      font-size: 1.05rem;
-      text-align: center;
-      margin-bottom: 0.2rem;
-    }
-    .menu-stars {
-      font-size: 0.95rem;
-      text-align: center;
-      color: #f57f17;
-      font-weight: 700;
-    }
-
-    .lesson-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin-top: 0.7rem;
-    }
-    .lesson-btn {
-      border-radius: 20px;
-      border: 3px solid var(--accent);
-      background: #e0f2f1;
-      padding: 0.7rem 0.9rem;
-      font-size: 0.98rem;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-    .lesson-btn span.topic {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .lesson-btn small {
-      font-size: 0.78rem;
-      color: #004d40;
-    }
-
-    .chip {
-      display:inline-block;
-      padding:0.2rem 0.55rem;
+    .btn{
+      border:none;
       border-radius:999px;
-      background:var(--green-soft);
-      font-size:0.75rem;
-      margin-left:0.3rem;
+      padding:.5rem 1.2rem;
+      background:#00695c;
+      color:#fff;
+      font-weight:600;
+      font-size:.95rem;
+      cursor:pointer;
+      box-shadow:0 4px 8px rgba(0,0,0,.3);
+      transition:transform .08s, box-shadow .08s, opacity .12s;
+      display:inline-flex;
+      align-items:center;
+      gap:.25rem;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(0,0,0,.35);}
+    .btn:active{transform:translateY(1px);box-shadow:0 2px 6px rgba(0,0,0,.25);opacity:.9;}
+    .btn-secondary{background:#01579b;}
+    .btn-danger{background:#c62828;}
+
+    .input{
+      width:100%;
+      padding:.55rem .75rem;
+      border-radius:10px;
+      border:2px solid #b0bec5;
+      font-size:1rem;
+      margin-top:.25rem;
     }
 
-    .lesson-header {
-      text-align: center;
-      margin-bottom: 0.4rem;
+    .center{text-align:center;}
+    .hidden{display:none;}
+
+    .menu-greeting{font-size:1.05rem;text-align:center;margin-bottom:.1rem;}
+    .menu-stars{font-size:.95rem;text-align:center;font-weight:700;color:#fdd835;}
+
+    .lesson-list{display:flex;flex-direction:column;gap:.6rem;margin-top:.7rem;}
+    .lesson-btn{
+      border-radius:18px;
+      padding:.6rem .9rem;
+      background:#e8f5e9;
+      border:3px solid var(--accent-gold);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
     }
-    .lesson-header h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.15rem;
+    .lesson-btn-left{display:flex;align-items:center;gap:.45rem;}
+    .lesson-icon{font-size:1.3rem;}
+    .lesson-info small{font-size:.8rem;color:#004d40;}
+    .lesson-stars-mini{font-size:.85rem;font-weight:700;color:#f57f17;}
+
+    .tabs-row{
+      margin:.4rem 0 .6rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.3rem;
     }
-    .lesson-header p {
-      font-size: 0.9rem;
-      color: #004d40;
+    .tab-btn{
+      padding:.35rem .8rem;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,.6);
+      background:rgba(255,255,255,.18);
+      color:#fff;
+      font-size:.8rem;
+      cursor:pointer;
+      backdrop-filter:blur(4px);
     }
-    .lesson-stars {
-      margin-top: 0.3rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #f57f17;
+    .tab-btn.active{
+      background:#ffffff;
+      color:#000;
     }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 800;
-      margin: 0.6rem 0 0.4rem;
-      padding: 0.35rem 0.7rem;
-      border-radius: 14px;
-      background: #004d40;
-      color: #fffde7;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+    .lesson-header{
+      margin-bottom:.45rem;
+      color:#ffffff;
+    }
+    .lesson-title{font-size:1.2rem;font-weight:800;}
+    .lesson-sub{font-size:.9rem;opacity:.9;}
+    .lesson-stars{
+      font-size:.9rem;
+      font-weight:700;
+      margin-top:.15rem;
     }
 
-    .vocab-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 0.55rem;
-      margin-top: 0.3rem;
+    .section-card{
+      background:#ffffff;
+      border-radius:16px;
+      padding:.7rem .9rem;
+      margin-top:.6rem;
+      box-shadow:0 3px 10px rgba(0,0,0,.18);
     }
-    .vocab-card {
-      background: #e8f5e9;
-      border-radius: 14px;
-      padding: 0.4rem 0.4rem 0.5rem;
-      text-align: center;
-      border: 2px solid #a5d6a7;
-    }
-    .vocab-img {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 0.2rem;
-      border-radius: 12px;
-      background: #fff;
-      background-size: cover;
-      background-position: center;
-      border: 2px solid #cfd8dc;
+    .section-title{
+      font-weight:800;
+      font-size:.98rem;
+      margin-bottom:.35rem;
       display:flex;
       align-items:center;
-      justify-content:center;
-      font-size: 2rem;
-    }
-    .vocab-word {
-      font-weight: 700;
-      margin-bottom: 0.05rem;
-    }
-    .vocab-ru {
-      font-size: 0.78rem;
-      color: #37474f;
-    }
-    .vocab-sound-btn {
-      margin-top: 0.25rem;
-      font-size: 0.8rem;
-      padding: 0.2rem 0.7rem;
+      gap:.4rem;
     }
 
-    .grammar-box {
-      background: #e1f5fe;
-      border-radius: 14px;
-      padding: 0.6rem 0.8rem;
-      border: 2px solid #81d4fa;
-      font-size: 0.92rem;
-      line-height: 1.35;
+    .vocab-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+      gap:.55rem;
     }
-    .grammar-box strong {
-      color: #01579b;
-    }
-    .grammar-examples {
-      margin-top: 0.4rem;
-      padding-left: 1rem;
-    }
-
-    .worksheet-block {
-      margin-top: 0.5rem;
-      padding: 0.6rem 0.6rem 0.8rem;
-      border-radius: 14px;
-      background: #fafafa;
-      border: 1px dashed #b0bec5;
-      font-size: 0.9rem;
-    }
-    .worksheet-block h4 {
-      font-size: 0.96rem;
-      margin-bottom: 0.35rem;
-      color: #004d40;
-    }
-    .task-item {
-      margin-bottom: 0.35rem;
-    }
-    .task-item input[type="text"] {
-      padding: 0.25rem 0.4rem;
-      border-radius: 8px;
-      border: 1px solid #90a4ae;
-      min-width: 120px;
-    }
-    .task-item select {
-      padding: 0.25rem 0.4rem;
-      border-radius: 8px;
-      border: 1px solid #90a4ae;
-      min-width: 120px;
-    }
-
-    .check-row {
-      margin-top: 0.4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .result-msg {
-      font-size: 0.86rem;
-    }
-
-    .nav-row {
-      margin-top: 0.8rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-nav {
-      margin-top: 0.6rem;
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .small-note {
-      font-size: 0.78rem;
-      color: #eceff1;
+    .vocab-card{
+      border-radius:14px;
+      padding:.45rem .45rem .55rem;
       text-align:center;
-      margin-top:0.3rem;
+      border:2px solid #bbdefb;
+      background:#e3f2fd;
+    }
+    .vocab-img{
+      width:70px;height:70px;
+      border-radius:11px;
+      background:#fff;
+      margin:0 auto .25rem;
+      display:flex;align-items:center;justify-content:center;
+      font-size:2rem;
+      background-size:cover;
+      background-position:center;
+      border:1px solid #cfd8dc;
+    }
+    .vocab-word{font-weight:700;}
+    .vocab-ru{font-size:.8rem;color:#455a64;margin-top:.05rem;}
+    .vocab-sound-btn{
+      margin-top:.25rem;
+      padding:.2rem .7rem;
+      font-size:.8rem;
     }
 
-    .hidden { display: none; }
+    .grammar-rule{font-size:.9rem;line-height:1.4;}
+    .grammar-formula{font-size:.85rem;margin-top:.3rem;font-style:italic;}
+    .grammar-examples{margin-top:.35rem;font-size:.88rem;}
+    .grammar-examples li{margin-left:1.1rem;}
 
-    @media (max-width: 600px) {
-      .card { margin: 0.7rem 0.6rem; }
-      header.app-header h1 { font-size: 1.1rem; }
-      .logo-circle { width: 120px; height: 120px; }
+    .phonics-items li{margin-left:1.1rem;font-size:.9rem;}
+
+    textarea{
+      width:100%;
+      min-height:80px;
+      padding:.55rem .7rem;
+      border-radius:10px;
+      border:1px solid #b0bec5;
+      resize:vertical;
+      font-size:.9rem;
+    }
+
+    .worksheet-block{
+      border-radius:14px;
+      border:1px dashed #b0bec5;
+      padding:.6rem .6rem .8rem;
+      margin-top:.45rem;
+      font-size:.9rem;
+      background:#fafafa;
+    }
+    .worksheet-block h4{font-size:.95rem;margin-bottom:.3rem;}
+    .task-item{margin-bottom:.4rem;}
+    .task-item input[type="text"],
+    .task-item select{
+      border-radius:8px;
+      border:1px solid #90a4ae;
+      padding:.25rem .4rem;
+      min-width:120px;
+      margin-top:.1rem;
+      font-size:.9rem;
+    }
+    .check-row{
+      margin-top:.4rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.6rem;
+      flex-wrap:wrap;
+    }
+    .result-msg{font-size:.83rem;}
+
+    .nav-row{
+      display:flex;
+      justify-content:space-between;
+      gap:.4rem;
+      margin-top:.8rem;
+      flex-wrap:wrap;
+    }
+
+    .small-note{
+      text-align:center;
+      color:#e0f2f1;
+      font-size:.78rem;
+      margin:.4rem 0;
+    }
+
+    /* Чек-иконки */
+    .correct-icon{color:#2e7d32;font-weight:700;margin-left:.2rem;}
+    .wrong-icon{color:#c62828;font-weight:700;margin-left:.2rem;}
+
+    /* Анимация звезды */
+    .star-burst{
+      position:fixed;
+      left:50%;
+      bottom:12%;
+      transform:translateX(-50%);
+      font-size:2.4rem;
+      animation:starBurst 1s ease-out forwards;
+      pointer-events:none;
+      z-index:9999;
+    }
+    @keyframes starBurst{
+      0%{opacity:0;transform:translate(-50%,20px) scale(.5);}
+      20%{opacity:1;transform:translate(-50%,0) scale(1);}
+      80%{opacity:1;transform:translate(-50%,-40px) scale(1.2);}
+      100%{opacity:0;transform:translate(-50%,-60px) scale(.4);}
+    }
+
+    @media(max-width:600px){
+      .card{margin:.7rem .6rem;}
+      header h1{font-size:1.15rem;}
+      .logo-circle{width:120px;height:120px;}
+    }
+
+    /* Печать – печатаем только текущий юнит */
+    @media print{
+      body{background:#fff;}
+      .app-header,.small-note,#loginScreen,#menuScreen,#teacherScreen,#chatScreen{display:none!important;}
+      .card{border:none;box-shadow:none;margin:0;padding:.5rem .5rem;}
+      .nav-row,.tabs-row{display:none!important;}
     }
   </style>
 </head>
 <body>
-<div class="app-wrapper">
-
+<div class="app">
   <header class="app-header">
     <div class="logo-circle"></div>
     <h1>ENGLISH WITH AI BAYAN</h1>
-    <h2>Grade 3 – Picture Vocabulary & Grammar</h2>
+    <h2>Grade 3 – Family and Friends 3</h2>
   </header>
 
-  <!-- LOGIN SCREEN -->
+  <!-- LOGIN -->
   <section id="loginScreen" class="card">
-    <h3 class="center" style="font-size:1.1rem;margin-bottom:0.4rem;">
-      English with AI Bayan
-    </h3>
-    <p class="center" style="font-size:0.9rem;margin-bottom:0.6rem;">
+    <h3 class="center" style="margin-bottom:.4rem;">English with AI Bayan</h3>
+    <p class="center" style="font-size:.9rem;margin-bottom:.5rem;">
       Enter your name and PIN:
     </p>
-    <label>Student name or Teacher code:</label>
-    <input id="loginName" class="input" placeholder="3E S1, 3E S2, ... or Teacher" />
-    <label style="margin-top:0.5rem;display:block;">PIN:</label>
+    <label>Student name or Teacher:</label>
+    <input id="loginName" class="input" placeholder="3E S1, 3E S2... or Teacher" />
+    <label style="margin-top:.5rem;display:block;">PIN:</label>
     <input id="loginPin" type="password" class="input" placeholder="****" />
-
-    <div class="center" style="margin-top:0.7rem;">
+    <div class="center" style="margin-top:.7rem;">
       <button class="btn" onclick="handleLogin()">Enter</button>
     </div>
-    <p class="center" style="font-size:0.8rem;margin-top:0.45rem;color:#37474f;">
-      Students: PIN <strong>2844</strong> • Teacher: PIN <strong>3244</strong>
+    <p class="center" style="font-size:.8rem;margin-top:.45rem;">
+      Students PIN: <strong>2844</strong> · Teacher PIN: <strong>3244</strong>
     </p>
   </section>
 
-  <!-- MAIN MENU -->
+  <!-- MENU -->
   <section id="menuScreen" class="card hidden">
-    <div class="menu-greeting" id="menuGreeting"></div>
-    <div class="menu-stars" id="menuStars"></div>
+    <div id="menuGreeting" class="menu-greeting"></div>
+    <div id="menuStars" class="menu-stars"></div>
 
-    <div class="lesson-list" id="lessonList"></div>
+    <div id="lessonList" class="lesson-list"></div>
 
-    <div class="footer-nav">
-      <button class="btn-secondary btn" onclick="openChat()">💬 AI Bayan Chat</button>
+    <div style="display:flex;justify-content:center;gap:.5rem;margin-top:.7rem;flex-wrap:wrap;">
+      <button class="btn-secondary btn" onclick="openGlobalChat()">💬 AI Bayan Chat</button>
       <button class="btn-secondary btn" onclick="openTeacherJournal()">🏫 Teacher's Journal</button>
     </div>
   </section>
 
-  <!-- LESSON SCREEN -->
-  <section id="lessonScreen" class="card hidden">
-    <div class="lesson-header">
-      <h3 id="lessonTitle"></h3>
-      <p id="lessonSubtitle"></p>
-      <div class="lesson-stars" id="lessonStars"></div>
+  <!-- LESSON -->
+  <section id="lessonScreen" class="card hidden" style="padding:0;">
+    <div id="lessonHeader" style="padding:.8rem .9rem;border-radius:15px 15px 0 0;background:var(--u1);">
+      <div class="lesson-header">
+        <div id="lessonTitle" class="lesson-title">Unit 1 – Hello English!</div>
+        <div id="lessonSubtitle" class="lesson-sub">Greetings, colours and numbers</div>
+        <div id="lessonStars" class="lesson-stars">You have 0 ⭐ in this unit.</div>
+      </div>
+      <div class="tabs-row">
+        <button class="tab-btn active" data-tab="vocab" onclick="switchTab('vocab')">Vocabulary</button>
+        <button class="tab-btn" data-tab="grammar" onclick="switchTab('grammar')">Grammar</button>
+        <button class="tab-btn" data-tab="phonics" onclick="switchTab('phonics')">Phonics</button>
+        <button class="tab-btn" data-tab="lr" onclick="switchTab('lr')">Listen &amp; Read</button>
+        <button class="tab-btn" data-tab="ls" onclick="switchTab('ls')">Listen &amp; Sing</button>
+        <button class="tab-btn" data-tab="ws" onclick="switchTab('ws')">Worksheets</button>
+      </div>
     </div>
 
-    <!-- VOCABULARY -->
-    <div>
-      <div class="section-title">🧠 VOCABULARY — Picture Dictionary</div>
-      <p style="font-size:0.85rem;margin-top:0.25rem;">
-        Tap the speaker to hear AI Bayan say the word in English.
-      </p>
-      <div id="vocabGrid" class="vocab-grid"></div>
-    </div>
+    <div style="padding:.6rem .8rem 1rem;">
 
-    <!-- GRAMMAR -->
-    <div style="margin-top:0.8rem;">
-      <div class="section-title">📘 GRAMMAR — Key Rule</div>
-      <div id="grammarBox" class="grammar-box"></div>
-    </div>
-
-    <!-- WORKSHEETS -->
-    <div style="margin-top:0.8rem;">
-      <div class="section-title">📄 WORKSHEETS (4 tasks)</div>
-
-      <!-- WS1 Missing letters -->
-      <div class="worksheet-block" id="ws1Block">
-        <h4>Worksheet 1 – Missing letters</h4>
-        <p style="font-size:0.82rem;margin-bottom:0.3rem;">
-          Write the missing letters. (Use small letters.)
+      <!-- VOCAB -->
+      <div id="tab-vocab" class="section-card">
+        <div class="section-title">🧠 Vocabulary – Colours and numbers</div>
+        <p style="font-size:.85rem;margin-bottom:.35rem;">
+          Tap the speaker to hear the word. (AI Bayan uses correct pronunciation.)
         </p>
-        <div id="ws1Tasks"></div>
-        <div class="check-row">
-          <button class="btn" onclick="checkWorksheet('ws1')">Check ✅</button>
-          <div class="result-msg" id="ws1Result"></div>
-        </div>
+        <div id="vocabGrid" class="vocab-grid"></div>
       </div>
 
-      <!-- WS2 Matching -->
-      <div class="worksheet-block" id="ws2Block">
-        <h4>Worksheet 2 – Matching picture and word</h4>
-        <p style="font-size:0.82rem;margin-bottom:0.3rem;">
-          Choose the correct word for each picture.
-        </p>
-        <div id="ws2Tasks"></div>
-        <div class="check-row">
-          <button class="btn" onclick="checkWorksheet('ws2')">Check ✅</button>
-          <div class="result-msg" id="ws2Result"></div>
-        </div>
+      <!-- GRAMMAR -->
+      <div id="tab-grammar" class="section-card hidden">
+        <div class="section-title">📘 Grammar – Questions about name, age and colours</div>
+        <div id="grammarBox" class="grammar-rule"></div>
       </div>
 
-      <!-- WS3 Crossword-style -->
-      <div class="worksheet-block" id="ws3Block">
-        <h4>Worksheet 3 – Mini crossword (write the word)</h4>
-        <p style="font-size:0.82rem;margin-bottom:0.3rem;">
-          Read the clue. Write one word.
+      <!-- PHONICS -->
+      <div id="tab-phonics" class="section-card hidden">
+        <div class="section-title">🔤 Phonics – The alphabet</div>
+        <p style="font-size:.88rem;margin-bottom:.25rem;">
+          Practise letters and sounds. Say them together with AI Bayan.
         </p>
-        <div id="ws3Tasks"></div>
-        <div class="check-row">
-          <button class="btn" onclick="checkWorksheet('ws3')">Check ✅</button>
-          <div class="result-msg" id="ws3Result"></div>
-        </div>
+        <ul id="phonicsList" class="phonics-items"></ul>
       </div>
 
-      <!-- WS4 Choose the word -->
-      <div class="worksheet-block" id="ws4Block">
-        <h4>Worksheet 4 – Choose the correct word</h4>
-        <p style="font-size:0.82rem;margin-bottom:0.3rem;">
-          Choose the correct word to complete each sentence.
+      <!-- LISTEN & READ -->
+      <div id="tab-lr" class="section-card hidden">
+        <div class="section-title">👂📖 Listen &amp; Read</div>
+        <p style="font-size:.88rem;margin-bottom:.3rem;">
+          Press <strong>Read text</strong> – AI Bayan reads the text. Then answer questions.
         </p>
-        <div id="ws4Tasks"></div>
-        <div class="check-row">
-          <button class="btn" onclick="checkWorksheet('ws4')">Check ✅</button>
-          <div class="result-msg" id="ws4Result"></div>
-        </div>
+        <div id="lrText" style="font-size:.9rem;line-height:1.4;margin-bottom:.35rem;"></div>
+        <button class="btn-secondary btn" onclick="readLRText()">🔊 Read text</button>
+
+        <div id="lrTasks" style="margin-top:.5rem;"></div>
       </div>
 
-    </div>
+      <!-- LISTEN & SING -->
+      <div id="tab-ls" class="section-card hidden">
+        <div class="section-title">🎵 Listen &amp; Sing</div>
+        <p style="font-size:.88rem;margin-bottom:.3rem;">
+          Это оригинальная песенка по теме (не из книги). Можно проиграть с помощью TTS.
+        </p>
+        <div id="lsLyrics" style="font-size:.9rem;line-height:1.4;margin-bottom:.35rem;"></div>
+        <button class="btn-secondary btn" onclick="readLSText()">🔊 Sing with AI Bayan</button>
+      </div>
 
-    <div class="nav-row">
-      <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back</button>
-      <button class="btn" onclick="saveLessonResult()">Save Result ✔</button>
+      <!-- WORKSHEETS -->
+      <div id="tab-ws" class="section-card hidden">
+        <div class="section-title">📄 Worksheets – Workbook style</div>
+
+        <!-- WS1 -->
+        <div class="worksheet-block" id="ws1Block">
+          <h4>Worksheet 1 – Vocabulary (colours &amp; numbers)</h4>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">
+            Write the missing word.
+          </p>
+          <div id="ws1Tasks"></div>
+          <div class="check-row">
+            <button class="btn" onclick="checkWorksheet('ws1')">Check ✅</button>
+            <div id="ws1Result" class="result-msg"></div>
+          </div>
+        </div>
+
+        <!-- WS2 -->
+        <div class="worksheet-block" id="ws2Block">
+          <h4>Worksheet 2 – Grammar (questions &amp; answers)</h4>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">
+            Choose the correct answer.
+          </p>
+          <div id="ws2Tasks"></div>
+          <div class="check-row">
+            <button class="btn" onclick="checkWorksheet('ws2')">Check ✅</button>
+            <div id="ws2Result" class="result-msg"></div>
+          </div>
+        </div>
+
+        <!-- WS3 -->
+        <div class="worksheet-block" id="ws3Block">
+          <h4>Worksheet 3 – Phonics (letters &amp; words)</h4>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">
+            Write the first letter.
+          </p>
+          <div id="ws3Tasks"></div>
+          <div class="check-row">
+            <button class="btn" onclick="checkWorksheet('ws3')">Check ✅</button>
+            <div id="ws3Result" class="result-msg"></div>
+          </div>
+        </div>
+
+        <!-- WS4 -->
+        <div class="worksheet-block" id="ws4Block">
+          <h4>Worksheet 4 – Reading check</h4>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">
+            Choose the correct sentence.
+          </p>
+          <div id="ws4Tasks"></div>
+          <div class="check-row">
+            <button class="btn" onclick="checkWorksheet('ws4')">Check ✅</button>
+            <div id="ws4Result" class="result-msg"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Чат по теме (1 вопрос) + навигация -->
+      <div class="section-card" style="margin-top:.7rem;">
+        <div class="section-title">💬 AI Bayan Chat – 1 question about this unit</div>
+        <p style="font-size:.83rem;margin-bottom:.25rem;">
+          Напиши <strong>один</strong> вопрос по теме юнита. После отправки кнопка выключится.
+          Здесь можно подключить твой Cloudflare Worker.
+        </p>
+        <textarea id="unitChatInput" placeholder="Ask AI Bayan about this unit..."></textarea>
+        <div style="margin-top:.4rem;display:flex;justify-content:space-between;gap:.4rem;flex-wrap:wrap;">
+          <button id="unitChatBtn" class="btn-secondary btn" onclick="sendUnitQuestion()">Send question</button>
+          <button class="btn" onclick="window.print()">🖨 Print this unit</button>
+        </div>
+        <div id="unitChatInfo" style="font-size:.8rem;margin-top:.3rem;color:#455a64;"></div>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back to menu</button>
+        <button id="saveBtn" class="btn" onclick="saveLessonResult()">Save result ✔</button>
+      </div>
     </div>
   </section>
 
-  <!-- TEACHER JOURNAL -->
+  <!-- TEACHER -->
   <section id="teacherScreen" class="card hidden">
-    <h3 class="center" style="margin-bottom:0.4rem;">Teacher's Journal – Grade 3</h3>
-    <p style="font-size:0.85rem;margin-bottom:0.4rem;">
-      Shows total stars saved on this device.
+    <h3 class="center" style="margin-bottom:.4rem;">Teacher's Journal – Grade 3</h3>
+    <p style="font-size:.84rem;margin-bottom:.4rem;">
+      Total stars saved on this device (for all students).
     </p>
-    <div id="teacherTable" style="font-size:0.88rem;"></div>
-    <div class="center" style="margin-top:0.6rem;">
-      <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back to Menu</button>
-      <button class="btn-danger btn" style="margin-left:0.4rem;" onclick="clearAllData()">
-        Clear all data
-      </button>
+    <div id="teacherTable" style="font-size:.86rem;"></div>
+    <div class="center" style="margin-top:.6rem;">
+      <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back</button>
+      <button class="btn-danger btn" style="margin-left:.4rem;" onclick="clearAllData()">Clear all data</button>
     </div>
   </section>
 
-  <!-- SIMPLE CHAT PLACEHOLDER -->
+  <!-- SIMPLE GLOBAL CHAT PLACEHOLDER -->
   <section id="chatScreen" class="card hidden">
-    <h3 class="center" style="margin-bottom:0.4rem;">AI Bayan Chat (demo)</h3>
-    <p style="font-size:0.85rem;margin-bottom:0.3rem;">
-      Here you can write one question in English. (Это просто место для текста. Можно подключить реальный чат ИИ через Cloudflare Worker.)
+    <h3 class="center" style="margin-bottom:.4rem;">AI Bayan Chat (global)</h3>
+    <p style="font-size:.84rem;margin-bottom:.3rem;">
+      Здесь можно задать общий вопрос (не по конкретному юниту). Тоже заглушка для твоего backend.
     </p>
-    <textarea id="chatInput"
-              class="input"
-              style="min-height:90px;"></textarea>
-    <div class="center" style="margin-top:0.6rem;">
+    <textarea class="input" style="min-height:90px;"></textarea>
+    <div class="center" style="margin-top:.6rem;">
       <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back</button>
     </div>
   </section>
 
   <p class="small-note">
-    Students: 3E S1–3E S15 &nbsp; | &nbsp; Student PIN 2844 &nbsp; | &nbsp; Teacher PIN 3244
+    Students: 3E S1–3E S15 · PIN 2844 · Teacher PIN 3244 · Main menu – green, each unit has its own colour
   </p>
 </div>
 
 <script>
-  /* ----------- DATA ----------- */
-
   const STUDENT_PIN = "2844";
   const TEACHER_PIN = "3244";
+  const STORAGE_KEY = "ai_bayan_grade3_all";
 
-  // Темы – примеры по FF3. Ты можешь добавить ещё юниты.
+  let currentUser = null;      // {name,isTeacher}
+  let currentLessonId = "u1";  // пока один юнит
+  let lrText = "";
+  let lsText = "";
+
+  /* ---------- DATA – Unit 1 HELLO ENGLISH! ---------- */
   const lessons = [
     {
-      id: "u1",
-      title: "Unit 1 – My Classroom",
-      subtitle: "Things in our classroom",
-      icon: "🧑‍🏫",
-      vocabulary: [
-        {
-          word: "book",
-          ru: "книга",
-          emoji: "📖",
-          tts: "a book",
-          example: "This is my English book."
-        },
-        {
-          word: "pen",
-          ru: "ручка",
-          emoji: "🖊️",
-          tts: "a pen",
-          example: "I have a blue pen."
-        },
-        {
-          word: "pencil",
-          ru: "карандаш",
-          emoji: "✏️",
-          tts: "a pencil",
-          example: "Sharpen your pencil, please."
-        },
-        {
-          word: "bag",
-          ru: "портфель",
-          emoji: "🎒",
-          tts: "a school bag",
-          example: "My bag is green."
-        },
-        {
-          word: "desk",
-          ru: "парта",
-          emoji: "🪑",
-          tts: "a desk",
-          example: "We sit at the desk."
-        },
-        {
-          word: "board",
-          ru: "доска",
-          emoji: "🖼️",
-          tts: "a board",
-          example: "Look at the board."
-        }
+      id:"u1",
+      color:"var(--u1)",
+      icon:"👋",
+      title:"Unit 1 – Hello English!",
+      subtitle:"Greetings, colours and numbers",
+      vocab:[
+        {word:"red", ru:"красный", emoji:"🟥", tts:"red"},
+        {word:"blue", ru:"синий", emoji:"🟦", tts:"blue"},
+        {word:"green", ru:"зелёный", emoji:"🟩", tts:"green"},
+        {word:"yellow", ru:"жёлтый", emoji:"🟨", tts:"yellow"},
+        {word:"black", ru:"чёрный", emoji:"⬛", tts:"black"},
+        {word:"white", ru:"белый", emoji:"⬜", tts:"white"},
+        {word:"pink", ru:"розовый", emoji:"🌸", tts:"pink"},
+        {word:"orange", ru:"оранжевый", emoji:"🟧", tts:"orange"},
+        {word:"grey", ru:"серый", emoji:"⬜", tts:"grey"},
+        {word:"brown", ru:"коричневый", emoji:"🟫", tts:"brown"},
+        {word:"one", ru:"один", emoji:"1️⃣", tts:"one"},
+        {word:"two", ru:"два", emoji:"2️⃣", tts:"two"},
+        {word:"three", ru:"три", emoji:"3️⃣", tts:"three"},
+        {word:"four", ru:"четыре", emoji:"4️⃣", tts:"four"},
+        {word:"five", ru:"пять", emoji:"5️⃣", tts:"five"},
+        {word:"six", ru:"шесть", emoji:"6️⃣", tts:"six"},
+        {word:"seven", ru:"семь", emoji:"7️⃣", tts:"seven"},
+        {word:"eight", ru:"восемь", emoji:"8️⃣", tts:"eight"},
+        {word:"nine", ru:"девять", emoji:"9️⃣", tts:"nine"},
+        {word:"ten", ru:"десять", emoji:"🔟", tts:"ten"}
       ],
-      grammar: {
-        title: "There is / There are",
-        rule: "We use \"There is\" for one thing and \"There are\" for many things.",
-        formula: "There is + a / an + singular noun.  |  There are + plural noun.",
-        examples: [
-          "There is a book on the desk.",
-          "There are three pens in my pencil case."
+      grammar:{
+        rule:`We ask about <strong>name</strong>, <strong>age</strong> and <strong>country</strong>:`,
+        formula:`What's your name? – My name's Aidan.<br>
+How old are you? – I'm eight.<br>
+Where are you from? – I'm from Kazakhstan.<br><br>
+Colours: <strong>That's</strong> (pink). <strong>Those are</strong> (red).`,
+        examples:[
+          "What's your name? – My name's Alina.",
+          "How old are you? – I'm nine.",
+          "Where are you from? – I'm from Aktau.",
+          "That's a blue bag. Those are green pens."
         ]
       },
-      worksheets: {
-        ws1: [ // missing letters
-          { prompt: "b__k", answer: "book" },
-          { prompt: "p__cil", answer: "pencil" },
-          { prompt: "scho__ bag", answer: "school bag" },
-          { prompt: "d__sk", answer: "desk" }
-        ],
-        ws2: [ // matching – select
-          {
-            picture: "🎒",
-            options: ["board", "bag", "pen"],
-            answer: "bag"
-          },
-          {
-            picture: "📖",
-            options: ["book", "desk", "pencil"],
-            answer: "book"
-          },
-          {
-            picture: "✏️",
-            options: ["pencil", "bag", "board"],
-            answer: "pencil"
-          }
-        ],
-        ws3: [ // mini crossword clues
-          { clue: "1. You write with it. (not a pencil)", answer: "pen" },
-          { clue: "2. You read it in class.", answer: "book" },
-          { clue: "3. It is on the wall. The teacher writes on it.", answer: "board" }
-        ],
-        ws4: [ // choose the word in a sentence
-          {
-            sentence: "There __ a book on my desk.",
-            options: ["is", "are"],
-            answer: "is"
-          },
-          {
-            sentence: "There __ three pens in my bag.",
-            options: ["is", "are"],
-            answer: "are"
-          },
-          {
-            sentence: "__ is a big board in our classroom.",
-            options: ["There", "They"],
-            answer: "There"
-          }
-        ]
-      }
-    },
-
-    {
-      id: "u2",
-      title: "Unit 2 – My Family",
-      subtitle: "People in my family",
-      icon: "👨‍👩‍👧",
-      vocabulary: [
-        { word: "mother", ru: "мама", emoji: "👩", tts: "my mother", example: "My mother is kind." },
-        { word: "father", ru: "папа", emoji: "👨", tts: "my father", example: "My father is tall." },
-        { word: "sister", ru: "сестра", emoji: "👧", tts: "my sister", example: "I play with my sister." },
-        { word: "brother", ru: "брат", emoji: "👦", tts: "my brother", example: "My brother likes football." },
-        { word: "grandmother", ru: "бабушка", emoji: "👵", tts: "my grandmother", example: "My grandmother makes cakes." },
-        { word: "grandfather", ru: "дедушка", emoji: "👴", tts: "my grandfather", example: "My grandfather tells stories." }
-      ],
-      grammar: {
-        title: "Possessive 's",
-        rule: "We use 's to show that something belongs to someone.",
-        formula: "Name + 's + noun",
-        examples: [
-          "This is Ali's mother.",
-          "That is my sister's bag."
+      phonics:["A a – apple","B b – bag","C c – cat","D d – desk","E e – egg","F f – fish",
+               "G g – goat","H h – hat","I i – ink","J j – jam","K k – kite","L l – lamp",
+               "M m – mum","N n – nose","O o – orange","P p – pen","Q q – queen","R r – red",
+               "S s – sun","T t – ten","U u – umbrella","V v – violin","W w – window",
+               "X x – box","Y y – yellow","Z z – zebra"],
+      listenRead:{
+        text:`Hello! My name's Dana. I'm eight years old. I'm from Astana.
+I have a red school bag and a blue pencil case. My favourite colour is green.
+In my English class we say “Hello!” and count from one to ten.`,
+        questions:[
+          {q:"Dana is __ years old.", options:["seven","eight","nine"], answer:"eight"},
+          {q:"Her pencil case is __.", options:["blue","red","green"], answer:"blue"},
+          {q:"Her favourite colour is __.", options:["green","pink","orange"], answer:"green"}
         ]
       },
-      worksheets: {
-        ws1: [
-          { prompt: "m__her", answer: "mother" },
-          { prompt: "br__her", answer: "brother" },
-          { prompt: "gran__father", answer: "grandfather" },
-          { prompt: "si__er", answer: "sister" }
+      listenSing:{
+        lyrics:`Hello, hello, hello, my friend,
+Say your name and count to ten!
+One, two, three, let's clap again,
+Four, five, six, then seven, eight, nine, ten!`
+      },
+      // Worksheets "по мотивам" workbook, но свои тексты
+      worksheets:{
+        ws1:[
+          {prompt:"1) This colour is the sky: __________", answer:"blue"},
+          {prompt:"2) 1, 2, 3, 4, 5 – the number is: __________", answer:"five"},
+          {prompt:"3) Grass is usually: __________", answer:"green"},
+          {prompt:"4) Chocolate is: __________", answer:"brown"}
         ],
-        ws2: [
+        ws2:[
           {
-            picture: "👵",
-            options: ["grandfather", "grandmother", "father"],
-            answer: "grandmother"
+            sentence:"– __________ your name?  – My name's Aidan.",
+            options:["Where's","How's","What's"],
+            answer:"What's"
           },
           {
-            picture: "👦",
-            options: ["brother", "mother", "sister"],
-            answer: "brother"
+            sentence:"– How old are you? – __________ eight.",
+            options:["I'm","It's","I"],
+            answer:"I'm"
           },
           {
-            picture: "👨",
-            options: ["father", "grandfather", "sister"],
-            answer: "father"
+            sentence:"– Where are you from? – I'm __________ Kazakhstan.",
+            options:["on","at","from"],
+            answer:"from"
+          },
+          {
+            sentence:"__________ a red pen. __________ are blue pencils.",
+            options:["That's / Those","Those / That's","This / That"],
+            answer:"That's / Those"
           }
         ],
-        ws3: [
-          { clue: "1. Your father's father.", answer: "grandfather" },
-          { clue: "2. Your mother's mother.", answer: "grandmother" },
-          { clue: "3. Your parents' girl.", answer: "daughter" } // чуть сложнее
+        ws3:[
+          {prompt:"___ for red", answer:"R"},
+          {prompt:"___ for bag", answer:"B"},
+          {prompt:"___ for cat", answer:"C"},
+          {prompt:"___ for ten", answer:"T"}
         ],
-        ws4: [
+        ws4:[
           {
-            sentence: "This is my __ bag.",
-            options: ["sister's", "sisters"],
-            answer: "sister's"
+            sentence:"1) Dana is nine years old.",
+            options:["True","False"],
+            answer:"False"
           },
           {
-            sentence: "That is my __ bike.",
-            options: ["brother's", "brother"],
-            answer: "brother's"
+            sentence:"2) Her school bag is red.",
+            options:["True","False"],
+            answer:"True"
           },
           {
-            sentence: "This is my __ house.",
-            options: ["family's", "family"],
-            answer: "family's"
+            sentence:"3) Her favourite colour is green.",
+            options:["True","False"],
+            answer:"True"
           }
         ]
       }
     }
 
-    // здесь можешь добавить Unit 3, Unit 4 и т.д.
+    // Сюда потом добавишь Unit 2–8 по той же структуре:
+    // {id:"u2", color:"var(--u2)", icon:"🏫", title:"Unit 2 – My school", ...}
   ];
 
-  /* ----------- STATE ----------- */
-  let currentUser = null;   // { name, isTeacher }
-  let currentLessonId = null;
-  const STORAGE_KEY = "ai_bayan_grade3";
+  /* ---------- helpers ---------- */
+  function $(id){return document.getElementById(id);}
 
-  /* ----------- HELPERS ----------- */
-
-  function $(id) { return document.getElementById(id); }
-
-  function speak(text) {
-    if (!("speechSynthesis" in window)) return;
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "en-US";
-    window.speechSynthesis.speak(utter);
+  function speak(text){
+    if(!("speechSynthesis" in window))return;
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang="en-US";
+    window.speechSynthesis.speak(u);
   }
 
-  function loadData() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) {
-      return {};
-    }
+  function loadData(){
+    try{
+      const raw=localStorage.getItem(STORAGE_KEY);
+      return raw?JSON.parse(raw):{};
+    }catch(e){return {};}
   }
-
-  function saveData(data) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  function saveData(data){
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
   }
-
-  function getUserRecord(name) {
-    const data = loadData();
-    if (!data[name]) {
-      data[name] = { totalStars: 0, lessons: {} };
+  function getUserRecord(name){
+    const data=loadData();
+    if(!data[name]){
+      data[name]={totalStars:0,lessons:{}}; // lessons[unitId]={stars,locked,chatUsed}
       saveData(data);
     }
     return data[name];
   }
 
-  /* ----------- LOGIN ----------- */
+  /* ---------- LOGIN ---------- */
+  function handleLogin(){
+    const name=$("loginName").value.trim();
+    const pin=$("loginPin").value.trim();
+    if(!name||!pin){alert("Please enter name and PIN.");return;}
 
-  function handleLogin() {
-    const name = $("loginName").value.trim();
-    const pin = $("loginPin").value.trim();
-
-    if (!name || !pin) {
-      alert("Please enter name and PIN.");
-      return;
-    }
-
-    if (pin === TEACHER_PIN) {
-      currentUser = { name: "Teacher", isTeacher: true };
+    if(pin===TEACHER_PIN){
+      currentUser={name:"Teacher",isTeacher:true};
       $("loginScreen").classList.add("hidden");
       buildTeacherJournal();
       $("teacherScreen").classList.remove("hidden");
       return;
     }
+    if(pin!==STUDENT_PIN){alert("Wrong PIN.");return;}
 
-    if (pin !== STUDENT_PIN) {
-      alert("Wrong PIN.");
-      return;
-    }
-
-    currentUser = { name, isTeacher: false };
+    currentUser={name,isTeacher:false};
     $("loginScreen").classList.add("hidden");
     showMenu();
   }
 
-  /* ----------- MENU ----------- */
+  /* ---------- MENU ---------- */
+  function showMenu(){
+    if(!currentUser){return;}
+    const rec=getUserRecord(currentUser.name);
+    $("menuGreeting").textContent=`Hello, ${currentUser.name}!`;
+    $("menuStars").textContent=`Total stars in all units: ${rec.totalStars} ⭐`;
 
-  function showMenu() {
-    if (!currentUser) return;
-    const rec = getUserRecord(currentUser.name);
-    $("menuGreeting").textContent = `Hello, ${currentUser.name}!`;
-    $("menuStars").textContent = `Total stars in all lessons: ${rec.totalStars} ⭐`;
-
-    const list = $("lessonList");
-    list.innerHTML = "";
-
-    lessons.forEach(lesson => {
-      const userLessonRecord = rec.lessons[lesson.id] || { stars: 0 };
-      const div = document.createElement("div");
-      div.className = "lesson-btn";
-      div.onclick = () => openLesson(lesson.id);
-
-      div.innerHTML = `
-        <span class="topic">
-          <span>${lesson.icon}</span>
-          <span>${lesson.title}<br><small>${lesson.subtitle}</small></span>
-        </span>
-        <span>⭐ ${userLessonRecord.stars || 0}</span>
+    const list=$("lessonList");
+    list.innerHTML="";
+    lessons.forEach(lesson=>{
+      const lrec=rec.lessons[lesson.id]||{stars:0};
+      const d=document.createElement("div");
+      d.className="lesson-btn";
+      d.onclick=()=>openLesson(lesson.id);
+      d.innerHTML=`
+        <div class="lesson-btn-left">
+          <div class="lesson-icon">${lesson.icon}</div>
+          <div class="lesson-info">
+            <div>${lesson.title}</div>
+            <small>${lesson.subtitle}</small>
+          </div>
+        </div>
+        <div class="lesson-stars-mini">⭐ ${lrec.stars||0}</div>
       `;
-      list.appendChild(div);
+      list.appendChild(d);
     });
 
     $("teacherScreen").classList.add("hidden");
@@ -767,56 +732,82 @@
     $("menuScreen").classList.remove("hidden");
   }
 
-  /* ----------- LESSON ----------- */
+  /* ---------- LESSON ---------- */
+  function openLesson(id){
+    currentLessonId=id;
+    const lesson=lessons.find(l=>l.id===id);
+    const header=$("lessonHeader");
+    header.style.background=lesson.color;
 
-  function openLesson(id) {
-    currentLessonId = id;
-    const lesson = lessons.find(l => l.id === id);
-    if (!lesson) return;
+    $("lessonTitle").textContent=lesson.title;
+    $("lessonSubtitle").textContent=lesson.subtitle;
 
-    const rec = getUserRecord(currentUser.name);
-    const lessonRec = rec.lessons[id] || { stars: 0 };
+    const rec=getUserRecord(currentUser.name);
+    const lrec=rec.lessons[id]||{stars:0,locked:false,chatUsed:false};
+    $("lessonStars").textContent=`You have ${lrec.stars||0} ⭐ in this unit.`;
+    $("saveBtn").disabled=!!lrec.locked;
+    $("saveBtn").textContent=lrec.locked?"Result saved ✔":"Save result ✔";
 
-    $("lessonTitle").textContent = lesson.title;
-    $("lessonSubtitle").textContent = lesson.subtitle;
-    $("lessonStars").textContent = `You have ${lessonRec.stars || 0} ⭐ in this lesson.`;
+    // tabs
+    document.querySelectorAll(".tab-btn").forEach(btn=>{
+      btn.classList.remove("active");
+      if(btn.dataset.tab==="vocab")btn.classList.add("active");
+    });
+    ["vocab","grammar","phonics","lr","ls","ws"].forEach(tab=>{
+      $("tab-"+tab).classList.toggle("hidden",tab!=="vocab");
+    });
 
-    // vocabulary
-    const vg = $("vocabGrid");
-    vg.innerHTML = "";
-    lesson.vocabulary.forEach(v => {
-      const card = document.createElement("div");
-      card.className = "vocab-card";
-      const imgStyle = v.image ? `background-image:url('${v.image}')` : "";
-      card.innerHTML = `
-        <div class="vocab-img" style="${imgStyle}">
-          ${v.image ? "" : (v.emoji || "📘")}
-        </div>
+    // vocab
+    const vg=$("vocabGrid");
+    vg.innerHTML="";
+    lesson.vocab.forEach(v=>{
+      const card=document.createElement("div");
+      card.className="vocab-card";
+      card.innerHTML=`
+        <div class="vocab-img">${v.emoji||"📘"}</div>
         <div class="vocab-word">${v.word}</div>
         <div class="vocab-ru">${v.ru}</div>
         <button class="btn vocab-sound-btn"
-                onclick="speak('${(v.tts || v.word).replace(/'/g, "\\'")}')">
-          🔊 Say it
-        </button>
+          onclick="speak('${(v.tts||v.word).replace(/'/g,"\\'")}')">🔊 Say it</button>
       `;
       vg.appendChild(card);
     });
 
     // grammar
-    const g = lesson.grammar;
-    $("grammarBox").innerHTML = `
-      <strong>${g.title}</strong><br/>
-      <em>${g.rule}</em><br/>
-      <span style="font-size:0.85rem;display:inline-block;margin-top:0.3rem;">
-        Formula: ${g.formula}
-      </span>
+    $("grammarBox").innerHTML=`
+      ${lesson.grammar.rule}<br>
+      <div class="grammar-formula">${lesson.grammar.formula}</div>
       <div class="grammar-examples">
         <strong>Examples:</strong>
-        <ul style="margin-top:0.15rem;">
-          ${g.examples.map(e => `<li>${e}</li>`).join("")}
-        </ul>
+        <ul>${lesson.grammar.examples.map(e=>`<li>${e}</li>`).join("")}</ul>
       </div>
     `;
+
+    // phonics
+    const pl=$("phonicsList");
+    pl.innerHTML=lesson.phonics.map(p=>`<li>${p}</li>`).join("");
+
+    // listen & read
+    lrText=lesson.listenRead.text;
+    $("lrText").innerHTML=lrText.replace(/\n/g,"<br>");
+    const lrT=$("lrTasks");
+    lrT.innerHTML="";
+    lesson.listenRead.questions.forEach((t,i)=>{
+      const div=document.createElement("div");
+      div.className="task-item";
+      div.innerHTML=`
+        ${i+1}) ${t.q}<br>
+        <select data-lr="${i}">
+          <option value="">--choose--</option>
+          ${t.options.map(o=>`<option value="${o}">${o}</option>`).join("")}
+        </select>
+      `;
+      lrT.appendChild(div);
+    });
+
+    // listen & sing
+    lsText=lesson.listenSing.lyrics;
+    $("lsLyrics").innerHTML=lsText.replace(/\n/g,"<br>");
 
     // worksheets
     buildWorksheet("ws1");
@@ -824,166 +815,196 @@
     buildWorksheet("ws3");
     buildWorksheet("ws4");
 
+    // unit chat limit
+    $("unitChatInput").value="";
+    $("unitChatInfo").textContent=lrec.chatUsed?"You already used your question for this unit.":"";
+    $("unitChatBtn").disabled=!!lrec.chatUsed;
+
     $("menuScreen").classList.add("hidden");
     $("lessonScreen").classList.remove("hidden");
   }
 
-  function buildWorksheet(wsKey) {
-    const lesson = lessons.find(l => l.id === currentLessonId);
-    if (!lesson) return;
-    const data = lesson.worksheets[wsKey] || [];
-    const container = $(wsKey + "Tasks");
-    container.innerHTML = "";
+  function switchTab(tab){
+    document.querySelectorAll(".tab-btn").forEach(btn=>{
+      btn.classList.toggle("active",btn.dataset.tab===tab);
+    });
+    ["vocab","grammar","phonics","lr","ls","ws"].forEach(t=>{
+      $("tab-"+t).classList.toggle("hidden",t!==tab);
+    });
+  }
 
-    data.forEach((task, index) => {
-      const div = document.createElement("div");
-      div.className = "task-item";
-      const number = index + 1;
+  function readLRText(){speak(lrText);}
+  function readLSText(){speak(lsText);}
 
-      if (wsKey === "ws1") {
-        div.innerHTML = `
-          ${number}) ${task.prompt} →
-          <input type="text" data-ws="${wsKey}" data-index="${index}" />
+  function buildWorksheet(wsKey){
+    const lesson=lessons.find(l=>l.id===currentLessonId);
+    const tasks=lesson.worksheets[wsKey]||[];
+    const container=$(wsKey+"Tasks");
+    container.innerHTML="";
+
+    tasks.forEach((t,i)=>{
+      const div=document.createElement("div");
+      div.className="task-item";
+      if(wsKey==="ws1"||wsKey==="ws3"){
+        div.innerHTML=`
+          ${t.prompt}<br>
+          <input type="text" data-ws="${wsKey}" data-idx="${i}">
         `;
-      } else if (wsKey === "ws2") {
-        div.innerHTML = `
-          ${number}) <span style="font-size:1.2rem;">${task.picture}</span>
-          <select data-ws="${wsKey}" data-index="${index}">
+      }else{
+        div.innerHTML=`
+          ${t.sentence}<br>
+          <select data-ws="${wsKey}" data-idx="${i}">
             <option value="">--choose--</option>
-            ${task.options.map(opt => `<option value="${opt}">${opt}</option>`).join("")}
-          </select>
-        `;
-      } else if (wsKey === "ws3") {
-        div.innerHTML = `
-          ${number}) ${task.clue}<br/>
-          <input style="margin-top:0.2rem;" type="text" data-ws="${wsKey}" data-index="${index}" />
-        `;
-      } else if (wsKey === "ws4") {
-        div.innerHTML = `
-          ${number}) ${task.sentence}<br/>
-          <select style="margin-top:0.2rem;" data-ws="${wsKey}" data-index="${index}">
-            <option value="">--choose--</option>
-            ${task.options.map(opt => `<option value="${opt}">${opt}</option>`).join("")}
+            ${t.options.map(o=>`<option value="${o}">${o}</option>`).join("")}
           </select>
         `;
       }
-
       container.appendChild(div);
     });
-
-    $(wsKey + "Result").textContent = "";
+    $(wsKey+"Result").textContent="";
   }
 
-  function checkWorksheet(wsKey) {
-    const lesson = lessons.find(l => l.id === currentLessonId);
-    const tasks = lesson.worksheets[wsKey] || [];
-    let correct = 0;
+  function checkWorksheet(wsKey){
+    const lesson=lessons.find(l=>l.id===currentLessonId);
+    const tasks=lesson.worksheets[wsKey]||[];
+    let correct=0;
+    let total=tasks.length;
 
-    tasks.forEach((task, index) => {
-      const selector = `[data-ws="${wsKey}"][data-index="${index}"]`;
-      const el = document.querySelector(selector);
-      if (!el) return;
-
-      const value = el.value.trim().toLowerCase();
-      const answer = (task.answer || "").toLowerCase();
-
-      if (value === answer) {
-        correct++;
-        el.style.borderColor = "#388e3c";
-      } else {
-        el.style.borderColor = "#d32f2f";
-      }
-    });
-
-    const msgEl = $(wsKey + "Result");
-    msgEl.textContent = `Correct: ${correct} / ${tasks.length}`;
-    if (correct === tasks.length && tasks.length > 0) {
-      msgEl.textContent += " ⭐ +1";
-    }
-  }
-
-  function saveLessonResult() {
-    if (!currentUser || !currentLessonId) return;
-    const lesson = lessons.find(l => l.id === currentLessonId);
-    const rec = getUserRecord(currentUser.name);
-    const lessonRec = rec.lessons[currentLessonId] || { stars: 0 };
-
-    // считаем звёзды за Worksheets (полностью верные)
-    let gained = 0;
-    ["ws1", "ws2", "ws3", "ws4"].forEach(wsKey => {
-      const lessonTasks = lesson.worksheets[wsKey] || [];
-      if (lessonTasks.length === 0) return;
-
-      let allCorrect = true;
-      lessonTasks.forEach((task, index) => {
-        const el = document.querySelector(`[data-ws="${wsKey}"][data-index="${index}"]`);
-        if (!el) return;
-        const value = el.value.trim().toLowerCase();
-        if (value !== (task.answer || "").toLowerCase()) {
-          allCorrect = false;
-        }
-      });
-      if (allCorrect) gained++;
-    });
-
-    lessonRec.stars += gained;
-    rec.totalStars += gained;
-    rec.lessons[currentLessonId] = lessonRec;
-
-    const data = loadData();
-    data[currentUser.name] = rec;
-    saveData(data);
-
-    alert(`Saved! You earned ${gained} ⭐ in this lesson.`);
-    $("lessonStars").textContent = `You have ${lessonRec.stars} ⭐ in this lesson.`;
-  }
-
-  function goBackToMenu() {
-    if (!currentUser || currentUser.isTeacher) {
-      showMenu();
-    } else {
-      showMenu();
-    }
-  }
-
-  /* ----------- TEACHER ----------- */
-
-  function buildTeacherJournal() {
-    const data = loadData();
-    const container = $("teacherTable");
-    const names = Object.keys(data);
-    if (names.length === 0) {
-      container.textContent = "No data yet.";
+    // запрещаем повторную проверку – 1 шанс
+    const alreadyLocked=$(wsKey+"Block").dataset.locked==="true";
+    if(alreadyLocked){
+      alert("You already checked this worksheet.");
       return;
     }
-    let html = `<table style="width:100%;border-collapse:collapse;">
-      <tr>
-        <th style="border-bottom:1px solid #90a4ae;text-align:left;">Student</th>
-        <th style="border-bottom:1px solid #90a4ae;">Total ⭐</th>
-        <th style="border-bottom:1px solid #90a4ae;">By lessons</th>
-      </tr>`;
-    names.forEach(name => {
-      const r = data[name];
-      const lessonsStars = Object.entries(r.lessons || {})
-        .map(([id, lr]) => {
-          const lesson = lessons.find(l => l.id === id);
-          const shortTitle = lesson ? lesson.title.replace("Unit ","U") : id;
-          return `${shortTitle}: ${lr.stars}⭐`;
-        }).join("<br/>");
-      html += `
-        <tr>
-          <td style="border-bottom:1px solid #eceff1;padding:0.25rem 0;">${name}</td>
-          <td style="border-bottom:1px solid #eceff1;text-align:center;">${r.totalStars}</td>
-          <td style="border-bottom:1px solid #eceff1;font-size:0.78rem;">${lessonsStars}</td>
-        </tr>
-      `;
+
+    tasks.forEach((t,i)=>{
+      const el=document.querySelector(`[data-ws="${wsKey}"][data-idx="${i}"]`);
+      if(!el)return;
+      const value=el.value.trim();
+      const ans=(t.answer||"").trim();
+      let ok=false;
+      if(wsKey==="ws1"||wsKey==="ws3"){
+        ok=value.toLowerCase()===ans.toLowerCase();
+      }else{
+        ok=value===ans;
+      }
+      if(ok){
+        correct++;
+        el.style.borderColor="#2e7d32";
+      }else{
+        el.style.borderColor="#c62828";
+      }
+      el.disabled=true; // 1 попытка
     });
-    html += "</table>";
-    container.innerHTML = html;
+
+    const res=$(wsKey+"Result");
+    res.innerHTML=`Correct: ${correct}/${total} ${
+      correct===total && total>0
+        ? '<span class="correct-icon">✔ +1⭐</span>'
+        : correct>0
+          ? '<span class="correct-icon">✔</span>'
+          : '<span class="wrong-icon">✖</span>'
+    }`;
+
+    // анимация звезды, если всё верно
+    if(correct===total&&total>0){
+      showStar();
+    }
+
+    $(wsKey+"Block").dataset.locked="true";
   }
 
-  function openTeacherJournal() {
-    if (!currentUser || !currentUser.isTeacher) {
+  function showStar(){
+    const el=document.createElement("div");
+    el.className="star-burst";
+    el.textContent="⭐";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),1000);
+  }
+
+  function saveLessonResult(){
+    if(!currentUser||currentUser.isTeacher){return;}
+    const data=loadData();
+    const rec=getUserRecord(currentUser.name);
+    const lesson=lessons.find(l=>l.id===currentLessonId);
+    const lrec=rec.lessons[currentLessonId]||{stars:0,locked:false};
+
+    if(lrec.locked){
+      alert("Result already saved.");
+      return;
+    }
+
+    // считаем, сколько рабочих листов выполнено полностью верно
+    let gained=0;
+    ["ws1","ws2","ws3","ws4"].forEach(wsKey=>{
+      const tasks=lesson.worksheets[wsKey]||[];
+      if(!tasks.length)return;
+      let allCorrect=true;
+      tasks.forEach((t,i)=>{
+        const el=document.querySelector(`[data-ws="${wsKey}"][data-idx="${i}"]`);
+        if(!el)return;
+        const value=el.value.trim();
+        const ans=(t.answer||"").trim();
+        const ok=(wsKey==="ws1"||wsKey==="ws3")
+          ? value.toLowerCase()===ans.toLowerCase()
+          : value===ans;
+        if(!ok)allCorrect=false;
+      });
+      if(allCorrect)gained++;
+    });
+
+    lrec.stars+=gained;
+    lrec.locked=true;
+    rec.totalStars+=gained;
+    rec.lessons[currentLessonId]=lrec;
+    data[currentUser.name]=rec;
+    saveData(data);
+
+    $("lessonStars").textContent=`You have ${lrec.stars} ⭐ in this unit.`;
+    $("saveBtn").disabled=true;
+    $("saveBtn").textContent="Result saved ✔";
+    alert(`Saved! You earned ${gained} ⭐ in this unit.`);
+  }
+
+  function goBackToMenu(){
+    showMenu();
+  }
+
+  /* ---------- Teacher ---------- */
+  function buildTeacherJournal(){
+    const data=loadData();
+    const container=$("teacherTable");
+    const names=Object.keys(data);
+    if(!names.length){
+      container.textContent="No data yet.";
+      return;
+    }
+    let html=`<table style="width:100%;border-collapse:collapse;">
+      <tr>
+        <th style="border-bottom:1px solid #b0bec5;text-align:left;">Student</th>
+        <th style="border-bottom:1px solid #b0bec5;">Total ⭐</th>
+        <th style="border-bottom:1px solid #b0bec5;font-size:.8rem;">By units</th>
+      </tr>`;
+    names.forEach(name=>{
+      const r=data[name];
+      const unitInfo=Object.entries(r.lessons||{})
+        .map(([id,info])=>{
+          const les=lessons.find(l=>l.id===id);
+          const short=les?les.title.replace("Unit ","U"):"Unit";
+          return `${short}: ${info.stars||0}⭐`;
+        }).join("<br>");
+      html+=`<tr>
+        <td style="border-bottom:1px solid #eceff1;padding:.25rem 0;">${name}</td>
+        <td style="border-bottom:1px solid #eceff1;text-align:center;">${r.totalStars}</td>
+        <td style="border-bottom:1px solid #eceff1;font-size:.78rem;">${unitInfo}</td>
+      </tr>`;
+    });
+    html+="</table>";
+    container.innerHTML=html;
+  }
+
+  function openTeacherJournal(){
+    if(!currentUser||!currentUser.isTeacher){
       alert("Teacher PIN needed.");
       return;
     }
@@ -992,20 +1013,44 @@
     $("teacherScreen").classList.remove("hidden");
   }
 
-  function clearAllData() {
-    if (!confirm("Delete all saved results on this device?")) return;
+  function clearAllData(){
+    if(!confirm("Delete all saved stars on this device?"))return;
     localStorage.removeItem(STORAGE_KEY);
     buildTeacherJournal();
   }
 
-  /* ----------- CHAT ----------- */
-
-  function openChat() {
+  /* ---------- Chats ---------- */
+  function openGlobalChat(){
     $("menuScreen").classList.add("hidden");
     $("chatScreen").classList.remove("hidden");
   }
 
-</script>
+  function sendUnitQuestion(){
+    const q=$("unitChatInput").value.trim();
+    if(!q){alert("Write your question first.");return;}
 
+    const data=loadData();
+    const rec=getUserRecord(currentUser.name);
+    const lrec=rec.lessons[currentLessonId]||{stars:0,locked:false,chatUsed:false};
+
+    if(lrec.chatUsed){
+      alert("You already used your question for this unit.");
+      return;
+    }
+
+    lrec.chatUsed=true;
+    rec.lessons[currentLessonId]=lrec;
+    data[currentUser.name]=rec;
+    saveData(data);
+
+    $("unitChatBtn").disabled=true;
+    $("unitChatInfo").textContent="Your question is sent to AI Bayan (demo). Only one question per unit.";
+    alert("Question sent (demo).");
+
+    // Здесь вместо alert можно вызвать твой Cloudflare Worker
+    // fetch('https://your-worker-url', {method:'POST', body:JSON.stringify({question:q,unit:currentLessonId})})
+  }
+
+</script>
 </body>
 </html>
