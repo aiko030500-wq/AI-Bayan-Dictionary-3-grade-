@@ -1,1339 +1,1156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>ENGLISH WITH AI BAYAN – Grade 3 Unit 1</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ENGLISH WITH AI BAYAN — Unit 1 (Lessons 1–8)</title>
   <style>
     :root{
-      --main-green:#1b5e20;
-      --menu-bg:#004d40;
+      --bg:#0b3b2f;
+      --gold:#f4c542;
       --card:#ffffff;
-      --text:#0d1b2a;
-      --border:#ffd54f;
-      --wrong:#ffcccc;
-      --right:#c8e6c9;
+      --soft:#eaf7ef;
+      --text:#0a1f16;
+      --muted:#4b6b5c;
+      --radius:18px;
+      --shadow:0 10px 28px rgba(0,0,0,.18);
     }
-    *{box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+    *{box-sizing:border-box}
     body{
       margin:0;
-      background:#e0f2f1;
-      color:var(--text);
-    }
-    .app{
-      max-width:900px;
-      margin:0 auto;
-      min-height:100vh;
-      background:#e0f2f1;
-    }
-    header.app-header{
-      background:var(--menu-bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #0a2f26);
       color:#fff;
-      padding:12px 16px;
+      min-height:100vh;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:18px 14px 80px}
+    .top{
+      border:4px solid var(--gold);
+      border-radius:26px;
+      padding:18px 16px;
+      background: rgba(0,0,0,.12);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .logoCircle{
+      width:108px;height:108px;border-radius:999px;
+      border:6px solid var(--gold);
+      background:#fff;
+      margin:0 auto 10px;
+    }
+    .title{
       text-align:center;
-      position:sticky;
-      top:0;
-      z-index:10;
+      font-weight:900;
+      letter-spacing:1px;
+      margin:6px 0 0;
+      font-size:28px;
     }
-    header.app-header h1{
-      margin:4px 0;
-      font-size:20px;
-    }
-    header.app-header small{
-      opacity:0.8;
-      font-size:13px;
-    }
-    main{
-      padding:16px;
-      padding-bottom:40px;
+    .subtitle{
+      text-align:center;
+      margin:6px 0 0;
+      font-weight:700;
+      opacity:.95;
+      font-size:16px;
     }
     .card{
-      background:var(--card);
-      border-radius:16px;
-      border:3px solid var(--border);
-      padding:16px;
-      margin-bottom:16px;
-      box-shadow:0 4px 8px rgba(0,0,0,0.08);
-    }
-    .hidden{display:none;}
-    h2{margin-top:0;font-size:19px;}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 18px;
-      border-radius:999px;
-      border:none;
-      background:var(--main-green);
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-      font-size:15px;
-      margin:4px 2px;
-    }
-    .btn:disabled{
-      opacity:0.5;
-      cursor:not-allowed;
-    }
-    .btn-secondary{
-      background:#004d40;
-    }
-    .btn-outline{
-      background:#fff;
-      color:var(--main-green);
-      border:2px solid var(--main-green);
-    }
-    .input{
-      width:100%;
-      padding:10px 12px;
-      border-radius:10px;
-      border:2px solid #cfd8dc;
-      font-size:16px;
-      margin-bottom:10px;
-    }
-    .lesson-list{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .lesson-btn{
-      border-radius:16px;
-      border:none;
-      padding:12px 14px;
-      text-align:left;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      cursor:pointer;
-      background:#ffffff;
-      box-shadow:0 2px 4px rgba(0,0,0,0.12);
-      font-size:15px;
-    }
-    .lesson-btn-title{
-      font-weight:600;
-    }
-    .pill{
-      padding:2px 10px;
-      border-radius:999px;
-      background:rgba(0,0,0,0.08);
-      font-size:12px;
-    }
-    .vocab-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-      gap:10px;
-      margin-top:10px;
-    }
-    .vocab-card{
-      background:#f1f8e9;
-      border-radius:14px;
-      padding:8px;
-      text-align:center;
-      border:2px solid rgba(0,0,0,0.05);
-    }
-    .vocab-emoji{font-size:28px;margin-bottom:4px;}
-    .vocab-word{font-weight:600;}
-    .vocab-ru{font-size:13px;opacity:0.8;}
-    .say-btn{
-      margin-top:6px;
-      font-size:13px;
-      padding:4px 10px;
-    }
-    .grammar-box{
-      background:#e3f2fd;
-      border-radius:14px;
-      padding:10px 12px;
-    }
-    .grammar-rule{margin-bottom:4px;}
-    .grammar-formula{
-      font-weight:600;
-      margin-bottom:4px;
-    }
-    .examples-list{
-      padding-left:18px;
-      margin:4px 0;
-    }
-    .examples-list li{margin-bottom:2px;}
-    .reading-dialogue{
-      background:#fffde7;
-      border-radius:14px;
-      padding:10px 12px;
-      margin-bottom:10px;
-    }
-    .q-item{margin-bottom:8px;}
-    select.ws-select, input.ws-input{
-      width:100%;
-      padding:6px 8px;
-      border-radius:10px;
-      border:2px solid #cfd8dc;
-      font-size:15px;
-      margin-top:4px;
-    }
-    .ws-row{
-      margin-bottom:10px;
-    }
-    .ws-label{
-      display:block;
-      margin-bottom:2px;
-    }
-    .match-row{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      margin-bottom:8px;
-    }
-    .match-emoji{
-      font-size:22px;
-      width:32px;
-      text-align:center;
-    }
-    .status-text{
-      font-size:14px;
-      margin-top:4px;
-    }
-    .correct{
-      background:var(--right)!important;
-      animation:bounce 0.3s;
-    }
-    .wrong{
-      background:var(--wrong)!important;
-      animation:shake 0.3s;
-    }
-    @keyframes shake{
-      0%{transform:translateX(0);}
-      25%{transform:translateX(-3px);}
-      50%{transform:translateX(3px);}
-      75%{transform:translateX(-3px);}
-      100%{transform:translateX(0);}
-    }
-    @keyframes bounce{
-      0%{transform:scale(1);}
-      50%{transform:scale(1.03);}
-      100%{transform:scale(1);}
-    }
-    .karaoke-box{
       margin-top:16px;
-      padding:16px;
-      border-radius:16px;
-      background:#ffffff;
+      background: var(--card);
+      color: var(--text);
+      border-radius: var(--radius);
+      border:4px solid var(--gold);
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
-    .karaoke-lines{margin-top:8px;}
-    .karaoke-line{
-      padding:6px 10px;
-      border-radius:8px;
-      margin-bottom:4px;
-      transition:background 0.3s;
-    }
-    .karaoke-line.active{
-      background:rgba(255,235,59,0.6);
-      font-weight:bold;
-    }
-    .lesson-header-band{
-      border-radius:16px;
-      padding:10px 12px;
+    .cardHeader{
+      padding:14px 14px;
       color:#fff;
-      margin-bottom:12px;
-    }
-    .lesson-header-band h2{
-      margin:0;
-      font-size:18px;
-    }
-    .lesson-sub{
-      font-size:13px;
-      opacity:0.9;
-    }
-    .top-buttons{
+      font-weight:900;
       display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
     }
-    .stars-text{
-      font-weight:600;
-      margin-top:4px;
+    .cardHeader h2{margin:0;font-size:20px}
+    .cardHeader .small{margin-top:4px;font-weight:700;opacity:.95}
+    .starsLine{font-weight:900}
+    .content{padding:14px}
+    .pillRow{
+      display:flex;flex-wrap:wrap;gap:10px;
+      margin:10px 0 8px;
     }
-    .journal-table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:14px;
+    .mini-tab{
+      border:0;
+      padding:10px 12px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+      color:#fff;
+      box-shadow: 0 10px 18px rgba(0,0,0,.12);
     }
-    .journal-table th,.journal-table td{
-      border:1px solid #cfd8dc;
-      padding:4px 6px;
+    .section{
+      margin-top:14px;
+      border:2px dashed rgba(0,0,0,.18);
+      border-radius:16px;
+      padding:12px;
+      background:#fff;
+    }
+    .sectionTitle{
+      display:flex;align-items:center;gap:10px;
+      font-weight:900;font-size:18px;margin:0 0 6px;
+    }
+    .hint{margin:0 0 10px;color:var(--muted);font-weight:700}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:12px;
+    }
+    @media (max-width:520px){ .grid{grid-template-columns:1fr} }
+
+    .vCard{
+      background: var(--soft);
+      border:2px solid rgba(0,0,0,.12);
+      border-radius:16px;
+      padding:12px;
       text-align:center;
     }
-    .small-note{
-      font-size:12px;
-      opacity:0.8;
+    .pic{
+      width:84px;height:84px;border-radius:18px;
+      background:#fff;
+      border:2px solid rgba(0,0,0,.12);
+      display:grid;place-items:center;
+      margin:0 auto 8px;
+      font-size:40px;
+    }
+    .wEng{font-weight:1000;font-size:20px;line-height:1.05}
+    .wRus{margin-top:2px;color:var(--muted);font-weight:800}
+    .btn{
+      border:0;
+      padding:10px 14px;
+      border-radius:14px;
+      font-weight:1000;
+      cursor:pointer;
+      color:#fff;
+      display:inline-flex;align-items:center;gap:8px;
+      box-shadow: 0 10px 18px rgba(0,0,0,.12);
+    }
+    .btnLine{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .ruleBox{
+      background:#dff2ff;
+      border:2px solid rgba(0,0,0,.12);
+      border-radius:16px;
+      padding:12px;
+    }
+    .ruleBox h3{margin:0 0 6px;font-size:20px}
+    .ruleBox p{margin:6px 0;color:#123; font-weight:700}
+    .ruleBox ul{margin:6px 0 0;padding-left:18px;color:#123;font-weight:800}
+
+    .wsRow{margin:10px 0}
+    .wsLabel{font-weight:900;margin-bottom:6px}
+    input[type="text"], select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:2px solid rgba(0,0,0,.18);
+      font-size:16px;
+      outline:none;
+      background:#fff;
+    }
+    .statusText{margin-top:8px;font-weight:1000}
+    .ok{color:#0b7a3c}
+    .bad{color:#b3261e}
+    .reading-dialogue{
+      background:#fff7d6;
+      border:2px solid rgba(0,0,0,.12);
+      border-radius:16px;
+      padding:10px 12px;
+      margin:8px 0 10px;
+      color:#3a2a00;
+      font-weight:900;
+      line-height:1.55;
+    }
+    .karaoke{
+      background:#101820;
+      color:#eaf7ef;
+      border-radius:16px;
+      padding:12px;
+      border:2px solid rgba(255,255,255,.12);
+      font-weight:900;
+      line-height:1.6;
+    }
+    .karaoke .line{
+      padding:6px 8px;
+      border-radius:12px;
+      opacity:.65;
+    }
+    .karaoke .active{
+      opacity:1;
+      outline:2px solid rgba(244,197,66,.75);
+      background: rgba(244,197,66,.12);
+    }
+
+    .backBar{
+      position:fixed;left:0;right:0;bottom:0;
+      padding:10px 12px;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+      border-top:1px solid rgba(255,255,255,.14);
+      display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+    }
+    .footerNote{
+      position:fixed;left:0;right:0;bottom:56px;
+      text-align:center;
+      font-weight:900;
+      padding:6px 10px;
+      color:#fff;
+      opacity:.95;
+      text-shadow:0 2px 12px rgba(0,0,0,.35);
+    }
+
+    /* Print */
+    @media print{
+      body{background:#fff;color:#000}
+      .backBar,.footerNote{display:none !important}
+      .top{border-color:#000;background:#fff;color:#000}
+      .card{box-shadow:none;border-color:#000}
+      .cardHeader{color:#000 !important}
+      .mini-tab,.btn{display:none !important}
     }
   </style>
 </head>
+
 <body>
-<div class="app">
-  <header class="app-header">
-    <h1>ENGLISH WITH AI BAYAN</h1>
-    <small>Grade 3 – Unit 1 &nbsp;|&nbsp; Picture Vocabulary, Grammar & Worksheets</small>
-  </header>
-  <main>
+  <div class="wrap" id="app"></div>
 
-    <!-- LOGIN -->
-    <section id="loginScreen" class="card">
-      <h2>Login</h2>
-      <p>Enter your name and PIN.</p>
-      <input id="loginName" class="input" placeholder="Example: 3E S1" />
-      <input id="loginPin" class="input" placeholder="PIN" type="password" />
-      <button class="btn" onclick="handleLogin()">Enter</button>
-      <p class="small-note" style="margin-top:8px;">
-        Students: PIN <strong>2844</strong> • Teacher: PIN <strong>3244</strong>
-      </p>
-    </section>
+  <div class="footerNote" id="footerNote">
+    Students: 3E S1–3E S15 &nbsp;|&nbsp; Student PIN 2844 &nbsp;|&nbsp; Teacher PIN 3244
+  </div>
 
-    <!-- MENU -->
-    <section id="menuScreen" class="hidden">
-      <div class="card" style="background:#a5d6a7;">
-        <h2 id="helloUser">Hello!</h2>
-        <p id="totalStarsText">Total stars in all lessons: 0 ⭐</p>
-      </div>
-
-      <div class="card" style="background:#c8e6c9;">
-        <h2>📚 Unit 1 – Hello English!</h2>
-        <p>Choose a lesson. You have only <strong>one try</strong> in each lesson.</p>
-        <div class="lesson-list" id="lessonList"></div>
-      </div>
-
-      <div class="card">
-        <h2>🤖 AI Bayan Chat</h2>
-        <p class="small-note">
-          One question per lesson. This is an offline demo – you can later connect your own AI endpoint.
-        </p>
-        <textarea id="aiQuestion" class="input" style="height:70px;" placeholder="Ask one question about Unit 1..."></textarea>
-        <button class="btn" onclick="askAI()">Ask AI Bayan</button>
-        <p id="aiAnswer" class="small-note" style="margin-top:6px;"></p>
-      </div>
-
-      <div id="teacherMenuBlock" class="card hidden">
-        <h2>🏫 Teacher’s Journal</h2>
-        <button class="btn btn-secondary" onclick="openTeacherJournal()">Open journal</button>
-        <p class="small-note">Shows stars per lesson for each student (from this device).</p>
-      </div>
-    </section>
-
-    <!-- LESSON -->
-    <section id="lessonScreen" class="hidden">
-      <div id="lessonHeaderBox" class="lesson-header-band">
-        <h2 id="lessonTitle">Lesson</h2>
-        <div class="lesson-sub" id="lessonSubtitle"></div>
-        <div class="stars-text" id="lessonStarsText"></div>
-      </div>
-
-      <div class="top-buttons">
-        <button class="btn btn-outline" onclick="backToMenu()">← Back</button>
-        <button class="btn btn-secondary" onclick="printLesson()">🖨 Print this lesson</button>
-      </div>
-
-      <div id="lessonContent"></div>
-
-      <div class="card" id="bottomCard">
-        <h2>🎯 Lesson Complete</h2>
-        <p id="lessonCompleteText">Do the tasks and then save your result.</p>
-        <button class="btn" id="saveResultBtn" onclick="saveLessonResult()">Save Result ✔</button>
-      </div>
-    </section>
-
-    <!-- TEACHER JOURNAL -->
-    <section id="teacherScreen" class="hidden">
-      <div class="card">
-        <h2>🏫 Teacher’s Journal</h2>
-        <p class="small-note">Results are stored only on this device (localStorage).</p>
-        <div id="journalTableWrap"></div>
-        <button class="btn btn-outline" onclick="closeTeacherJournal()">← Back to menu</button>
-      </div>
-    </section>
-
-  </main>
-</div>
+  <div class="backBar" id="backBar" style="display:none">
+    <button class="btn" id="btnBack" onclick="goHome()">⬅ Back to unit</button>
+    <button class="btn" id="btnSave" onclick="saveLessonResult()">✅ Save Result</button>
+    <button class="btn" id="btnPrint" onclick="printLesson()">🖨 Print</button>
+  </div>
 
 <script>
-  const STUDENT_PIN = "2844";
-  const TEACHER_PIN = "3244";
-  const allowedStudents = [
-    "3E S1","3E S2","3E S3","3E S4","3E S5",
-    "3E S6","3E S7","3E S8","3E S9","3E S10",
-    "3E S11","3E S12","3E S13","3E S14","3E S15"
-  ];
+/** =========================
+ *  DATA (Unit 1 Lessons 1–8)
+ *  =========================
+ *  Тексты/диалоги я поставил безопасные “по смыслу”,
+ *  ты потом можешь заменить на точные строки из книги.
+ */
 
-  let currentUser = { name:null, role:null }; // role: "student" or "teacher"
-  let currentLessonId = null;
-  let karaokeTimer = null;
-  let karaokeIndex = 0;
-
-  // === LESSON DATA (Unit 1: 8 lessons) ===
-  const lessons = [
-    {
-      id:"L1",
-      title:"Lesson 1 – Greetings & names",
-      subtitle:"Hello English!",
-      color:"#00796b",
-      vocab:[
-        {word:"hello", ru:"привет", emoji:"👋", tts:"Hello"},
-        {word:"goodbye", ru:"до свидания", emoji:"👋", tts:"Goodbye"},
-        {word:"name", ru:"имя", emoji:"🏷️", tts:"name"},
-        {word:"friend", ru:"друг", emoji:"🧑‍🤝‍🧑", tts:"friend"},
-        {word:"teacher", ru:"учитель", emoji:"👩‍🏫", tts:"teacher"},
-        {word:"class", ru:"класс", emoji:"🏫", tts:"class"}
-      ],
-      grammar:{
-        rule:"Use <strong>Hello</strong> to greet people and <strong>Goodbye</strong> to say bye. Ask <strong>What's your name?</strong> and answer <strong>My name's...</strong>",
-        formula:"– Hello! What's your name?<br>– My name's Rosy.<br>– Goodbye, Rosy!",
-        examples:[
-          "Hello, my name's Tim.",
-          "Goodbye, class!"
-        ]
-      },
-      reading:{
-        dialogue:`Hello! My name's Tim. I'm eight.<br>
-This is my cousin, Billy. He's seven.<br>
-This is our teacher, Miss Jones.`,
-        questions:[
-          {q:"1) Tim is __ years old.", options:["seven","eight","nine"], answer:"eight"},
-          {q:"2) Billy is Tim's __.", options:["teacher","cousin","friend"], answer:"cousin"},
-          {q:"3) Miss Jones is their __.", options:["friend","teacher","cousin"], answer:"teacher"},
-          {q:"4) There are __ children in the story.", options:["two","three","four"], answer:"two"},
-          {q:"5) They say __ when they meet.", options:["Goodbye","Hello","Thanks"], answer:"Hello"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) – __! What's your name?", options:["Goodbye","Hello"], answer:"Hello"},
-          {sentence:"2) – __ name's Billy.", options:["My","I'm"], answer:"My"},
-          {sentence:"3) – Goodbye, class! – __, Miss Jones.", options:["Hello","Goodbye"], answer:"Goodbye"}
-        ],
-        ws2:[
-          {emoji:"👋", options:["hello","goodbye","teacher","friend"], answer:"hello"},
-          {emoji:"🚪", options:["hello","goodbye","teacher","friend"], answer:"goodbye"},
-          {emoji:"👩‍🏫", options:["hello","goodbye","teacher","friend"], answer:"teacher"},
-          {emoji:"🧑‍🤝‍🧑", options:["hello","goodbye","teacher","friend"], answer:"friend"}
-        ],
-        ws3:[
-          {sentence:"You say this when you meet.", options:["goodbye","hello","teacher"], answer:"hello"},
-          {sentence:"This person teaches you.", options:["friend","teacher","cousin"], answer:"teacher"},
-          {sentence:"You write your __ on the board.", options:["board","name","class"], answer:"name"}
-        ],
-        ws4:[
-          {sentence:"1) Tim is Billy's cousin.", options:["True","False"], answer:"True"},
-          {sentence:"2) Miss Jones is a student.", options:["True","False"], answer:"False"},
-          {sentence:"3) They say 'Hello' at the beginning.", options:["True","False"], answer:"True"}
-        ]
-      }
+const lessons = [
+  {
+    id: 1,
+    title: "Lesson 1 – Greetings & names",
+    subtitle: "Hello English!",
+    color: "#0a6b5a",
+    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
+    vocab: [
+      {pic:"👧", en:"Rosy", ru:"Рози"},
+      {pic:"👦", en:"Tim", ru:"Тим"},
+      {pic:"🧒", en:"Billy", ru:"Билли"},
+      {pic:"👩‍🏫", en:"Miss Jones", ru:"мисс Джонс"},
+      {pic:"👋", en:"Hello", ru:"привет"},
+      {pic:"👋", en:"Goodbye", ru:"пока"}
+    ],
+    grammar: {
+      title: "What’s your name?",
+      rule: `We ask: <b>What’s your name?</b><br>We answer: <b>My name’s ...</b>`,
+      formula: `Formula: What’s your name? → My name’s + Name.`,
+      examples: [
+        `What’s your name? — My name’s Rosy.`,
+        `What’s your name? — My name’s Tim.`
+      ]
     },
-
-    // Lesson 2 – Alphabet
-    {
-      id:"L2",
-      title:"Lesson 2 – Alphabet",
-      subtitle:"Letters A–Z and spelling names",
-      color:"#1976d2",
-      vocab:(()=>{
-        const letters = [
-          ["A a","эй","🅰️"],["B b","би","🅱️"],["C c","си","🌊"],["D d","ди","🐶"],
-          ["E e","и","🦅"],["F f","эф","🐟"],["G g","джи","🦒"],["H h","эйч","🏠"],
-          ["I i","ай","🍦"],["J j","джей","🤹"],["K k","кей","🪁"],["L l","эл","🦁"],
-          ["M m","эм","🍈"],["N n","эн","🥜"],["O o","оу","🦉"],["P p","пи","🅿️"],
-          ["Q q","кью","❓"],["R r","ар","🚗"],["S s","эс","🐍"],["T t","ти","🌴"],
-          ["U u","ю","☂️"],["V v","ви","🎻"],["W w","дабл-ю","🌊"],["X x","экс","❌"],
-          ["Y y","уай","🪀"],["Z z","зед","🦓"]
-        ];
-        return letters.map(([w,ru,em])=>({word:w, ru, emoji:em, tts:w}));
-      })(),
-      grammar:{
-        rule:"We use the alphabet to spell our names.",
-        formula:"– What's your name?<br>– My name's Ayan. A–Y–A–N.",
-        examples:[
-          "A is for apple.",
-          "B is for bag.",
-          "Spell 'Tim': T–I–M."
+    worksheets: {
+      // WS1 = grammar choose
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) What’s your name? — ____ name’s Rosy.", options:["My","I","She"], answer:"My" },
+          { q:"2) ____ your name?", options:["What","Where","How"], answer:"What" },
+          { q:"3) My name’s ____.", options:["Rosy","fine","ten"], answer:"Rosy" }
         ]
       },
-      reading:{
-        dialogue:`Hello! My name's Ayan. I'm eight.<br>
-I can spell my name: A–Y–A–N.<br>
-This is my friend Dana. She can spell her name too.`,
+      // WS2 = matching
+      ws2: {
+        title:"Worksheet 2 – Matching picture and word",
+        items:[
+          { pic:"👧", answer:"Rosy", options:["Tim","Rosy","Billy"] },
+          { pic:"👦", answer:"Tim",  options:["Tim","Miss Jones","Hello"] },
+          { pic:"👩‍🏫", answer:"Miss Jones", options:["Billy","Miss Jones","Goodbye"] }
+        ]
+      },
+      // WS3 = vocab mini quiz
+      ws3: {
+        title:"Worksheet 3 – Mini vocabulary quiz",
+        items:[
+          { q:"1) Choose: 👋", options:["Hello","Rosy","Tim"], answer:"Hello" },
+          { q:"2) Choose: 👧", options:["Billy","Rosy","Miss Jones"], answer:"Rosy" },
+          { q:"3) Choose: 👩‍🏫", options:["Miss Jones","Tim","Goodbye"], answer:"Miss Jones" }
+        ]
+      },
+      // WS4 = reading dialogue + 2 T/F
+      ws4: {
+        title:"Worksheet 4 – Reading check (True / False)",
+        dialogue:`Hello. What’s your name?<br>My name’s Rosy.<br>And my name’s Tim.<br>Goodbye!`,
         questions:[
-          {q:"1) The boy's name is __.", options:["Tim","Ayan","Billy"], answer:"Ayan"},
-          {q:"2) Ayan is __ years old.", options:["seven","eight","nine"], answer:"eight"},
-          {q:"3) He can __ his name.", options:["count","spell","read"], answer:"spell"},
-          {q:"4) His friend's name is __.", options:["Dana","Rosy","Katie"], answer:"Dana"},
-          {q:"5) A–Y–A–N is the spelling of __.", options:["Dana","Ayan","Tim"], answer:"Ayan"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) Which letter comes after C?", options:["B","D","F"], answer:"D"},
-          {sentence:"2) Which letter comes before M?", options:["N","L","O"], answer:"L"},
-          {sentence:"3) What is the first letter of 'bag'?", options:["b","g","a"], answer:"b"}
-        ],
-        ws2:[
-          {emoji:"🍎", options:["A","B","C","D"], answer:"A"},
-          {emoji:"🎒", options:["A","B","C","D"], answer:"B"},
-          {emoji:"🐱", options:["A","C","F","Z"], answer:"C"},
-          {emoji:"🐶", options:["D","A","B","C"], answer:"D"}
-        ],
-        ws3:[
-          {sentence:"This letter is in the word 'bag'.", options:["X","B","Q"], answer:"B"},
-          {sentence:"This letter is in the word 'pen'.", options:["P","Z","Y"], answer:"P"},
-          {sentence:"This letter is in the word 'cat'.", options:["T","C","M"], answer:"C"}
-        ],
-        ws4:[
-          {sentence:"1) A, B, C are letters of the alphabet.", options:["True","False"], answer:"True"},
-          {sentence:"2) We use numbers to spell names.", options:["True","False"], answer:"False"},
-          {sentence:"3) Ayan can spell his name.", options:["True","False"], answer:"True"}
-        ]
-      }
-    },
-
-    // Lesson 3 – Song (karaoke)
-    {
-      id:"L3",
-      title:"Lesson 3 – Hello song",
-      subtitle:"Sing about introductions",
-      color:"#c2185b",
-      song:{
-        title:"Hello, hello!",
-        lines:[
-          "Hello, hello, how are you?",
-          "I'm fine, thank you. I'm fine, thank you.",
-          "Hello, hello, what's your name?",
-          "My name's ____. That's my name.",
-          "Goodbye, goodbye, goodbye to you..."
-        ]
-      },
-      vocab:[
-        {word:"how are you?", ru:"как ты?", emoji:"🙂", tts:"How are you?"},
-        {word:"I'm fine, thank you.", ru:"у меня все хорошо, спасибо", emoji:"😊", tts:"I'm fine, thank you."},
-        {word:"Goodbye to you.", ru:"до свидания тебе", emoji:"👋", tts:"Goodbye to you."},
-        {word:"What's your name?", ru:"как тебя зовут?", emoji:"❓", tts:"What's your name?"},
-        {word:"My name's ...", ru:"меня зовут ...", emoji:"🧒", tts:"My name's"}
-      ],
-      grammar:{
-        rule:"In the song we use questions and answers.",
-        formula:"– How are you?<br>– I'm fine, thank you.<br>– What's your name?<br>– My name's Arman.",
-        examples:[
-          "Hello, how are you?",
-          "I'm fine, thank you.",
-          "Goodbye, see you!"
-        ]
-      },
-      reading:{
-        dialogue:`Hello! My name’s Arman. How are you?<br>
-– I'm fine, thank you. My name’s Aruzhan.<br>
-– Goodbye, Arman. Goodbye, Aruzhan.`,
-        questions:[
-          {q:"1) The boy's name is __.", options:["Tim","Billy","Arman"], answer:"Arman"},
-          {q:"2) The girl's name is __.", options:["Rosy","Katie","Aruzhan"], answer:"Aruzhan"},
-          {q:"3) They say __ when they meet.", options:["Goodbye","Hello","Thanks"], answer:"Hello"},
-          {q:"4) They say __ when they go.", options:["Goodbye","Hello","Sorry"], answer:"Goodbye"},
-          {q:"5) “I'm fine, thank you” is the answer to __.", options:["What's your name?","How are you?","Where are you from?"], answer:"How are you?"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) You meet a friend. You say __.", options:["Goodbye","Hello"], answer:"Hello"},
-          {sentence:"2) You go home. You say __.", options:["Hello","Goodbye"], answer:"Goodbye"},
-          {sentence:"3) You answer 'How are you?' – __.", options:["I'm fine, thank you.","My name's Tim."], answer:"I'm fine, thank you."}
-        ],
-        ws2:[
-          {emoji:"🙂", options:["How are you?","Goodbye!","What's your name?"], answer:"How are you?"},
-          {emoji:"👋", options:["Goodbye!","Hello!","Fine, thanks."], answer:"Goodbye!"},
-          {emoji:"🧒", options:["My name's...","How old are you?","Where are you from?"], answer:"My name's..."}
-        ],
-        ws3:[
-          {sentence:"You ask this to know the name.", options:["How are you?","What's your name?","Goodbye!"], answer:"What's your name?"},
-          {sentence:"You say this when you feel good.", options:["I'm fine, thank you.","Goodbye!","Hello!"], answer:"I'm fine, thank you."},
-          {sentence:"You say this at the end of the song.", options:["Hello","Goodbye","Thanks"], answer:"Goodbye"}
-        ],
-        ws4:[
-          {sentence:"1) In the song children are happy.", options:["True","False"], answer:"True"},
-          {sentence:"2) They never say 'Goodbye'.", options:["True","False"], answer:"False"},
-          {sentence:"3) The song is about introductions.", options:["True","False"], answer:"True"}
-        ]
-      }
-    },
-
-    // Lesson 4 – Numbers 1–20
-    {
-      id:"L4",
-      title:"Lesson 4 – Numbers 1–20",
-      subtitle:"How old are you?",
-      color:"#388e3c",
-      vocab:[
-        {word:"one", ru:"один", emoji:"1️⃣", tts:"one"},
-        {word:"two", ru:"два", emoji:"2️⃣", tts:"two"},
-        {word:"three", ru:"три", emoji:"3️⃣", tts:"three"},
-        {word:"four", ru:"четыре", emoji:"4️⃣", tts:"four"},
-        {word:"five", ru:"пять", emoji:"5️⃣", tts:"five"},
-        {word:"six", ru:"шесть", emoji:"6️⃣", tts:"six"},
-        {word:"seven", ru:"семь", emoji:"7️⃣", tts:"seven"},
-        {word:"eight", ru:"восемь", emoji:"8️⃣", tts:"eight"},
-        {word:"nine", ru:"девять", emoji:"9️⃣", tts:"nine"},
-        {word:"ten", ru:"десять", emoji:"🔟", tts:"ten"},
-        {word:"eleven", ru:"одиннадцать", emoji:"1️⃣1️⃣", tts:"eleven"},
-        {word:"twelve", ru:"двенадцать", emoji:"1️⃣2️⃣", tts:"twelve"},
-        {word:"thirteen", ru:"тринадцать", emoji:"1️⃣3️⃣", tts:"thirteen"},
-        {word:"fourteen", ru:"четырнадцать", emoji:"1️⃣4️⃣", tts:"fourteen"},
-        {word:"fifteen", ru:"пятнадцать", emoji:"1️⃣5️⃣", tts:"fifteen"},
-        {word:"sixteen", ru:"шестнадцать", emoji:"1️⃣6️⃣", tts:"sixteen"},
-        {word:"seventeen", ru:"семнадцать", emoji:"1️⃣7️⃣", tts:"seventeen"},
-        {word:"eighteen", ru:"восемнадцать", emoji:"1️⃣8️⃣", tts:"eighteen"},
-        {word:"nineteen", ru:"девятнадцать", emoji:"1️⃣9️⃣", tts:"nineteen"},
-        {word:"twenty", ru:"двадцать", emoji:"2️⃣0️⃣", tts:"twenty"}
-      ],
-      grammar:{
-        rule:"We use numbers to talk about age.",
-        formula:"– How old are you?<br>– I'm ten.",
-        examples:[
-          "I'm nine.",
-          "She's seven.",
-          "He's eight."
-        ]
-      },
-      reading:{
-        dialogue:`Hello! I'm Billy. I'm seven.<br>
-This is Rosy. She's eight.<br>
-Tim is nine.`,
-        questions:[
-          {q:"1) Billy is __ years old.", options:["seven","eight","nine"], answer:"seven"},
-          {q:"2) Rosy is __ years old.", options:["seven","eight","nine"], answer:"eight"},
-          {q:"3) Tim is __ years old.", options:["nine","ten","eight"], answer:"nine"},
-          {q:"4) The youngest child is __.", options:["Billy","Rosy","Tim"], answer:"Billy"},
-          {q:"5) The oldest child is __.", options:["Billy","Rosy","Tim"], answer:"Tim"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) – How old are you? – I __ ten.", options:["am","is"], answer:"am"},
-          {sentence:"2) She __ eight.", options:["am","is"], answer:"is"},
-          {sentence:"3) He __ seven.", options:["am","is"], answer:"is"}
-        ],
-        ws2:[
-          {emoji:"7️⃣", options:["seven","eight","nine","ten"], answer:"seven"},
-          {emoji:"8️⃣", options:["six","seven","eight","nine"], answer:"eight"},
-          {emoji:"9️⃣", options:["nine","ten","seven","eight"], answer:"nine"}
-        ],
-        ws3:[
-          {sentence:"1 = __.", options:["one","ten","five"], answer:"one"},
-          {sentence:"5 = __.", options:["four","five","six"], answer:"five"},
-          {sentence:"9 = __.", options:["nine","nineteen","ten"], answer:"nine"}
-        ],
-        ws4:[
-          {sentence:"1) Billy is seven years old.", options:["True","False"], answer:"True"},
-          {sentence:"2) Tim is eight years old.", options:["True","False"], answer:"False"},
-          {sentence:"3) Rosy is eight years old.", options:["True","False"], answer:"True"}
-        ]
-      }
-    },
-
-    // Lesson 5 – Colours
-    {
-      id:"L5",
-      title:"Lesson 5 – Colours",
-      subtitle:"What colour is it?",
-      color:"#f57c00",
-      vocab:[
-        {word:"red", ru:"красный", emoji:"🔴", tts:"red"},
-        {word:"yellow", ru:"жёлтый", emoji:"🟡", tts:"yellow"},
-        {word:"blue", ru:"синий", emoji:"🔵", tts:"blue"},
-        {word:"green", ru:"зелёный", emoji:"🟢", tts:"green"},
-        {word:"black", ru:"чёрный", emoji:"⚫", tts:"black"},
-        {word:"white", ru:"белый", emoji:"⚪", tts:"white"},
-        {word:"brown", ru:"коричневый", emoji:"🟤", tts:"brown"},
-        {word:"pink", ru:"розовый", emoji:"🌸", tts:"pink"},
-        {word:"grey", ru:"серый", emoji:"⚪", tts:"grey"},
-        {word:"orange", ru:"оранжевый", emoji:"🟠", tts:"orange"}
-      ],
-      grammar:{
-        rule:"We use colours with 'is' or 'are'.",
-        formula:"The flag is blue and yellow.<br>The bag is green.",
-        examples:[
-          "The car is red.",
-          "The horse is brown."
-        ]
-      },
-      reading:{
-        dialogue:`The flag of Kazakhstan is blue and yellow.<br>
-My bag is green.<br>
-My favourite colour is red.`,
-        questions:[
-          {q:"1) The flag is blue and __.", options:["red","yellow","green"], answer:"yellow"},
-          {q:"2) The bag is __.", options:["brown","green","grey"], answer:"green"},
-          {q:"3) My favourite colour is __.", options:["red","blue","pink"], answer:"red"},
-          {q:"4) There are __ colours on the flag.", options:["two","three","four"], answer:"two"},
-          {q:"5) The horse in the picture is __.", options:["brown","pink","blue"], answer:"brown"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) The bag __ green.", options:["is","are"], answer:"is"},
-          {sentence:"2) The cars __ red.", options:["is","are"], answer:"are"},
-          {sentence:"3) The flag __ blue and yellow.", options:["is","are"], answer:"is"}
-        ],
-        ws2:[
-          {emoji:"🇰🇿", options:["blue and red","blue and yellow","green and white"], answer:"blue and yellow"},
-          {emoji:"🎒", options:["green","pink","grey"], answer:"green"},
-          {emoji:"🌹", options:["red","blue","black"], answer:"red"}
-        ],
-        ws3:[
-          {sentence:"Grass is usually __.", options:["green","pink","black"], answer:"green"},
-          {sentence:"The sky is __.", options:["brown","blue","orange"], answer:"blue"},
-          {sentence:"Coal is __.", options:["white","black","yellow"], answer:"black"}
-        ],
-        ws4:[
-          {sentence:"1) The flag of Kazakhstan is blue and yellow.", options:["True","False"], answer:"True"},
-          {sentence:"2) My bag is red.", options:["True","False"], answer:"False"},
-          {sentence:"3) My favourite colour is red.", options:["True","False"], answer:"True"}
-        ]
-      }
-    },
-
-    // Lesson 6 – How old / Where from
-    {
-      id:"L6",
-      title:"Lesson 6 – How old? Where from?",
-      subtitle:"Talking about age and country",
-      color:"#6a1b9a",
-      vocab:[
-        {word:"How old are you?", ru:"Сколько тебе лет?", emoji:"🎂", tts:"How old are you?"},
-        {word:"Where are you from?", ru:"Откуда ты?", emoji:"🌍", tts:"Where are you from?"},
-        {word:"I'm from Kazakhstan.", ru:"Я из Казахстана.", emoji:"🇰🇿", tts:"I'm from Kazakhstan."},
-        {word:"I'm nine.", ru:"Мне девять лет.", emoji:"9️⃣", tts:"I'm nine."}
-      ],
-      grammar:{
-        rule:"We use <strong>How old are you?</strong> and <strong>Where are you from?</strong> to ask about age and country.",
-        formula:"– How old are you?<br>– I'm nine.<br>– Where are you from?<br>– I'm from Kazakhstan.",
-        examples:[
-          "She's from Japan.",
-          "He's from Brazil."
-        ]
-      },
-      reading:{
-        dialogue:`This is Katie. She's nine.<br>
-She's from the UK.<br>
-Aizere is from Kazakhstan. She's nine too.`,
-        questions:[
-          {q:"1) Katie is __ years old.", options:["eight","nine","ten"], answer:"nine"},
-          {q:"2) Katie is from the __.", options:["USA","UK","Brazil"], answer:"UK"},
-          {q:"3) Aizere is from __.", options:["Japan","Kazakhstan","Russia"], answer:"Kazakhstan"},
-          {q:"4) Aizere is __ years old.", options:["nine","ten","eight"], answer:"nine"},
-          {q:"5) The girls are the __ age.", options:["same","different"], answer:"same"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) – __ are you? – I'm nine.", options:["How","How old"], answer:"How old"},
-          {sentence:"2) – Where __ you from? – I'm from Kazakhstan.", options:["is","are"], answer:"are"},
-          {sentence:"3) I __ from Brazil.", options:["am","are"], answer:"am"}
-        ],
-        ws2:[
-          {emoji:"🇰🇿", options:["Kazakhstan","Japan","Brazil"], answer:"Kazakhstan"},
-          {emoji:"🇬🇧", options:["USA","UK","Russia"], answer:"UK"},
-          {emoji:"🇯🇵", options:["Kazakhstan","Japan","Brazil"], answer:"Japan"}
-        ],
-        ws3:[
-          {sentence:"He is from Kazakhstan. He is __.", options:["Japanese","Kazakh","Brazilian"], answer:"Kazakh"},
-          {sentence:"She is from Japan. She is __.", options:["Japanese","English","Kazakh"], answer:"Japanese"},
-          {sentence:"He is from Brazil. He is __.", options:["Brazilian","English","Russian"], answer:"Brazilian"}
-        ],
-        ws4:[
-          {sentence:"1) Katie is from the UK.", options:["True","False"], answer:"True"},
-          {sentence:"2) Aizere is from the USA.", options:["True","False"], answer:"False"},
-          {sentence:"3) Both girls are nine.", options:["True","False"], answer:"True"}
-        ]
-      }
-    },
-
-    // Lesson 7 – Project: About me
-    {
-      id:"L7",
-      title:"Lesson 7 – Project: About me",
-      subtitle:"Poster about yourself",
-      color:"#8bc34a",
-      vocab:[
-        {word:"poster", ru:"плакат", emoji:"🖼️", tts:"poster"},
-        {word:"favourite colour", ru:"любимый цвет", emoji:"🎨", tts:"favourite colour"},
-        {word:"I'm ten.", ru:"Мне десять лет.", emoji:"🔟", tts:"I'm ten."}
-      ],
-      grammar:{
-        rule:"We talk about name, age, country and favourite colour.",
-        formula:"My name's Birzhan.<br>I'm ten.<br>I'm from Kazakhstan.<br>My favourite colour is red.",
-        examples:[
-          "My favourite colour is blue.",
-          "I'm nine.",
-          "I'm from Aktau."
-        ]
-      },
-      reading:{
-        dialogue:`My name's Birzhan. I'm ten.<br>
-I'm from Kazakhstan. My favourite colour is red.`,
-        questions:[
-          {q:"1) The boy's name is __.", options:["Tim","Birzhan","Billy"], answer:"Birzhan"},
-          {q:"2) He is __ years old.", options:["nine","ten","eight"], answer:"ten"},
-          {q:"3) He is from __.", options:["Japan","Kazakhstan","Brazil"], answer:"Kazakhstan"},
-          {q:"4) His favourite colour is __.", options:["red","blue","green"], answer:"red"},
-          {q:"5) He is making a __.", options:["poster","book","song"], answer:"poster"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) My __'s Aigerim.", options:["name","old"], answer:"name"},
-          {sentence:"2) I __ ten.", options:["am","is"], answer:"am"},
-          {sentence:"3) My favourite colour __ blue.", options:["am","is"], answer:"is"}
-        ],
-        ws2:[
-          {emoji:"🧒", options:["My name's Arman.","I'm ten.","I'm from Kazakhstan."], answer:"My name's Arman."},
-          {emoji:"🎂", options:["My name's Arman.","I'm ten.","I'm from Kazakhstan."], answer:"I'm ten."},
-          {emoji:"🇰🇿", options:["My name's Arman.","I'm ten.","I'm from Kazakhstan."], answer:"I'm from Kazakhstan."}
-        ],
-        ws3:[
-          {sentence:"You talk about your __ when you say 'My name's Ayan'.", options:["age","name","colour"], answer:"name"},
-          {sentence:"'I'm nine' – you talk about your __.", options:["name","age","colour"], answer:"age"},
-          {sentence:"'My favourite colour is blue' – you talk about your __.", options:["poster","age","favourite colour"], answer:"favourite colour"}
-        ],
-        ws4:[
-          {sentence:"1) Birzhan is from Kazakhstan.", options:["True","False"], answer:"True"},
-          {sentence:"2) His favourite colour is green.", options:["True","False"], answer:"False"},
-          {sentence:"3) He is ten.", options:["True","False"], answer:"True"}
-        ]
-      }
-    },
-
-    // Lesson 8 – Culture: At my school
-    {
-      id:"L8",
-      title:"Lesson 8 – At my school",
-      subtitle:"Classroom instructions & positions",
-      color:"#5d4037",
-      vocab:[
-        {word:"Sit down, please.", ru:"Садитесь, пожалуйста.", emoji:"🪑", tts:"Sit down, please."},
-        {word:"Stand up!", ru:"Встаньте!", emoji:"🧍", tts:"Stand up!"},
-        {word:"Don't talk.", ru:"Не разговаривайте.", emoji:"🤐", tts:"Don't talk."},
-        {word:"next to", ru:"рядом с", emoji:"➡️", tts:"next to"},
-        {word:"in front of", ru:"перед", emoji:"⬆️", tts:"in front of"},
-        {word:"on", ru:"на", emoji:"📍", tts:"on"}
-      ],
-      grammar:{
-        rule:"Teachers give classroom instructions. We also talk about where things are.",
-        formula:"Sit down. Don't talk.<br>The rubber is next to the pencil case.",
-        examples:[
-          "Stand up, please.",
-          "The book is on the desk."
-        ]
-      },
-      reading:{
-        dialogue:`Teacher: Sit down, class. Don't talk.<br>
-The rubber is next to the pencil case.<br>
-The book is on the desk.`,
-        questions:[
-          {q:"1) The teacher says 'Sit __, class.'", options:["up","down","in"], answer:"down"},
-          {q:"2) The teacher says 'Don't __.'", options:["run","talk","read"], answer:"talk"},
-          {q:"3) The rubber is __ the pencil case.", options:["next to","on","in"], answer:"next to"},
-          {q:"4) The book is __ the desk.", options:["next to","under","on"], answer:"on"},
-          {q:"5) These sentences are about the __.", options:["playground","classroom","street"], answer:"classroom"}
-        ]
-      },
-      worksheets:{
-        ws1:[
-          {sentence:"1) The teacher says '__ down, class.'", options:["Sit","Stand"], answer:"Sit"},
-          {sentence:"2) The teacher says '__ up!'", options:["Sit","Stand"], answer:"Stand"},
-          {sentence:"3) '__ talk.'", options:["Don't","Please"], answer:"Don't"}
-        ],
-        ws2:[
-          {emoji:"🧍", options:["Stand up!","Sit down, please.","Don't talk."], answer:"Stand up!"},
-          {emoji:"🪑", options:["Stand up!","Sit down, please.","Don't talk."], answer:"Sit down, please."},
-          {emoji:"🤐", options:["Stand up!","Sit down, please.","Don't talk."], answer:"Don't talk."}
-        ],
-        ws3:[
-          {sentence:"The book is __ the desk.", options:["on","next to","in front of"], answer:"on"},
-          {sentence:"The rubber is __ the pencil case.", options:["in front of","next to","on"], answer:"next to"},
-          {sentence:"The chair is __ the table.", options:["under","next to","in"], answer:"next to"}
-        ],
-        ws4:[
-          {sentence:"1) The teacher says 'Don't talk.'", options:["True","False"], answer:"True"},
-          {sentence:"2) The rubber is on the desk.", options:["True","False"], answer:"False"},
-          {sentence:"3) The classroom is in the story.", options:["True","False"], answer:"True"}
+          { sentence:"Rosy says: ‘My name’s Rosy.’", answer:"True" },
+          { sentence:"Tim says: ‘I’m ten.’", answer:"False" }
         ]
       }
     }
-  ];
+  },
 
-  // ====== LOGIN & MENU ======
-  function show(id){
-    ["loginScreen","menuScreen","lessonScreen","teacherScreen"].forEach(sec=>{
-      document.getElementById(sec).classList.add("hidden");
-    });
-    document.getElementById(id).classList.remove("hidden");
+  {
+    id: 2,
+    title: "Lesson 2 – Alphabet",
+    subtitle: "Say the letters.",
+    color: "#6a2c91",
+    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:true }, // alphabet special
+    vocab: [], // alphabet generated automatically
+    grammar: {
+      title: "Spell your name",
+      rule: `We can spell: <b>My name’s ...</b> and letters.`,
+      formula: `Formula: My name’s + Name. → Spell: A-R-A-Y`,
+      examples: [
+        `My name’s Saken. S-A-K-E-N.`,
+        `My name’s Gauhar. G-A-U-K-H-A-R.`
+      ]
+    },
+    worksheets: {
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) My name’s Adil. (Choose)", options:["My","She","They"], answer:"My" },
+          { q:"2) What’s your ____ ?", options:["name","book","desk"], answer:"name" },
+          { q:"3) Spell: A-R-A-Y (Choose)", options:["Aray","Rosy","Billy"], answer:"Aray" }
+        ]
+      }
+      // WS2/WS3/WS4 not shown for alphabet
+    }
+  },
+
+  {
+    id: 3,
+    title: "Lesson 3 – Song",
+    subtitle: "Hello, hello!",
+    color: "#d23b6c",
+    show: { vocab:true, grammar:true, worksheets:true, song:true, alphabet:false },
+    vocab: [
+      {pic:"😊", en:"I’m fine.", ru:"я в порядке"},
+      {pic:"❓", en:"How are you?", ru:"как ты?"},
+      {pic:"👋", en:"Goodbye", ru:"пока"},
+      {pic:"🙋‍♀️", en:"My name’s ...", ru:"меня зовут ..."}
+    ],
+    grammar: {
+      title: "How are you?",
+      rule: `We ask: <b>How are you?</b><br>We answer: <b>I’m fine, thank you.</b>`,
+      formula: `Formula: How are you? → I’m fine, thank you.`,
+      examples: [
+        `How are you? — I’m fine, thank you.`,
+        `Goodbye! — Bye!`
+      ]
+    },
+    song: {
+      lines:[
+        "Hello, hello!",
+        "How are you?",
+        "I’m fine, thank you.",
+        "Hello, hello!",
+        "What’s your name?",
+        "My name’s ____.",
+        "That’s my name.",
+        "Goodbye, goodbye!",
+        "Goodbye to you…"
+      ],
+      intervalMs: 900
+    },
+    worksheets: {
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) How are you? — I’m ____.", options:["fine","two","book"], answer:"fine" },
+          { q:"2) ____ are you?", options:["How","What","Where"], answer:"How" },
+          { q:"3) Goodbye! — ____.", options:["Bye","Hello","Rosy"], answer:"Bye" }
+        ]
+      }
+    }
+  },
+
+  {
+    id: 4,
+    title: "Lesson 4 – Numbers 1–20",
+    subtitle: "How old are you?",
+    color: "#0b6aa9",
+    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
+    vocab: [
+      {pic:"1️⃣", en:"one", ru:"один"},
+      {pic:"2️⃣", en:"two", ru:"два"},
+      {pic:"3️⃣", en:"three", ru:"три"},
+      {pic:"4️⃣", en:"four", ru:"четыре"},
+      {pic:"5️⃣", en:"five", ru:"пять"},
+      {pic:"🔟", en:"ten", ru:"десять"}
+    ],
+    grammar: {
+      title: "How old are you?",
+      rule: `We ask: <b>How old are you?</b><br>We answer: <b>I’m ...</b>`,
+      formula: `Formula: How old are you? → I’m + number.`,
+      examples: [
+        `How old are you? — I’m nine.`,
+        `How old is she? — She’s ten.`
+      ]
+    },
+    worksheets: {
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) How old ____ you?", options:["are","is","am"], answer:"are" },
+          { q:"2) I’m ____.", options:["nine","Rosy","Hello"], answer:"nine" },
+          { q:"3) She’s ____.", options:["ten","book","fine"], answer:"ten" }
+        ]
+      },
+      ws2: {
+        title:"Worksheet 2 – Matching picture and word",
+        items:[
+          { pic:"1️⃣", answer:"one", options:["one","two","ten"] },
+          { pic:"2️⃣", answer:"two", options:["three","two","five"] },
+          { pic:"🔟", answer:"ten", options:["ten","four","one"] }
+        ]
+      },
+      ws3: {
+        title:"Worksheet 3 – Mini vocabulary quiz",
+        items:[
+          { q:"1) Choose: 4️⃣", options:["four","five","two"], answer:"four" },
+          { q:"2) Choose: 3️⃣", options:["one","three","ten"], answer:"three" },
+          { q:"3) Choose: 5️⃣", options:["five","two","four"], answer:"five" }
+        ]
+      },
+      ws4: {
+        title:"Worksheet 4 – Reading check (True / False)",
+        dialogue:`Hi, Billy. How old are you?<br>I’m two.<br>I’m sorry. Come on, Billy.<br>Goodbye!`,
+        questions:[
+          { sentence:"Billy is two.", answer:"True" },
+          { sentence:"Billy is ten.", answer:"False" }
+        ]
+      }
+    }
+  },
+
+  {
+    id: 5,
+    title: "Lesson 5 – Colours",
+    subtitle: "Skills time!",
+    color: "#1b7d3a",
+    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
+    vocab: [
+      {pic:"🟥", en:"red", ru:"красный"},
+      {pic:"🟨", en:"yellow", ru:"жёлтый"},
+      {pic:"🟩", en:"green", ru:"зелёный"},
+      {pic:"🟦", en:"blue", ru:"синий"},
+      {pic:"⬛", en:"black", ru:"чёрный"},
+      {pic:"⬜", en:"white", ru:"белый"}
+    ],
+    grammar: {
+      title: "It is … / My favourite colour is …",
+      rule: `We say colours: <b>It is red.</b> / <b>My favourite colour is blue.</b>`,
+      formula: `Formula: It is + colour. | My favourite colour is + colour.`,
+      examples: [
+        `It is red.`,
+        `My favourite colour is green.`
+      ]
+    },
+    worksheets: {
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) My favourite colour ____ red.", options:["is","are","am"], answer:"is" },
+          { q:"2) It ____ blue.", options:["is","are","am"], answer:"is" },
+          { q:"3) Choose a colour:", options:["green","Tim","nine"], answer:"green" }
+        ]
+      },
+      ws2: {
+        title:"Worksheet 2 – Matching picture and word",
+        items:[
+          { pic:"🟥", answer:"red", options:["red","blue","green"] },
+          { pic:"🟩", answer:"green", options:["yellow","green","white"] },
+          { pic:"🟦", answer:"blue", options:["blue","black","red"] }
+        ]
+      },
+      ws3: {
+        title:"Worksheet 3 – Mini vocabulary quiz",
+        items:[
+          { q:"1) Choose: 🟨", options:["yellow","black","blue"], answer:"yellow" },
+          { q:"2) Choose: ⬛", options:["white","black","green"], answer:"black" },
+          { q:"3) Choose: ⬜", options:["white","red","yellow"], answer:"white" }
+        ]
+      },
+      ws4: {
+        title:"Worksheet 4 – Reading check (True / False)",
+        dialogue:`My favourite colour is red.<br>My favourite colour is green.<br>It is blue and yellow.`,
+        questions:[
+          { sentence:"A favourite colour can be red.", answer:"True" },
+          { sentence:"Blue is a number.", answer:"False" }
+        ]
+      }
+    }
+  },
+
+  {
+    id: 6,
+    title: "Lesson 6 – Name, age, country",
+    subtitle: "Where are you from?",
+    color: "#b24a00",
+    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
+    vocab: [
+      {pic:"🇰🇿", en:"Kazakhstan", ru:"Казахстан"},
+      {pic:"🇬🇧", en:"the UK", ru:"Великобритания"},
+      {pic:"🇺🇸", en:"the USA", ru:"США"},
+      {pic:"🧒", en:"She’s …", ru:"ей …"},
+      {pic:"🗣️", en:"I’m from …", ru:"я из …"},
+      {pic:"🎂", en:"nine", ru:"девять"}
+    ],
+    grammar: {
+      title: "Where are you from?",
+      rule: `We ask: <b>Where are you from?</b><br>We answer: <b>I’m from ...</b>`,
+      formula: `Formula: Where are you from? → I’m from + country.`,
+      examples: [
+        `Where are you from? — I’m from Kazakhstan.`,
+        `What’s your name? — My name’s Aizere.`
+      ]
+    },
+    worksheets: {
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) I’m ____ Kazakhstan.", options:["from","on","in"], answer:"from" },
+          { q:"2) Where ____ you from?", options:["are","is","am"], answer:"are" },
+          { q:"3) She’s ____.", options:["nine","desk","hello"], answer:"nine" }
+        ]
+      },
+      ws2: {
+        title:"Worksheet 2 – Matching picture and word",
+        items:[
+          { pic:"🇰🇿", answer:"Kazakhstan", options:["Kazakhstan","the UK","the USA"] },
+          { pic:"🇬🇧", answer:"the UK", options:["the UK","Kazakhstan","the USA"] },
+          { pic:"🇺🇸", answer:"the USA", options:["the USA","the UK","Kazakhstan"] }
+        ]
+      },
+      ws3: {
+        title:"Worksheet 3 – Mini vocabulary quiz",
+        items:[
+          { q:"1) Choose: I’m ____ Kazakhstan.", options:["from","fine","name"], answer:"from" },
+          { q:"2) Choose: 🇬🇧", options:["the UK","the USA","Kazakhstan"], answer:"the UK" },
+          { q:"3) Choose: 🇰🇿", options:["Kazakhstan","the UK","the USA"], answer:"Kazakhstan" }
+        ]
+      },
+      ws4: {
+        title:"Worksheet 4 – Reading check (True / False)",
+        dialogue:`What’s your name?<br>My name’s Aizere.<br>How old are you?<br>I’m nine.<br>Where are you from?<br>I’m from Kazakhstan.`,
+        questions:[
+          { sentence:"Aizere is nine.", answer:"True" },
+          { sentence:"Aizere is from the USA.", answer:"False" }
+        ]
+      }
+    }
+  },
+
+  {
+    id: 7,
+    title: "Lesson 7 – Project",
+    subtitle: "Make a poster about you.",
+    color: "#006b80",
+    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
+    vocab: [
+      {pic:"🧍‍♀️", en:"My name’s …", ru:"меня зовут …"},
+      {pic:"🎂", en:"I’m …", ru:"мне …"},
+      {pic:"🌍", en:"I’m from …", ru:"я из …"},
+      {pic:"🎨", en:"favourite colour", ru:"любимый цвет"},
+      {pic:"🟦", en:"blue", ru:"синий"},
+      {pic:"🟥", en:"red", ru:"красный"}
+    ],
+    grammar: {
+      title: "About me",
+      rule: `We can say: <b>My name’s …</b> / <b>I’m …</b> / <b>I’m from …</b>`,
+      formula: `Formula: My name’s + Name. | I’m + age. | I’m from + country.`,
+      examples: [
+        `My name’s Birzhan. I’m ten. I’m from Kazakhstan.`,
+        `My favourite colour is red.`
+      ]
+    },
+    worksheets: {
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) My name’s ____.", options:["Birzhan","red","nine"], answer:"Birzhan" },
+          { q:"2) I’m ____.", options:["ten","blue","UK"], answer:"ten" },
+          { q:"3) My favourite colour is ____.", options:["red","Tim","two"], answer:"red" }
+        ]
+      },
+      ws2: {
+        title:"Worksheet 2 – Matching picture and word",
+        items:[
+          { pic:"🎂", answer:"age", options:["age","name","colour"] },
+          { pic:"🎨", answer:"colour", options:["country","colour","name"] },
+          { pic:"🌍", answer:"country", options:["country","age","colour"] }
+        ]
+      },
+      ws3: {
+        title:"Worksheet 3 – Mini vocabulary quiz",
+        items:[
+          { q:"1) Choose: 🎨", options:["colour","name","age"], answer:"colour" },
+          { q:"2) Choose: 🌍", options:["country","age","hello"], answer:"country" },
+          { q:"3) Choose: 🎂", options:["age","goodbye","red"], answer:"age" }
+        ]
+      },
+      ws4: {
+        title:"Worksheet 4 – Reading check (True / False)",
+        dialogue:`My name’s Birzhan.<br>I’m ten.<br>I’m from Kazakhstan.<br>My favourite colour is red.`,
+        questions:[
+          { sentence:"Birzhan is ten.", answer:"True" },
+          { sentence:"Birzhan is from the UK.", answer:"False" }
+        ]
+      }
+    }
+  },
+
+  {
+    id: 8,
+    title: "Lesson 8 – Culture (At my school)",
+    subtitle: "Classroom instructions + prepositions",
+    color: "#7a8b00",
+    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
+    vocab: [
+      {pic:"🪑", en:"chair", ru:"стул"},
+      {pic:"🧑‍🏫", en:"teacher", ru:"учитель"},
+      {pic:"🧏", en:"Listen!", ru:"слушай!"},
+      {pic:"🤫", en:"Don’t talk.", ru:"не говори"},
+      {pic:"➡️", en:"next to", ru:"рядом"},
+      {pic:"📍", en:"near", ru:"возле"}
+    ],
+    grammar: {
+      title: "Where is it? (near / next to)",
+      rule: `We ask: <b>Where’s the chair?</b><br>We answer: <b>It’s near the desk.</b> / <b>It’s next to the desk.</b>`,
+      formula: `Formula: Where’s + noun? → It’s near / next to + noun.`,
+      examples: [
+        `Where’s the chair? — It’s near the desk.`,
+        `Where’s the pencil case? — It’s next to the book.`
+      ]
+    },
+    worksheets: {
+      ws1: {
+        title:"Worksheet 1 – Grammar choose",
+        items:[
+          { q:"1) Where’s the chair? — It’s ____ the desk.", options:["near","nine","hello"], answer:"near" },
+          { q:"2) It’s ____ to the desk.", options:["next","fine","from"], answer:"next" },
+          { q:"3) ____ the chair?", options:["Where’s","How","What"], answer:"Where’s" }
+        ]
+      },
+      ws2: {
+        title:"Worksheet 2 – Matching picture and word",
+        items:[
+          { pic:"🧏", answer:"Listen!", options:["Listen!","Goodbye","Blue"] },
+          { pic:"🤫", answer:"Don’t talk.", options:["Don’t talk.","I’m fine.","Ten"] },
+          { pic:"🪑", answer:"chair", options:["chair","teacher","desk"] }
+        ]
+      },
+      ws3: {
+        title:"Worksheet 3 – Mini vocabulary quiz",
+        items:[
+          { q:"1) Choose: ➡️", options:["next to","near","from"], answer:"next to" },
+          { q:"2) Choose: 📍", options:["near","red","two"], answer:"near" },
+          { q:"3) Choose: 🤫", options:["Don’t talk.","Hello","Teacher"], answer:"Don’t talk." }
+        ]
+      },
+      ws4: {
+        title:"Worksheet 4 – Reading check (True / False)",
+        dialogue:`Sit down, class.<br>Listen. Don’t talk.<br>Where’s the chair?<br>It’s near the desk.`,
+        questions:[
+          { sentence:"‘Don’t talk’ means ‘Be quiet.’", answer:"True" },
+          { sentence:"The chair is in Kazakhstan.", answer:"False" }
+        ]
+      }
+    }
   }
+];
 
-  function handleLogin(){
-    const name = document.getElementById("loginName").value.trim();
-    const pin = document.getElementById("loginPin").value.trim();
+let currentLessonId = null;
+let karaokeTimer = null;
+let karaokeIndex = 0;
 
-    if(pin === TEACHER_PIN){
-      currentUser = {name: name || "Teacher", role:"teacher"};
-      document.getElementById("teacherMenuBlock").classList.remove("hidden");
-      renderMenu();
-      show("menuScreen");
-      return;
-    }
+/** ===========
+ *  UI RENDER
+ *  =========== */
 
-    if(pin === STUDENT_PIN){
-      if(!allowedStudents.includes(name)){
-        alert("This name is not in the student list. Use format like '3E S1'.");
-        return;
-      }
-      currentUser = {name, role:"student"};
-      document.getElementById("teacherMenuBlock").classList.add("hidden");
-      renderMenu();
-      show("menuScreen");
-      return;
-    }
+function renderHome(){
+  currentLessonId = null;
+  document.getElementById("backBar").style.display = "none";
+  document.getElementById("footerNote").style.display = "block";
 
-    alert("Wrong PIN.");
-  }
+  const app = document.getElementById("app");
+  app.innerHTML = `
+    <div class="top">
+      <div class="logoCircle"></div>
+      <div class="title">ENGLISH WITH AI BAYAN</div>
+      <div class="subtitle">Grade 3 – Family and Friends 3</div>
+      <div class="subtitle" style="margin-top:6px;font-size:15px;opacity:.92">
+        Unit 1 — Lessons 1–8
+      </div>
+      <div class="card" style="margin-top:14px">
+        <div class="cardHeader" style="background:#0a6b5a">
+          <div>
+            <h2>Choose a lesson</h2>
+            <div class="small">Tap a card to open</div>
+          </div>
+          <div class="starsLine">⭐ Total: <span id="totalStars">0</span></div>
+        </div>
+        <div class="content">
+          <div class="grid" id="lessonGrid"></div>
+        </div>
+      </div>
+    </div>
+  `;
 
-  function renderMenu(){
-    document.getElementById("helloUser").textContent =
-      currentUser.role==="teacher"
-        ? "Hello, Teacher!"
-        : `Hello, ${currentUser.name}!`;
+  document.getElementById("totalStars").textContent = getTotalStars();
 
-    const totalStars = getTotalStars();
-    document.getElementById("totalStarsText").textContent =
-      `Total stars in all lessons: ${totalStars} ⭐`;
+  const grid = document.getElementById("lessonGrid");
+  lessons.forEach(ls=>{
+    const st = getLessonStars(ls.id);
+    const btn = document.createElement("button");
+    btn.className = "mini-tab";
+    btn.style.background = ls.color;
+    btn.style.width = "100%";
+    btn.style.textAlign = "left";
+    btn.style.borderRadius = "18px";
+    btn.style.padding = "14px";
+    btn.innerHTML = `
+      <div style="font-size:18px;font-weight:1000">${escapeHtml(ls.title)}</div>
+      <div style="font-size:14px;opacity:.95;font-weight:800;margin-top:4px">${escapeHtml(ls.subtitle)}</div>
+      <div style="margin-top:8px;font-weight:1000">⭐ Stars in lesson: ${st}</div>
+    `;
+    btn.onclick = ()=>openLesson(ls.id);
+    grid.appendChild(btn);
+  });
+}
 
-    const list = document.getElementById("lessonList");
-    list.innerHTML = "";
-    lessons.forEach(lesson=>{
-      const stars = getLessonStar(lesson.id);
-      const btn = document.createElement("button");
-      btn.className = "lesson-btn";
-      btn.style.borderLeft = `8px solid ${lesson.color}`;
-      btn.onclick = ()=>openLesson(lesson.id);
-      btn.innerHTML = `
+function openLesson(id){
+  stopKaraoke();
+  currentLessonId = id;
+  document.getElementById("backBar").style.display = "flex";
+  document.getElementById("footerNote").style.display = "none";
+
+  const ls = lessons.find(x=>x.id===id);
+  if(!ls) return;
+
+  // apply colors to bottom buttons
+  document.getElementById("btnBack").style.background = ls.color;
+  document.getElementById("btnSave").style.background = ls.color;
+  document.getElementById("btnPrint").style.background = ls.color;
+
+  const stars = getLessonStars(id);
+
+  const app = document.getElementById("app");
+  app.innerHTML = `
+    <div class="top" style="border-color:var(--gold)">
+      <div class="logoCircle"></div>
+      <div class="title">ENGLISH WITH AI BAYAN</div>
+      <div class="subtitle">Grade 3 – Family and Friends 3</div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeader" style="background:${ls.color}">
         <div>
-          <div class="lesson-btn-title">${lesson.title}</div>
-          <div class="small-note">${lesson.subtitle}</div>
+          <h2>${escapeHtml(ls.title)}</h2>
+          <div class="small">${escapeHtml(ls.subtitle)}</div>
+          <div class="small"><b>You have ${stars} ⭐ in this lesson.</b></div>
         </div>
-        <div>
-          <span class="pill">${stars} ⭐</span>
+        <div style="text-align:right;font-weight:1000">
+          <div style="opacity:.95">Lesson colour</div>
+          <div style="margin-top:6px;width:36px;height:36px;border-radius:12px;background:#fff;border:3px solid rgba(0,0,0,.15)"></div>
         </div>
-      `;
-      list.appendChild(btn);
-    });
+      </div>
+      <div class="content">
+        <div class="pillRow" id="lessonMenu"></div>
+        <div id="lessonBody"></div>
+      </div>
+    </div>
+  `;
+
+  const menu = document.getElementById("lessonMenu");
+  const addTab = (label, targetId) => {
+    const b = document.createElement("button");
+    b.className = "mini-tab";
+    b.style.background = ls.color;
+    b.textContent = label;
+    b.onclick = ()=>document.getElementById(targetId)?.scrollIntoView({behavior:"smooth", block:"start"});
+    menu.appendChild(b);
+  };
+
+  if(ls.show.vocab) addTab("🧠 VOCABULARY", "sec-vocab");
+  if(ls.show.grammar) addTab("📘 GRAMMAR", "sec-grammar");
+  if(ls.show.worksheets) addTab("📄 WORKSHEETS", "sec-ws");
+  addTab("🖨 PRINT", "sec-print");
+
+  const body = document.getElementById("lessonBody");
+
+  // Vocabulary
+  if(ls.show.vocab){
+    const sec = document.createElement("div");
+    sec.className = "section";
+    sec.id = "sec-vocab";
+    sec.innerHTML = `
+      <div class="sectionTitle">🧠 VOCABULARY — Picture words</div>
+      <p class="hint">Tap “Say it” to hear AI Bayan (device TTS).</p>
+      <div class="grid" id="vGrid"></div>
+    `;
+    body.appendChild(sec);
+
+    const vGrid = sec.querySelector("#vGrid");
+    if(ls.show.alphabet){
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      letters.forEach(ch=>{
+        vGrid.appendChild(vocabCard({pic:ch, en: ch, ru:""} , ls.color));
+      });
+    } else {
+      (ls.vocab || []).forEach(item=>vGrid.appendChild(vocabCard(item, ls.color)));
+    }
   }
 
-  function askAI(){
-    const q = document.getElementById("aiQuestion").value.trim();
-    const ans = document.getElementById("aiAnswer");
-    if(!q){
-      ans.textContent = "Write your question first.";
-      return;
-    }
-    ans.textContent = "AI Bayan: Think about Unit 1 – use greetings, numbers, colours and simple sentences. (Here you can later connect a real AI endpoint.)";
+  // Song karaoke section
+  if(ls.show.song && ls.song){
+    const sec = document.createElement("div");
+    sec.className = "section";
+    sec.id = "sec-song";
+    sec.innerHTML = `
+      <div class="sectionTitle">🎵 SONG — Karaoke</div>
+      <p class="hint">Press Play — lines will highlight like karaoke (no mp3 yet).</p>
+      <div class="karaoke" id="karaokeBox"></div>
+      <div class="btnLine">
+        <button class="btn" style="background:${ls.color}" onclick="startKaraoke(${ls.id})">▶ Play</button>
+        <button class="btn" style="background:${ls.color}" onclick="stopKaraoke()">⏹ Stop</button>
+      </div>
+    `;
+    body.appendChild(sec);
+    renderKaraoke(ls);
   }
 
-  // ====== LESSON RENDERING ======
-  function openLesson(id){
-    currentLessonId = id;
-    const lesson = lessons.find(l=>l.id===id);
-    if(!lesson) return;
+  // Grammar
+  if(ls.show.grammar){
+    const sec = document.createElement("div");
+    sec.className = "section";
+    sec.id = "sec-grammar";
+    sec.innerHTML = `
+      <div class="sectionTitle">📘 GRAMMAR — Key Rule</div>
+      <div class="ruleBox">
+        <h3>${escapeHtml(ls.grammar?.title || "Grammar")}</h3>
+        <p>${ls.grammar?.rule || ""}</p>
+        <p><b>${escapeHtml(ls.grammar?.formula || "")}</b></p>
+        <div style="margin-top:8px;font-weight:1000">Examples:</div>
+        <ul>
+          ${(ls.grammar?.examples||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join("")}
+        </ul>
+      </div>
+    `;
+    body.appendChild(sec);
+  }
 
-    const headerBox = document.getElementById("lessonHeaderBox");
-    headerBox.style.background = lesson.color;
+  // Worksheets
+  if(ls.show.worksheets){
+    const sec = document.createElement("div");
+    sec.className = "section";
+    sec.id = "sec-ws";
+    sec.innerHTML = `
+      <div class="sectionTitle">📄 WORKSHEETS</div>
+      <p class="hint">Do tasks → Check ✔ → Stars are added for correct answers.</p>
+      <div id="wsHolder"></div>
+    `;
+    body.appendChild(sec);
 
-    document.getElementById("lessonTitle").textContent = lesson.title;
-    document.getElementById("lessonSubtitle").textContent = lesson.subtitle;
+    const holder = sec.querySelector("#wsHolder");
+    buildWorksheets(holder, ls);
+  }
 
-    const stars = getLessonStar(id);
-    document.getElementById("lessonStarsText").textContent =
-      `You have ${stars} ⭐ in this lesson.`;
+  // Print
+  const secP = document.createElement("div");
+  secP.className = "section";
+  secP.id = "sec-print";
+  secP.innerHTML = `
+    <div class="sectionTitle">🖨 PRINT</div>
+    <p class="hint">Print this lesson: Vocabulary + Grammar + Worksheets.</p>
+    <button class="btn" style="background:${ls.color}" onclick="printLesson()">🖨 Print lesson</button>
+  `;
+  body.appendChild(secP);
 
-    const content = document.getElementById("lessonContent");
-    content.innerHTML = "";
+  // Scroll top
+  window.scrollTo({top:0, behavior:"smooth"});
+}
 
-    // VOCABULARY
-    if(lesson.vocab && lesson.vocab.length){
-      const card = document.createElement("section");
-      card.className = "card";
-      card.innerHTML = `<h2>🧠 VOCABULARY – Picture words</h2>
-        <p>Tap the speaker to hear AI Bayan say the word in English.</p>`;
-      const grid = document.createElement("div");
-      grid.className = "vocab-grid";
-      lesson.vocab.forEach((v,i)=>{
-        const vcard = document.createElement("div");
-        vcard.className = "vocab-card";
-        vcard.innerHTML = `
-          <div class="vocab-emoji">${v.emoji||"📖"}</div>
-          <div class="vocab-word">${v.word}</div>
-          <div class="vocab-ru">${v.ru||""}</div>
-          <button class="btn say-btn" onclick="sayWord('${id}',${i})">🔊 Say it</button>
-        `;
-        grid.appendChild(vcard);
-      });
-      card.appendChild(grid);
-      content.appendChild(card);
+function vocabCard(item, color){
+  const wrap = document.createElement("div");
+  wrap.className = "vCard";
+  wrap.innerHTML = `
+    <div class="pic">${escapeHtml(item.pic||"")}</div>
+    <div class="wEng">${escapeHtml(item.en||"")}</div>
+    ${item.ru ? `<div class="wRus">${escapeHtml(item.ru)}</div>` : `<div style="height:20px"></div>`}
+    <div class="btnLine" style="justify-content:center;margin-top:10px">
+      <button class="btn" style="background:${color}" onclick="sayText('${jsQuote(item.en||"")}')">🔊 Say it</button>
+    </div>
+  `;
+  return wrap;
+}
+
+/** ======================
+ *  WORKSHEETS (WS1–WS4)
+ *  ====================== */
+function buildWorksheets(container, lesson){
+  const ws = lesson.worksheets || {};
+
+  // Alphabet lesson special: only WS1
+  if(lesson.show.alphabet){
+    if(ws.ws1) container.appendChild(wsChooseBlock("ws1", ws.ws1, lesson.color));
+    return;
+  }
+
+  if(ws.ws1) container.appendChild(wsChooseBlock("ws1", ws.ws1, lesson.color));
+  if(ws.ws2) container.appendChild(wsMatchingBlock("ws2", ws.ws2, lesson.color));
+  if(ws.ws3) container.appendChild(wsChooseBlock("ws3", ws.ws3, lesson.color)); // mini vocab quiz (choose)
+  if(ws.ws4) container.appendChild(wsReadingTFBlock("ws4", ws.ws4, lesson.color));
+}
+
+function wsChooseBlock(key, data, color){
+  const box = document.createElement("div");
+  box.style.marginTop = "14px";
+  box.innerHTML = `<h3 style="margin:0 0 10px">${escapeHtml(data.title)}</h3>`;
+  (data.items||[]).forEach((it, idx)=>{
+    const row = document.createElement("div");
+    row.className = "wsRow";
+    row.innerHTML = `
+      <div class="wsLabel">${escapeHtml(it.q)}</div>
+      <select data-ws="${key}" data-index="${idx}">
+        <option value="">-- choose --</option>
+        ${(it.options||[]).map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
+      </select>
+    `;
+    box.appendChild(row);
+  });
+  const btnLine = document.createElement("div");
+  btnLine.className = "btnLine";
+  btnLine.innerHTML = `
+    <button class="btn" style="background:${color}" onclick="checkWorksheet('${key}')">Check ✔</button>
+    <div class="statusText" id="status-${key}"></div>
+  `;
+  box.appendChild(btnLine);
+  return box;
+}
+
+function wsMatchingBlock(key, data, color){
+  const box = document.createElement("div");
+  box.style.marginTop = "14px";
+  box.innerHTML = `<h3 style="margin:0 0 10px">${escapeHtml(data.title)}</h3>
+                   <p class="hint" style="margin-top:-4px">Choose the correct word for each picture.</p>`;
+  (data.items||[]).forEach((it, idx)=>{
+    const row = document.createElement("div");
+    row.className = "wsRow";
+    row.innerHTML = `
+      <div class="wsLabel">${idx+1}) <span style="font-size:28px">${escapeHtml(it.pic||"")}</span></div>
+      <select data-ws="${key}" data-index="${idx}">
+        <option value="">-- choose --</option>
+        ${(it.options||[]).map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
+      </select>
+    `;
+    box.appendChild(row);
+  });
+  const btnLine = document.createElement("div");
+  btnLine.className = "btnLine";
+  btnLine.innerHTML = `
+    <button class="btn" style="background:${color}" onclick="checkWorksheet('${key}')">Check ✔</button>
+    <div class="statusText" id="status-${key}"></div>
+  `;
+  box.appendChild(btnLine);
+  return box;
+}
+
+function wsReadingTFBlock(key, data, color){
+  const box = document.createElement("div");
+  box.style.marginTop = "14px";
+  box.innerHTML = `<h3 style="margin:0 0 8px">${escapeHtml(data.title)}</h3>
+                   <div class="reading-dialogue">${data.dialogue || ""}</div>`;
+  (data.questions||[]).forEach((it, idx)=>{
+    const row = document.createElement("div");
+    row.className = "wsRow";
+    row.innerHTML = `
+      <div class="wsLabel">${idx+1}) ${escapeHtml(it.sentence)}</div>
+      <select data-ws="${key}" data-index="${idx}">
+        <option value="">-- choose --</option>
+        <option value="True">True</option>
+        <option value="False">False</option>
+      </select>
+    `;
+    box.appendChild(row);
+  });
+  const btnLine = document.createElement("div");
+  btnLine.className = "btnLine";
+  btnLine.innerHTML = `
+    <button class="btn" style="background:${color}" onclick="checkWorksheet('${key}')">Check ✔</button>
+    <div class="statusText" id="status-${key}"></div>
+  `;
+  box.appendChild(btnLine);
+  return box;
+}
+
+/** ======================
+ *  CHECK + STARS
+ *  ====================== */
+function checkWorksheet(key){
+  const ls = lessons.find(x=>x.id===currentLessonId);
+  if(!ls) return;
+  const ws = ls.worksheets?.[key];
+  if(!ws) return;
+
+  const selects = Array.from(document.querySelectorAll(`select[data-ws="${key}"]`));
+  let total = selects.length;
+  let correct = 0;
+
+  selects.forEach(sel=>{
+    const idx = Number(sel.getAttribute("data-index"));
+    const val = sel.value;
+
+    let ans = "";
+    if(key==="ws2"){
+      ans = (ws.items?.[idx]?.answer || "");
+    } else if(key==="ws4"){
+      ans = (ws.questions?.[idx]?.answer || "");
+    } else {
+      ans = (ws.items?.[idx]?.answer || "");
     }
 
-    // GRAMMAR
-    if(lesson.grammar){
-      const card = document.createElement("section");
-      card.className = "card";
-      card.innerHTML = `
-        <h2>📘 GRAMMAR – Key rule</h2>
-        <div class="grammar-box">
-          <div class="grammar-rule">${lesson.grammar.rule}</div>
-          <div class="grammar-formula">${lesson.grammar.formula}</div>
-          <ul class="examples-list">
-            ${lesson.grammar.examples.map(e=>`<li>${e}</li>`).join("")}
-          </ul>
-        </div>
-      `;
-      content.appendChild(card);
-    }
-
-    // SONG (karaoke)
-    if(lesson.song){
-      const card = document.createElement("section");
-      card.className = "card karaoke-box";
-      card.innerHTML = `
-        <h2>🎵 SONG – ${lesson.song.title}</h2>
-        <p>Tap <strong>Play song</strong> and sing with AI Bayan like karaoke.</p>
-        <div class="karaoke-lines">
-          ${lesson.song.lines.map((line,i)=>`
-            <div class="karaoke-line" data-line="${i}">${line}</div>
-          `).join("")}
-        </div>
-        <div style="margin-top:10px;">
-          <button class="btn" onclick="playSongKaraoke('${id}')">▶ Play song</button>
-          <button class="btn btn-outline" onclick="stopSongKaraoke()">⏹ Stop</button>
-        </div>
-      `;
-      content.appendChild(card);
-    }
-
-    // READING
-    if(lesson.reading){
-      const card = document.createElement("section");
-      card.className = "card";
-      card.innerHTML = `<h2>📖 READING – Mini dialogue</h2>`;
-      const dialog = document.createElement("div");
-      dialog.className = "reading-dialogue";
-      dialog.innerHTML = lesson.reading.dialogue;
-      card.appendChild(dialog);
-
-      const qWrap = document.createElement("div");
-      lesson.reading.questions.forEach((qObj,idx)=>{
-        const row = document.createElement("div");
-        row.className = "q-item";
-        row.innerHTML = `
-          <div>${qObj.q}</div>
-          <select class="ws-select" data-section="reading" data-index="${idx}">
-            <option value="">-- choose --</option>
-            ${qObj.options.map(opt=>`<option value="${opt}">${opt}</option>`).join("")}
-          </select>
-        `;
-        qWrap.appendChild(row);
-      });
-      card.appendChild(qWrap);
-      content.appendChild(card);
-    }
-
-    // WORKSHEETS
-    buildWorksheets(content, lesson);
-
-    // Update bottom text and button
-    const attemptsKey = getAttemptsKey(id);
-    const already = localStorage.getItem(attemptsKey);
-    const saveBtn = document.getElementById("saveResultBtn");
-    if(already){
-      document.getElementById("lessonCompleteText").textContent =
-        "You have already saved your result for this lesson. One try only.";
-      saveBtn.disabled = true;
+    if(val && val === ans){
+      correct++;
+      sel.style.borderColor = "rgba(11,122,60,.9)";
+      sel.style.background = "#eefaf2";
     }else{
-      document.getElementById("lessonCompleteText").textContent =
-        "Do all worksheets, then press 'Save Result'.";
-      saveBtn.disabled = false;
+      sel.style.borderColor = "rgba(179,38,30,.8)";
+      sel.style.background = "#fff1f0";
     }
+  });
 
-    show("lessonScreen");
+  // stars: add +1 star for each correct answer (simple and clear)
+  addStars(ls.id, correct);
+
+  const st = document.getElementById(`status-${key}`);
+  if(st){
+    st.innerHTML = `<span class="${correct===total ? "ok":"bad"}">Correct: ${correct} / ${total}</span>`;
   }
 
-  function buildWorksheets(container, lesson){
-    const ws = lesson.worksheets || {};
-    const card = document.createElement("section");
-    card.className = "card";
-    card.innerHTML = `<h2>📄 WORKSHEETS (4 tasks)</h2>`;
-    const inner = document.createElement("div");
-    card.appendChild(inner);
+  // refresh header stars line
+  const header = document.querySelector(".cardHeader .small b");
+  if(header) header.textContent = `You have ${getLessonStars(ls.id)} ⭐ in this lesson.`;
+}
 
-    // WS1 – Grammar choose
-    if(ws.ws1 && ws.ws1.length){
-      const sec = document.createElement("div");
-      sec.innerHTML = `<h3>Worksheet 1 – Grammar (choose)</h3>`;
-      ws.ws1.forEach((item,idx)=>{
-        const row = document.createElement("div");
-        row.className = "ws-row";
-        row.innerHTML = `
-          <label class="ws-label">${item.sentence}</label>
-          <select class="ws-select" data-ws="ws1" data-index="${idx}">
-            <option value="">-- choose --</option>
-            ${item.options.map(opt=>`<option value="${opt}">${opt}</option>`).join("")}
-          </select>
-        `;
-        sec.appendChild(row);
-      });
-      sec.innerHTML += `<button class="btn" onclick="checkWorksheet('ws1')">Check ✔</button>
-                        <div class="status-text" id="status-ws1"></div>`;
-      inner.appendChild(sec);
-    }
+function addStars(lessonId, add){
+  const k = `aib_u1_l${lessonId}_stars`;
+  const cur = Number(localStorage.getItem(k) || "0");
+  localStorage.setItem(k, String(cur + add));
+}
+function getLessonStars(lessonId){
+  return Number(localStorage.getItem(`aib_u1_l${lessonId}_stars`) || "0");
+}
+function getTotalStars(){
+  return lessons.reduce((sum, ls)=>sum + getLessonStars(ls.id), 0);
+}
 
-    // WS2 – Matching picture and word
-    if(ws.ws2 && ws.ws2.length){
-      const sec = document.createElement("div");
-      sec.style.marginTop = "16px";
-      sec.innerHTML = `<h3>Worksheet 2 – Matching picture and word</h3>
-        <p>Choose the correct word for each picture.</p>`;
-      ws.ws2.forEach((item,idx)=>{
-        const row = document.createElement("div");
-        row.className = "match-row";
-        row.innerHTML = `
-          <div class="match-emoji">${item.emoji||"📘"}</div>
-          <select class="ws-select" data-ws="ws2" data-index="${idx}">
-            <option value="">-- choose --</option>
-            ${item.options.map(opt=>`<option value="${opt}">${opt}</option>`).join("")}
-          </select>
-        `;
-        sec.appendChild(row);
-      });
-      sec.innerHTML += `<button class="btn" onclick="checkWorksheet('ws2')">Check ✔</button>
-                        <div class="status-text" id="status-ws2"></div>`;
-      inner.appendChild(sec);
-    }
+function saveLessonResult(){
+  // here we just show a nice alert; stars already stored automatically
+  const ls = lessons.find(x=>x.id===currentLessonId);
+  if(!ls) return;
+  alert(`Saved ✅\n${ls.title}\nStars in lesson: ${getLessonStars(ls.id)}`);
+}
 
-    // WS3 – Vocabulary quiz
-    if(ws.ws3 && ws.ws3.length){
-      const sec = document.createElement("div");
-      sec.style.marginTop = "16px";
-      sec.innerHTML = `<h3>Worksheet 3 – Mini vocabulary quiz</h3>`;
-      ws.ws3.forEach((item,idx)=>{
-        const row = document.createElement("div");
-        row.className = "ws-row";
-        row.innerHTML = `
-          <label class="ws-label">${item.sentence}</label>
-          <select class="ws-select" data-ws="ws3" data-index="${idx}">
-            <option value="">-- choose --</option>
-            ${item.options.map(opt=>`<option value="${opt}">${opt}</option>`).join("")}
-          </select>
-        `;
-        sec.appendChild(row);
-      });
-      sec.innerHTML += `<button class="btn" onclick="checkWorksheet('ws3')">Check ✔</button>
-                        <div class="status-text" id="status-ws3"></div>`;
-      inner.appendChild(sec);
-    }
+function printLesson(){
+  window.print();
+}
 
-    // WS4 – Reading check
-    if(ws.ws4 && ws.ws4.length){
-      const sec = document.createElement("div");
-      sec.style.marginTop = "16px";
-      sec.innerHTML = `<h3>Worksheet 4 – Reading check</h3>`;
-      ws.ws4.forEach((item,idx)=>{
-        const row = document.createElement("div");
-        row.className = "ws-row";
-        row.innerHTML = `
-          <label class="ws-label">${item.sentence}</label>
-          <select class="ws-select" data-ws="ws4" data-index="${idx}">
-            <option value="">-- choose --</option>
-            ${item.options.map(opt=>`<option value="${opt}">${opt}</option>`).join("")}
-          </select>
-        `;
-        sec.appendChild(row);
-      });
-      sec.innerHTML += `<button class="btn" onclick="checkWorksheet('ws4')">Check ✔</button>
-                        <div class="status-text" id="status-ws4"></div>`;
-      inner.appendChild(sec);
-    }
+function goHome(){
+  stopKaraoke();
+  renderHome();
+}
 
-    container.appendChild(card);
-  }
-
-  // ==== TTS for vocabulary ====
-  function sayWord(lessonId, index){
-    const lesson = lessons.find(l=>l.id===lessonId);
-    if(!lesson) return;
-    const item = lesson.vocab[index];
-    if(!item) return;
-    if(!("speechSynthesis" in window)) return;
-    const u = new SpeechSynthesisUtterance(item.tts || item.word);
+/** ======================
+ *  TTS
+ *  ====================== */
+function sayText(text){
+  try{
+    const u = new SpeechSynthesisUtterance(text);
     u.lang = "en-US";
-    window.speechSynthesis.speak(u);
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  }catch(e){
+    alert("TTS not supported on this device/browser.");
   }
+}
 
-  // ==== Karaoke ====
-  function playSongKaraoke(lessonId){
-    const lesson = lessons.find(l=>l.id===lessonId);
-    if(!lesson || !lesson.song) return;
-    stopSongKaraoke();
-    karaokeIndex = 0;
-    const linesEls = document.querySelectorAll("#lessonScreen .karaoke-line");
-    const lines = lesson.song.lines;
+/** ======================
+ *  Karaoke (no audio)
+ *  ====================== */
+function renderKaraoke(lesson){
+  const box = document.getElementById("karaokeBox");
+  if(!box) return;
+  box.innerHTML = (lesson.song.lines||[]).map((ln,i)=>(
+    `<div class="line ${i===0?"active":""}" data-line="${i}">${escapeHtml(ln)}</div>`
+  )).join("");
+}
+function startKaraoke(lessonId){
+  stopKaraoke();
+  const lesson = lessons.find(x=>x.id===lessonId);
+  if(!lesson?.song) return;
 
-    function step(){
-      if(karaokeIndex >= lines.length){
-        stopSongKaraoke();
-        return;
-      }
-      linesEls.forEach(el=>el.classList.remove("active"));
-      const current = linesEls[karaokeIndex];
-      if(current) current.classList.add("active");
-      if("speechSynthesis" in window){
-        const u = new SpeechSynthesisUtterance(lines[karaokeIndex]);
-        u.lang = "en-US";
-        speechSynthesis.speak(u);
-      }
-      karaokeIndex++;
-      karaokeTimer = setTimeout(step, 2500);
-    }
-    step();
-  }
+  karaokeIndex = 0;
+  highlightKaraokeLine(karaokeIndex);
 
-  function stopSongKaraoke(){
-    if(karaokeTimer){ clearTimeout(karaokeTimer); karaokeTimer = null; }
-    if("speechSynthesis" in window) speechSynthesis.cancel();
-    document.querySelectorAll(".karaoke-line.active")
-      .forEach(el=>el.classList.remove("active"));
-  }
-
-  // ==== Checking worksheets & reading ====
-  function checkWorksheet(wsKey){
-    const lesson = lessons.find(l=>l.id===currentLessonId);
-    if(!lesson || !lesson.worksheets) return;
-    const ws = lesson.worksheets[wsKey] || [];
-    let correct = 0;
-    let total = ws.length;
-
-    ws.forEach((item,idx)=>{
-      const el = document.querySelector(`.ws-select[data-ws="${wsKey}"][data-index="${idx}"]`);
-      if(!el) return;
-      const val = el.value;
-      el.classList.remove("correct","wrong");
-      if(!val) return;
-      if(val === item.answer){
-        correct++;
-        el.classList.add("correct");
-      }else{
-        el.classList.add("wrong");
-      }
-    });
-
-    const status = document.getElementById(`status-${wsKey}`);
-    if(status){
-      status.textContent = `Correct: ${correct} / ${total}`;
-    }
-  }
-
-  function getLessonStar(lessonId){
-    if(!currentUser.name) return 0;
-    const key = `star_${currentUser.name}_${lessonId}`;
-    return parseInt(localStorage.getItem(key) || "0",10);
-  }
-
-  function getTotalStars(){
-    if(!currentUser.name) return 0;
-    let sum = 0;
-    lessons.forEach(lesson=>{
-      sum += getLessonStar(lesson.id);
-    });
-    return sum;
-  }
-
-  function getAttemptsKey(lessonId){
-    if(!currentUser.name) return "";
-    return `attempt_${currentUser.name}_${lessonId}`;
-  }
-
-  function saveLessonResult(){
-    if(!currentUser || currentUser.role!=="student"){
-      alert("Only students can save stars.");
+  karaokeTimer = setInterval(()=>{
+    karaokeIndex++;
+    if(karaokeIndex >= lesson.song.lines.length){
+      stopKaraoke();
       return;
     }
-    const attemptsKey = getAttemptsKey(currentLessonId);
-    if(localStorage.getItem(attemptsKey)){
-      alert("You already saved your result. One try only.");
-      return;
-    }
-
-    // simple scoring: if student answered something in each worksheet -> 1 star
-    const selects = document.querySelectorAll("#lessonScreen .ws-select");
-    if(!selects.length){
-      alert("No tasks.");
-      return;
-    }
-    let allAnswered = true;
-    selects.forEach(sel=>{
-      if(!sel.value) allAnswered = false;
-    });
-    if(!allAnswered){
-      alert("Answer all tasks before saving.");
-      return;
-    }
-
-    // Give 1 star
-    const starKey = `star_${currentUser.name}_${currentLessonId}`;
-    localStorage.setItem(starKey, "1");
-    localStorage.setItem(attemptsKey, "1");
-
-    alert("Result saved! You earned 1 ⭐ in this lesson.");
-    renderMenu();
-    openLesson(currentLessonId); // re-open to update header & button
+    highlightKaraokeLine(karaokeIndex);
+  }, lesson.song.intervalMs || 900);
+}
+function highlightKaraokeLine(i){
+  const box = document.getElementById("karaokeBox");
+  if(!box) return;
+  box.querySelectorAll(".line").forEach(el=>{
+    el.classList.remove("active");
+  });
+  const el = box.querySelector(`.line[data-line="${i}"]`);
+  if(el){
+    el.classList.add("active");
+    el.scrollIntoView({behavior:"smooth", block:"nearest"});
   }
+}
+function stopKaraoke(){
+  if(karaokeTimer){ clearInterval(karaokeTimer); karaokeTimer = null; }
+}
 
-  function backToMenu(){
-    stopSongKaraoke();
-    show("menuScreen");
-    renderMenu();
-  }
+/** ======================
+ *  Helpers
+ *  ====================== */
+function escapeHtml(s){
+  return String(s ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+function jsQuote(s){
+  return String(s ?? "").replaceAll("\\","\\\\").replaceAll("'","\\'");
+}
 
-  function printLesson(){
-    window.print();
-  }
-
-  // ===== Teacher Journal =====
-  function openTeacherJournal(){
-    const wrap = document.getElementById("journalTableWrap");
-    const students = allowedStudents.slice();
-    let html = `<table class="journal-table"><tr><th>Student</th>`;
-    lessons.forEach(l=>{ html += `<th>${l.id}</th>`; });
-    html += `<th>Total</th></tr>`;
-    students.forEach(name=>{
-      let total = 0;
-      html += `<tr><td>${name}</td>`;
-      lessons.forEach(l=>{
-        const val = parseInt(localStorage.getItem(`star_${name}_${l.id}`) || "0",10);
-        total += val;
-        html += `<td>${val}</td>`;
-      });
-      html += `<td>${total}</td></tr>`;
-    });
-    html += `</table>`;
-    wrap.innerHTML = html;
-    show("teacherScreen");
-  }
-
-  function closeTeacherJournal(){
-    show("menuScreen");
-  }
-
-  // Start on login screen
-  show("loginScreen");
+// init
+renderHome();
 </script>
 </body>
 </html>
