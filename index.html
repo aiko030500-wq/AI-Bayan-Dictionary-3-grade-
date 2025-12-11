@@ -1,238 +1,1195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English with AI Bayan 4grade II</title>
+  <meta charset="UTF-8" />
+  <title>AI Bayan Dictionary 3 gr – Unit 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:Verdana,sans-serif;
-  text-align:center;
-  color:#002D72;
-  background:#007D99;
-}
+  <style>
+    :root {
+      --bg: #e8f5e9;
+      --card: #ffffff;
+      --accent: #43a047;
+      --accent-soft: #a5d6a7;
+      --text: #1b5e20;
+      --weather: #66bb6a;
+      --clothes: #81c784;
+      --months: #9ccc65;
+      --seasons: #26a69a;
+      --danger: #e53935;
+      --success: #43a047;
+    }
 
-/* 🔹 HEADER */
-header{
-  background:#005B73;
-  border-bottom:4px solid #FFD54F;
-  box-shadow:0 4px 10px rgba(0,0,0,0.25);
-  padding:12px 8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-}
-header img.logo{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  border:4px solid #FFD54F;
-  background:white;
-  object-fit:cover;
-  object-position:center;
-  box-shadow:0 0 8px rgba(255,213,79,0.9);
-  margin-bottom:6px;
-}
-header h1{
-  color:#FFD54F;
-  font-size:1.8rem;
-  margin:4px 0 0;
-  text-shadow:0 0 12px rgba(255,255,180,0.8);
-}
-header h2{
-  color:#FFF8C0;
-  font-weight:bold;
-  font-size:1rem;
-  margin-bottom:6px;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
 
-/* LOGIN OVERLAY */
-.overlay{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.55);
-  display:flex;align-items:center;justify-content:center;
-  z-index:999;
-}
-.overlay-card{
-  background:#fff;
-  border:3px solid #FFD54F;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 0 15px rgba(0,0,0,0.35);
-  width:90%;max-width:360px;
-  color:#002D72;
-}
-.overlay-card input{
-  width:100%;padding:8px;border-radius:8px;
-  border:1px solid #ccc;margin:6px 0;font-size:1rem;
-}
-.btn{
-  background:#005B73;color:#fff;border:none;
-  border-radius:10px;padding:8px 14px;font-weight:bold;
-  cursor:pointer;margin:6px;font-size:0.9rem;
-}
-.btn:hover{background:#FFD54F;color:#002D72;}
+    body {
+      background: radial-gradient(circle at top, #c8e6c9 0, #e8f5e9 40%, #ffffff 100%);
+      color: var(--text);
+      padding: 16px;
+    }
 
-main{padding:12px 8px 90px;}
-#mainMenu{display:none;}
+    /* LOGIN */
 
-.topics-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:14px;
-  max-width:780px;
-  margin:20px auto 15px;
-}
-.topic-btn{
-  background:white;
-  border:2px solid #004AAD;
-  border-radius:16px;
-  padding:12px;
-  font-size:0.9rem;
-  font-weight:bold;
-  color:#002D72;
-  cursor:pointer;
-  transition:0.25s all;
-  box-shadow:0 3px 6px rgba(0,0,0,0.15);
-  height:70px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-}
-.topic-btn:hover{
-  background:#004AAD;
-  color:#fff;
-  transform:translateY(-3px);
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-}
+    .login-wrap {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #f1f8e9;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      padding: 20px 18px 22px;
+      text-align: center;
+      border: 2px solid var(--accent-soft);
+    }
 
-#welcomeBox{
-  margin:16px auto 0;
-  background:white;
-  border:2px solid #FFD54F;
-  border-radius:10px;
-  max-width:680px;
-  padding:10px;
-  color:#002D72;
-  font-weight:bold;
-  box-shadow:0 3px 6px rgba(0,0,0,0.1);
-}
+    .login-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
 
-#extraBtns{
-  margin-top:10px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.extra-btn{
-  background:white;
-  border:2px solid #004AAD;
-  border-radius:10px;
-  padding:8px 16px;
-  font-weight:bold;
-  color:#002D72;
-  cursor:pointer;
-  box-shadow:0 3px 6px rgba(0,0,0,0.18);
-}
-.extra-btn:hover{background:#002D72;color:#fff;}
-</style>
+    .login-sub {
+      font-size: 0.9rem;
+      color: #33691e;
+      margin-bottom: 14px;
+    }
+
+    .login-field {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .login-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #2e7d32;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .login-field input {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid #a5d6a7;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .login-help {
+      font-size: 0.78rem;
+      color: #558b2f;
+      margin-top: 3px;
+    }
+
+    .login-btn {
+      margin-top: 10px;
+      width: 100%;
+      padding: 8px 0;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(56, 142, 60, 0.4);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(56, 142, 60, 0.5);
+    }
+
+    .login-error {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--danger);
+      min-height: 1em;
+    }
+
+    /* APP */
+
+    .app {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #f1f8e9;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      padding: 18px 16px 80px;
+      display: none;
+      border: 2px solid var(--accent-soft);
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #fff, #66bb6a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: #1b5e20;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 2px;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #33691e;
+    }
+
+    .user-right {
+      text-align: right;
+    }
+
+    .user-pill {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #c5e1a5;
+      color: #1b5e20;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .teacher-badge {
+      background: #2e7d32;
+      color: #e8f5e9;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: none;
+    }
+
+    .top-actions {
+      margin-top: 4px;
+      text-align: right;
+    }
+
+    .print-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: #2e7d32;
+      color: #e8f5e9;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Tabs */
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 6px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: #c5e1a5;
+      color: #1b5e20;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: 0.12s ease;
+    }
+
+    .tab-btn.active {
+      background: #2e7d32;
+      color: #e8f5e9;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .filter-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 5px 13px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: #ffffff;
+      color: #33691e;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.1s ease;
+    }
+
+    .filter-btn span.icon {
+      font-size: 1rem;
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 10px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    .card-category-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .card-emoji {
+      font-size: 2rem;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .card-word {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+
+    .card-trans {
+      font-size: 0.85rem;
+      color: #33691e;
+      margin-bottom: 2px;
+    }
+
+    .card-example {
+      font-size: 0.75rem;
+      color: #558b2f;
+      min-height: 1.2em;
+    }
+
+    .card-footer {
+      margin-top: 4px;
+      font-size: 0.7rem;
+      color: #9e9d24;
+    }
+
+    .hint {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #607d8b;
+    }
+
+    /* QUIZ */
+
+    .quiz-wrap {
+      display: none;
+      margin-top: 6px;
+    }
+
+    .quiz-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: #e8f5e9;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: inset 0 0 0 1px rgba(56, 142, 60, 0.18);
+    }
+
+    .quiz-question {
+      min-width: 230px;
+      text-align: center;
+    }
+
+    .quiz-emoji {
+      font-size: 3rem;
+      margin-bottom: 4px;
+    }
+
+    .quiz-rus {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .quiz-cat {
+      font-size: 0.8rem;
+      color: #558b2f;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .quiz-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: #ffffff;
+      color: #1b5e20;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      transition: 0.1s ease;
+    }
+
+    .quiz-btn.correct {
+      background: var(--success);
+      color: #fff;
+    }
+
+    .quiz-btn.wrong {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .quiz-bottom {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #455a64;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .next-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      background: #2e7d32;
+      color: #e8f5e9;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .score {
+      font-weight: 600;
+    }
+
+    /* Teacher journal (demo) */
+
+    .teacher-journal {
+      display: none;
+      margin: 10px 0 12px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #e0f2f1;
+      font-size: 0.8rem;
+      color: #004d40;
+      box-shadow: inset 0 0 0 1px rgba(0, 77, 64, 0.2);
+    }
+
+    .teacher-journal table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+    }
+
+    .teacher-journal th,
+    .teacher-journal td {
+      font-size: 0.78rem;
+      border-bottom: 1px solid rgba(0, 77, 64, 0.2);
+      padding: 3px 4px;
+      text-align: left;
+    }
+
+    .teacher-journal th {
+      font-weight: 700;
+    }
+
+    /* Worksheets */
+
+    .works-wrap {
+      display: none;
+      margin-top: 6px;
+    }
+
+    .worksheet-box {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      border: 1px dashed #a5d6a7;
+    }
+
+    .worksheet-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .worksheet-sub {
+      font-size: 0.8rem;
+      color: #607d8b;
+      margin-bottom: 5px;
+    }
+
+    .ws-two-cols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .ws-col {
+      flex: 1 1 220px;
+      font-size: 0.9rem;
+    }
+
+    .ws-item {
+      margin-bottom: 3px;
+    }
+
+    .ws-grid {
+      font-family: "Courier New", monospace;
+      background: #f1f8e9;
+      padding: 6px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 0.86rem;
+    }
+
+    /* AI Bayan chat */
+
+    .chat-badge {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #66bb6a);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .chat-badge span {
+      font-size: 0.7rem;
+      text-align: center;
+      font-weight: 800;
+      color: #1b5e20;
+      letter-spacing: 0.03em;
+    }
+
+    .chat-window {
+      position: fixed;
+      right: 16px;
+      bottom: 80px;
+      width: 280px;
+      max-height: 360px;
+      background: #e8f5e9;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 20;
+      border: 2px solid #a5d6a7;
+    }
+
+    .chat-header {
+      padding: 8px 10px;
+      background: #2e7d32;
+      color: #e8f5e9;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header span {
+      font-weight: 700;
+    }
+
+    .chat-close {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .chat-body {
+      padding: 8px;
+      overflow-y: auto;
+      flex: 1;
+      font-size: 0.78rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-msg {
+      margin-bottom: 6px;
+      padding: 5px 8px;
+      border-radius: 10px;
+      max-width: 90%;
+    }
+
+    .chat-msg.ai {
+      background: #c8e6c9;
+      align-self: flex-start;
+    }
+
+    .chat-msg.user {
+      background: #fff9c4;
+      align-self: flex-end;
+    }
+
+    .chat-input {
+      padding: 6px;
+      background: #f1f8e9;
+      display: flex;
+      gap: 4px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid #a5d6a7;
+      padding: 5px 8px;
+      font-size: 0.78rem;
+    }
+
+    .chat-input button {
+      border-radius: 999px;
+      border: none;
+      background: #2e7d32;
+      color: #e8f5e9;
+      padding: 5px 9px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .app {
+        padding: 12px 10px 80px;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      .chat-window {
+        right: 8px;
+        width: 92%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <!-- LOGIN -->
+  <div class="login-wrap" id="login-wrap">
+    <div class="login-title">AI Bayan dictionary 3 gr</div>
+    <div class="login-sub">Family and Friends 3 • Unit 4 • 3E</div>
 
-<!-- LOGIN -->
-<div class="overlay" id="loginOverlay">
-  <div class="overlay-card">
-    <h2>English with AI Bayan</h2>
-    <p>Enter your name and PIN:</p>
-    <input type="text" id="nameInput" placeholder="Name">
-    <input type="password" id="pinInput" placeholder="PIN" maxlength="4">
-    <button class="btn" onclick="checkLogin()">Enter</button>
+    <div class="login-field">
+      <label for="login-name">Логин ученика / учителя</label>
+      <input id="login-name" placeholder="например: 3E S1" />
+      <div class="login-help">
+        Ученики: <b>3E S1–3E S15</b><br />
+        Учитель: любое имя (например, <b>Teacher</b>)
+      </div>
+    </div>
+
+    <div class="login-field">
+      <label for="login-pin">PIN код</label>
+      <input id="login-pin" type="password" placeholder="2844 или 3244" />
+      <div class="login-help">
+        Ученики: <b>2844</b> • Учительский журнал: <b>3244</b>
+      </div>
+    </div>
+
+    <button class="login-btn" id="login-btn">Войти</button>
+    <div class="login-error" id="login-error"></div>
   </div>
-</div>
 
-<!-- HEADER -->
-<header>
-  <img src="logo.png" alt="AI Bayan logo" class="logo">
-  <h1>ENGLISH WITH AI BAYAN</h1>
-  <h2>4 GRADE II</h2>
-</header>
-
-<!-- MAIN -->
-<main>
-  <div id="mainMenu">
-    <div id="welcomeBox">
-      <div id="welcomeText">Hello, Student!</div>
-      <div>Total stars in all lessons: <b><span id="totalStars">0</span> ⭐</b></div>
+  <!-- APP -->
+  <div class="app" id="app">
+    <div class="app-header">
+      <div class="logo-title">
+        <div class="logo-circle">
+          AI<br />B
+        </div>
+        <div>
+          <h1>Unit 4 – Weather & Clothes</h1>
+          <div class="subtitle">AI Bayan dictionary 3 gr • Family and Friends 3</div>
+        </div>
+      </div>
+      <div class="user-right">
+        <div class="user-pill" id="user-pill"></div>
+        <div class="teacher-badge" id="teacher-badge">Teacher Journal • PIN 3244</div>
+        <div class="top-actions">
+          <button class="print-btn" onclick="window.print()">Print / Печать</button>
+        </div>
+      </div>
     </div>
 
-    <div class="topics-grid">
-      <button class="topic-btn" onclick="openTheme(1)">🎨 Let’s Have Fun!</button>
-      <button class="topic-btn" onclick="openTheme(2)">🏃‍♂️ Sports and Exercises</button>
-      <button class="topic-btn" onclick="openTheme(3)">🌍 Sports Around the World</button>
-      <button class="topic-btn" onclick="openTheme(4)">🎵 Arts and Music</button>
-      <button class="topic-btn" onclick="openTheme(5)">⚽ Popular Team Sports</button>
-      <button class="topic-btn" onclick="openTheme(6)">🎻 Museum of Kazakh Instruments</button>
-      <button class="topic-btn" onclick="openTheme(7)">📜 Children’s Rights</button>
-      <button class="topic-btn" onclick="openTheme(8)">🧰 Different Jobs</button>
-      <button class="topic-btn" onclick="openTheme(9)">👩‍⚕️ Professions</button>
-      <button class="topic-btn" onclick="openTheme(10)">🏢 People at Work</button>
-      <button class="topic-btn" onclick="openTheme(11)">💬 What Do You Do?</button>
-      <button class="topic-btn" onclick="openTheme(12)">❤️ You Can Help!</button>
-      <button class="topic-btn" onclick="openTheme(13)">🎯 Final Challenge</button>
+    <div class="teacher-journal" id="teacher-journal">
+      <b>Teacher Journal (demo)</b>
+      <p>Класс: 3E • Ученики 3E S1–3E S15. Можно использовать как журнал для отметки
+         результатов Quiz (сейчас просто список).</p>
+      <table>
+        <thead>
+          <tr><th>Ученик</th><th>Последний Quiz score</th></tr>
+        </thead>
+        <tbody id="journal-body"></tbody>
+      </table>
     </div>
 
-    <div id="extraBtns">
-      <button class="extra-btn" onclick="openChat()">💬 AI Bayan Chat</button>
-      <button class="extra-btn" onclick="openTeacherJournal()">🏫 Teacher’s Journal</button>
+    <div class="tabs">
+      <button class="tab-btn active" data-mode="dict">Dictionary</button>
+      <button class="tab-btn" data-mode="quiz">Quiz</button>
+      <button class="tab-btn" data-mode="works">Worksheets</button>
+    </div>
+
+    <!-- DICTIONARY -->
+    <div id="dict-mode">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">
+          <span class="icon">⭐</span> Все
+        </button>
+        <button class="filter-btn" data-filter="weather">
+          <span class="icon">🌦</span> Погода
+        </button>
+        <button class="filter-btn" data-filter="clothes">
+          <span class="icon">🧥</span> Одежда
+        </button>
+        <button class="filter-btn" data-filter="months">
+          <span class="icon">📅</span> Месяцы
+        </button>
+        <button class="filter-btn" data-filter="seasons">
+          <span class="icon">🌍</span> Времена года
+        </button>
+      </div>
+
+      <div id="cards" class="grid"></div>
+
+      <p class="hint">
+        👆 Карточка: <b>английское слово + русский перевод</b>. Нажми, чтобы
+        увидеть пример предложения.
+      </p>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quiz-mode" class="quiz-wrap">
+      <div class="quiz-row">
+        <div class="quiz-question">
+          <div class="quiz-emoji" id="quiz-emoji">🌦</div>
+          <div class="quiz-rus" id="quiz-rus">дождливо</div>
+          <div class="quiz-cat" id="quiz-cat">Погода • выбери английское слово</div>
+        </div>
+
+        <div class="quiz-options" id="quiz-options"></div>
+      </div>
+
+      <div class="quiz-bottom">
+        <div>
+          Очки: <span class="score" id="score">0</span> •
+          Вопросов: <span id="questions">0</span>
+        </div>
+        <button class="next-btn" id="next-btn">Следующий вопрос</button>
+      </div>
+      <p class="hint">
+        Quiz: показан русский перевод и emoji. Выбери правильное английское слово.
+      </p>
+    </div>
+
+    <!-- WORKSHEETS -->
+    <div id="works-mode" class="works-wrap">
+      <div class="worksheet-box">
+        <div class="worksheet-title">Worksheet 1 – Write the missing letters</div>
+        <div class="worksheet-sub">Unit 4 • Weather & Clothes • распечатать и вписать буквы</div>
+
+        <div class="ws-two-cols">
+          <div class="ws-col">
+            <b>Weather</b><br />
+            <div class="ws-item">1) s _ n n y</div>
+            <div class="ws-item">2) r _ i n y</div>
+            <div class="ws-item">3) w i n _ y</div>
+            <div class="ws-item">4) s n _ w y</div>
+            <div class="ws-item">5) h _ t</div>
+            <div class="ws-item">6) c _ l d</div>
+          </div>
+          <div class="ws-col">
+            <b>Clothes</b><br />
+            <div class="ws-item">7) b _ o t s</div>
+            <div class="ws-item">8) c _ a t</div>
+            <div class="ws-item">9) g l _ v e s</div>
+            <div class="ws-item">10) h _ t</div>
+            <div class="ws-item">11) s _ a r f</div>
+            <div class="ws-item">12) s k _ r t</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="worksheet-box">
+        <div class="worksheet-title">Worksheet 2 – Weather Crossword</div>
+        <div class="worksheet-sub">Вписать слова: sunny, rainy, windy, snowy, hot, cold</div>
+
+        <div class="ws-grid">
+          <!-- простая текстовая сетка для печати -->
+          1 2 3 4 5 6 7<br/>
+          S U N N Y _ _   (1 across)<br/>
+          _ _ _ _ _       (2 down: RAINY)<br/>
+          _ _ _ _ _       (3 down: WINDY)<br/>
+          _ _ _ _ _       (4 across: SNOWY)<br/>
+          _ _ _           (5 across: HOT)<br/>
+          _ _ _ _         (6 down: COLD)
+        </div>
+        <p class="worksheet-sub" style="margin-top:6px;">
+          При печати дети могут подписать номера и вписать слова поверх сетки.
+        </p>
+      </div>
+
+      <p class="hint">
+        Нажми кнопку <b>Print</b> вверху, чтобы распечатать эти worksheets на A4.
+      </p>
     </div>
   </div>
-</main>
 
-<script>
-// 🌟 Разрешённые имена
-const allowedNames = [
-  "Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2",
-  "Ilyas2","Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2",
-  "Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2",
-  "B4","Arai2","Jury2","Jury1","Meyirim2"
-];
+  <!-- AI BAYAN CHAT -->
+  <div class="chat-badge" id="chat-badge">
+    <span>AI<br/>Bayan</span>
+  </div>
 
-// 🌟 Проверка имени и PIN
-function checkLogin(){
-  const nameInput = document.getElementById("nameInput").value.trim();
-  const pinInput = document.getElementById("pinInput").value.trim();
-  const nameLower = nameInput.toLowerCase();
-  const allowedLower = allowedNames.map(n => n.toLowerCase());
+  <div class="chat-window" id="chat-window">
+    <div class="chat-header">
+      <span>AI Bayan • helper</span>
+      <span class="chat-close" id="chat-close">×</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg ai">
+        Привет! Я AI Bayan 🤖💚. Спроси меня слово по Unit 4 или напиши
+        простое предложение — я помогу.
+      </div>
+    </div>
+    <div class="chat-input">
+      <input id="chat-input" placeholder="Напиши по-англ. или по-русски..." />
+      <button id="chat-send">OK</button>
+    </div>
+  </div>
 
-  // 🔑 Новый PIN = 2844
-  if (allowedLower.includes(nameLower) && pinInput === "2844") {
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("mainMenu").style.display = "block";
-    document.getElementById("welcomeText").innerText = "Hello, " + nameInput + "!";
-    localStorage.setItem("studentName", nameInput);
-  }
-  else if (nameLower === "teacher" && pinInput === "1402") {
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("mainMenu").style.display = "block";
-    document.getElementById("welcomeText").innerText = "Hello, Teacher!";
-    localStorage.setItem("studentName", "Teacher");
-  }
-  else {
-    alert("❌ Wrong name or PIN. Please try again!");
-  }
-}
+  <script>
+    /* ===== DATA ===== */
+    const words = [
+      // WEATHER
+      { word: "sunny", trans: "солнечно", example: "It is sunny today.", category: "weather", emoji: "☀️" },
+      { word: "rainy", trans: "дождливо", example: "It is rainy. Take an umbrella.", category: "weather", emoji: "🌧️" },
+      { word: "windy", trans: "ветрено", example: "It is windy. Wear a jacket.", category: "weather", emoji: "💨" },
+      { word: "snowy", trans: "снежно", example: "It is snowy. Let's make a snowman.", category: "weather", emoji: "❄️" },
+      { word: "hot", trans: "жарко", example: "It is hot in July.", category: "weather", emoji: "🥵" },
+      { word: "cold", trans: "холодно", example: "It is cold in winter.", category: "weather", emoji: "🥶" },
 
-// 🌟 Переходы
-function openTheme(n){ window.location.href = "theme" + n + ".html"; }
-function openChat(){ window.location.href = "chat.html"; }
-function openTeacherJournal(){ window.location.href = "teacher.html"; }
-</script>
+      // CLOTHES
+      { word: "boots", trans: "сапоги", example: "I wear boots when it is snowy.", category: "clothes", emoji: "👢" },
+      { word: "coat", trans: "пальто", example: "Put on your coat. It is cold.", category: "clothes", emoji: "🧥" },
+      { word: "gloves", trans: "перчатки", example: "She has red gloves.", category: "clothes", emoji: "🧤" },
+      { word: "hat", trans: "шапка, шляпа", example: "This hat is yellow.", category: "clothes", emoji: "🎩" },
+      { word: "jeans", trans: "джинсы", example: "He likes blue jeans.", category: "clothes", emoji: "👖" },
+      { word: "scarf", trans: "шарф", example: "I have a long scarf.", category: "clothes", emoji: "🧣" },
+      { word: "shirt", trans: "рубашка", example: "My shirt is green.", category: "clothes", emoji: "👕" },
+      { word: "skirt", trans: "юбка", example: "Her skirt is pink.", category: "clothes", emoji: "👗" },
+      { word: "sun hat", trans: "панама, шляпа от солнца", example: "Wear your sun hat. It is sunny.", category: "clothes", emoji: "👒" },
 
+      // MONTHS
+      { word: "January", trans: "январь", example: "January is a cold month.", category: "months", emoji: "❄️" },
+      { word: "February", trans: "февраль", example: "It is still winter in February.", category: "months", emoji: "☃️" },
+      { word: "March", trans: "март", example: "March is the first month of spring.", category: "months", emoji: "🌱" },
+      { word: "April", trans: "апрель", example: "It is often rainy in April.", category: "months", emoji: "🌧️" },
+      { word: "May", trans: "май", example: "We have many flowers in May.", category: "months", emoji: "🌷" },
+      { word: "June", trans: "июнь", example: "School finishes in June.", category: "months", emoji: "🎓" },
+      { word: "July", trans: "июль", example: "It is very hot in July.", category: "months", emoji: "☀️" },
+      { word: "August", trans: "август", example: "We go on holiday in August.", category: "months", emoji: "🏖️" },
+      { word: "September", trans: "сентябрь", example: "School starts in September.", category: "months", emoji: "📚" },
+      { word: "October", trans: "октябрь", example: "Leaves fall in October.", category: "months", emoji: "🍁" },
+      { word: "November", trans: "ноябрь", example: "It is usually cold in November.", category: "months", emoji: "🌫️" },
+      { word: "December", trans: "декабрь", example: "We celebrate New Year in December.", category: "months", emoji: "🎄" },
+
+      // SEASONS
+      { word: "spring", trans: "весна", example: "Flowers grow in spring.", category: "seasons", emoji: "🌸" },
+      { word: "summer", trans: "лето", example: "It is hot in summer.", category: "seasons", emoji: "🌞" },
+      { word: "autumn", trans: "осень", example: "Leaves are orange in autumn.", category: "seasons", emoji: "🍂" },
+      { word: "winter", trans: "зима", example: "It is snowy in winter.", category: "seasons", emoji: "⛄" },
+      { word: "season", trans: "время года", example: "Summer is my favourite season.", category: "seasons", emoji: "🗓️" },
+    ];
+
+    /* ===== LOGIN ===== */
+    const loginWrap = document.getElementById("login-wrap");
+    const loginBtn = document.getElementById("login-btn");
+    const loginError = document.getElementById("login-error");
+    const loginName = document.getElementById("login-name");
+    const loginPin = document.getElementById("login-pin");
+    const app = document.getElementById("app");
+    const userPill = document.getElementById("user-pill");
+    const teacherBadge = document.getElementById("teacher-badge");
+    const teacherJournal = document.getElementById("teacher-journal");
+    const journalBody = document.getElementById("journal-body");
+    const chatBadge = document.getElementById("chat-badge");
+
+    const studentPin = "2844";
+    const teacherPin = "3244";
+
+    function isStudentLogin(name) {
+      if (!name) return false;
+      const trimmed = name.trim().toUpperCase();
+      if (!trimmed.startsWith("3E ")) return false;
+      const part = trimmed.split(" ")[1];
+      if (!part || !part.startsWith("S")) return false;
+      const num = parseInt(part.slice(1), 10);
+      return num >= 1 && num <= 15;
+    }
+
+    loginBtn.addEventListener("click", () => {
+      const name = loginName.value.trim();
+      const pin = loginPin.value.trim();
+      loginError.textContent = "";
+
+      if (!name || !pin) {
+        loginError.textContent = "Введите логин и PIN.";
+        return;
+      }
+
+      if (pin === studentPin && isStudentLogin(name)) {
+        loginWrap.style.display = "none";
+        app.style.display = "block";
+        chatBadge.style.display = "flex";
+        userPill.textContent = `Ученик: ${name} • PIN 2844`;
+        teacherBadge.style.display = "none";
+        teacherJournal.style.display = "none";
+      } else if (pin === teacherPin) {
+        loginWrap.style.display = "none";
+        app.style.display = "block";
+        chatBadge.style.display = "flex";
+        userPill.textContent = `Учитель: ${name}`;
+        teacherBadge.style.display = "inline-block";
+        teacherJournal.style.display = "block";
+        fillJournalDemo();
+      } else {
+        loginError.textContent =
+          "Неверный логин или PIN. Ученики: 3E S1–S15 + 2844. Учитель: любой логин + 3244.";
+      }
+    });
+
+    function fillJournalDemo() {
+      journalBody.innerHTML = "";
+      for (let i = 1; i <= 15; i++) {
+        const tr = document.createElement("tr");
+        const tdName = document.createElement("td");
+        const tdScore = document.createElement("td");
+        tdName.textContent = `3E S${i}`;
+        tdScore.textContent = "—";
+        tr.appendChild(tdName);
+        tr.appendChild(tdScore);
+        journalBody.appendChild(tr);
+      }
+    }
+
+    /* ===== DICTIONARY ===== */
+    const cardsContainer = document.getElementById("cards");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const dictMode = document.getElementById("dict-mode");
+    const quizMode = document.getElementById("quiz-mode");
+    const worksMode = document.getElementById("works-mode");
+
+    function categoryColor(cat) {
+      switch (cat) {
+        case "weather": return "var(--weather)";
+        case "clothes": return "var(--clothes)";
+        case "months": return "var(--months)";
+        case "seasons": return "var(--seasons)";
+        default: return "var(--accent)";
+      }
+    }
+
+    function renderCards(filter = "all") {
+      cardsContainer.innerHTML = "";
+      words
+        .filter(w => filter === "all" || w.category === filter)
+        .forEach(item => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.dataset.state = "front";
+
+          const bar = document.createElement("div");
+          bar.className = "card-category-bar";
+          bar.style.background = categoryColor(item.category);
+
+          const emoji = document.createElement("div");
+          emoji.className = "card-emoji";
+          emoji.textContent = item.emoji;
+
+          const word = document.createElement("div");
+          word.className = "card-word";
+          word.textContent = item.word;
+
+          const trans = document.createElement("div");
+          trans.className = "card-trans";
+          trans.textContent = item.trans;
+
+          const example = document.createElement("div");
+          example.className = "card-example";
+          example.textContent = "";
+
+          const footer = document.createElement("div");
+          footer.className = "card-footer";
+          footer.textContent = item.category.toUpperCase();
+
+          card.appendChild(bar);
+          card.appendChild(emoji);
+          card.appendChild(word);
+          card.appendChild(trans);
+          card.appendChild(example);
+          card.appendChild(footer);
+
+          card.addEventListener("click", () => {
+            if (card.dataset.state === "front") {
+              example.textContent = item.example;
+              card.dataset.state = "back";
+            } else {
+              example.textContent = "";
+              card.dataset.state = "front";
+            }
+          });
+
+          cardsContainer.appendChild(card);
+        });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderCards(btn.dataset.filter);
+      });
+    });
+
+    renderCards("all");
+
+    /* ===== TABS ===== */
+    tabButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const mode = btn.dataset.mode;
+        if (mode === "dict") {
+          dictMode.style.display = "block";
+          quizMode.style.display = "none";
+          worksMode.style.display = "none";
+        } else if (mode === "quiz") {
+          dictMode.style.display = "none";
+          quizMode.style.display = "block";
+          worksMode.style.display = "none";
+          newQuestion();
+        } else {
+          dictMode.style.display = "none";
+          quizMode.style.display = "none";
+          worksMode.style.display = "block";
+        }
+      });
+    });
+
+    /* ===== QUIZ ===== */
+    const quizEmoji = document.getElementById("quiz-emoji");
+    const quizRus = document.getElementById("quiz-rus");
+    const quizCat = document.getElementById("quiz-cat");
+    const quizOptions = document.getElementById("quiz-options");
+    const nextBtn = document.getElementById("next-btn");
+    const scoreEl = document.getElementById("score");
+    const questionsEl = document.getElementById("questions");
+
+    let currentAnswer = null;
+    let answered = false;
+    let score = 0;
+    let questions = 0;
+
+    function shuffle(arr) {
+      return arr
+        .map(x => ({ x, r: Math.random() }))
+        .sort((a, b) => a.r - b.r)
+        .map(o => o.x);
+    }
+
+    function newQuestion() {
+      answered = false;
+      quizOptions.innerHTML = "";
+
+      const pool = words;
+      const correct = pool[Math.floor(Math.random() * pool.length)];
+      currentAnswer = correct.word;
+      questions++;
+      questionsEl.textContent = questions;
+
+      quizEmoji.textContent = correct.emoji;
+      quizRus.textContent = correct.trans;
+      const catLabel = {
+        weather: "Погода",
+        clothes: "Одежда",
+        months: "Месяцы",
+        seasons: "Времена года",
+      }[correct.category] || "";
+      quizCat.textContent = catLabel + " • выбери английское слово";
+
+      const others = shuffle(pool.filter(w => w.word !== correct.word)).slice(0, 3);
+      const options = shuffle([correct, ...others]);
+
+      options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = "quiz-btn";
+        btn.textContent = opt.word;
+        btn.addEventListener("click", () => handleAnswer(btn, opt.word));
+        quizOptions.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(btn, word) {
+      if (answered) return;
+      answered = true;
+      const buttons = quizOptions.querySelectorAll(".quiz-btn");
+      buttons.forEach(b => {
+        b.disabled = true;
+        if (b.textContent === currentAnswer) {
+          b.classList.add("correct");
+        }
+      });
+      if (word === currentAnswer) {
+        score++;
+        scoreEl.textContent = score;
+      } else {
+        btn.classList.add("wrong");
+      }
+    }
+
+    nextBtn.addEventListener("click", () => {
+      newQuestion();
+    });
+
+    /* ===== AI BAYAN CHAT (простая демо) ===== */
+    const chatWindow = document.getElementById("chat-window");
+    const chatBody = document.getElementById("chat-body");
+    const chatInput = document.getElementById("chat-input");
+    const chatSend = document.getElementById("chat-send");
+    const chatClose = document.getElementById("chat-close");
+
+    function addChatMessage(text, who = "ai") {
+      const div = document.createElement("div");
+      div.className = "chat-msg " + who;
+      div.textContent = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function simpleAiAnswer(msg) {
+      const lower = msg.toLowerCase();
+      const w = words.find(
+        w =>
+          lower.includes(w.word.toLowerCase()) ||
+          lower.includes(w.trans.toLowerCase())
+      );
+      if (w) {
+        return `Слово "${w.word}" = "${w.trans}". Пример: ${w.example}`;
+      }
+      if (lower.includes("hello") || lower.includes("hi")) {
+        return "Hello! Давай потренируем слова по Unit 4: спроси меня про любое слово (sunny, boots, January...).";
+      }
+      if (lower.includes("quiz")) {
+        return "Чтобы потренироваться, открой вкладку QUIZ и отвечай на вопросы 🙂";
+      }
+      return "Я пока маленькая AI Bayan 😊 Попробуй написать одно слово из Unit 4 или простой вопрос по лексике.";
+    }
+
+    chatBadge.addEventListener("click", () => {
+      chatWindow.style.display = "flex";
+    });
+
+    chatClose.addEventListener("click", () => {
+      chatWindow.style.display = "none";
+    });
+
+    chatSend.addEventListener("click", () => {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      addChatMessage(text, "user");
+      chatInput.value = "";
+      const answer = simpleAiAnswer(text);
+      setTimeout(() => addChatMessage(answer, "ai"), 300);
+    });
+
+    chatInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") chatSend.click();
+    });
+  </script>
 </body>
 </html>
