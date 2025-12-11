@@ -1,1191 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI Bayan Dictionary 3 gr</title>
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AI Bayan Dictionary 3 gr — Main Menu</title>
   <style>
     :root{
-      --bg:#f3fff5;
+      --mint:#e9fff1;
+      --mint2:#dff9ea;
+      --bg1:#eafff0;
+      --bg2:#f5fff8;
       --card:#ffffff;
-      --text:#16301c;
-      --muted:#5a7a62;
+      --border: rgba(0,0,0,.06);
+      --shadow: 0 10px 22px rgba(0,0,0,.06);
+      --radius:22px;
       --green:#2b9348;
-      --green2:#6ede8a;
+      --green2:#7ef0a1;
       --gold:#ffd54f;
-      --red:#d62828;
-      --shadow: 0 10px 24px rgba(0,0,0,.08);
-      --radius:18px;
-      --btnRadius:16px;
+      --text:#18351f;
+      --muted:#5b7a63;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: radial-gradient(1200px 700px at 20% 0%, #eaffef 0%, var(--bg) 45%, #f7fff8 100%);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 60%, #f8fffb 100%);
       color:var(--text);
     }
-    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+    .wrap{max-width:760px;margin:0 auto;padding:14px}
     .topbar{
-      display:flex;gap:12px;align-items:center;justify-content:space-between;
-      padding:14px 14px;border-radius:var(--radius);
-      background: linear-gradient(135deg, #ffffff 0%, #f1fff4 70%);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      background: linear-gradient(180deg, var(--mint) 0%, var(--mint2) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      position:sticky;top:0;z-index:10;
+      padding:14px;
     }
-    .brand{display:flex;align-items:center;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
     .logo{
       width:46px;height:46px;border-radius:50%;
-      border:4px solid var(--gold);
-      background:#fff;
-      object-fit:cover;
+      border:3px solid var(--gold);
+      background:#fff;object-fit:cover;
+      flex:0 0 auto;
     }
-    .brand h1{margin:0;font-size:16px;line-height:1.15}
-    .brand p{margin:2px 0 0 0;font-size:12px;color:var(--muted)}
+    .brand h1{margin:0;font-size:16px;line-height:1.2}
+    .brand p{margin:3px 0 0 0;color:var(--muted);font-size:12px}
     .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:9px 12px;border-radius:999px;
-      background:#ffffff;border:1px solid rgba(43,147,72,.18);
-      font-size:12px;color:var(--muted);
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:10px 12px;
+      font-weight:800;
+      color:var(--muted);
+      white-space:nowrap;
     }
-    .grid{display:grid;gap:14px;margin-top:14px;grid-template-columns:1fr;}
-    @media (min-width:900px){ .grid{grid-template-columns: 1.15fr .85fr;} }
 
     .card{
+      margin-top:14px;
       background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:14px;
-      border:1px solid rgba(0,0,0,.05);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
     }
-    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .title{margin:0 0 10px 0;font-size:18px}
+    .sub{margin:0 0 12px 0;color:var(--muted);font-size:13px}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:18px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:900;
+    }
+    .badge.small{padding:8px 10px;font-size:12px;color:var(--muted);font-weight:800}
+    .hr{height:1px;background:rgba(0,0,0,.06);margin:12px 0}
+
     .btn{
       border:none;cursor:pointer;
-      padding:12px 14px;border-radius:var(--btnRadius);
-      font-weight:800;
-      background: linear-gradient(180deg, var(--green2), var(--green));
+      padding:12px 16px;border-radius:18px;
+      font-weight:900;
+      background: linear-gradient(180deg, var(--green2) 0%, var(--green) 100%);
       color:#0b1a0f;
-      box-shadow: 0 8px 16px rgba(43,147,72,.22);
-      transition: transform .05s ease;
-      user-select:none;
     }
-    .btn:active{transform: translateY(1px)}
     .btn.secondary{
-      background: linear-gradient(180deg, #fff4c9, var(--gold));
-      box-shadow: 0 8px 16px rgba(255,213,79,.25);
+      background: linear-gradient(180deg, #fff4c9 0%, var(--gold) 100%);
+      color:#2a1e00;
     }
     .btn.ghost{
-      background:#ffffff;
-      border:1px solid rgba(0,0,0,.12);
-      box-shadow:none;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.10);
       color:var(--text);
     }
-    .btn.danger{
-      background: linear-gradient(180deg, #ffb3b3, #ff6b6b);
-      box-shadow: 0 8px 16px rgba(255,107,107,.22);
-    }
-    .btn.small{padding:9px 10px;border-radius:12px;font-weight:800;font-size:12px}
-    .btn.unit{
-      min-width:140px;justify-content:center;
-      display:inline-flex;align-items:center;gap:8px;
-    }
+    .btn.full{width:100%}
 
-    .muted{color:var(--muted)}
-    .title{margin:0 0 10px 0;font-size:16px}
-    .sub{margin:0 0 10px 0;color:var(--muted);font-size:13px}
-    .input{
-      padding:12px 12px;border-radius:14px;
-      border:1px solid rgba(0,0,0,.14);
-      outline:none;font-size:14px;min-width:220px;background:#fff;
+    /* UNITS grid — 2 columns */
+    .unitsGrid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:12px;
+      margin-top:10px;
     }
-    .input:focus{border-color: rgba(43,147,72,.45); box-shadow: 0 0 0 4px rgba(43,147,72,.12);}
-    .hr{height:1px;background:rgba(0,0,0,.07);margin:12px 0}
-
-    .lessonTabs{display:flex;gap:10px;flex-wrap:wrap}
-    .tab{
-      padding:10px 12px;border-radius:14px;
-      background:#fff;border:1px solid rgba(0,0,0,.12);
-      cursor:pointer;font-weight:900;font-size:13px;
-    }
-    .tab.active{
-      border-color: rgba(43,147,72,.55);
-      box-shadow: 0 0 0 4px rgba(43,147,72,.10);
-      background:#f4fff7;
-    }
-
-    .section{
-      padding:12px;border-radius:18px;
-      background: linear-gradient(135deg, #ffffff 0%, #f6fff8 70%);
-      border:1px solid rgba(0,0,0,.06);
-      margin-top:12px;
-    }
-    .section h3{margin:0 0 10px 0;font-size:15px}
-    .section .hint{margin:-6px 0 10px 0;font-size:12px;color:var(--muted)}
-
-    .vGrid{display:grid;gap:10px;grid-template-columns: repeat(4, minmax(0,1fr));}
-    @media (max-width:900px){ .vGrid{grid-template-columns: repeat(2, minmax(0,1fr));} }
-    .vItem{
-      border-radius:16px;border:1px solid rgba(0,0,0,.10);
-      background:#fff;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:150px;
-    }
-    .vPic{
-      width:100%;height:70px;border-radius:14px;
-      background: linear-gradient(135deg, #eaffef, #fff9d6);
-      display:flex;align-items:center;justify-content:center;
-      font-size:28px;
-    }
-    .vWord{font-weight:950}
-    .vRu{font-size:12px;color:var(--muted)}
-    .vSpeakRow{display:flex;justify-content:space-between;align-items:center;gap:8px}
-
-    .qa{
-      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-      padding:10px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.10);
-      margin-bottom:10px;
-    }
-    .mark{
-      font-weight:950;font-size:18px;
-      width:28px;height:28px;border-radius:10px;
-      display:flex;align-items:center;justify-content:center;
-      border:1px solid rgba(0,0,0,.10);
-      background:#f8f8f8;
-    }
-    .mark.ok{background:#eaffef}
-    .mark.bad{background:#ffecec}
-    .stars{
-      display:inline-flex;gap:6px;align-items:center;
-      padding:8px 10px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.10);
+    .unitBtn{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:14px 14px;
+      border-radius:20px;
+      border:1px solid rgba(0,0,0,.08);
+      background: linear-gradient(180deg, #ffffff 0%, #f3fff7 100%);
+      box-shadow: 0 10px 18px rgba(0,0,0,.05);
+      cursor:pointer;
       font-weight:950;
     }
-    .tag{
+    .unitLeft{display:flex;flex-direction:column;gap:2px}
+    .unitLeft .u{font-size:14px}
+    .unitLeft .t{font-size:12px;color:var(--muted);font-weight:800}
+    .starPill{
       display:inline-flex;align-items:center;gap:6px;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(43,147,72,.20);
-      background:#f4fff7;
-      font-size:12px;color:var(--muted);
+      padding:8px 10px;border-radius:16px;
+      background:#fff;border:1px solid rgba(0,0,0,.08);
+      font-weight:900;
+      white-space:nowrap;
     }
 
-    .matchWrap{display:grid;gap:10px;grid-template-columns: 1fr 1fr;}
-    @media(max-width:900px){.matchWrap{grid-template-columns:1fr}}
-    .matchCol{padding:10px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.10)}
-    .matchItem{
-      padding:10px;border-radius:14px;margin-bottom:8px;
-      background:#f7fff9;border:1px solid rgba(43,147,72,.18);
-      cursor:pointer;font-weight:900;
-      display:flex;justify-content:space-between;align-items:center;gap:10px;
+    .input{
+      width:100%;
+      padding:14px 14px;border-radius:16px;
+      border:1px solid rgba(0,0,0,.10);
+      outline:none;
+      font-size:14px;
+      background:#fff;
     }
-    .matchItem.selected{outline: 3px solid rgba(255,213,79,.65)}
-    .matchItem.done{opacity:.65;cursor:default}
-    .tiny{font-size:12px;color:var(--muted)}
+    .hint{margin:0 0 10px 0;color:var(--muted);font-size:12px}
+    .chatBox{border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:12px;background:#fff}
+    .chatA{margin-top:10px;color:var(--muted);font-weight:800}
 
-    .karaokeBox{
-      padding:10px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,0,.10)
-    }
-    .lyricLine{
-      padding:8px 10px;border-radius:12px;
-      border:1px solid rgba(0,0,0,.08);
-      margin:8px 0;background:#fafafa;font-weight:900;
-    }
-    .lyricLine.active{
-      background: linear-gradient(180deg, #fff4c9, #ffeaa1);
-      border-color: rgba(255,213,79,.55);
-    }
-
-    .screen{display:none}
-    .screen.active{display:block}
-
-    @media print{
-      body{background:#fff}
-      .topbar, .noPrint{display:none !important}
-      .wrap{max-width:none;padding:0}
-      .card{box-shadow:none;border:none}
-      .section{border:1px solid #ddd;background:#fff}
-      .vPic{border:1px solid #ddd}
-      .qa, .matchCol, .karaokeBox{border:1px solid #ddd}
+    @media (max-width:380px){
+      .unitBtn{padding:12px}
+      .brand h1{font-size:15px}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="topbar noPrint">
+    <!-- TOPBAR -->
+    <div class="topbar">
       <div class="brand">
-        <!-- Положи файл logo.png рядом с HTML -->
-        <img class="logo" src="logo.png" alt="AI Bayan logo" />
-        <div>
+        <img class="logo" src="logo.png" alt="logo"/>
+        <div style="min-width:0">
           <h1>AI Bayan Dictionary 3 gr</h1>
-          <p class="muted">8 units • 1 chat question/day • stars saved</p>
+          <p>8 units • 1 chat question/day • stars saved</p>
         </div>
       </div>
+      <div class="pill" id="statusPill">Не вошли</div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="card">
+      <h2 class="title">⭐ Достижения</h2>
+      <p class="sub">Звёзды и результаты сохраняются.</p>
       <div class="row">
-        <div class="pill" id="whoPill">Не вошли</div>
-        <button class="btn ghost small" id="logoutBtn" style="display:none">Выйти</button>
+        <div class="badge" id="totalStars">⭐ 0</div>
+        <div class="badge small" id="unitsDone">Units: 0/8</div>
+        <div class="badge small" id="chatLimit">🤖 1 вопрос доступен</div>
       </div>
     </div>
 
-    <!-- LOGIN (без подсказок логина/пина) -->
-    <section class="screen active" id="screenLogin">
-      <div class="grid">
-        <div class="card">
-          <h2 class="title">Вход</h2>
-          <p class="sub">Введите логин и пароль.</p>
-          <div class="row">
-            <input class="input" id="loginName" placeholder="Логин" autocomplete="off" />
-            <input class="input" id="loginPin" placeholder="Пароль" type="password" inputmode="numeric" autocomplete="off" />
-            <button class="btn" id="loginBtn">Войти</button>
-          </div>
-          <p class="muted" id="loginMsg" style="margin-top:10px"></p>
+    <!-- UNITS -->
+    <div class="card">
+      <h2 class="title">📘 Units</h2>
+      <p class="sub">Выбери Unit (2 ряда).</p>
 
-          <div class="hr"></div>
-          <div class="row">
-            <button class="btn secondary" id="openTeacherBtn">👩‍🏫 Журнал учителя</button>
-          </div>
-        </div>
+      <div class="unitsGrid" id="unitsGrid"></div>
 
-        <div class="card">
-          <h2 class="title">Что внутри</h2>
-          <p class="sub">Units • Visual Vocabulary (🔊) • Grammar Key • Worksheets • Reading • Karaoke • Print</p>
-          <div class="row">
-            <span class="stars">⭐ Звёзды сохраняются</span>
-            <span class="stars">✅/❌ сохраняются</span>
-            <span class="stars">🖨 Print каждого lesson</span>
-          </div>
+      <div class="hr"></div>
+
+      <!-- CHAT + TEACHER -->
+      <h2 class="title" style="margin-top:0">🤖 AI Bayan Chat</h2>
+      <p class="hint">Лимит: 1 вопрос в день.</p>
+
+      <div class="chatBox">
+        <div class="row" style="gap:10px">
+          <input class="input" id="chatQ" placeholder="Напиши вопрос..." />
+          <button class="btn" id="askBtn" style="min-width:120px">Спросить</button>
         </div>
+        <div class="chatA" id="chatA"></div>
+
+        <div class="hr"></div>
+        <button class="btn secondary full" id="teacherBtn">👩‍🏫 Журнал учителя</button>
       </div>
-    </section>
-
-    <!-- MAIN MENU -->
-    <section class="screen" id="screenMain">
-      <div class="grid">
-        <div class="card">
-          <h2 class="title">AI Bayan Dictionary 3 gr</h2>
-          <p class="sub">Выбери Unit.</p>
-
-          <div class="row noPrint" style="justify-content:space-between">
-            <div class="row">
-              <span class="stars" id="totalStarsBadge">⭐ 0</span>
-              <span class="tag" id="todayChatTag">🤖</span>
-            </div>
-          </div>
-
-          <div class="hr noPrint"></div>
-          <div class="row noPrint" id="unitsRow"></div>
-
-          <!-- ВНИЗУ: чат + достижения + журнал учителя -->
-          <div class="section noPrint">
-            <h3>🤖 AI Bayan Chat</h3>
-            <p class="hint">1 вопрос в день.</p>
-            <div class="row">
-              <input class="input" id="chatQ" placeholder="Вопрос..." />
-              <button class="btn" id="chatAskBtn">Спросить</button>
-            </div>
-            <div class="hr"></div>
-            <div id="chatA" class="muted"></div>
-
-            <div class="hr"></div>
-
-            <div class="row" style="justify-content:space-between">
-              <div class="row">
-                <span class="stars" id="achTotal">⭐ 0</span>
-                <span class="tag" id="achUnits">Units: 0/8</span>
-              </div>
-              <button class="btn ghost" id="teacherBtn">👩‍🏫 Журнал учителя</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2 class="title">Достижения</h2>
-          <p class="sub">Сохраняются по логину.</p>
-          <div id="progressBox"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- UNIT -->
-    <section class="screen" id="screenUnit">
-      <div class="card">
-        <div class="row noPrint" style="justify-content:space-between">
-          <div>
-            <h2 class="title" id="unitTitle">Unit</h2>
-            <p class="sub" id="unitSub">8 lessons внутри одного юнита</p>
-          </div>
-          <div class="row">
-            <span class="stars" id="unitStarsBadge">⭐ 0</span>
-            <button class="btn ghost" id="backToMainBtn">⬅ Главное меню</button>
-            <button class="btn secondary" id="printLessonBtn">🖨 Print lesson</button>
-          </div>
-        </div>
-
-        <div class="hr noPrint"></div>
-        <div class="lessonTabs noPrint" id="lessonTabs"></div>
-
-        <div id="lessonContent"></div>
-      </div>
-    </section>
-
-    <!-- TEACHER -->
-    <section class="screen" id="screenTeacher">
-      <div class="card">
-        <div class="row noPrint" style="justify-content:space-between">
-          <div>
-            <h2 class="title">👩‍🏫 Teacher Journal</h2>
-            <p class="sub">Введите пароль.</p>
-          </div>
-          <div class="row">
-            <button class="btn ghost" id="backTeacherBtn">⬅ Назад</button>
-            <button class="btn danger" id="teacherResetBtn">Сбросить прогресс</button>
-          </div>
-        </div>
-
-        <div class="section noPrint">
-          <h3>Вход</h3>
-          <div class="row">
-            <input class="input" id="teacherPin" placeholder="Пароль" type="password" inputmode="numeric" />
-            <button class="btn" id="teacherLoginBtn">Открыть</button>
-          </div>
-          <p class="muted" id="teacherMsg" style="margin:10px 0 0 0"></p>
-        </div>
-
-        <div id="teacherTableWrap" style="display:none">
-          <div class="hr"></div>
-          <div class="section">
-            <h3>Таблица учеников</h3>
-            <div class="muted tiny">Last login и ⭐ по юнитам.</div>
-            <div style="overflow:auto;margin-top:10px">
-              <table style="width:100%;border-collapse:collapse;font-size:13px">
-                <thead>
-                  <tr style="text-align:left">
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Логин</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Последний вход</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">⭐ Всего</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U1</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U2</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U3</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U4</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U5</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U6</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U7</th>
-                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">U8</th>
-                  </tr>
-                </thead>
-                <tbody id="teacherTbody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    </div>
   </div>
 
-  <script>
-    /***********************
-     * CONFIG (скрыто на экране)
-     ***********************/
-    const STUDENT_PIN = "2844";
-    const TEACHER_PIN = "3244";
-    const CHAT_ENDPOINT = ""; // если будет Cloudflare Worker — вставь URL
+<script>
+  // ======= DEMO STATE (в твоём приложении будет из localStorage по логину) =======
+  const studentLogin = "3E L1"; // просто для показа на скрине
+  const units = [
+    {id:1, title:"Unit 1", topic:"Hello English!"},
+    {id:2, title:"Unit 2", topic:"My school"},
+    {id:3, title:"Unit 3", topic:"People I love"},
+    {id:4, title:"Unit 4", topic:"Weather"},
+    {id:5, title:"Unit 5", topic:"My free time"},
+    {id:6, title:"Unit 6", topic:"Health"},
+    {id:7, title:"Unit 7", topic:"Buildings"},
+    {id:8, title:"Unit 8", topic:"My holidays"},
+  ];
 
-    // Разрешённые логины: 3E L1..L15
-    const ALLOWED_LOGINS = Array.from({length:15}, (_,i)=>`3E L${i+1}`);
+  // stars per unit demo
+  const starsByUnit = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0};
 
-    /***********************
-     * DATA (Units 1–8)
-     * Unit 1: добавлен POSTER (Lesson 7)
-     ***********************/
-    const APP_DATA = Array.from({length:8}, (_,u)=>({
-      unitId: u+1,
-      title: `Unit ${u+1}`,
-      lessons: Array.from({length:8}, (_,l)=>({
-        lessonId: l+1,
-        title: `Lesson ${l+1}`,
-        vocab: (u===0 ? [
-          {emoji:"👋", en:"hello", ru:"привет"},
-          {emoji:"🙋", en:"name", ru:"имя"},
-          {emoji:"😊", en:"fine", ru:"хорошо"},
-          {emoji:"🌍", en:"from", ru:"из / откуда"},
-          {emoji:"🎂", en:"ten", ru:"десять"},
-          {emoji:"🔴", en:"red", ru:"красный"},
-          {emoji:"🔵", en:"blue", ru:"синий"},
-          {emoji:"🟢", en:"green", ru:"зелёный"},
-        ] : [
-          {emoji:"📘", en:"book", ru:"книга"},
-          {emoji:"✏️", en:"pen", ru:"ручка"},
-          {emoji:"🧑‍🏫", en:"teacher", ru:"учитель"},
-          {emoji:"🏫", en:"school", ru:"школа"},
-          {emoji:"🎒", en:"bag", ru:"сумка"},
-          {emoji:"📎", en:"folder", ru:"папка"},
-          {emoji:"🪑", en:"desk", ru:"парта"},
-          {emoji:"🧑", en:"friend", ru:"друг"},
-        ]),
-        grammar: (u===0 ? {
-          enTitle:"Grammar Key",
-          enRule:"What’s your name? / My name’s … / I’m …<br>How are you? / I’m fine. I’m OK.<br>Where are you from? / I’m from …<br>How old are you? / I’m ten.",
-          ruRule:"Как тебя зовут? / Меня зовут … / Я …<br>Как дела? / Я в порядке.<br>Откуда ты? / Я из …<br>Сколько тебе лет? / Мне десять."
-        } : {
-          enTitle:"Grammar Key",
-          enRule:"This is … / These are …<br>There is … / There are …",
-          ruRule:"Это … (ед.ч.) / Это … (мн.ч.)<br>Есть … (ед.ч.) / Есть … (мн.ч.)"
-        }),
-        ws1_missing: [
-          {prompt:"h _ l l o", answer:"hello"},
-          {prompt:"n a _ e", answer:"name"},
-          {prompt:"f _ n e", answer:"fine"},
-          {prompt:"r e _", answer:"red"},
-        ],
-        ws3_choose: [
-          {q:"What’s your ___?", options:["name","blue","ten"], correct:0},
-          {q:"How ___ you?", options:["are","from","red"], correct:0},
-          {q:"I’m ___ Kazakhstan.", options:["from","fine","name"], correct:0},
-        ],
-        reading: {
-          dialog: [
-            "A: Hello!",
-            "B: Hello! What’s your name?",
-            "A: My name’s Tim.",
-            "B: Nice to meet you. Bye!"
-          ],
-          tf: [
-            {q:"Tim says: “My name’s Tim.”", a:true},
-            {q:"They say: “Good morning.”", a:false}
-          ]
-        },
-        poster: (u===0 && l===6) ? { // Unit 1 Lesson 7
-          hasPoster:true,
-          title:"Project — I can make a poster (About me)",
-          blocks:[
-            {h:"Greetings", en:["Hello!","Hi!","Goodbye!","Bye!"], ru:["Привет!","Привет!","До свидания!","Пока!"]},
-            {h:"My name", en:["What’s your name?","My name’s _____.","I’m _____."], ru:["Как тебя зовут?","Меня зовут _____.","Я _____."]},
-            {h:"How are you?", en:["How are you?","I’m fine.","I’m OK."], ru:["Как дела?","Я в порядке.","У меня всё хорошо."]},
-            {h:"Where are you from?", en:["Where are you from?","I’m from _____."], ru:["Откуда ты?","Я из _____."]},
-            {h:"How old are you?", en:["How old are you?","I’m _____ (years old)."], ru:["Сколько тебе лет?","Мне _____ лет."]},
-            {h:"Colours", en:["red, blue, green, yellow, black, white"], ru:["красный, синий, зелёный, жёлтый, чёрный, белый"]},
-          ]
-        } : {hasPoster:false},
-        song: {
-          hasSong: (u===0 && l===0), // Unit 1 Lesson 1: karaoke (если добавишь mp3)
-          audioSrc: "",              // например: "u1l1.mp3"
-          lines: [
-            {t:0,  text:"Hello, hello, hello!"},
-            {t:3,  text:"How are you?"},
-            {t:6,  text:"I’m fine, thank you!"},
-            {t:9,  text:"Goodbye, bye!"}
-          ]
-        }
-      }))
-    }));
+  // ======= BUILD UI =======
+  const statusPill = document.getElementById("statusPill");
+  statusPill.textContent = studentLogin; // если не вошли — оставить "Не вошли"
 
-    /***********************
-     * HELPERS
-     ***********************/
-    const $ = (id)=>document.getElementById(id);
+  function totalStars(){
+    return Object.values(starsByUnit).reduce((a,b)=>a+b,0);
+  }
+  function unitsDone(){
+    return Object.values(starsByUnit).filter(x=>x>0).length;
+  }
+  document.getElementById("totalStars").textContent = "⭐ " + totalStars();
+  document.getElementById("unitsDone").textContent = "Units: " + unitsDone() + "/8";
 
-    let state = { student:null, currentUnit:null, currentLesson:1 };
-
-    function keyBase(student){ return `AIB3_${student.replaceAll(" ","_")}`; }
-    function loadJSON(k, fallback){
-      try{ const v = localStorage.getItem(k); return v? JSON.parse(v): fallback; }catch(e){ return fallback; }
-    }
-    function saveJSON(k, obj){ localStorage.setItem(k, JSON.stringify(obj)); }
-
-    function getProgress(){
-      const base = keyBase(state.student);
-      return loadJSON(`${base}_progress`, { stars:{}, marks:{}, lastLogin:null, chatDaily:{} });
-    }
-    function setProgress(p){
-      const base = keyBase(state.student);
-      saveJSON(`${base}_progress`, p);
-    }
-    function markLastLogin(){
-      const p = getProgress();
-      p.lastLogin = new Date().toISOString();
-      setProgress(p);
-    }
-
-    function getStars(unitId, lessonId){
-      const p = getProgress();
-      return (p.stars?.[`${unitId}_${lessonId}`] ?? 0);
-    }
-    function addStar(unitId, lessonId, delta=1){
-      const p = getProgress();
-      const k = `${unitId}_${lessonId}`;
-      p.stars = p.stars || {};
-      p.stars[k] = (p.stars[k] ?? 0) + delta;
-      setProgress(p);
-      refreshBadges();
-    }
-    function getMark(unitId, lessonId, itemKey){
-      const p = getProgress();
-      const k = `${unitId}_${lessonId}_${itemKey}`;
-      return p.marks?.[k] ?? null;
-    }
-    function setMark(unitId, lessonId, itemKey, value){
-      const p = getProgress();
-      p.marks = p.marks || {};
-      const k = `${unitId}_${lessonId}_${itemKey}`;
-      p.marks[k] = value;
-      setProgress(p);
-      refreshBadges();
-    }
-
-    function totalStars(){
-      const p = getProgress();
-      let s = 0; for(const k in (p.stars||{})) s += (p.stars[k]||0);
-      return s;
-    }
-    function unitStars(unitId){
-      const p = getProgress();
-      let s = 0;
-      for(const k in (p.stars||{})) if(k.startsWith(unitId+"_")) s += (p.stars[k]||0);
-      return s;
-    }
-    function unitsCompleted(){
-      // считаем “юнит завершён”, если есть хотя бы 1 звезда в юните (простое правило)
-      let done = 0;
-      for(let u=1; u<=8; u++){
-        if(unitStars(u) > 0) done++;
-      }
-      return done;
-    }
-
-    /***********************
-     * SCREENS
-     ***********************/
-    function showScreen(id){
-      ["screenLogin","screenMain","screenUnit","screenTeacher"].forEach(s=>{
-        $(s).classList.toggle("active", s===id);
-      });
-    }
-    function setWho(){
-      const pill = $("whoPill");
-      const btn = $("logoutBtn");
-      if(state.student){
-        pill.textContent = `✅ ${state.student}`;
-        btn.style.display = "inline-flex";
-      }else{
-        pill.textContent = "Не вошли";
-        btn.style.display = "none";
-      }
-    }
-    $("logoutBtn").addEventListener("click", ()=>{
-      state.student=null; state.currentUnit=null; state.currentLesson=1;
-      setWho();
-      showScreen("screenLogin");
+  const grid = document.getElementById("unitsGrid");
+  units.forEach(u=>{
+    const btn = document.createElement("button");
+    btn.className = "unitBtn";
+    btn.innerHTML = `
+      <div class="unitLeft">
+        <div class="u">${u.title}</div>
+        <div class="t">${u.topic}</div>
+      </div>
+      <div class="starPill">⭐ ${starsByUnit[u.id] || 0}</div>
+    `;
+    btn.addEventListener("click", ()=>{
+      alert("Открыть " + u.title + " (в твоём приложении здесь переход в Unit)");
     });
+    grid.appendChild(btn);
+  });
 
-    /***********************
-     * LOGIN
-     ***********************/
-    function normalizeLogin(s){ return (s||"").trim().replace(/\s+/g," "); }
+  // ======= CHAT 1/day (demo localStorage) =======
+  const chatLimit = document.getElementById("chatLimit");
+  const chatA = document.getElementById("chatA");
+  const chatQ = document.getElementById("chatQ");
 
-    $("loginBtn").addEventListener("click", ()=>{
-      const name = normalizeLogin($("loginName").value);
-      const pin = ($("loginPin").value||"").trim();
+  function todayKey(){
+    return new Date().toISOString().slice(0,10);
+  }
+  function refreshChat(){
+    const used = localStorage.getItem("AIB3_chat_"+todayKey()) === "1";
+    chatLimit.textContent = used ? "🤖 лимит использован" : "🤖 1 вопрос доступен";
+    chatLimit.style.background = used ? "#ffecec" : "#fff";
+  }
+  refreshChat();
 
-      if(!ALLOWED_LOGINS.includes(name)){
-        $("loginMsg").textContent = "❌ Доступ запрещён.";
-        return;
-      }
-      if(pin !== STUDENT_PIN){
-        $("loginMsg").textContent = "❌ Неверный пароль.";
-        return;
-      }
-      state.student = name;
-      $("loginMsg").textContent = "";
-      setWho();
-      markLastLogin();
-      buildMain();
-      showScreen("screenMain");
-    });
+  document.getElementById("askBtn").addEventListener("click", ()=>{
+    const q = (chatQ.value||"").trim();
+    if(!q){ chatA.textContent = "Напиши вопрос 😊"; return; }
 
-    /***********************
-     * MAIN MENU
-     ***********************/
-    function refreshChatTag(){
-      const tag = $("todayChatTag");
-      const p = getProgress();
-      const d = new Date().toISOString().slice(0,10);
-      const used = !!p.chatDaily?.[d];
-      tag.textContent = used ? "🤖 лимит использован" : "🤖 1 вопрос доступен";
-      tag.style.borderColor = used ? "rgba(214,40,40,.35)" : "rgba(43,147,72,.35)";
-      tag.style.background = used ? "#ffecec" : "#f4fff7";
+    const used = localStorage.getItem("AIB3_chat_"+todayKey()) === "1";
+    if(used){
+      chatA.textContent = "❌ Сегодня лимит уже использован (1 вопрос/день).";
+      refreshChat();
+      return;
     }
+    localStorage.setItem("AIB3_chat_"+todayKey(),"1");
+    refreshChat();
+    chatA.textContent = "AI Bayan: Повтори vocabulary, потом grammar, потом worksheets ✅";
+  });
 
-    function buildUnitsRow(){
-      const row = $("unitsRow");
-      row.innerHTML = "";
-      APP_DATA.forEach(u=>{
-        const b = document.createElement("button");
-        b.className = "btn unit";
-        b.innerHTML = `📘 ${u.title} <span class="tiny">⭐ ${unitStars(u.unitId)}</span>`;
-        b.addEventListener("click", ()=>openUnit(u.unitId));
-        row.appendChild(b);
-      });
-    }
-
-    function buildProgressBox(){
-      const box = $("progressBox");
-      box.innerHTML = "";
-      const p = getProgress();
-      const last = p.lastLogin ? new Date(p.lastLogin).toLocaleString() : "—";
-      const div = document.createElement("div");
-      div.className = "section";
-      div.innerHTML = `
-        <h3>👤 ${state.student}</h3>
-        <p class="hint">Последний вход: <b>${last}</b></p>
-        <div class="row">
-          <span class="stars">⭐ Всего: ${totalStars()}</span>
-          <span class="tag">Units: ${unitsCompleted()}/8</span>
-        </div>
-      `;
-      box.appendChild(div);
-    }
-
-    function buildMain(){
-      $("totalStarsBadge").textContent = `⭐ ${totalStars()}`;
-      $("achTotal").textContent = `⭐ ${totalStars()}`;
-      $("achUnits").textContent = `Units: ${unitsCompleted()}/8`;
-      buildUnitsRow();
-      buildProgressBox();
-      refreshChatTag();
-      $("chatA").textContent = "";
-      $("chatQ").value = "";
-    }
-
-    /***********************
-     * AI CHAT (1 per day)
-     ***********************/
-    async function askChat(){
-      const q = ($("chatQ").value||"").trim();
-      if(!q){ $("chatA").textContent = "Напиши вопрос 😊"; return; }
-
-      const p = getProgress();
-      const d = new Date().toISOString().slice(0,10);
-      p.chatDaily = p.chatDaily || {};
-      if(p.chatDaily[d]){
-        $("chatA").textContent = "❌ Сегодня лимит чата уже использован (1 вопрос в день).";
-        refreshChatTag();
-        return;
-      }
-      p.chatDaily[d] = true;
-      setProgress(p);
-      refreshChatTag();
-
-      if(CHAT_ENDPOINT){
-        try{
-          $("chatA").textContent = "…";
-          const res = await fetch(CHAT_ENDPOINT, {
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body: JSON.stringify({ question:q, student: state.student, dateISO: new Date().toISOString() })
-          });
-          const data = await res.json();
-          $("chatA").textContent = data.answer ? String(data.answer) : "Ответ не получен.";
-        }catch(e){
-          $("chatA").textContent = "⚠️ Не удалось подключиться к чату.";
-        }
-      }else{
-        $("chatA").textContent =
-          "AI Bayan: Сначала повтори слова (Vocabulary), потом правило (Grammar Key), затем сделай Worksheets 😊";
-      }
-    }
-    $("chatAskBtn").addEventListener("click", askChat);
-
-    /***********************
-     * UNIT + LESSONS
-     ***********************/
-    function openUnit(unitId){
-      state.currentUnit = unitId;
-      state.currentLesson = 1;
-      buildUnit();
-      showScreen("screenUnit");
-    }
-
-    $("backToMainBtn").addEventListener("click", ()=>{
-      buildMain();
-      showScreen("screenMain");
-    });
-    $("printLessonBtn").addEventListener("click", ()=>window.print());
-
-    function buildLessonTabs(unit){
-      const tabs = $("lessonTabs");
-      tabs.innerHTML = "";
-      unit.lessons.forEach(les=>{
-        const t = document.createElement("button");
-        t.className = "tab" + (les.lessonId===state.currentLesson ? " active":"");
-        t.textContent = `Lesson ${les.lessonId}`;
-        t.addEventListener("click", ()=>{
-          state.currentLesson = les.lessonId;
-          buildUnit();
-        });
-        tabs.appendChild(t);
-      });
-    }
-
-    function refreshBadges(){
-      if(!state.student) return;
-      $("totalStarsBadge").textContent = `⭐ ${totalStars()}`;
-      $("achTotal").textContent = `⭐ ${totalStars()}`;
-      $("achUnits").textContent = `Units: ${unitsCompleted()}/8`;
-
-      if(state.currentUnit){
-        $("unitStarsBadge").textContent = `⭐ ${unitStars(state.currentUnit)}`;
-      }
-      const row = $("unitsRow");
-      if(row && row.children){
-        Array.from(row.children).forEach((btn,i)=>{
-          const u = APP_DATA[i];
-          if(u) btn.innerHTML = `📘 ${u.title} <span class="tiny">⭐ ${unitStars(u.unitId)}</span>`;
-        });
-      }
-    }
-
-    // "AI Bayan" voice (Web Speech API)
-    function speakAI(text){
-      try{
-        const u = new SpeechSynthesisUtterance(text);
-        const voices = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
-        const v = voices.find(v=>/en/i.test(v.lang)) || voices[0];
-        if(v) u.voice = v;
-        u.lang = (v && v.lang) ? v.lang : "en-US";
-        u.rate = 0.9;
-        u.pitch = 1.1;
-        speechSynthesis.cancel();
-        speechSynthesis.speak(u);
-      }catch(e){
-        alert("Озвучка недоступна.");
-      }
-    }
-    if("speechSynthesis" in window){
-      window.speechSynthesis.onvoiceschanged = ()=>{};
-    }
-
-    function buildUnit(){
-      const unit = APP_DATA.find(u=>u.unitId===state.currentUnit);
-      const les = unit.lessons.find(l=>l.lessonId===state.currentLesson);
-
-      $("unitTitle").textContent = unit.title;
-      $("unitSub").textContent = `${les.title} • 8 lessons внутри одного юнита`;
-      $("unitStarsBadge").textContent = `⭐ ${unitStars(unit.unitId)}`;
-
-      buildLessonTabs(unit);
-
-      const root = $("lessonContent");
-      root.innerHTML = "";
-
-      // 1) Visual Vocabulary
-      const s1 = document.createElement("div");
-      s1.className = "section";
-      s1.innerHTML = `
-        <h3>1) Visual Vocabulary</h3>
-        <p class="hint">Нажми 🔊 — AI Bayan говорит слово.</p>
-        <div class="vGrid" id="vGrid"></div>
-      `;
-      root.appendChild(s1);
-
-      const vGrid = s1.querySelector("#vGrid");
-      les.vocab.forEach((w)=>{
-        const item = document.createElement("div");
-        item.className = "vItem";
-        item.innerHTML = `
-          <div class="vPic" aria-hidden="true">${w.emoji || "🧸"}</div>
-          <div class="vSpeakRow">
-            <div>
-              <div class="vWord">${w.en}</div>
-              <div class="vRu">${w.ru}</div>
-            </div>
-            <button class="btn secondary small noPrint" title="Speak">🔊</button>
-          </div>
-        `;
-        item.querySelector("button").addEventListener("click", ()=>speakAI(w.en));
-        vGrid.appendChild(item);
-      });
-
-      // 2) Grammar Key (EN+RU)
-      const s2 = document.createElement("div");
-      s2.className = "section";
-      s2.innerHTML = `
-        <h3>2) ${les.grammar.enTitle}</h3>
-        <div class="qa">
-          <div style="flex:1">
-            <div><b>EN:</b> <span>${les.grammar.enRule}</span></div>
-            <div style="margin-top:8px"><b>RU:</b> <span>${les.grammar.ruRule}</span></div>
-          </div>
-        </div>
-      `;
-      root.appendChild(s2);
-
-      // Stars (lesson)
-      const lessonStars = getStars(unit.unitId, les.lessonId);
-      const starBox = document.createElement("div");
-      starBox.className = "section";
-      starBox.innerHTML = `
-        <h3>⭐ Stars for this lesson</h3>
-        <div class="row">
-          <span class="stars">⭐ ${lessonStars}</span>
-          <span class="tag">✅ правильно = +1 ⭐</span>
-        </div>
-      `;
-      root.appendChild(starBox);
-
-      // 3) Worksheet 1 — Missing letters
-      const s3 = document.createElement("div");
-      s3.className = "section";
-      s3.innerHTML = `<h3>3) Worksheet 1 — Missing Letters</h3><div id="ws1"></div>`;
-      root.appendChild(s3);
-
-      const ws1 = s3.querySelector("#ws1");
-      les.ws1_missing.forEach((it,i)=>{
-        const itemKey = `ws1_${i}`;
-        const mark = getMark(unit.unitId, les.lessonId, itemKey);
-        const row = document.createElement("div");
-        row.className = "qa";
-        row.innerHTML = `
-          <div class="mark ${mark==="ok"?"ok":mark==="bad"?"bad":""}">${mark==="ok"?"✅":mark==="bad"?"✖":"•"}</div>
-          <div style="min-width:120px;font-weight:950">${it.prompt}</div>
-          <input class="input" style="min-width:180px" placeholder="answer" />
-          <button class="btn small">Check</button>
-        `;
-        const inp = row.querySelector("input");
-        if(mark==="ok") inp.value = it.answer;
-
-        row.querySelector("button").addEventListener("click", ()=>{
-          const ans = (inp.value||"").trim().toLowerCase();
-          if(ans === it.answer.toLowerCase()){
-            if(getMark(unit.unitId, les.lessonId, itemKey)!=="ok") addStar(unit.unitId, les.lessonId, 1);
-            setMark(unit.unitId, les.lessonId, itemKey, "ok");
-          }else{
-            setMark(unit.unitId, les.lessonId, itemKey, "bad");
-          }
-          buildUnit();
-        });
-
-        ws1.appendChild(row);
-      });
-
-      // 4) Worksheet 2 — Matching
-      const s4 = document.createElement("div");
-      s4.className = "section";
-      s4.innerHTML = `<h3>4) Worksheet 2 — Matching (Pictures + Words)</h3><div class="matchWrap" id="matchWrap"></div>`;
-      root.appendChild(s4);
-
-      const matchWrap = s4.querySelector("#matchWrap");
-      const left = document.createElement("div");
-      const right = document.createElement("div");
-      left.className="matchCol"; right.className="matchCol";
-      left.innerHTML = `<div style="font-weight:950;margin-bottom:8px">Pictures</div>`;
-      right.innerHTML = `<div style="font-weight:950;margin-bottom:8px">Words</div>`;
-
-      const pairs = les.vocab.slice(0,6).map((w,idx)=>({id:idx,...w}));
-      const pics = [...pairs].sort(()=>Math.random()-0.5);
-      const words = [...pairs].sort(()=>Math.random()-0.5);
-
-      let selPic=null, selWord=null;
-
-      pics.forEach(p=>{
-        const done = getMark(unit.unitId, les.lessonId, `ws2_done_${p.id}`)==="ok";
-        const el = document.createElement("div");
-        el.className = "matchItem" + (done?" done":"");
-        el.innerHTML = `<span>${p.emoji}</span><span class="tiny">${done?"✅":""}</span>`;
-        el.addEventListener("click", ()=>{
-          if(done) return;
-          Array.from(left.querySelectorAll(".matchItem")).forEach(x=>x.classList.remove("selected"));
-          el.classList.add("selected");
-          selPic=p;
-          tryPair();
-        });
-        left.appendChild(el);
-      });
-
-      words.forEach(w=>{
-        const done = getMark(unit.unitId, les.lessonId, `ws2_done_${w.id}`)==="ok";
-        const el = document.createElement("div");
-        el.className = "matchItem" + (done?" done":"");
-        el.innerHTML = `<span>${w.en}</span><span class="tiny">${done?"✅":""}</span>`;
-        el.addEventListener("click", ()=>{
-          if(done) return;
-          Array.from(right.querySelectorAll(".matchItem")).forEach(x=>x.classList.remove("selected"));
-          el.classList.add("selected");
-          selWord=w;
-          tryPair();
-        });
-        right.appendChild(el);
-      });
-
-      function tryPair(){
-        if(!selPic || !selWord) return;
-        if(selPic.id === selWord.id){
-          if(getMark(unit.unitId, les.lessonId, `ws2_done_${selPic.id}`)!=="ok") addStar(unit.unitId, les.lessonId, 1);
-          setMark(unit.unitId, les.lessonId, `ws2_done_${selPic.id}`, "ok");
-        }else{
-          setMark(unit.unitId, les.lessonId, `ws2_try_${selPic.id}_${selWord.id}`, "bad");
-        }
-        selPic=null; selWord=null;
-        buildUnit();
-      }
-
-      matchWrap.appendChild(left);
-      matchWrap.appendChild(right);
-
-      // 5) Worksheet 3 — Choose correct word
-      const s5 = document.createElement("div");
-      s5.className = "section";
-      s5.innerHTML = `<h3>5) Worksheet 3 — Choose the Correct Word</h3><div id="ws3"></div>`;
-      root.appendChild(s5);
-
-      const ws3 = s5.querySelector("#ws3");
-      les.ws3_choose.forEach((it,i)=>{
-        const itemKey = `ws3_${i}`;
-        const mark = getMark(unit.unitId, les.lessonId, itemKey);
-        const box = document.createElement("div");
-        box.className="qa";
-        box.innerHTML = `
-          <div class="mark ${mark==="ok"?"ok":mark==="bad"?"bad":""}">${mark==="ok"?"✅":mark==="bad"?"✖":"•"}</div>
-          <div style="flex:1">
-            <div style="font-weight:950;margin-bottom:8px">${it.q}</div>
-            <div class="row" id="opts"></div>
-            <div class="row" style="margin-top:8px"><button class="btn small">Check</button></div>
-          </div>
-        `;
-        const opts = box.querySelector("#opts");
-        const group = `g_${unit.unitId}_${les.lessonId}_${i}`;
-        it.options.forEach((op,idx)=>{
-          const lab = document.createElement("label");
-          lab.className="tag";
-          lab.style.cursor="pointer";
-          lab.innerHTML = `<input type="radio" name="${group}" value="${idx}" style="transform:scale(1.1)"> ${op}`;
-          opts.appendChild(lab);
-        });
-
-        box.querySelector("button").addEventListener("click", ()=>{
-          const chosen = box.querySelector(`input[name="${group}"]:checked`);
-          if(!chosen){ alert("Выбери вариант 🙂"); return; }
-          const val = Number(chosen.value);
-          if(val === it.correct){
-            if(getMark(unit.unitId, les.lessonId, itemKey)!=="ok") addStar(unit.unitId, les.lessonId, 1);
-            setMark(unit.unitId, les.lessonId, itemKey, "ok");
-          }else{
-            setMark(unit.unitId, les.lessonId, itemKey, "bad");
-          }
-          buildUnit();
-        });
-
-        ws3.appendChild(box);
-      });
-
-      // 6) Worksheet 4 — Reading mini + 2 TF
-      const s6 = document.createElement("div");
-      s6.className="section";
-      s6.innerHTML = `
-        <h3>6) Worksheet 4 — Reading Mini (Dialog)</h3>
-        <div class="qa" style="display:block">
-          <div style="font-weight:950;margin-bottom:8px">Dialog</div>
-          <div style="line-height:1.55" id="dialog"></div>
-        </div>
-        <div id="tfBox" style="margin-top:10px"></div>
-      `;
-      root.appendChild(s6);
-
-      s6.querySelector("#dialog").innerHTML = les.reading.dialog.map(x=>`<div>${x}</div>`).join("");
-
-      const tfBox = s6.querySelector("#tfBox");
-      les.reading.tf.forEach((tfi,i)=>{
-        const itemKey = `ws4_tf_${i}`;
-        const mark = getMark(unit.unitId, les.lessonId, itemKey);
-        const row = document.createElement("div");
-        row.className="qa";
-        row.innerHTML = `
-          <div class="mark ${mark==="ok"?"ok":mark==="bad"?"bad":""}">${mark==="ok"?"✅":mark==="bad"?"✖":"•"}</div>
-          <div style="flex:1;font-weight:950">${tfi.q}</div>
-          <label class="tag" style="cursor:pointer"><input type="radio" name="tf_${i}" value="true"> True</label>
-          <label class="tag" style="cursor:pointer"><input type="radio" name="tf_${i}" value="false"> False</label>
-          <button class="btn small">Check</button>
-        `;
-        row.querySelector("button").addEventListener("click", ()=>{
-          const chosen = row.querySelector(`input[name="tf_${i}"]:checked`);
-          if(!chosen){ alert("Выбери True/False 🙂"); return; }
-          const val = (chosen.value==="true");
-          if(val === tfi.a){
-            if(getMark(unit.unitId, les.lessonId, itemKey)!=="ok") addStar(unit.unitId, les.lessonId, 1);
-            setMark(unit.unitId, les.lessonId, itemKey, "ok");
-          }else{
-            setMark(unit.unitId, les.lessonId, itemKey, "bad");
-          }
-          buildUnit();
-        });
-        tfBox.appendChild(row);
-      });
-
-      // 7) Project Poster (Unit 1 Lesson 7)
-      if(les.poster && les.poster.hasPoster){
-        const sP = document.createElement("div");
-        sP.className="section";
-        sP.innerHTML = `
-          <h3>7) ${les.poster.title}</h3>
-          <p class="hint">Готово для печати. (Print lesson)</p>
-          <div id="posterBlocks"></div>
-        `;
-        root.appendChild(sP);
-        const pb = sP.querySelector("#posterBlocks");
-        les.poster.blocks.forEach(b=>{
-          const block = document.createElement("div");
-          block.className="qa";
-          block.style.display="block";
-          block.innerHTML = `
-            <div style="font-weight:950;margin-bottom:6px">${b.h}</div>
-            <div><b>EN:</b> ${Array.isArray(b.en)? b.en.join(" • "): b.en}</div>
-            <div style="margin-top:6px"><b>RU:</b> ${Array.isArray(b.ru)? b.ru.join(" • "): b.ru}</div>
-          `;
-          pb.appendChild(block);
-        });
-      }
-
-      // Song — Karaoke (Unit 1 Lesson 1)
-      if(les.song && les.song.hasSong){
-        const s7 = document.createElement("div");
-        s7.className="section";
-        s7.innerHTML = `
-          <h3>${les.poster && les.poster.hasPoster ? "8" : "7"}) Song — Karaoke</h3>
-          <div class="karaokeBox">
-            <audio id="aud" preload="metadata"></audio>
-            <div class="row noPrint" style="margin-bottom:10px">
-              <button class="btn small" id="kStart">▶ Start</button>
-              <button class="btn ghost small" id="kPause">⏸ Pause</button>
-              <button class="btn danger small" id="kStop">⏹ Stop</button>
-            </div>
-            <div id="lyrics"></div>
-          </div>
-        `;
-        root.appendChild(s7);
-
-        const aud = s7.querySelector("#aud");
-        if(les.song.audioSrc) aud.src = les.song.audioSrc;
-
-        const lyrics = s7.querySelector("#lyrics");
-        les.song.lines.forEach((ln,idx)=>{
-          const div = document.createElement("div");
-          div.className="lyricLine";
-          div.dataset.idx=String(idx);
-          div.textContent=ln.text;
-          lyrics.appendChild(div);
-        });
-
-        const lines = les.song.lines;
-        function highlightByTime(t){
-          let active = 0;
-          for(let i=0;i<lines.length;i++) if(t >= lines[i].t) active = i;
-          Array.from(lyrics.children).forEach((c,i)=>c.classList.toggle("active", i===active));
-        }
-
-        let tick=null;
-        function startTick(){
-          stopTick();
-          tick=setInterval(()=>highlightByTime(aud.currentTime||0), 150);
-        }
-        function stopTick(){ if(tick){ clearInterval(tick); tick=null; } }
-
-        s7.querySelector("#kStart").addEventListener("click", async ()=>{
-          if(aud.src){
-            try{ await aud.play(); startTick(); }catch(e){}
-          }else{
-            let t=0; stopTick();
-            tick=setInterval(()=>{
-              t+=0.15; highlightByTime(t);
-              if(t> (lines[lines.length-1].t+4)) stopTick();
-            },150);
-          }
-        });
-        s7.querySelector("#kPause").addEventListener("click", ()=>{
-          if(aud.src) aud.pause();
-          stopTick();
-        });
-        s7.querySelector("#kStop").addEventListener("click", ()=>{
-          if(aud.src){ aud.pause(); aud.currentTime=0; }
-          stopTick();
-          Array.from(lyrics.children).forEach(c=>c.classList.remove("active"));
-        });
-        aud.addEventListener("ended", ()=>stopTick());
-      }
-
-      refreshBadges();
-    }
-
-    /***********************
-     * TEACHER JOURNAL
-     ***********************/
-    function openTeacher(){
-      showScreen("screenTeacher");
-      $("teacherMsg").textContent = "";
-      $("teacherTableWrap").style.display = "none";
-      $("teacherPin").value = "";
-    }
-    $("openTeacherBtn").addEventListener("click", openTeacher);
-    $("teacherBtn").addEventListener("click", openTeacher);
-    $("backTeacherBtn").addEventListener("click", ()=>{
-      if(state.student){ buildMain(); showScreen("screenMain"); }
-      else showScreen("screenLogin");
-    });
-
-    $("teacherLoginBtn").addEventListener("click", ()=>{
-      const pin = ($("teacherPin").value||"").trim();
-      if(pin !== TEACHER_PIN){
-        $("teacherMsg").textContent = "❌ Неверный пароль.";
-        return;
-      }
-      $("teacherMsg").textContent = "✅ Доступ разрешён.";
-      $("teacherTableWrap").style.display = "block";
-      buildTeacherTable();
-    });
-
-    function teacherReadStudentProgress(login){
-      const base = `AIB3_${login.replaceAll(" ","_")}`;
-      return loadJSON(`${base}_progress`, { stars:{}, marks:{}, lastLogin:null, chatDaily:{} });
-    }
-
-    function buildTeacherTable(){
-      const tb = $("teacherTbody");
-      tb.innerHTML = "";
-      ALLOWED_LOGINS.forEach(login=>{
-        const p = teacherReadStudentProgress(login);
-        const last = p.lastLogin ? new Date(p.lastLogin).toLocaleString() : "—";
-        const total = (()=>{ let s=0; for(const k in (p.stars||{})) s += (p.stars[k]||0); return s; })();
-        const perUnit = (u)=>{
-          let s=0; for(const k in (p.stars||{})) if(k.startsWith(u+"_")) s += (p.stars[k]||0);
-          return s;
-        };
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08);font-weight:950">${login}</td>
-          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08)">${last}</td>
-          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08);font-weight:950">⭐ ${total}</td>
-          ${Array.from({length:8},(_,i)=>`<td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08)">⭐ ${perUnit(i+1)}</td>`).join("")}
-        `;
-        tb.appendChild(tr);
-      });
-    }
-
-    $("teacherResetBtn").addEventListener("click", ()=>{
-      const pin = ($("teacherPin").value||"").trim();
-      if(pin !== TEACHER_PIN){ alert("Сначала введи пароль."); return; }
-      if(!confirm("Сбросить прогресс у ВСЕХ учеников?")) return;
-      ALLOWED_LOGINS.forEach(login=>{
-        const base = `AIB3_${login.replaceAll(" ","_")}`;
-        localStorage.removeItem(`${base}_progress`);
-      });
-      buildTeacherTable();
-      alert("Готово ✅");
-    });
-
-    /***********************
-     * INIT
-     ***********************/
-    setWho();
-
-    $("loginName").addEventListener("keydown",(e)=>{ if(e.key==="Enter") $("loginPin").focus(); });
-    $("loginPin").addEventListener("keydown",(e)=>{ if(e.key==="Enter") $("loginBtn").click(); });
-    $("chatQ").addEventListener("keydown",(e)=>{ if(e.key==="Enter") $("chatAskBtn").click(); });
-  </script>
+  document.getElementById("teacherBtn").addEventListener("click", ()=>{
+    alert("Открыть Журнал учителя (в твоём приложении здесь экран Teacher)");
+  });
+</script>
 </body>
 </html>
