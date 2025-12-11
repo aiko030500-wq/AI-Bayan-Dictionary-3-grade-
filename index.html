@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ENGLISH WITH AI BAYAN – Grade 3</title>
+  <title>ENGLISH WITH AI BAYAN – Grade 3 FF3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -14,20 +14,20 @@
       --accent-gold:#ffd54f;
       --text-main:#05313a;
 
-      /* Цвета юнитов (Variant B – яркие) */
-      --u1:#1565c0; /* Hello English! */
-      --u2:#ef6c00; /* My school */
-      --u3:#d81b60; /* People I love */
-      --u4:#039be5; /* Weather */
-      --u5:#8e24aa; /* My free time */
-      --u6:#c62828; /* Health */
-      --u7:#6d4c41; /* Buildings */
-      --u8:#9e9d24; /* My holidays */
+      /* Цвета юнитов (для рамок кнопок юнитов) */
+      --u1:#1565c0;
+      --u2:#ef6c00;
+      --u3:#d81b60;
+      --u4:#039be5;
+      --u5:#8e24aa;
+      --u6:#c62828;
+      --u7:#6d4c41;
+      --u8:#9e9d24;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
     body{
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:#004d40;
       color:var(--text-main);
     }
@@ -51,23 +51,19 @@
       background:#fff;
       background-size:cover;
       background-position:center;
-      background-image:url("img/ai-bayan-logo.png"); /* сюда свою картинку */
+      background-image:url("img/ai-bayan-logo.png"); /* твой логотип */
     }
     header h1{
       font-size:1.4rem;
       font-weight:800;
       letter-spacing:.08em;
     }
-    header h2{
-      font-size:0.9rem;
-      margin-top:0.15rem;
-      opacity:.9;
-    }
+    header h2{font-size:.9rem;margin-top:.15rem;opacity:.9;}
 
     .card{
-      background:#ffffff;
-      margin:.8rem 1rem;
+      background:#fff;
       border-radius:18px;
+      margin:.8rem 1rem;
       padding:1rem 1.1rem;
       border:3px solid var(--accent-gold);
       box-shadow:0 6px 14px rgba(0,0,0,.25);
@@ -82,11 +78,11 @@
       font-weight:600;
       font-size:.95rem;
       cursor:pointer;
-      box-shadow:0 4px 8px rgba(0,0,0,.3);
-      transition:transform .08s, box-shadow .08s, opacity .12s;
       display:inline-flex;
       align-items:center;
       gap:.25rem;
+      box-shadow:0 4px 8px rgba(0,0,0,.3);
+      transition:transform .08s,box-shadow .08s,opacity .12s;
     }
     .btn:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(0,0,0,.35);}
     .btn:active{transform:translateY(1px);box-shadow:0 2px 6px rgba(0,0,0,.25);opacity:.9;}
@@ -105,111 +101,102 @@
     .center{text-align:center;}
     .hidden{display:none;}
 
-    .menu-greeting{font-size:1.05rem;text-align:center;margin-bottom:.1rem;}
-    .menu-stars{font-size:.95rem;text-align:center;font-weight:700;color:#fdd835;}
-
-    .lesson-list{display:flex;flex-direction:column;gap:.6rem;margin-top:.7rem;}
-    .lesson-btn{
-      border-radius:18px;
-      padding:.6rem .9rem;
-      background:#e8f5e9;
-      border:3px solid var(--accent-gold);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      cursor:pointer;
-    }
-    .lesson-btn-left{display:flex;align-items:center;gap:.45rem;}
-    .lesson-icon{font-size:1.3rem;}
-    .lesson-info small{font-size:.8rem;color:#004d40;}
-    .lesson-stars-mini{font-size:.85rem;font-weight:700;color:#f57f17;}
-
-    .tabs-row{
-      margin:.4rem 0 .6rem;
-      display:flex;
-      flex-wrap:wrap;
-      gap:.3rem;
-    }
-    .tab-btn{
-      padding:.35rem .8rem;
-      border-radius:999px;
-      border:2px solid rgba(255,255,255,.6);
-      background:rgba(255,255,255,.18);
-      color:#fff;
-      font-size:.8rem;
-      cursor:pointer;
-      backdrop-filter:blur(4px);
-    }
-    .tab-btn.active{
-      background:#ffffff;
-      color:#000;
-    }
-
-    .lesson-header{
-      margin-bottom:.45rem;
-      color:#ffffff;
-    }
-    .lesson-title{font-size:1.2rem;font-weight:800;}
-    .lesson-sub{font-size:.9rem;opacity:.9;}
-    .lesson-stars{
-      font-size:.9rem;
-      font-weight:700;
-      margin-top:.15rem;
-    }
-
-    .section-card{
-      background:#ffffff;
-      border-radius:16px;
-      padding:.7rem .9rem;
-      margin-top:.6rem;
-      box-shadow:0 3px 10px rgba(0,0,0,.18);
-    }
     .section-title{
       font-weight:800;
       font-size:.98rem;
-      margin-bottom:.35rem;
       display:flex;
       align-items:center;
       gap:.4rem;
+      margin-bottom:.3rem;
     }
 
+    .menu-greeting{font-size:1.05rem;text-align:center;margin-bottom:.1rem;}
+    .menu-stars{font-size:.95rem;text-align:center;font-weight:700;color:#fdd835;}
+
+    /* Юниты в главном меню */
+    .unit-list{display:flex;flex-direction:column;gap:.6rem;margin-top:.7rem;}
+    .unit-row{
+      border-radius:16px;
+      padding:.6rem .8rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#e8f5e9;
+      border:2px solid var(--accent-gold);
+      flex-wrap:wrap;
+      gap:.4rem;
+    }
+    .unit-left{display:flex;align-items:center;gap:.45rem;}
+    .unit-icon{font-size:1.4rem;}
+    .unit-text small{font-size:.8rem;color:#004d40;display:block;}
+    .unit-actions{display:flex;gap:.3rem;align-items:center;}
+    .unit-stars-mini{font-size:.85rem;font-weight:700;color:#f57f17;}
+
+    /* Лист уроков внутри юнита */
+    .lesson-list{display:flex;flex-direction:column;gap:.55rem;margin-top:.6rem;}
+    .lesson-btn{
+      border-radius:16px;
+      padding:.55rem .75rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:#fff;
+      cursor:pointer;
+      box-shadow:0 4px 10px rgba(0,0,0,.25);
+    }
+    .lesson-btn-title{font-size:.9rem;font-weight:700;}
+    .lesson-btn-sub{font-size:.78rem;opacity:.9;}
+    .lesson-btn-stars{font-size:.85rem;font-weight:700;}
+
+    /* Экран урока */
     .vocab-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
-      gap:.55rem;
+      grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+      gap:.6rem;
+      margin-top:.25rem;
     }
     .vocab-card{
-      border-radius:14px;
-      padding:.45rem .45rem .55rem;
+      border-radius:16px;
+      padding:.45rem .5rem .6rem;
       text-align:center;
-      border:2px solid #bbdefb;
-      background:#e3f2fd;
+      background:#e8f5e9;
+      border:2px solid #c8e6c9;
     }
     .vocab-img{
       width:70px;height:70px;
-      border-radius:11px;
       background:#fff;
-      margin:0 auto .25rem;
+      border-radius:12px;
       display:flex;align-items:center;justify-content:center;
       font-size:2rem;
-      background-size:cover;
-      background-position:center;
+      margin:0 auto .25rem;
       border:1px solid #cfd8dc;
     }
     .vocab-word{font-weight:700;}
-    .vocab-ru{font-size:.8rem;color:#455a64;margin-top:.05rem;}
-    .vocab-sound-btn{
-      margin-top:.25rem;
-      padding:.2rem .7rem;
-      font-size:.8rem;
-    }
+    .vocab-ru{font-size:.8rem;color:#455a64;}
+    .vocab-sound-btn{margin-top:.2rem;font-size:.8rem;padding:.2rem .7rem;}
 
-    .grammar-rule{font-size:.9rem;line-height:1.4;}
-    .grammar-formula{font-size:.85rem;margin-top:.3rem;font-style:italic;}
+    .grammar-box{
+      border-radius:16px;
+      padding:.7rem .8rem;
+      background:#e3f2fd;
+      border:2px solid #90caf9;
+      font-size:.9rem;
+      line-height:1.4;
+    }
+    .grammar-box em{font-style:italic;}
     .grammar-examples{margin-top:.35rem;font-size:.88rem;}
     .grammar-examples li{margin-left:1.1rem;}
 
-    .phonics-items li{margin-left:1.1rem;font-size:.9rem;}
+    .reading-box{
+      border-radius:16px;
+      padding:.7rem .8rem;
+      background:#fff3e0;
+      border:2px solid #ffcc80;
+      font-size:.9rem;
+      line-height:1.4;
+    }
+    .reading-dialogue{margin-bottom:.4rem;}
+    .reading-question{margin-top:.3rem;font-size:.86rem;}
 
     textarea{
       width:100%;
@@ -222,24 +209,25 @@
     }
 
     .worksheet-block{
-      border-radius:14px;
+      border-radius:16px;
       border:1px dashed #b0bec5;
-      padding:.6rem .6rem .8rem;
-      margin-top:.45rem;
-      font-size:.9rem;
+      padding:.6rem .7rem .8rem;
+      margin-top:.5rem;
       background:#fafafa;
+      font-size:.9rem;
     }
     .worksheet-block h4{font-size:.95rem;margin-bottom:.3rem;}
     .task-item{margin-bottom:.4rem;}
-    .task-item input[type="text"],
+    .task-item input[type=text],
     .task-item select{
       border-radius:8px;
       border:1px solid #90a4ae;
       padding:.25rem .4rem;
       min-width:120px;
-      margin-top:.1rem;
+      margin-top:.12rem;
       font-size:.9rem;
     }
+
     .check-row{
       margin-top:.4rem;
       display:flex;
@@ -251,11 +239,11 @@
     .result-msg{font-size:.83rem;}
 
     .nav-row{
+      margin-top:.8rem;
       display:flex;
       justify-content:space-between;
-      gap:.4rem;
-      margin-top:.8rem;
       flex-wrap:wrap;
+      gap:.4rem;
     }
 
     .small-note{
@@ -265,7 +253,6 @@
       margin:.4rem 0;
     }
 
-    /* Чек-иконки */
     .correct-icon{color:#2e7d32;font-weight:700;margin-left:.2rem;}
     .wrong-icon{color:#c62828;font-weight:700;margin-left:.2rem;}
 
@@ -293,12 +280,12 @@
       .logo-circle{width:120px;height:120px;}
     }
 
-    /* Печать – печатаем только текущий юнит */
+    /* Печатаем только lessonScreen */
     @media print{
       body{background:#fff;}
-      .app-header,.small-note,#loginScreen,#menuScreen,#teacherScreen,#chatScreen{display:none!important;}
-      .card{border:none;box-shadow:none;margin:0;padding:.5rem .5rem;}
-      .nav-row,.tabs-row{display:none!important;}
+      .app-header,#loginScreen,#menuScreen,#unitScreen,#teacherScreen,.small-note{display:none!important;}
+      #lessonScreen{margin:0;border:none;box-shadow:none;}
+      .nav-row{display:none!important;}
     }
   </style>
 </head>
@@ -328,95 +315,94 @@
     </p>
   </section>
 
-  <!-- MENU -->
+  <!-- MAIN MENU: UNITS + CHAT -->
   <section id="menuScreen" class="card hidden">
     <div id="menuGreeting" class="menu-greeting"></div>
     <div id="menuStars" class="menu-stars"></div>
 
-    <div id="lessonList" class="lesson-list"></div>
+    <div id="unitList" class="unit-list"></div>
+
+    <!-- AI CHAT В ГЛАВНОМ МЕНЮ -->
+    <div class="card" style="margin:0.8rem 0 0;padding:.7rem .75rem;">
+      <div class="section-title">💬 AI Bayan Chat (1 question per unit)</div>
+      <p style="font-size:.84rem;margin-bottom:.3rem;">
+        Выбери юнит, напиши один вопрос по теме и отправь. Для каждого юнита – только один вопрос.
+      </p>
+      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.35rem;">
+        <select id="chatUnitSelect" class="input" style="max-width:220px;padding:.3rem .5rem;">
+          <option value="">Choose unit...</option>
+        </select>
+      </div>
+      <textarea id="chatQuestion" placeholder="Ask AI Bayan about this unit..."></textarea>
+      <div style="margin-top:.4rem;display:flex;justify-content:space-between;gap:.4rem;flex-wrap:wrap;">
+        <button class="btn-secondary btn" onclick="sendChatQuestion()">Send question</button>
+      </div>
+      <div id="chatInfo" style="font-size:.8rem;margin-top:.3rem;color:#455a64;"></div>
+    </div>
 
     <div style="display:flex;justify-content:center;gap:.5rem;margin-top:.7rem;flex-wrap:wrap;">
-      <button class="btn-secondary btn" onclick="openGlobalChat()">💬 AI Bayan Chat</button>
       <button class="btn-secondary btn" onclick="openTeacherJournal()">🏫 Teacher's Journal</button>
     </div>
   </section>
 
-  <!-- LESSON -->
+  <!-- UNIT SCREEN: LIST OF 8 LESSONS -->
+  <section id="unitScreen" class="card hidden">
+    <div class="section-title">
+      <span id="unitIcon">📘</span>
+      <span id="unitTitle">Unit 1 – Hello English!</span>
+    </div>
+    <div id="unitSubtitle" style="font-size:.88rem;margin-bottom:.3rem;">Overview</div>
+    <div id="unitStars" style="font-size:.9rem;font-weight:700;margin-bottom:.4rem;">You have 0 ⭐ in this unit.</div>
+
+    <div id="lessonList" class="lesson-list"></div>
+
+    <div class="nav-row" style="margin-top:.9rem;">
+      <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back to main menu</button>
+    </div>
+  </section>
+
+  <!-- LESSON SCREEN -->
   <section id="lessonScreen" class="card hidden" style="padding:0;">
-    <div id="lessonHeader" style="padding:.8rem .9rem;border-radius:15px 15px 0 0;background:var(--u1);">
-      <div class="lesson-header">
-        <div id="lessonTitle" class="lesson-title">Unit 1 – Hello English!</div>
-        <div id="lessonSubtitle" class="lesson-sub">Greetings, colours and numbers</div>
-        <div id="lessonStars" class="lesson-stars">You have 0 ⭐ in this unit.</div>
+    <div id="lessonHeader" style="padding:.8rem .9rem;border-radius:15px 15px 0 0;color:#fff;background:#1565c0;">
+      <div class="section-title" style="margin-bottom:.15rem;">
+        <span id="lessonIcon">📚</span>
+        <span id="lessonTitle">Unit 1 – Lesson 1</span>
       </div>
-      <div class="tabs-row">
-        <button class="tab-btn active" data-tab="vocab" onclick="switchTab('vocab')">Vocabulary</button>
-        <button class="tab-btn" data-tab="grammar" onclick="switchTab('grammar')">Grammar</button>
-        <button class="tab-btn" data-tab="phonics" onclick="switchTab('phonics')">Phonics</button>
-        <button class="tab-btn" data-tab="lr" onclick="switchTab('lr')">Listen &amp; Read</button>
-        <button class="tab-btn" data-tab="ls" onclick="switchTab('ls')">Listen &amp; Sing</button>
-        <button class="tab-btn" data-tab="ws" onclick="switchTab('ws')">Worksheets</button>
+      <div id="lessonSubtitle" style="font-size:.86rem;opacity:.9;">Greetings and names</div>
+      <div id="lessonStars" style="font-size:.9rem;font-weight:700;margin-top:.2rem;">
+        You have 0 ⭐ in this lesson.
       </div>
     </div>
 
-    <div style="padding:.6rem .8rem 1rem;">
-
+    <div style="padding:.7rem .9rem 1rem;">
       <!-- VOCAB -->
-      <div id="tab-vocab" class="section-card">
-        <div class="section-title">🧠 Vocabulary – Colours and numbers</div>
-        <p style="font-size:.85rem;margin-bottom:.35rem;">
-          Tap the speaker to hear the word. (AI Bayan uses correct pronunciation.)
+      <section>
+        <div class="section-title">🧠 VOCABULARY – Picture words</div>
+        <p style="font-size:.86rem;margin-bottom:.25rem;">
+          Tap the speaker to hear AI Bayan say the word in English.
         </p>
         <div id="vocabGrid" class="vocab-grid"></div>
-      </div>
+      </section>
 
       <!-- GRAMMAR -->
-      <div id="tab-grammar" class="section-card hidden">
-        <div class="section-title">📘 Grammar – Questions about name, age and colours</div>
-        <div id="grammarBox" class="grammar-rule"></div>
-      </div>
+      <section style="margin-top:.7rem;">
+        <div class="section-title">📘 GRAMMAR – Key rule</div>
+        <div id="grammarBox" class="grammar-box"></div>
+      </section>
 
-      <!-- PHONICS -->
-      <div id="tab-phonics" class="section-card hidden">
-        <div class="section-title">🔤 Phonics – The alphabet</div>
-        <p style="font-size:.88rem;margin-bottom:.25rem;">
-          Practise letters and sounds. Say them together with AI Bayan.
-        </p>
-        <ul id="phonicsList" class="phonics-items"></ul>
-      </div>
-
-      <!-- LISTEN & READ -->
-      <div id="tab-lr" class="section-card hidden">
-        <div class="section-title">👂📖 Listen &amp; Read</div>
-        <p style="font-size:.88rem;margin-bottom:.3rem;">
-          Press <strong>Read text</strong> – AI Bayan reads the text. Then answer questions.
-        </p>
-        <div id="lrText" style="font-size:.9rem;line-height:1.4;margin-bottom:.35rem;"></div>
-        <button class="btn-secondary btn" onclick="readLRText()">🔊 Read text</button>
-
-        <div id="lrTasks" style="margin-top:.5rem;"></div>
-      </div>
-
-      <!-- LISTEN & SING -->
-      <div id="tab-ls" class="section-card hidden">
-        <div class="section-title">🎵 Listen &amp; Sing</div>
-        <p style="font-size:.88rem;margin-bottom:.3rem;">
-          Это оригинальная песенка по теме (не из книги). Можно проиграть с помощью TTS.
-        </p>
-        <div id="lsLyrics" style="font-size:.9rem;line-height:1.4;margin-bottom:.35rem;"></div>
-        <button class="btn-secondary btn" onclick="readLSText()">🔊 Sing with AI Bayan</button>
-      </div>
+      <!-- READING / MINI DIALOGUE -->
+      <section style="margin-top:.7rem;">
+        <div class="section-title">📖 READING – Mini dialogue</div>
+        <div id="readingBox" class="reading-box"></div>
+      </section>
 
       <!-- WORKSHEETS -->
-      <div id="tab-ws" class="section-card hidden">
-        <div class="section-title">📄 Worksheets – Workbook style</div>
+      <section style="margin-top:.7rem;">
+        <div class="section-title">📄 WORKSHEETS (4 tasks)</div>
 
-        <!-- WS1 -->
         <div class="worksheet-block" id="ws1Block">
-          <h4>Worksheet 1 – Vocabulary (colours &amp; numbers)</h4>
-          <p style="font-size:.82rem;margin-bottom:.25rem;">
-            Write the missing word.
-          </p>
+          <h4>Worksheet 1 – Vocabulary (write the word)</h4>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">Write the missing word.</p>
           <div id="ws1Tasks"></div>
           <div class="check-row">
             <button class="btn" onclick="checkWorksheet('ws1')">Check ✅</button>
@@ -424,12 +410,9 @@
           </div>
         </div>
 
-        <!-- WS2 -->
         <div class="worksheet-block" id="ws2Block">
-          <h4>Worksheet 2 – Grammar (questions &amp; answers)</h4>
-          <p style="font-size:.82rem;margin-bottom:.25rem;">
-            Choose the correct answer.
-          </p>
+          <h4>Worksheet 2 – Grammar (choose)</h4>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">Choose the correct answer.</p>
           <div id="ws2Tasks"></div>
           <div class="check-row">
             <button class="btn" onclick="checkWorksheet('ws2')">Check ✅</button>
@@ -437,12 +420,9 @@
           </div>
         </div>
 
-        <!-- WS3 -->
         <div class="worksheet-block" id="ws3Block">
-          <h4>Worksheet 3 – Phonics (letters &amp; words)</h4>
-          <p style="font-size:.82rem;margin-bottom:.25rem;">
-            Write the first letter.
-          </p>
+          <h4>Worksheet 3 – Phonics / letters</h4>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">Write the first letter.</p>
           <div id="ws3Tasks"></div>
           <div class="check-row">
             <button class="btn" onclick="checkWorksheet('ws3')">Check ✅</button>
@@ -450,39 +430,24 @@
           </div>
         </div>
 
-        <!-- WS4 -->
         <div class="worksheet-block" id="ws4Block">
           <h4>Worksheet 4 – Reading check</h4>
-          <p style="font-size:.82rem;margin-bottom:.25rem;">
-            Choose the correct sentence.
-          </p>
+          <p style="font-size:.82rem;margin-bottom:.25rem;">Choose True or False.</p>
           <div id="ws4Tasks"></div>
           <div class="check-row">
             <button class="btn" onclick="checkWorksheet('ws4')">Check ✅</button>
             <div id="ws4Result" class="result-msg"></div>
           </div>
         </div>
+      </section>
 
-      </div>
-
-      <!-- Чат по теме (1 вопрос) + навигация -->
-      <div class="section-card" style="margin-top:.7rem;">
-        <div class="section-title">💬 AI Bayan Chat – 1 question about this unit</div>
-        <p style="font-size:.83rem;margin-bottom:.25rem;">
-          Напиши <strong>один</strong> вопрос по теме юнита. После отправки кнопка выключится.
-          Здесь можно подключить твой Cloudflare Worker.
-        </p>
-        <textarea id="unitChatInput" placeholder="Ask AI Bayan about this unit..."></textarea>
-        <div style="margin-top:.4rem;display:flex;justify-content:space-between;gap:.4rem;flex-wrap:wrap;">
-          <button id="unitChatBtn" class="btn-secondary btn" onclick="sendUnitQuestion()">Send question</button>
-          <button class="btn" onclick="window.print()">🖨 Print this unit</button>
-        </div>
-        <div id="unitChatInfo" style="font-size:.8rem;margin-top:.3rem;color:#455a64;"></div>
-      </div>
-
+      <!-- NAV + PRINT + SAVE -->
       <div class="nav-row">
-        <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back to menu</button>
-        <button id="saveBtn" class="btn" onclick="saveLessonResult()">Save result ✔</button>
+        <button class="btn-secondary btn" onclick="goBackToUnit()">⬅ Back to unit</button>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap;">
+          <button class="btn" onclick="window.print()">🖨 Print this lesson</button>
+          <button id="saveBtn" class="btn" onclick="saveLessonResult()">Save result ✔</button>
+        </div>
       </div>
     </div>
   </section>
@@ -490,9 +455,7 @@
   <!-- TEACHER -->
   <section id="teacherScreen" class="card hidden">
     <h3 class="center" style="margin-bottom:.4rem;">Teacher's Journal – Grade 3</h3>
-    <p style="font-size:.84rem;margin-bottom:.4rem;">
-      Total stars saved on this device (for all students).
-    </p>
+    <p style="font-size:.84rem;margin-bottom:.4rem;">Total stars saved on this device.</p>
     <div id="teacherTable" style="font-size:.86rem;"></div>
     <div class="center" style="margin-top:.6rem;">
       <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back</button>
@@ -500,167 +463,192 @@
     </div>
   </section>
 
-  <!-- SIMPLE GLOBAL CHAT PLACEHOLDER -->
-  <section id="chatScreen" class="card hidden">
-    <h3 class="center" style="margin-bottom:.4rem;">AI Bayan Chat (global)</h3>
-    <p style="font-size:.84rem;margin-bottom:.3rem;">
-      Здесь можно задать общий вопрос (не по конкретному юниту). Тоже заглушка для твоего backend.
-    </p>
-    <textarea class="input" style="min-height:90px;"></textarea>
-    <div class="center" style="margin-top:.6rem;">
-      <button class="btn-secondary btn" onclick="goBackToMenu()">⬅ Back</button>
-    </div>
-  </section>
-
   <p class="small-note">
-    Students: 3E S1–3E S15 · PIN 2844 · Teacher PIN 3244 · Main menu – green, each unit has its own colour
+    Students: 3E S1–3E S15 · Student PIN 2844 · Teacher PIN 3244 · Main menu – green, each unit and lesson has its own colour.
   </p>
 </div>
 
 <script>
-  const STUDENT_PIN = "2844";
-  const TEACHER_PIN = "3244";
-  const STORAGE_KEY = "ai_bayan_grade3_all";
+  const STUDENT_PIN="2844";
+  const TEACHER_PIN="3244";
+  const STORAGE_KEY="ai_bayan_grade3_units_lessons";
 
-  let currentUser = null;      // {name,isTeacher}
-  let currentLessonId = "u1";  // пока один юнит
-  let lrText = "";
-  let lsText = "";
+  let currentUser=null;          // {name,isTeacher}
+  let currentUnitId=null;        // "u1"..."u8"
+  let currentLessonId=null;      // "u1l1", "u1l2" etc
 
-  /* ---------- DATA – Unit 1 HELLO ENGLISH! ---------- */
-  const lessons = [
+  /* ---------- DATA: Units + Lessons ---------- */
+  const units=[
     {
       id:"u1",
-      color:"var(--u1)",
       icon:"👋",
       title:"Unit 1 – Hello English!",
-      subtitle:"Greetings, colours and numbers",
-      vocab:[
-        {word:"red", ru:"красный", emoji:"🟥", tts:"red"},
-        {word:"blue", ru:"синий", emoji:"🟦", tts:"blue"},
-        {word:"green", ru:"зелёный", emoji:"🟩", tts:"green"},
-        {word:"yellow", ru:"жёлтый", emoji:"🟨", tts:"yellow"},
-        {word:"black", ru:"чёрный", emoji:"⬛", tts:"black"},
-        {word:"white", ru:"белый", emoji:"⬜", tts:"white"},
-        {word:"pink", ru:"розовый", emoji:"🌸", tts:"pink"},
-        {word:"orange", ru:"оранжевый", emoji:"🟧", tts:"orange"},
-        {word:"grey", ru:"серый", emoji:"⬜", tts:"grey"},
-        {word:"brown", ru:"коричневый", emoji:"🟫", tts:"brown"},
-        {word:"one", ru:"один", emoji:"1️⃣", tts:"one"},
-        {word:"two", ru:"два", emoji:"2️⃣", tts:"two"},
-        {word:"three", ru:"три", emoji:"3️⃣", tts:"three"},
-        {word:"four", ru:"четыре", emoji:"4️⃣", tts:"four"},
-        {word:"five", ru:"пять", emoji:"5️⃣", tts:"five"},
-        {word:"six", ru:"шесть", emoji:"6️⃣", tts:"six"},
-        {word:"seven", ru:"семь", emoji:"7️⃣", tts:"seven"},
-        {word:"eight", ru:"восемь", emoji:"8️⃣", tts:"eight"},
-        {word:"nine", ru:"девять", emoji:"9️⃣", tts:"nine"},
-        {word:"ten", ru:"десять", emoji:"🔟", tts:"ten"}
-      ],
-      grammar:{
-        rule:`We ask about <strong>name</strong>, <strong>age</strong> and <strong>country</strong>:`,
-        formula:`What's your name? – My name's Aidan.<br>
-How old are you? – I'm eight.<br>
-Where are you from? – I'm from Kazakhstan.<br><br>
-Colours: <strong>That's</strong> (pink). <strong>Those are</strong> (red).`,
-        examples:[
-          "What's your name? – My name's Alina.",
-          "How old are you? – I'm nine.",
-          "Where are you from? – I'm from Aktau.",
-          "That's a blue bag. Those are green pens."
-        ]
-      },
-      phonics:["A a – apple","B b – bag","C c – cat","D d – desk","E e – egg","F f – fish",
-               "G g – goat","H h – hat","I i – ink","J j – jam","K k – kite","L l – lamp",
-               "M m – mum","N n – nose","O o – orange","P p – pen","Q q – queen","R r – red",
-               "S s – sun","T t – ten","U u – umbrella","V v – violin","W w – window",
-               "X x – box","Y y – yellow","Z z – zebra"],
-      listenRead:{
-        text:`Hello! My name's Dana. I'm eight years old. I'm from Astana.
-I have a red school bag and a blue pencil case. My favourite colour is green.
-In my English class we say “Hello!” and count from one to ten.`,
-        questions:[
-          {q:"Dana is __ years old.", options:["seven","eight","nine"], answer:"eight"},
-          {q:"Her pencil case is __.", options:["blue","red","green"], answer:"blue"},
-          {q:"Her favourite colour is __.", options:["green","pink","orange"], answer:"green"}
-        ]
-      },
-      listenSing:{
-        lyrics:`Hello, hello, hello, my friend,
-Say your name and count to ten!
-One, two, three, let's clap again,
-Four, five, six, then seven, eight, nine, ten!`
-      },
-      // Worksheets "по мотивам" workbook, но свои тексты
-      worksheets:{
-        ws1:[
-          {prompt:"1) This colour is the sky: __________", answer:"blue"},
-          {prompt:"2) 1, 2, 3, 4, 5 – the number is: __________", answer:"five"},
-          {prompt:"3) Grass is usually: __________", answer:"green"},
-          {prompt:"4) Chocolate is: __________", answer:"brown"}
-        ],
-        ws2:[
-          {
-            sentence:"– __________ your name?  – My name's Aidan.",
-            options:["Where's","How's","What's"],
-            answer:"What's"
+      subtitle:"Greetings, alphabet, numbers, colours",
+      color:"var(--u1)",
+      lessons:[
+        {
+          id:"u1l1",
+          title:"Lesson 1 – Greetings & Names",
+          subtitle:"Hello, what's your name?",
+          color:"#1565c0",   // синий
+          icon:"😊",
+          vocab:[
+            {word:"hello",ru:"привет",emoji:"👋",tts:"hello"},
+            {word:"goodbye",ru:"до свидания",emoji:"👋",tts:"goodbye"},
+            {word:"name",ru:"имя",emoji:"🧒",tts:"name"},
+            {word:"teacher",ru:"учитель",emoji:"👩‍🏫",tts:"teacher"},
+            {word:"friend",ru:"друг",emoji:"👫",tts:"friend"}
+          ],
+          grammar:{
+            rule:`We ask about name with <strong>What's your name?</strong> and answer <strong>My name's...</strong>`,
+            formula:`Question: What's your name?<br>
+Answer: My name's Ayan.`,
+            examples:[
+              "– What's your name? – My name's Ali.",
+              "– What's her name? – Her name's Rosy."
+            ]
           },
-          {
-            sentence:"– How old are you? – __________ eight.",
-            options:["I'm","It's","I"],
-            answer:"I'm"
+          reading:{
+            dialogue:`– Hello! What's your name?<br>
+– My name's Tim. What's your name?<br>
+– I'm Rosy. This is our teacher, Miss Jones.<br>
+– Hello, Miss Jones!`,
+            questions:[
+              {q:"The boy's name is __.",options:["Billy","Tim","Ali"],answer:"Tim"},
+              {q:"The teacher's name is __.",options:["Miss Jones","Rosy","Mr Brown"],answer:"Miss Jones"}
+            ]
           },
-          {
-            sentence:"– Where are you from? – I'm __________ Kazakhstan.",
-            options:["on","at","from"],
-            answer:"from"
-          },
-          {
-            sentence:"__________ a red pen. __________ are blue pencils.",
-            options:["That's / Those","Those / That's","This / That"],
-            answer:"That's / Those"
+          worksheets:{
+            ws1:[
+              {prompt:"1) You say this when you meet a friend: __________",answer:"hello"},
+              {prompt:"2) You say this when you go home: __________",answer:"goodbye"},
+              {prompt:"3) Rosy is Tim's __________.",answer:"friend"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – __________ your name? – My name's Ayan.",
+                options:["Where's","What's","How's"],
+                answer:"What's"
+              },
+              {
+                sentence:"2) – What's her name? – __________ Rosy.",
+                options:["She's","Her","It's"],
+                answer:"She's"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for hello",answer:"H"},
+              {prompt:"2) ___ for name",answer:"N"}
+            ],
+            ws4:[
+              {
+                sentence:"1) Tim and Rosy are in the classroom.",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) The teacher's name is Mr Brown.",
+                options:["True","False"],
+                answer:"False"
+              }
+            ]
           }
-        ],
-        ws3:[
-          {prompt:"___ for red", answer:"R"},
-          {prompt:"___ for bag", answer:"B"},
-          {prompt:"___ for cat", answer:"C"},
-          {prompt:"___ for ten", answer:"T"}
-        ],
-        ws4:[
-          {
-            sentence:"1) Dana is nine years old.",
-            options:["True","False"],
-            answer:"False"
-          },
-          {
-            sentence:"2) Her school bag is red.",
-            options:["True","False"],
-            answer:"True"
-          },
-          {
-            sentence:"3) Her favourite colour is green.",
-            options:["True","False"],
-            answer:"True"
-          }
-        ]
-      }
-    }
+        },
 
-    // Сюда потом добавишь Unit 2–8 по той же структуре:
-    // {id:"u2", color:"var(--u2)", icon:"🏫", title:"Unit 2 – My school", ...}
+        /* Пример заготовок для остальных уроков Unit 1
+           (пока без контента – потом заполнишь по книге) */
+        {
+          id:"u1l2",
+          title:"Lesson 2 – Alphabet & Spelling",
+          subtitle:"A–Z, spell your name",
+          color:"#1e88e5",
+          icon:"🔤",
+          vocab:[],
+          grammar:{rule:"",formula:"",examples:[]},
+          reading:{dialogue:"(по книге)",questions:[]},
+          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+        },
+        {
+          id:"u1l3",
+          title:"Lesson 3 – Song: Hello, hello!",
+          subtitle:"Song & actions",
+          color:"#5e35b1",
+          icon:"🎵",
+          vocab:[],grammar:{rule:"",formula:"",examples:[]},
+          reading:{dialogue:"Song text (adapted)",questions:[]},
+          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+        },
+        {
+          id:"u1l4",
+          title:"Lesson 4 – Numbers 1–20",
+          subtitle:"How old are you?",
+          color:"#00897b",
+          icon:"🔢",
+          vocab:[],grammar:{rule:"",formula:"",examples:[]},
+          reading:{dialogue:"Mini text with ages",questions:[]},
+          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+        },
+        {
+          id:"u1l5",
+          title:"Lesson 5 – Colours",
+          subtitle:"red, blue, green...",
+          color:"#8e24aa",
+          icon:"🎨",
+          vocab:[],grammar:{rule:"",formula:"",examples:[]},
+          reading:{dialogue:"Colour dialogue",questions:[]},
+          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+        },
+        {
+          id:"u1l6",
+          title:"Lesson 6 – Age & Country",
+          subtitle:"How old / Where from",
+          color:"#c62828",
+          icon:"🌍",
+          vocab:[],grammar:{rule:"",formula:"",examples:[]},
+          reading:{dialogue:"Mini dialogue",questions:[]},
+          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+        },
+        {
+          id:"u1l7",
+          title:"Lesson 7 – Project: About me",
+          subtitle:"My name, age, country",
+          color:"#6d4c41",
+          icon:"📜",
+          vocab:[],grammar:{rule:"",formula:"",examples:[]},
+          reading:{dialogue:"Poster example",questions:[]},
+          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+        },
+        {
+          id:"u1l8",
+          title:"Lesson 8 – Culture: At my school",
+          subtitle:"Classroom rules & prepositions",
+          color:"#9e9d24",
+          icon:"🏫",
+          vocab:[],grammar:{rule:"",formula:"",examples:[]},
+          reading:{dialogue:"Culture dialogue",questions:[]},
+          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+        }
+      ]
+    },
+
+    /* Unit 2–8 – пока шаблоны, потом заполнишь по книге */
+    { id:"u2",icon:"🏫",title:"Unit 2 – My School",subtitle:"...",color:"var(--u2)",lessons:[] },
+    { id:"u3",icon:"👨‍👩‍👧",title:"Unit 3 – People I Love",subtitle:"...",color:"var(--u3)",lessons:[] },
+    { id:"u4",icon:"🌦",title:"Unit 4 – Weather",subtitle:"...",color:"var(--u4)",lessons:[] },
+    { id:"u5",icon:"⚽",title:"Unit 5 – My Free Time",subtitle:"...",color:"var(--u5)",lessons:[] },
+    { id:"u6",icon:"❤️",title:"Unit 6 – Health",subtitle:"...",color:"var(--u6)",lessons:[] },
+    { id:"u7",icon:"🏙",title:"Unit 7 – Buildings",subtitle:"...",color:"var(--u7)",lessons:[] },
+    { id:"u8",icon:"✈️",title:"Unit 8 – My Holidays",subtitle:"...",color:"var(--u8)",lessons:[] }
   ];
 
   /* ---------- helpers ---------- */
   function $(id){return document.getElementById(id);}
-
   function speak(text){
     if(!("speechSynthesis" in window))return;
     const u=new SpeechSynthesisUtterance(text);
     u.lang="en-US";
     window.speechSynthesis.speak(u);
   }
-
   function loadData(){
     try{
       const raw=localStorage.getItem(STORAGE_KEY);
@@ -673,7 +661,7 @@ Four, five, six, then seven, eight, nine, ten!`
   function getUserRecord(name){
     const data=loadData();
     if(!data[name]){
-      data[name]={totalStars:0,lessons:{}}; // lessons[unitId]={stars,locked,chatUsed}
+      data[name]={totalStars:0,lessons:{},chats:{}}; // lessons[lessonId], chats[unitId]
       saveData(data);
     }
     return data[name];
@@ -699,68 +687,123 @@ Four, five, six, then seven, eight, nine, ten!`
     showMenu();
   }
 
-  /* ---------- MENU ---------- */
+  /* ---------- MAIN MENU (UNITS) ---------- */
   function showMenu(){
-    if(!currentUser){return;}
-    const rec=getUserRecord(currentUser.name);
-    $("menuGreeting").textContent=`Hello, ${currentUser.name}!`;
-    $("menuStars").textContent=`Total stars in all units: ${rec.totalStars} ⭐`;
+    const ul=$("unitList");
+    const sel=$("chatUnitSelect");
+    ul.innerHTML="";
+    sel.innerHTML='<option value="">Choose unit...</option>';
 
-    const list=$("lessonList");
-    list.innerHTML="";
-    lessons.forEach(lesson=>{
-      const lrec=rec.lessons[lesson.id]||{stars:0};
-      const d=document.createElement("div");
-      d.className="lesson-btn";
-      d.onclick=()=>openLesson(lesson.id);
-      d.innerHTML=`
-        <div class="lesson-btn-left">
-          <div class="lesson-icon">${lesson.icon}</div>
-          <div class="lesson-info">
-            <div>${lesson.title}</div>
-            <small>${lesson.subtitle}</small>
+    const rec=currentUser?getUserRecord(currentUser.name):null;
+    if(rec){
+      $("menuGreeting").textContent=`Hello, ${currentUser.name}!`;
+      $("menuStars").textContent=`Total stars: ${rec.totalStars} ⭐`;
+    }
+
+    units.forEach(u=>{
+      const unitLessonsIds=(u.lessons||[]).map(l=>l.id);
+      let unitStars=0;
+      if(rec){
+        unitLessonsIds.forEach(id=>{
+          const lrec=rec.lessons[id];
+          if(lrec)unitStars+=lrec.stars||0;
+        });
+      }
+
+      const row=document.createElement("div");
+      row.className="unit-row";
+      row.innerHTML=`
+        <div class="unit-left">
+          <div class="unit-icon">${u.icon}</div>
+          <div class="unit-text">
+            <strong>${u.title}</strong>
+            <small>${u.subtitle||""}</small>
           </div>
         </div>
-        <div class="lesson-stars-mini">⭐ ${lrec.stars||0}</div>
+        <div class="unit-actions">
+          <span class="unit-stars-mini">⭐ ${unitStars}</span>
+          <button class="btn-secondary btn" onclick="openUnit('${u.id}')">Open</button>
+        </div>
       `;
-      list.appendChild(d);
+      ul.appendChild(row);
+
+      const opt=document.createElement("option");
+      opt.value=u.id;
+      const used=rec && rec.chats && rec.chats[u.id];
+      opt.textContent=u.title+(used?" (used)":"");
+      sel.appendChild(opt);
     });
 
+    $("chatInfo").textContent="";
     $("teacherScreen").classList.add("hidden");
-    $("chatScreen").classList.add("hidden");
+    $("unitScreen").classList.add("hidden");
     $("lessonScreen").classList.add("hidden");
     $("menuScreen").classList.remove("hidden");
   }
 
-  /* ---------- LESSON ---------- */
-  function openLesson(id){
-    currentLessonId=id;
-    const lesson=lessons.find(l=>l.id===id);
-    const header=$("lessonHeader");
-    header.style.background=lesson.color;
-
-    $("lessonTitle").textContent=lesson.title;
-    $("lessonSubtitle").textContent=lesson.subtitle;
-
+  /* ---------- UNIT SCREEN (LIST OF LESSONS) ---------- */
+  function openUnit(unitId){
+    currentUnitId=unitId;
+    const u=units.find(x=>x.id===unitId);
     const rec=getUserRecord(currentUser.name);
-    const lrec=rec.lessons[id]||{stars:0,locked:false,chatUsed:false};
-    $("lessonStars").textContent=`You have ${lrec.stars||0} ⭐ in this unit.`;
+
+    $("unitIcon").textContent=u.icon;
+    $("unitTitle").textContent=u.title;
+    $("unitSubtitle").textContent=u.subtitle||"";
+    // считаем звездочки по юниту
+    let unitStars=0;
+    (u.lessons||[]).forEach(l=>{
+      const lrec=rec.lessons[l.id];
+      if(lrec)unitStars+=(lrec.stars||0);
+    });
+    $("unitStars").textContent=`You have ${unitStars} ⭐ in this unit.`;
+
+    const list=$("lessonList");
+    list.innerHTML="";
+    (u.lessons||[]).forEach((lesson,idx)=>{
+      const lrec=rec.lessons[lesson.id]||{stars:0};
+      const div=document.createElement("div");
+      div.className="lesson-btn";
+      div.style.background=lesson.color||u.color;
+      div.innerHTML=`
+        <div>
+          <div class="lesson-btn-title">${lesson.title}</div>
+          <div class="lesson-btn-sub">${lesson.subtitle||""}</div>
+        </div>
+        <div class="lesson-btn-stars">⭐ ${lrec.stars||0}</div>
+      `;
+      div.onclick=()=>openLesson(unitId,lesson.id);
+      list.appendChild(div);
+    });
+
+    $("menuScreen").classList.add("hidden");
+    $("teacherScreen").classList.add("hidden");
+    $("lessonScreen").classList.add("hidden");
+    $("unitScreen").classList.remove("hidden");
+  }
+
+  /* ---------- LESSON SCREEN ---------- */
+  function openLesson(unitId,lessonId){
+    currentUnitId=unitId;
+    currentLessonId=lessonId;
+    const u=units.find(x=>x.id===unitId);
+    const lesson=(u.lessons||[]).find(l=>l.id===lessonId);
+    const rec=getUserRecord(currentUser.name);
+    const lrec=rec.lessons[lessonId]||{stars:0,locked:false};
+
+    const header=$("lessonHeader");
+    header.style.background=lesson.color||u.color;
+    $("lessonIcon").textContent=lesson.icon||u.icon;
+    $("lessonTitle").textContent=lesson.title;
+    $("lessonSubtitle").textContent=lesson.subtitle||"";
+    $("lessonStars").textContent=`You have ${lrec.stars||0} ⭐ in this lesson.`;
     $("saveBtn").disabled=!!lrec.locked;
     $("saveBtn").textContent=lrec.locked?"Result saved ✔":"Save result ✔";
 
-    // tabs
-    document.querySelectorAll(".tab-btn").forEach(btn=>{
-      btn.classList.remove("active");
-      if(btn.dataset.tab==="vocab")btn.classList.add("active");
-    });
-    ["vocab","grammar","phonics","lr","ls","ws"].forEach(tab=>{
-      $("tab-"+tab).classList.toggle("hidden",tab!=="vocab");
-    });
-
-    // vocab
+    // VOCAB
     const vg=$("vocabGrid");
     vg.innerHTML="";
-    lesson.vocab.forEach(v=>{
+    (lesson.vocab||[]).forEach(v=>{
       const card=document.createElement("div");
       card.className="vocab-card";
       card.innerHTML=`
@@ -773,74 +816,55 @@ Four, five, six, then seven, eight, nine, ten!`
       vg.appendChild(card);
     });
 
-    // grammar
+    // GRAMMAR
     $("grammarBox").innerHTML=`
-      ${lesson.grammar.rule}<br>
-      <div class="grammar-formula">${lesson.grammar.formula}</div>
+      ${lesson.grammar.rule||""}<br>
+      <div style="margin-top:.3rem;font-size:.85rem;">${lesson.grammar.formula||""}</div>
       <div class="grammar-examples">
-        <strong>Examples:</strong>
-        <ul>${lesson.grammar.examples.map(e=>`<li>${e}</li>`).join("")}</ul>
+        <strong>${(lesson.grammar.examples||[]).length?"Examples:":""}</strong>
+        <ul>${(lesson.grammar.examples||[]).map(e=>`<li>${e}</li>`).join("")}</ul>
       </div>
     `;
 
-    // phonics
-    const pl=$("phonicsList");
-    pl.innerHTML=lesson.phonics.map(p=>`<li>${p}</li>`).join("");
-
-    // listen & read
-    lrText=lesson.listenRead.text;
-    $("lrText").innerHTML=lrText.replace(/\n/g,"<br>");
-    const lrT=$("lrTasks");
-    lrT.innerHTML="";
-    lesson.listenRead.questions.forEach((t,i)=>{
-      const div=document.createElement("div");
-      div.className="task-item";
-      div.innerHTML=`
-        ${i+1}) ${t.q}<br>
-        <select data-lr="${i}">
-          <option value="">--choose--</option>
-          ${t.options.map(o=>`<option value="${o}">${o}</option>`).join("")}
-        </select>
+    // READING
+    const rb=$("readingBox");
+    if(lesson.reading && lesson.reading.dialogue){
+      const qHTML=(lesson.reading.questions||[]).map((q,i)=>`
+        <div class="reading-question">
+          ${i+1}) ${q.q}<br>
+          <select data-rq="${i}">
+            <option value="">--choose--</option>
+            ${q.options.map(o=>`<option value="${o}">${o}</option>`).join("")}
+          </select>
+        </div>`).join("");
+      rb.innerHTML=`
+        <div class="reading-dialogue">${lesson.reading.dialogue}</div>
+        ${qHTML?'<div style="margin-top:.3rem;font-size:.85rem;">Answer the questions:</div>':''}
+        ${qHTML}
       `;
-      lrT.appendChild(div);
-    });
+    }else{
+      rb.innerHTML="(Reading will be here)";
+    }
 
-    // listen & sing
-    lsText=lesson.listenSing.lyrics;
-    $("lsLyrics").innerHTML=lsText.replace(/\n/g,"<br>");
-
-    // worksheets
+    // WORKSHEETS
     buildWorksheet("ws1");
     buildWorksheet("ws2");
     buildWorksheet("ws3");
     buildWorksheet("ws4");
 
-    // unit chat limit
-    $("unitChatInput").value="";
-    $("unitChatInfo").textContent=lrec.chatUsed?"You already used your question for this unit.":"";
-    $("unitChatBtn").disabled=!!lrec.chatUsed;
-
     $("menuScreen").classList.add("hidden");
+    $("unitScreen").classList.add("hidden");
+    $("teacherScreen").classList.add("hidden");
     $("lessonScreen").classList.remove("hidden");
   }
 
-  function switchTab(tab){
-    document.querySelectorAll(".tab-btn").forEach(btn=>{
-      btn.classList.toggle("active",btn.dataset.tab===tab);
-    });
-    ["vocab","grammar","phonics","lr","ls","ws"].forEach(t=>{
-      $("tab-"+t).classList.toggle("hidden",t!==tab);
-    });
-  }
-
-  function readLRText(){speak(lrText);}
-  function readLSText(){speak(lsText);}
-
   function buildWorksheet(wsKey){
-    const lesson=lessons.find(l=>l.id===currentLessonId);
+    const lesson=getCurrentLesson();
     const tasks=lesson.worksheets[wsKey]||[];
     const container=$(wsKey+"Tasks");
     container.innerHTML="";
+    $(wsKey+"Result").textContent="";
+    $(wsKey+"Block").dataset.locked="false";
 
     tasks.forEach((t,i)=>{
       const div=document.createElement("div");
@@ -861,57 +885,53 @@ Four, five, six, then seven, eight, nine, ten!`
       }
       container.appendChild(div);
     });
-    $(wsKey+"Result").textContent="";
+  }
+
+  function getCurrentLesson(){
+    const u=units.find(x=>x.id===currentUnitId);
+    return (u.lessons||[]).find(l=>l.id===currentLessonId);
   }
 
   function checkWorksheet(wsKey){
-    const lesson=lessons.find(l=>l.id===currentLessonId);
-    const tasks=lesson.worksheets[wsKey]||[];
-    let correct=0;
-    let total=tasks.length;
-
-    // запрещаем повторную проверку – 1 шанс
-    const alreadyLocked=$(wsKey+"Block").dataset.locked==="true";
-    if(alreadyLocked){
-      alert("You already checked this worksheet.");
+    const block=$(wsKey+"Block");
+    if(block.dataset.locked==="true"){
+      alert("You already checked this worksheet. Only one try.");
       return;
     }
+    const lesson=getCurrentLesson();
+    const tasks=lesson.worksheets[wsKey]||[];
+    let correct=0;
 
     tasks.forEach((t,i)=>{
       const el=document.querySelector(`[data-ws="${wsKey}"][data-idx="${i}"]`);
       if(!el)return;
-      const value=el.value.trim();
+      const val=el.value.trim();
       const ans=(t.answer||"").trim();
-      let ok=false;
-      if(wsKey==="ws1"||wsKey==="ws3"){
-        ok=value.toLowerCase()===ans.toLowerCase();
-      }else{
-        ok=value===ans;
-      }
+      const ok=(wsKey==="ws1"||wsKey==="ws3")
+        ? val.toLowerCase()===ans.toLowerCase()
+        : val===ans;
       if(ok){
         correct++;
         el.style.borderColor="#2e7d32";
       }else{
         el.style.borderColor="#c62828";
       }
-      el.disabled=true; // 1 попытка
+      el.disabled=true;
     });
 
     const res=$(wsKey+"Result");
-    res.innerHTML=`Correct: ${correct}/${total} ${
-      correct===total && total>0
+    res.innerHTML=`Correct: ${correct}/${tasks.length} ${
+      correct===tasks.length && tasks.length>0
         ? '<span class="correct-icon">✔ +1⭐</span>'
         : correct>0
           ? '<span class="correct-icon">✔</span>'
           : '<span class="wrong-icon">✖</span>'
     }`;
 
-    // анимация звезды, если всё верно
-    if(correct===total&&total>0){
+    if(correct===tasks.length && tasks.length>0){
       showStar();
     }
-
-    $(wsKey+"Block").dataset.locked="true";
+    block.dataset.locked="true";
   }
 
   function showStar(){
@@ -923,18 +943,17 @@ Four, five, six, then seven, eight, nine, ten!`
   }
 
   function saveLessonResult(){
-    if(!currentUser||currentUser.isTeacher){return;}
+    if(!currentUser||currentUser.isTeacher)return;
     const data=loadData();
     const rec=getUserRecord(currentUser.name);
-    const lesson=lessons.find(l=>l.id===currentLessonId);
-    const lrec=rec.lessons[currentLessonId]||{stars:0,locked:false};
+    const lesson=getCurrentLesson();
+    let lrec=rec.lessons[currentLessonId]||{stars:0,locked:false};
 
     if(lrec.locked){
       alert("Result already saved.");
       return;
     }
 
-    // считаем, сколько рабочих листов выполнено полностью верно
     let gained=0;
     ["ws1","ws2","ws3","ws4"].forEach(wsKey=>{
       const tasks=lesson.worksheets[wsKey]||[];
@@ -943,11 +962,11 @@ Four, five, six, then seven, eight, nine, ten!`
       tasks.forEach((t,i)=>{
         const el=document.querySelector(`[data-ws="${wsKey}"][data-idx="${i}"]`);
         if(!el)return;
-        const value=el.value.trim();
+        const val=el.value.trim();
         const ans=(t.answer||"").trim();
         const ok=(wsKey==="ws1"||wsKey==="ws3")
-          ? value.toLowerCase()===ans.toLowerCase()
-          : value===ans;
+          ? val.toLowerCase()===ans.toLowerCase()
+          : val===ans;
         if(!ok)allCorrect=false;
       });
       if(allCorrect)gained++;
@@ -960,17 +979,18 @@ Four, five, six, then seven, eight, nine, ten!`
     data[currentUser.name]=rec;
     saveData(data);
 
-    $("lessonStars").textContent=`You have ${lrec.stars} ⭐ in this unit.`;
+    $("lessonStars").textContent=`You have ${lrec.stars} ⭐ in this lesson.`;
     $("saveBtn").disabled=true;
     $("saveBtn").textContent="Result saved ✔";
-    alert(`Saved! You earned ${gained} ⭐ in this unit.`);
+    alert(`Saved! You earned ${gained} ⭐ in this lesson.`);
   }
 
-  function goBackToMenu(){
-    showMenu();
+  function goBackToUnit(){
+    if(currentUnitId)openUnit(currentUnitId);
   }
+  function goBackToMenu(){showMenu();}
 
-  /* ---------- Teacher ---------- */
+  /* ---------- TEACHER JOURNAL ---------- */
   function buildTeacherJournal(){
     const data=loadData();
     const container=$("teacherTable");
@@ -979,24 +999,31 @@ Four, five, six, then seven, eight, nine, ten!`
       container.textContent="No data yet.";
       return;
     }
+    // словарь: lessonId -> title
+    const lessonTitles={};
+    units.forEach(u=>{
+      (u.lessons||[]).forEach(l=>{
+        lessonTitles[l.id]=`${u.title.replace("Unit ","U")} ${l.title.replace("Lesson ","L")}`;
+      });
+    });
+
     let html=`<table style="width:100%;border-collapse:collapse;">
       <tr>
         <th style="border-bottom:1px solid #b0bec5;text-align:left;">Student</th>
         <th style="border-bottom:1px solid #b0bec5;">Total ⭐</th>
-        <th style="border-bottom:1px solid #b0bec5;font-size:.8rem;">By units</th>
+        <th style="border-bottom:1px solid #b0bec5;font-size:.8rem;">By lessons</th>
       </tr>`;
     names.forEach(name=>{
       const r=data[name];
-      const unitInfo=Object.entries(r.lessons||{})
+      const perLessons=Object.entries(r.lessons||{})
         .map(([id,info])=>{
-          const les=lessons.find(l=>l.id===id);
-          const short=les?les.title.replace("Unit ","U"):"Unit";
-          return `${short}: ${info.stars||0}⭐`;
+          const t=lessonTitles[id]||id;
+          return `${t}: ${info.stars||0}⭐`;
         }).join("<br>");
       html+=`<tr>
         <td style="border-bottom:1px solid #eceff1;padding:.25rem 0;">${name}</td>
         <td style="border-bottom:1px solid #eceff1;text-align:center;">${r.totalStars}</td>
-        <td style="border-bottom:1px solid #eceff1;font-size:.78rem;">${unitInfo}</td>
+        <td style="border-bottom:1px solid #eceff1;font-size:.78rem;">${perLessons}</td>
       </tr>`;
     });
     html+="</table>";
@@ -1009,6 +1036,7 @@ Four, five, six, then seven, eight, nine, ten!`
       return;
     }
     $("menuScreen").classList.add("hidden");
+    $("unitScreen").classList.add("hidden");
     buildTeacherJournal();
     $("teacherScreen").classList.remove("hidden");
   }
@@ -1019,38 +1047,35 @@ Four, five, six, then seven, eight, nine, ten!`
     buildTeacherJournal();
   }
 
-  /* ---------- Chats ---------- */
-  function openGlobalChat(){
-    $("menuScreen").classList.add("hidden");
-    $("chatScreen").classList.remove("hidden");
-  }
-
-  function sendUnitQuestion(){
-    const q=$("unitChatInput").value.trim();
-    if(!q){alert("Write your question first.");return;}
+  /* ---------- CHAT (main menu, 1 question per unit) ---------- */
+  function sendChatQuestion(){
+    if(!currentUser||currentUser.isTeacher){
+      alert("Login as student.");
+      return;
+    }
+    const unitId=$("chatUnitSelect").value;
+    const question=$("chatQuestion").value.trim();
+    if(!unitId){alert("Choose unit.");return;}
+    if(!question){alert("Write your question.");return;}
 
     const data=loadData();
     const rec=getUserRecord(currentUser.name);
-    const lrec=rec.lessons[currentLessonId]||{stars:0,locked:false,chatUsed:false};
-
-    if(lrec.chatUsed){
-      alert("You already used your question for this unit.");
+    rec.chats=rec.chats||{};
+    if(rec.chats[unitId]){
+      $("chatInfo").textContent="You already used your question for this unit.";
       return;
     }
-
-    lrec.chatUsed=true;
-    rec.lessons[currentLessonId]=lrec;
+    rec.chats[unitId]=true;
     data[currentUser.name]=rec;
     saveData(data);
 
-    $("unitChatBtn").disabled=true;
-    $("unitChatInfo").textContent="Your question is sent to AI Bayan (demo). Only one question per unit.";
-    alert("Question sent (demo).");
+    $("chatQuestion").value="";
+    $("chatInfo").textContent="Question sent to AI Bayan (demo). Only one question per unit.";
+    showMenu(); // обновить подпись (used)
 
-    // Здесь вместо alert можно вызвать твой Cloudflare Worker
-    // fetch('https://your-worker-url', {method:'POST', body:JSON.stringify({question:q,unit:currentLessonId})})
+    // сюда можно подключить твой Cloudflare Worker
+    // fetch('https://your-worker-url', {method:'POST', body:JSON.stringify({student:currentUser.name, unit:unitId, question})})
   }
-
 </script>
 </body>
 </html>
