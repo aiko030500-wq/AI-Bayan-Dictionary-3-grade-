@@ -3,1154 +3,1235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ENGLISH WITH AI BAYAN — Unit 1 (Lessons 1–8)</title>
+  <title>AI Bayan – Grade 3 (Units 1–8)</title>
+
   <style>
     :root{
-      --bg:#0b3b2f;
-      --gold:#f4c542;
+      --bg:#f3fff5;
       --card:#ffffff;
-      --soft:#eaf7ef;
-      --text:#0a1f16;
-      --muted:#4b6b5c;
+      --text:#16301c;
+      --muted:#5a7a62;
+      --green:#2b9348;
+      --green2:#6ede8a;
+      --gold:#ffd54f;
+      --red:#d62828;
+      --shadow: 0 10px 24px rgba(0,0,0,.08);
       --radius:18px;
-      --shadow:0 10px 28px rgba(0,0,0,.18);
+      --btnRadius:16px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg, var(--bg), #0a2f26);
-      color:#fff;
-      min-height:100vh;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(1200px 700px at 20% 0%, #eaffef 0%, var(--bg) 45%, #f7fff8 100%);
+      color:var(--text);
     }
-    .wrap{max-width:980px;margin:0 auto;padding:18px 14px 80px}
-    .top{
-      border:4px solid var(--gold);
-      border-radius:26px;
-      padding:18px 16px;
-      background: rgba(0,0,0,.12);
+    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+    .topbar{
+      display:flex;gap:12px;align-items:center;justify-content:space-between;
+      padding:14px 14px;border-radius:var(--radius);
+      background: linear-gradient(135deg, #ffffff 0%, #f1fff4 70%);
       box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
+      position:sticky;top:0;z-index:10;
     }
-    .logoCircle{
-      width:108px;height:108px;border-radius:999px;
-      border:6px solid var(--gold);
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:46px;height:46px;border-radius:50%;
+      border:4px solid var(--gold);
       background:#fff;
-      margin:0 auto 10px;
+      object-fit:cover;
     }
-    .title{
-      text-align:center;
-      font-weight:900;
-      letter-spacing:1px;
-      margin:6px 0 0;
-      font-size:28px;
+    .brand h1{margin:0;font-size:16px;line-height:1.15}
+    .brand p{margin:2px 0 0 0;font-size:12px;color:var(--muted)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 12px;border-radius:999px;
+      background:#ffffff;border:1px solid rgba(43,147,72,.18);
+      font-size:12px;color:var(--muted);
     }
-    .subtitle{
-      text-align:center;
-      margin:6px 0 0;
-      font-weight:700;
-      opacity:.95;
-      font-size:16px;
+    .grid{
+      display:grid;gap:14px;margin-top:14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width:900px){
+      .grid{grid-template-columns: 1.15fr .85fr;}
     }
     .card{
-      margin-top:16px;
-      background: var(--card);
-      color: var(--text);
-      border-radius: var(--radius);
-      border:4px solid var(--gold);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px;
+      border:1px solid rgba(0,0,0,.05);
     }
-    .cardHeader{
-      padding:14px 14px;
-      color:#fff;
-      font-weight:900;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .cardHeader h2{margin:0;font-size:20px}
-    .cardHeader .small{margin-top:4px;font-weight:700;opacity:.95}
-    .starsLine{font-weight:900}
-    .content{padding:14px}
-    .pillRow{
-      display:flex;flex-wrap:wrap;gap:10px;
-      margin:10px 0 8px;
-    }
-    .mini-tab{
-      border:0;
-      padding:10px 12px;
-      border-radius:999px;
-      font-weight:900;
-      cursor:pointer;
-      color:#fff;
-      box-shadow: 0 10px 18px rgba(0,0,0,.12);
-    }
-    .section{
-      margin-top:14px;
-      border:2px dashed rgba(0,0,0,.18);
-      border-radius:16px;
-      padding:12px;
-      background:#fff;
-    }
-    .sectionTitle{
-      display:flex;align-items:center;gap:10px;
-      font-weight:900;font-size:18px;margin:0 0 6px;
-    }
-    .hint{margin:0 0 10px;color:var(--muted);font-weight:700}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:12px;
-    }
-    @media (max-width:520px){ .grid{grid-template-columns:1fr} }
-
-    .vCard{
-      background: var(--soft);
-      border:2px solid rgba(0,0,0,.12);
-      border-radius:16px;
-      padding:12px;
-      text-align:center;
-    }
-    .pic{
-      width:84px;height:84px;border-radius:18px;
-      background:#fff;
-      border:2px solid rgba(0,0,0,.12);
-      display:grid;place-items:center;
-      margin:0 auto 8px;
-      font-size:40px;
-    }
-    .wEng{font-weight:1000;font-size:20px;line-height:1.05}
-    .wRus{margin-top:2px;color:var(--muted);font-weight:800}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
     .btn{
-      border:0;
-      padding:10px 14px;
-      border-radius:14px;
-      font-weight:1000;
-      cursor:pointer;
-      color:#fff;
+      border:none;cursor:pointer;
+      padding:12px 14px;
+      border-radius:var(--btnRadius);
+      font-weight:700;
+      background: linear-gradient(180deg, var(--green2), var(--green));
+      color:#0b1a0f;
+      box-shadow: 0 8px 16px rgba(43,147,72,.22);
+      transition: transform .05s ease;
+      user-select:none;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn.secondary{
+      background: linear-gradient(180deg, #fff4c9, var(--gold));
+      box-shadow: 0 8px 16px rgba(255,213,79,.25);
+    }
+    .btn.ghost{
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow:none;
+      color:var(--text);
+    }
+    .btn.danger{
+      background: linear-gradient(180deg, #ffb3b3, #ff6b6b);
+      box-shadow: 0 8px 16px rgba(255,107,107,.22);
+    }
+    .btn.small{padding:9px 10px;border-radius:12px;font-weight:700;font-size:12px}
+    .btn.unit{
+      min-width:120px;justify-content:center;
       display:inline-flex;align-items:center;gap:8px;
-      box-shadow: 0 10px 18px rgba(0,0,0,.12);
     }
-    .btnLine{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .ruleBox{
-      background:#dff2ff;
-      border:2px solid rgba(0,0,0,.12);
-      border-radius:16px;
-      padding:12px;
+    .tag{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(43,147,72,.20);
+      background:#f4fff7;
+      font-size:12px;color:var(--muted);
     }
-    .ruleBox h3{margin:0 0 6px;font-size:20px}
-    .ruleBox p{margin:6px 0;color:#123; font-weight:700}
-    .ruleBox ul{margin:6px 0 0;padding-left:18px;color:#123;font-weight:800}
-
-    .wsRow{margin:10px 0}
-    .wsLabel{font-weight:900;margin-bottom:6px}
-    input[type="text"], select{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:2px solid rgba(0,0,0,.18);
-      font-size:16px;
+    .muted{color:var(--muted)}
+    .title{margin:0 0 10px 0;font-size:16px}
+    .sub{margin:0 0 10px 0;color:var(--muted);font-size:13px}
+    .input{
+      padding:12px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.14);
       outline:none;
+      font-size:14px;
+      min-width:220px;
       background:#fff;
     }
-    .statusText{margin-top:8px;font-weight:1000}
-    .ok{color:#0b7a3c}
-    .bad{color:#b3261e}
-    .reading-dialogue{
-      background:#fff7d6;
-      border:2px solid rgba(0,0,0,.12);
-      border-radius:16px;
-      padding:10px 12px;
-      margin:8px 0 10px;
-      color:#3a2a00;
-      font-weight:900;
-      line-height:1.55;
+    .input:focus{border-color: rgba(43,147,72,.45); box-shadow: 0 0 0 4px rgba(43,147,72,.12);}
+    .hr{height:1px;background:rgba(0,0,0,.07);margin:12px 0}
+
+    /* Lessons UI */
+    .lessonTabs{display:flex;gap:10px;flex-wrap:wrap}
+    .tab{
+      padding:10px 12px;border-radius:14px;
+      background:#fff;border:1px solid rgba(0,0,0,.12);
+      cursor:pointer;font-weight:800;font-size:13px;
     }
-    .karaoke{
-      background:#101820;
-      color:#eaf7ef;
-      border-radius:16px;
-      padding:12px;
-      border:2px solid rgba(255,255,255,.12);
-      font-weight:900;
-      line-height:1.6;
-    }
-    .karaoke .line{
-      padding:6px 8px;
-      border-radius:12px;
-      opacity:.65;
-    }
-    .karaoke .active{
-      opacity:1;
-      outline:2px solid rgba(244,197,66,.75);
-      background: rgba(244,197,66,.12);
+    .tab.active{
+      border-color: rgba(43,147,72,.55);
+      box-shadow: 0 0 0 4px rgba(43,147,72,.10);
+      background:#f4fff7;
     }
 
-    .backBar{
-      position:fixed;left:0;right:0;bottom:0;
-      padding:10px 12px;
-      background: rgba(0,0,0,.35);
-      backdrop-filter: blur(8px);
-      border-top:1px solid rgba(255,255,255,.14);
-      display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+    .section{
+      padding:12px;border-radius:18px;
+      background: linear-gradient(135deg, #ffffff 0%, #f6fff8 70%);
+      border:1px solid rgba(0,0,0,.06);
+      margin-top:12px;
     }
-    .footerNote{
-      position:fixed;left:0;right:0;bottom:56px;
-      text-align:center;
+    .section h3{margin:0 0 10px 0;font-size:15px}
+    .section .hint{margin:-6px 0 10px 0;font-size:12px;color:var(--muted)}
+
+    /* Vocabulary grid: 2 rows (auto wrap) */
+    .vGrid{
+      display:grid;gap:10px;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+    }
+    @media (max-width:900px){
+      .vGrid{grid-template-columns: repeat(2, minmax(0,1fr));}
+    }
+    .vItem{
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      padding:10px;
+      display:flex;flex-direction:column;gap:8px;
+      min-height:150px;
+    }
+    .vPic{
+      width:100%;height:70px;border-radius:14px;
+      background: linear-gradient(135deg, #eaffef, #fff9d6);
+      display:flex;align-items:center;justify-content:center;
+      font-size:28px;
+    }
+    .vWord{font-weight:900}
+    .vRu{font-size:12px;color:var(--muted)}
+    .vSpeakRow{display:flex;justify-content:space-between;align-items:center;gap:8px}
+
+    /* Worksheet widgets */
+    .qa{
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+      padding:10px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.10);
+      margin-bottom:10px;
+    }
+    .mark{
+      font-weight:900;font-size:18px;
+      width:28px;height:28px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(0,0,0,.10);
+      background:#f8f8f8;
+    }
+    .mark.ok{background:#eaffef}
+    .mark.bad{background:#ffecec}
+    .stars{
+      display:inline-flex;gap:6px;align-items:center;
+      padding:8px 10px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.10);
       font-weight:900;
-      padding:6px 10px;
-      color:#fff;
-      opacity:.95;
-      text-shadow:0 2px 12px rgba(0,0,0,.35);
     }
+
+    /* Matching */
+    .matchWrap{display:grid;gap:10px;grid-template-columns: 1fr 1fr;}
+    @media(max-width:900px){.matchWrap{grid-template-columns:1fr}}
+    .matchCol{padding:10px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.10)}
+    .matchItem{
+      padding:10px;border-radius:14px;margin-bottom:8px;
+      background:#f7fff9;border:1px solid rgba(43,147,72,.18);
+      cursor:pointer;font-weight:800;
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+    }
+    .matchItem.selected{outline: 3px solid rgba(255,213,79,.65)}
+    .matchItem.done{opacity:.65;cursor:default}
+    .tiny{font-size:12px;color:var(--muted)}
+
+    /* Karaoke */
+    .karaokeBox{
+      padding:10px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,0,.10)
+    }
+    .lyricLine{
+      padding:8px 10px;border-radius:12px;
+      border:1px solid rgba(0,0,0,.08);
+      margin:8px 0;
+      background:#fafafa;
+      font-weight:800;
+    }
+    .lyricLine.active{
+      background: linear-gradient(180deg, #fff4c9, #ffeaa1);
+      border-color: rgba(255,213,79,.55);
+    }
+
+    /* Screens */
+    .screen{display:none}
+    .screen.active{display:block}
 
     /* Print */
     @media print{
-      body{background:#fff;color:#000}
-      .backBar,.footerNote{display:none !important}
-      .top{border-color:#000;background:#fff;color:#000}
-      .card{box-shadow:none;border-color:#000}
-      .cardHeader{color:#000 !important}
-      .mini-tab,.btn{display:none !important}
+      body{background:#fff}
+      .topbar, .noPrint{display:none !important}
+      .wrap{max-width:none;padding:0}
+      .card{box-shadow:none;border:none}
+      .section{border:1px solid #ddd;background:#fff}
+      .vPic{border:1px solid #ddd}
+      .qa, .matchCol, .karaokeBox{border:1px solid #ddd}
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap" id="app"></div>
-
-  <div class="footerNote" id="footerNote">
-    Students: 3E S1–3E S15 &nbsp;|&nbsp; Student PIN 2844 &nbsp;|&nbsp; Teacher PIN 3244
-  </div>
-
-  <div class="backBar" id="backBar" style="display:none">
-    <button class="btn" id="btnBack" onclick="goHome()">⬅ Back to unit</button>
-    <button class="btn" id="btnSave" onclick="saveLessonResult()">✅ Save Result</button>
-    <button class="btn" id="btnPrint" onclick="printLesson()">🖨 Print</button>
-  </div>
-
-<script>
-/** =========================
- *  DATA (Unit 1 Lessons 1–8)
- *  =========================
- *  Тексты/диалоги я поставил безопасные “по смыслу”,
- *  ты потом можешь заменить на точные строки из книги.
- */
-
-const lessons = [
-  {
-    id: 1,
-    title: "Lesson 1 – Greetings & names",
-    subtitle: "Hello English!",
-    color: "#0a6b5a",
-    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
-    vocab: [
-      {pic:"👧", en:"Rosy", ru:"Рози"},
-      {pic:"👦", en:"Tim", ru:"Тим"},
-      {pic:"🧒", en:"Billy", ru:"Билли"},
-      {pic:"👩‍🏫", en:"Miss Jones", ru:"мисс Джонс"},
-      {pic:"👋", en:"Hello", ru:"привет"},
-      {pic:"👋", en:"Goodbye", ru:"пока"}
-    ],
-    grammar: {
-      title: "What’s your name?",
-      rule: `We ask: <b>What’s your name?</b><br>We answer: <b>My name’s ...</b>`,
-      formula: `Formula: What’s your name? → My name’s + Name.`,
-      examples: [
-        `What’s your name? — My name’s Rosy.`,
-        `What’s your name? — My name’s Tim.`
-      ]
-    },
-    worksheets: {
-      // WS1 = grammar choose
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) What’s your name? — ____ name’s Rosy.", options:["My","I","She"], answer:"My" },
-          { q:"2) ____ your name?", options:["What","Where","How"], answer:"What" },
-          { q:"3) My name’s ____.", options:["Rosy","fine","ten"], answer:"Rosy" }
-        ]
-      },
-      // WS2 = matching
-      ws2: {
-        title:"Worksheet 2 – Matching picture and word",
-        items:[
-          { pic:"👧", answer:"Rosy", options:["Tim","Rosy","Billy"] },
-          { pic:"👦", answer:"Tim",  options:["Tim","Miss Jones","Hello"] },
-          { pic:"👩‍🏫", answer:"Miss Jones", options:["Billy","Miss Jones","Goodbye"] }
-        ]
-      },
-      // WS3 = vocab mini quiz
-      ws3: {
-        title:"Worksheet 3 – Mini vocabulary quiz",
-        items:[
-          { q:"1) Choose: 👋", options:["Hello","Rosy","Tim"], answer:"Hello" },
-          { q:"2) Choose: 👧", options:["Billy","Rosy","Miss Jones"], answer:"Rosy" },
-          { q:"3) Choose: 👩‍🏫", options:["Miss Jones","Tim","Goodbye"], answer:"Miss Jones" }
-        ]
-      },
-      // WS4 = reading dialogue + 2 T/F
-      ws4: {
-        title:"Worksheet 4 – Reading check (True / False)",
-        dialogue:`Hello. What’s your name?<br>My name’s Rosy.<br>And my name’s Tim.<br>Goodbye!`,
-        questions:[
-          { sentence:"Rosy says: ‘My name’s Rosy.’", answer:"True" },
-          { sentence:"Tim says: ‘I’m ten.’", answer:"False" }
-        ]
-      }
-    }
-  },
-
-  {
-    id: 2,
-    title: "Lesson 2 – Alphabet",
-    subtitle: "Say the letters.",
-    color: "#6a2c91",
-    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:true }, // alphabet special
-    vocab: [], // alphabet generated automatically
-    grammar: {
-      title: "Spell your name",
-      rule: `We can spell: <b>My name’s ...</b> and letters.`,
-      formula: `Formula: My name’s + Name. → Spell: A-R-A-Y`,
-      examples: [
-        `My name’s Saken. S-A-K-E-N.`,
-        `My name’s Gauhar. G-A-U-K-H-A-R.`
-      ]
-    },
-    worksheets: {
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) My name’s Adil. (Choose)", options:["My","She","They"], answer:"My" },
-          { q:"2) What’s your ____ ?", options:["name","book","desk"], answer:"name" },
-          { q:"3) Spell: A-R-A-Y (Choose)", options:["Aray","Rosy","Billy"], answer:"Aray" }
-        ]
-      }
-      // WS2/WS3/WS4 not shown for alphabet
-    }
-  },
-
-  {
-    id: 3,
-    title: "Lesson 3 – Song",
-    subtitle: "Hello, hello!",
-    color: "#d23b6c",
-    show: { vocab:true, grammar:true, worksheets:true, song:true, alphabet:false },
-    vocab: [
-      {pic:"😊", en:"I’m fine.", ru:"я в порядке"},
-      {pic:"❓", en:"How are you?", ru:"как ты?"},
-      {pic:"👋", en:"Goodbye", ru:"пока"},
-      {pic:"🙋‍♀️", en:"My name’s ...", ru:"меня зовут ..."}
-    ],
-    grammar: {
-      title: "How are you?",
-      rule: `We ask: <b>How are you?</b><br>We answer: <b>I’m fine, thank you.</b>`,
-      formula: `Formula: How are you? → I’m fine, thank you.`,
-      examples: [
-        `How are you? — I’m fine, thank you.`,
-        `Goodbye! — Bye!`
-      ]
-    },
-    song: {
-      lines:[
-        "Hello, hello!",
-        "How are you?",
-        "I’m fine, thank you.",
-        "Hello, hello!",
-        "What’s your name?",
-        "My name’s ____.",
-        "That’s my name.",
-        "Goodbye, goodbye!",
-        "Goodbye to you…"
-      ],
-      intervalMs: 900
-    },
-    worksheets: {
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) How are you? — I’m ____.", options:["fine","two","book"], answer:"fine" },
-          { q:"2) ____ are you?", options:["How","What","Where"], answer:"How" },
-          { q:"3) Goodbye! — ____.", options:["Bye","Hello","Rosy"], answer:"Bye" }
-        ]
-      }
-    }
-  },
-
-  {
-    id: 4,
-    title: "Lesson 4 – Numbers 1–20",
-    subtitle: "How old are you?",
-    color: "#0b6aa9",
-    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
-    vocab: [
-      {pic:"1️⃣", en:"one", ru:"один"},
-      {pic:"2️⃣", en:"two", ru:"два"},
-      {pic:"3️⃣", en:"three", ru:"три"},
-      {pic:"4️⃣", en:"four", ru:"четыре"},
-      {pic:"5️⃣", en:"five", ru:"пять"},
-      {pic:"🔟", en:"ten", ru:"десять"}
-    ],
-    grammar: {
-      title: "How old are you?",
-      rule: `We ask: <b>How old are you?</b><br>We answer: <b>I’m ...</b>`,
-      formula: `Formula: How old are you? → I’m + number.`,
-      examples: [
-        `How old are you? — I’m nine.`,
-        `How old is she? — She’s ten.`
-      ]
-    },
-    worksheets: {
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) How old ____ you?", options:["are","is","am"], answer:"are" },
-          { q:"2) I’m ____.", options:["nine","Rosy","Hello"], answer:"nine" },
-          { q:"3) She’s ____.", options:["ten","book","fine"], answer:"ten" }
-        ]
-      },
-      ws2: {
-        title:"Worksheet 2 – Matching picture and word",
-        items:[
-          { pic:"1️⃣", answer:"one", options:["one","two","ten"] },
-          { pic:"2️⃣", answer:"two", options:["three","two","five"] },
-          { pic:"🔟", answer:"ten", options:["ten","four","one"] }
-        ]
-      },
-      ws3: {
-        title:"Worksheet 3 – Mini vocabulary quiz",
-        items:[
-          { q:"1) Choose: 4️⃣", options:["four","five","two"], answer:"four" },
-          { q:"2) Choose: 3️⃣", options:["one","three","ten"], answer:"three" },
-          { q:"3) Choose: 5️⃣", options:["five","two","four"], answer:"five" }
-        ]
-      },
-      ws4: {
-        title:"Worksheet 4 – Reading check (True / False)",
-        dialogue:`Hi, Billy. How old are you?<br>I’m two.<br>I’m sorry. Come on, Billy.<br>Goodbye!`,
-        questions:[
-          { sentence:"Billy is two.", answer:"True" },
-          { sentence:"Billy is ten.", answer:"False" }
-        ]
-      }
-    }
-  },
-
-  {
-    id: 5,
-    title: "Lesson 5 – Colours",
-    subtitle: "Skills time!",
-    color: "#1b7d3a",
-    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
-    vocab: [
-      {pic:"🟥", en:"red", ru:"красный"},
-      {pic:"🟨", en:"yellow", ru:"жёлтый"},
-      {pic:"🟩", en:"green", ru:"зелёный"},
-      {pic:"🟦", en:"blue", ru:"синий"},
-      {pic:"⬛", en:"black", ru:"чёрный"},
-      {pic:"⬜", en:"white", ru:"белый"}
-    ],
-    grammar: {
-      title: "It is … / My favourite colour is …",
-      rule: `We say colours: <b>It is red.</b> / <b>My favourite colour is blue.</b>`,
-      formula: `Formula: It is + colour. | My favourite colour is + colour.`,
-      examples: [
-        `It is red.`,
-        `My favourite colour is green.`
-      ]
-    },
-    worksheets: {
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) My favourite colour ____ red.", options:["is","are","am"], answer:"is" },
-          { q:"2) It ____ blue.", options:["is","are","am"], answer:"is" },
-          { q:"3) Choose a colour:", options:["green","Tim","nine"], answer:"green" }
-        ]
-      },
-      ws2: {
-        title:"Worksheet 2 – Matching picture and word",
-        items:[
-          { pic:"🟥", answer:"red", options:["red","blue","green"] },
-          { pic:"🟩", answer:"green", options:["yellow","green","white"] },
-          { pic:"🟦", answer:"blue", options:["blue","black","red"] }
-        ]
-      },
-      ws3: {
-        title:"Worksheet 3 – Mini vocabulary quiz",
-        items:[
-          { q:"1) Choose: 🟨", options:["yellow","black","blue"], answer:"yellow" },
-          { q:"2) Choose: ⬛", options:["white","black","green"], answer:"black" },
-          { q:"3) Choose: ⬜", options:["white","red","yellow"], answer:"white" }
-        ]
-      },
-      ws4: {
-        title:"Worksheet 4 – Reading check (True / False)",
-        dialogue:`My favourite colour is red.<br>My favourite colour is green.<br>It is blue and yellow.`,
-        questions:[
-          { sentence:"A favourite colour can be red.", answer:"True" },
-          { sentence:"Blue is a number.", answer:"False" }
-        ]
-      }
-    }
-  },
-
-  {
-    id: 6,
-    title: "Lesson 6 – Name, age, country",
-    subtitle: "Where are you from?",
-    color: "#b24a00",
-    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
-    vocab: [
-      {pic:"🇰🇿", en:"Kazakhstan", ru:"Казахстан"},
-      {pic:"🇬🇧", en:"the UK", ru:"Великобритания"},
-      {pic:"🇺🇸", en:"the USA", ru:"США"},
-      {pic:"🧒", en:"She’s …", ru:"ей …"},
-      {pic:"🗣️", en:"I’m from …", ru:"я из …"},
-      {pic:"🎂", en:"nine", ru:"девять"}
-    ],
-    grammar: {
-      title: "Where are you from?",
-      rule: `We ask: <b>Where are you from?</b><br>We answer: <b>I’m from ...</b>`,
-      formula: `Formula: Where are you from? → I’m from + country.`,
-      examples: [
-        `Where are you from? — I’m from Kazakhstan.`,
-        `What’s your name? — My name’s Aizere.`
-      ]
-    },
-    worksheets: {
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) I’m ____ Kazakhstan.", options:["from","on","in"], answer:"from" },
-          { q:"2) Where ____ you from?", options:["are","is","am"], answer:"are" },
-          { q:"3) She’s ____.", options:["nine","desk","hello"], answer:"nine" }
-        ]
-      },
-      ws2: {
-        title:"Worksheet 2 – Matching picture and word",
-        items:[
-          { pic:"🇰🇿", answer:"Kazakhstan", options:["Kazakhstan","the UK","the USA"] },
-          { pic:"🇬🇧", answer:"the UK", options:["the UK","Kazakhstan","the USA"] },
-          { pic:"🇺🇸", answer:"the USA", options:["the USA","the UK","Kazakhstan"] }
-        ]
-      },
-      ws3: {
-        title:"Worksheet 3 – Mini vocabulary quiz",
-        items:[
-          { q:"1) Choose: I’m ____ Kazakhstan.", options:["from","fine","name"], answer:"from" },
-          { q:"2) Choose: 🇬🇧", options:["the UK","the USA","Kazakhstan"], answer:"the UK" },
-          { q:"3) Choose: 🇰🇿", options:["Kazakhstan","the UK","the USA"], answer:"Kazakhstan" }
-        ]
-      },
-      ws4: {
-        title:"Worksheet 4 – Reading check (True / False)",
-        dialogue:`What’s your name?<br>My name’s Aizere.<br>How old are you?<br>I’m nine.<br>Where are you from?<br>I’m from Kazakhstan.`,
-        questions:[
-          { sentence:"Aizere is nine.", answer:"True" },
-          { sentence:"Aizere is from the USA.", answer:"False" }
-        ]
-      }
-    }
-  },
-
-  {
-    id: 7,
-    title: "Lesson 7 – Project",
-    subtitle: "Make a poster about you.",
-    color: "#006b80",
-    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
-    vocab: [
-      {pic:"🧍‍♀️", en:"My name’s …", ru:"меня зовут …"},
-      {pic:"🎂", en:"I’m …", ru:"мне …"},
-      {pic:"🌍", en:"I’m from …", ru:"я из …"},
-      {pic:"🎨", en:"favourite colour", ru:"любимый цвет"},
-      {pic:"🟦", en:"blue", ru:"синий"},
-      {pic:"🟥", en:"red", ru:"красный"}
-    ],
-    grammar: {
-      title: "About me",
-      rule: `We can say: <b>My name’s …</b> / <b>I’m …</b> / <b>I’m from …</b>`,
-      formula: `Formula: My name’s + Name. | I’m + age. | I’m from + country.`,
-      examples: [
-        `My name’s Birzhan. I’m ten. I’m from Kazakhstan.`,
-        `My favourite colour is red.`
-      ]
-    },
-    worksheets: {
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) My name’s ____.", options:["Birzhan","red","nine"], answer:"Birzhan" },
-          { q:"2) I’m ____.", options:["ten","blue","UK"], answer:"ten" },
-          { q:"3) My favourite colour is ____.", options:["red","Tim","two"], answer:"red" }
-        ]
-      },
-      ws2: {
-        title:"Worksheet 2 – Matching picture and word",
-        items:[
-          { pic:"🎂", answer:"age", options:["age","name","colour"] },
-          { pic:"🎨", answer:"colour", options:["country","colour","name"] },
-          { pic:"🌍", answer:"country", options:["country","age","colour"] }
-        ]
-      },
-      ws3: {
-        title:"Worksheet 3 – Mini vocabulary quiz",
-        items:[
-          { q:"1) Choose: 🎨", options:["colour","name","age"], answer:"colour" },
-          { q:"2) Choose: 🌍", options:["country","age","hello"], answer:"country" },
-          { q:"3) Choose: 🎂", options:["age","goodbye","red"], answer:"age" }
-        ]
-      },
-      ws4: {
-        title:"Worksheet 4 – Reading check (True / False)",
-        dialogue:`My name’s Birzhan.<br>I’m ten.<br>I’m from Kazakhstan.<br>My favourite colour is red.`,
-        questions:[
-          { sentence:"Birzhan is ten.", answer:"True" },
-          { sentence:"Birzhan is from the UK.", answer:"False" }
-        ]
-      }
-    }
-  },
-
-  {
-    id: 8,
-    title: "Lesson 8 – Culture (At my school)",
-    subtitle: "Classroom instructions + prepositions",
-    color: "#7a8b00",
-    show: { vocab:true, grammar:true, worksheets:true, song:false, alphabet:false },
-    vocab: [
-      {pic:"🪑", en:"chair", ru:"стул"},
-      {pic:"🧑‍🏫", en:"teacher", ru:"учитель"},
-      {pic:"🧏", en:"Listen!", ru:"слушай!"},
-      {pic:"🤫", en:"Don’t talk.", ru:"не говори"},
-      {pic:"➡️", en:"next to", ru:"рядом"},
-      {pic:"📍", en:"near", ru:"возле"}
-    ],
-    grammar: {
-      title: "Where is it? (near / next to)",
-      rule: `We ask: <b>Where’s the chair?</b><br>We answer: <b>It’s near the desk.</b> / <b>It’s next to the desk.</b>`,
-      formula: `Formula: Where’s + noun? → It’s near / next to + noun.`,
-      examples: [
-        `Where’s the chair? — It’s near the desk.`,
-        `Where’s the pencil case? — It’s next to the book.`
-      ]
-    },
-    worksheets: {
-      ws1: {
-        title:"Worksheet 1 – Grammar choose",
-        items:[
-          { q:"1) Where’s the chair? — It’s ____ the desk.", options:["near","nine","hello"], answer:"near" },
-          { q:"2) It’s ____ to the desk.", options:["next","fine","from"], answer:"next" },
-          { q:"3) ____ the chair?", options:["Where’s","How","What"], answer:"Where’s" }
-        ]
-      },
-      ws2: {
-        title:"Worksheet 2 – Matching picture and word",
-        items:[
-          { pic:"🧏", answer:"Listen!", options:["Listen!","Goodbye","Blue"] },
-          { pic:"🤫", answer:"Don’t talk.", options:["Don’t talk.","I’m fine.","Ten"] },
-          { pic:"🪑", answer:"chair", options:["chair","teacher","desk"] }
-        ]
-      },
-      ws3: {
-        title:"Worksheet 3 – Mini vocabulary quiz",
-        items:[
-          { q:"1) Choose: ➡️", options:["next to","near","from"], answer:"next to" },
-          { q:"2) Choose: 📍", options:["near","red","two"], answer:"near" },
-          { q:"3) Choose: 🤫", options:["Don’t talk.","Hello","Teacher"], answer:"Don’t talk." }
-        ]
-      },
-      ws4: {
-        title:"Worksheet 4 – Reading check (True / False)",
-        dialogue:`Sit down, class.<br>Listen. Don’t talk.<br>Where’s the chair?<br>It’s near the desk.`,
-        questions:[
-          { sentence:"‘Don’t talk’ means ‘Be quiet.’", answer:"True" },
-          { sentence:"The chair is in Kazakhstan.", answer:"False" }
-        ]
-      }
-    }
-  }
-];
-
-let currentLessonId = null;
-let karaokeTimer = null;
-let karaokeIndex = 0;
-
-/** ===========
- *  UI RENDER
- *  =========== */
-
-function renderHome(){
-  currentLessonId = null;
-  document.getElementById("backBar").style.display = "none";
-  document.getElementById("footerNote").style.display = "block";
-
-  const app = document.getElementById("app");
-  app.innerHTML = `
-    <div class="top">
-      <div class="logoCircle"></div>
-      <div class="title">ENGLISH WITH AI BAYAN</div>
-      <div class="subtitle">Grade 3 – Family and Friends 3</div>
-      <div class="subtitle" style="margin-top:6px;font-size:15px;opacity:.92">
-        Unit 1 — Lessons 1–8
-      </div>
-      <div class="card" style="margin-top:14px">
-        <div class="cardHeader" style="background:#0a6b5a">
-          <div>
-            <h2>Choose a lesson</h2>
-            <div class="small">Tap a card to open</div>
-          </div>
-          <div class="starsLine">⭐ Total: <span id="totalStars">0</span></div>
-        </div>
-        <div class="content">
-          <div class="grid" id="lessonGrid"></div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  document.getElementById("totalStars").textContent = getTotalStars();
-
-  const grid = document.getElementById("lessonGrid");
-  lessons.forEach(ls=>{
-    const st = getLessonStars(ls.id);
-    const btn = document.createElement("button");
-    btn.className = "mini-tab";
-    btn.style.background = ls.color;
-    btn.style.width = "100%";
-    btn.style.textAlign = "left";
-    btn.style.borderRadius = "18px";
-    btn.style.padding = "14px";
-    btn.innerHTML = `
-      <div style="font-size:18px;font-weight:1000">${escapeHtml(ls.title)}</div>
-      <div style="font-size:14px;opacity:.95;font-weight:800;margin-top:4px">${escapeHtml(ls.subtitle)}</div>
-      <div style="margin-top:8px;font-weight:1000">⭐ Stars in lesson: ${st}</div>
-    `;
-    btn.onclick = ()=>openLesson(ls.id);
-    grid.appendChild(btn);
-  });
-}
-
-function openLesson(id){
-  stopKaraoke();
-  currentLessonId = id;
-  document.getElementById("backBar").style.display = "flex";
-  document.getElementById("footerNote").style.display = "none";
-
-  const ls = lessons.find(x=>x.id===id);
-  if(!ls) return;
-
-  // apply colors to bottom buttons
-  document.getElementById("btnBack").style.background = ls.color;
-  document.getElementById("btnSave").style.background = ls.color;
-  document.getElementById("btnPrint").style.background = ls.color;
-
-  const stars = getLessonStars(id);
-
-  const app = document.getElementById("app");
-  app.innerHTML = `
-    <div class="top" style="border-color:var(--gold)">
-      <div class="logoCircle"></div>
-      <div class="title">ENGLISH WITH AI BAYAN</div>
-      <div class="subtitle">Grade 3 – Family and Friends 3</div>
-    </div>
-
-    <div class="card">
-      <div class="cardHeader" style="background:${ls.color}">
+  <div class="wrap">
+    <div class="topbar noPrint">
+      <div class="brand">
+        <!-- ВАЖНО: положи файл logo.png рядом с этим HTML -->
+        <img class="logo" src="logo.png" alt="AI Bayan logo" />
         <div>
-          <h2>${escapeHtml(ls.title)}</h2>
-          <div class="small">${escapeHtml(ls.subtitle)}</div>
-          <div class="small"><b>You have ${stars} ⭐ in this lesson.</b></div>
-        </div>
-        <div style="text-align:right;font-weight:1000">
-          <div style="opacity:.95">Lesson colour</div>
-          <div style="margin-top:6px;width:36px;height:36px;border-radius:12px;background:#fff;border:3px solid rgba(0,0,0,.15)"></div>
+          <h1>AI Bayan • Grade 3</h1>
+          <p class="muted">Units 1–8 • Login: 3E L1–3E L15 • PIN 2844</p>
         </div>
       </div>
-      <div class="content">
-        <div class="pillRow" id="lessonMenu"></div>
-        <div id="lessonBody"></div>
+      <div class="row">
+        <div class="pill" id="whoPill">Не вошли</div>
+        <button class="btn ghost small" id="logoutBtn" style="display:none">Выйти</button>
       </div>
     </div>
-  `;
 
-  const menu = document.getElementById("lessonMenu");
-  const addTab = (label, targetId) => {
-    const b = document.createElement("button");
-    b.className = "mini-tab";
-    b.style.background = ls.color;
-    b.textContent = label;
-    b.onclick = ()=>document.getElementById(targetId)?.scrollIntoView({behavior:"smooth", block:"start"});
-    menu.appendChild(b);
-  };
+    <!-- LOGIN -->
+    <section class="screen active" id="screenLogin">
+      <div class="grid">
+        <div class="card">
+          <h2 class="title">Вход ученика</h2>
+          <p class="sub">Логин только из списка: <b>3E L1</b> … <b>3E L15</b>. Пароль (PIN): <b>2844</b>.</p>
+          <div class="row">
+            <input class="input" id="loginName" placeholder="Например: 3E L7" autocomplete="off" />
+            <input class="input" id="loginPin" placeholder="PIN" type="password" inputmode="numeric" autocomplete="off" />
+            <button class="btn" id="loginBtn">Войти</button>
+          </div>
+          <div class="hr"></div>
+          <div class="row">
+            <span class="tag">👩‍🏫 Журнал учителя: PIN 3244</span>
+            <button class="btn secondary" id="openTeacherBtn">Открыть журнал</button>
+          </div>
+          <p class="muted" id="loginMsg" style="margin-top:10px"></p>
+        </div>
 
-  if(ls.show.vocab) addTab("🧠 VOCABULARY", "sec-vocab");
-  if(ls.show.grammar) addTab("📘 GRAMMAR", "sec-grammar");
-  if(ls.show.worksheets) addTab("📄 WORKSHEETS", "sec-ws");
-  addTab("🖨 PRINT", "sec-print");
+        <div class="card">
+          <h2 class="title">Что внутри</h2>
+          <p class="sub">В главном меню: 8 юнитов + AI чат (лимит 1 вопрос/день) + журнал учителя.</p>
+          <div class="row">
+            <span class="stars">⭐ Звёзды сохраняются</span>
+            <span class="stars">✅/❌ сохраняются</span>
+            <span class="stars">🖨 Print каждого lesson</span>
+            <span class="stars">🔊 Vocabulary говорит “AI Bayan”</span>
+            <span class="stars">🎵 Song = Karaoke (Start/Pause/Stop)</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  const body = document.getElementById("lessonBody");
+    <!-- MAIN MENU -->
+    <section class="screen" id="screenMain">
+      <div class="grid">
+        <div class="card">
+          <h2 class="title">Главное меню</h2>
+          <p class="sub">Выбери Unit. AI чат доступен только здесь (1 вопрос в день).</p>
 
-  // Vocabulary
-  if(ls.show.vocab){
-    const sec = document.createElement("div");
-    sec.className = "section";
-    sec.id = "sec-vocab";
-    sec.innerHTML = `
-      <div class="sectionTitle">🧠 VOCABULARY — Picture words</div>
-      <p class="hint">Tap “Say it” to hear AI Bayan (device TTS).</p>
-      <div class="grid" id="vGrid"></div>
-    `;
-    body.appendChild(sec);
+          <div class="row noPrint" style="justify-content:space-between">
+            <div class="row">
+              <span class="stars" id="totalStarsBadge">⭐ 0</span>
+              <span class="tag" id="todayChatTag">🤖 Чат: доступно</span>
+            </div>
+            <div class="row">
+              <button class="btn ghost" id="teacherBtn">👩‍🏫 Journal</button>
+            </div>
+          </div>
 
-    const vGrid = sec.querySelector("#vGrid");
-    if(ls.show.alphabet){
-      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-      letters.forEach(ch=>{
-        vGrid.appendChild(vocabCard({pic:ch, en: ch, ru:""} , ls.color));
+          <div class="hr noPrint"></div>
+          <div class="row noPrint" id="unitsRow"></div>
+
+          <div class="section noPrint">
+            <h3>🤖 AI Bayan Chat (только главное меню)</h3>
+            <p class="hint">Лимит: 1 вопрос в день на ученика. (Если хочешь подключить свой Cloudflare Worker — вставь URL в коде.)</p>
+            <div class="row">
+              <input class="input" id="chatQ" placeholder="Задай один вопрос..." />
+              <button class="btn" id="chatAskBtn">Спросить</button>
+            </div>
+            <div class="hr"></div>
+            <div id="chatA" class="muted"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="title">Прогресс</h2>
+          <p class="sub">Звёзды и ответы сохраняются по логину.</p>
+          <div id="progressBox"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIT (8 lessons inside) -->
+    <section class="screen" id="screenUnit">
+      <div class="card">
+        <div class="row noPrint" style="justify-content:space-between">
+          <div>
+            <h2 class="title" id="unitTitle">Unit</h2>
+            <p class="sub" id="unitSub">8 lessons внутри одного юнита</p>
+          </div>
+          <div class="row">
+            <span class="stars" id="unitStarsBadge">⭐ 0</span>
+            <button class="btn ghost" id="backToMainBtn">⬅ Главное меню</button>
+            <button class="btn secondary" id="printLessonBtn">🖨 Print lesson</button>
+          </div>
+        </div>
+
+        <div class="hr noPrint"></div>
+
+        <div class="lessonTabs noPrint" id="lessonTabs"></div>
+
+        <!-- LESSON CONTENT -->
+        <div id="lessonContent">
+          <!-- inserted -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TEACHER -->
+    <section class="screen" id="screenTeacher">
+      <div class="card">
+        <div class="row noPrint" style="justify-content:space-between">
+          <div>
+            <h2 class="title">👩‍🏫 Teacher Journal</h2>
+            <p class="sub">Доступ только по PIN <b>3244</b>. Список логинов: 3E L1–3E L15.</p>
+          </div>
+          <div class="row">
+            <button class="btn ghost" id="backTeacherBtn">⬅ Назад</button>
+            <button class="btn danger" id="teacherResetBtn">Сбросить прогресс (все)</button>
+          </div>
+        </div>
+
+        <div class="section noPrint">
+          <h3>Вход в журнал</h3>
+          <div class="row">
+            <input class="input" id="teacherPin" placeholder="PIN 3244" type="password" inputmode="numeric" />
+            <button class="btn" id="teacherLoginBtn">Открыть</button>
+          </div>
+          <p class="muted" id="teacherMsg" style="margin:10px 0 0 0"></p>
+        </div>
+
+        <div id="teacherTableWrap" style="display:none">
+          <div class="hr"></div>
+          <div class="section">
+            <h3>Таблица учеников</h3>
+            <div class="muted tiny">Показывает last login и суммарные ⭐.</div>
+            <div style="overflow:auto;margin-top:10px">
+              <table style="width:100%;border-collapse:collapse;font-size:13px">
+                <thead>
+                  <tr style="text-align:left">
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Логин</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Последний вход</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">⭐ Всего</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 1</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 2</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 3</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 4</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 5</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 6</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 7</th>
+                    <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">Unit 8</th>
+                  </tr>
+                </thead>
+                <tbody id="teacherTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <script>
+    /***********************
+     * CONFIG
+     ***********************/
+    const STUDENT_PIN = "2844";
+    const TEACHER_PIN = "3244";
+
+    // Если у тебя есть Cloudflare Worker endpoint для чата — вставь сюда URL:
+    // (ожидается POST {question, student, dateISO} -> {answer})
+    const CHAT_ENDPOINT = ""; // например: "https://your-worker.yourdomain.workers.dev/chat"
+
+    // Разрешённые логины 3E L1..L15
+    const ALLOWED_LOGINS = Array.from({length:15}, (_,i)=>`3E L${i+1}`);
+
+    /***********************
+     * DATA (ШАБЛОН)
+     * Заполни своими словами/картинками/песней по Unit/lesson.
+     ***********************/
+    const APP_DATA = Array.from({length:8}, (_,u)=>({
+      unitId: u+1,
+      title: `Unit ${u+1}`,
+      lessons: Array.from({length:8}, (_,l)=>({
+        lessonId: l+1,
+        title: `Lesson ${l+1}`,
+        vocab: [
+          {emoji:"☀️", en:"sun", ru:"солнце"},
+          {emoji:"☁️", en:"cloud", ru:"облако"},
+          {emoji:"🌧️", en:"rain", ru:"дождь"},
+          {emoji:"❄️", en:"snow", ru:"снег"},
+          {emoji:"🌬️", en:"wind", ru:"ветер"},
+          {emoji:"🌈", en:"rainbow", ru:"радуга"},
+          {emoji:"⚡", en:"storm", ru:"буря"},
+          {emoji:"🌡️", en:"hot", ru:"жарко"}
+        ],
+        grammar: {
+          enTitle:"KM Grammar",
+          enRule:"We use <b>It’s</b> + adjective to talk about weather: <b>It’s hot.</b> <b>It’s cold.</b>",
+          ruRule:"Мы используем <b>It’s</b> + прилагательное про погоду: <b>It’s hot.</b> <b>It’s cold.</b>"
+        },
+        ws1_missing: [
+          {prompt:"s _ n", answer:"sun"},
+          {prompt:"r a _ n", answer:"rain"},
+          {prompt:"s n _ w", answer:"snow"},
+          {prompt:"w i _ d", answer:"wind"},
+        ],
+        ws3_choose: [
+          {q:"It’s ___ today.", options:["hot","has","are"], correct:0},
+          {q:"It’s ___ . (❄️)", options:["rain","snow","cloud"], correct:1},
+          {q:"___ windy.", options:["It’s","He’s","I’m"], correct:0},
+        ],
+        reading: {
+          dialog: [
+            "A: Hi! How’s the weather?",
+            "B: It’s sunny and hot.",
+            "A: Great! Let’s go to the park.",
+            "B: Yes! Let’s go!"
+          ],
+          tf: [
+            {q:"It’s sunny.", a:true},
+            {q:"They go to the zoo.", a:false}
+          ]
+        },
+        song: {
+          hasSong: (l===0), // пример: песня только в Lesson 1 (поменяй как нужно)
+          audioSrc: "",     // положи файл рядом, например: "song_unit1_lesson1.mp3"
+          lines: [
+            {t:0,  text:"Sunny day, sunny day,"},
+            {t:4,  text:"Let’s go out and play!"},
+            {t:8,  text:"Windy breeze, windy breeze,"},
+            {t:12, text:"Dance among the trees!"}
+          ]
+        }
+      }))
+    }));
+
+    /***********************
+     * STATE + STORAGE
+     ***********************/
+    const $ = (id)=>document.getElementById(id);
+
+    let state = {
+      student: null,
+      currentUnit: null,
+      currentLesson: 1
+    };
+
+    function keyBase(student){ return `AIB3_${student.replaceAll(" ","_")}`; }
+    function loadJSON(k, fallback){
+      try{ const v = localStorage.getItem(k); return v? JSON.parse(v): fallback; }catch(e){ return fallback; }
+    }
+    function saveJSON(k, obj){
+      localStorage.setItem(k, JSON.stringify(obj));
+    }
+
+    function getProgress(){
+      const base = keyBase(state.student);
+      return loadJSON(`${base}_progress`, { stars:{}, marks:{}, lastLogin:null, chatDaily:{} });
+    }
+    function setProgress(p){
+      const base = keyBase(state.student);
+      saveJSON(`${base}_progress`, p);
+    }
+
+    function markLastLogin(){
+      const p = getProgress();
+      p.lastLogin = new Date().toISOString();
+      setProgress(p);
+    }
+
+    function getStars(unitId, lessonId){
+      const p = getProgress();
+      return (p.stars?.[`${unitId}_${lessonId}`] ?? 0);
+    }
+    function addStar(unitId, lessonId, delta=1){
+      const p = getProgress();
+      const k = `${unitId}_${lessonId}`;
+      p.stars = p.stars || {};
+      p.stars[k] = (p.stars[k] ?? 0) + delta;
+      setProgress(p);
+      refreshBadges();
+    }
+
+    function getMark(unitId, lessonId, itemKey){
+      const p = getProgress();
+      const k = `${unitId}_${lessonId}_${itemKey}`;
+      return p.marks?.[k] ?? null; // "ok" | "bad" | null
+    }
+    function setMark(unitId, lessonId, itemKey, value){
+      const p = getProgress();
+      p.marks = p.marks || {};
+      const k = `${unitId}_${lessonId}_${itemKey}`;
+      p.marks[k] = value;
+      setProgress(p);
+      refreshBadges();
+    }
+
+    function totalStars(){
+      const p = getProgress();
+      let s = 0;
+      for(const k in (p.stars||{})) s += (p.stars[k]||0);
+      return s;
+    }
+    function unitStars(unitId){
+      const p = getProgress();
+      let s = 0;
+      for(const k in (p.stars||{})){
+        if(k.startsWith(unitId+"_")) s += (p.stars[k]||0);
+      }
+      return s;
+    }
+
+    /***********************
+     * SCREENS
+     ***********************/
+    function showScreen(id){
+      ["screenLogin","screenMain","screenUnit","screenTeacher"].forEach(s=>{
+        $(s).classList.toggle("active", s===id);
       });
-    } else {
-      (ls.vocab || []).forEach(item=>vGrid.appendChild(vocabCard(item, ls.color)));
-    }
-  }
-
-  // Song karaoke section
-  if(ls.show.song && ls.song){
-    const sec = document.createElement("div");
-    sec.className = "section";
-    sec.id = "sec-song";
-    sec.innerHTML = `
-      <div class="sectionTitle">🎵 SONG — Karaoke</div>
-      <p class="hint">Press Play — lines will highlight like karaoke (no mp3 yet).</p>
-      <div class="karaoke" id="karaokeBox"></div>
-      <div class="btnLine">
-        <button class="btn" style="background:${ls.color}" onclick="startKaraoke(${ls.id})">▶ Play</button>
-        <button class="btn" style="background:${ls.color}" onclick="stopKaraoke()">⏹ Stop</button>
-      </div>
-    `;
-    body.appendChild(sec);
-    renderKaraoke(ls);
-  }
-
-  // Grammar
-  if(ls.show.grammar){
-    const sec = document.createElement("div");
-    sec.className = "section";
-    sec.id = "sec-grammar";
-    sec.innerHTML = `
-      <div class="sectionTitle">📘 GRAMMAR — Key Rule</div>
-      <div class="ruleBox">
-        <h3>${escapeHtml(ls.grammar?.title || "Grammar")}</h3>
-        <p>${ls.grammar?.rule || ""}</p>
-        <p><b>${escapeHtml(ls.grammar?.formula || "")}</b></p>
-        <div style="margin-top:8px;font-weight:1000">Examples:</div>
-        <ul>
-          ${(ls.grammar?.examples||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join("")}
-        </ul>
-      </div>
-    `;
-    body.appendChild(sec);
-  }
-
-  // Worksheets
-  if(ls.show.worksheets){
-    const sec = document.createElement("div");
-    sec.className = "section";
-    sec.id = "sec-ws";
-    sec.innerHTML = `
-      <div class="sectionTitle">📄 WORKSHEETS</div>
-      <p class="hint">Do tasks → Check ✔ → Stars are added for correct answers.</p>
-      <div id="wsHolder"></div>
-    `;
-    body.appendChild(sec);
-
-    const holder = sec.querySelector("#wsHolder");
-    buildWorksheets(holder, ls);
-  }
-
-  // Print
-  const secP = document.createElement("div");
-  secP.className = "section";
-  secP.id = "sec-print";
-  secP.innerHTML = `
-    <div class="sectionTitle">🖨 PRINT</div>
-    <p class="hint">Print this lesson: Vocabulary + Grammar + Worksheets.</p>
-    <button class="btn" style="background:${ls.color}" onclick="printLesson()">🖨 Print lesson</button>
-  `;
-  body.appendChild(secP);
-
-  // Scroll top
-  window.scrollTo({top:0, behavior:"smooth"});
-}
-
-function vocabCard(item, color){
-  const wrap = document.createElement("div");
-  wrap.className = "vCard";
-  wrap.innerHTML = `
-    <div class="pic">${escapeHtml(item.pic||"")}</div>
-    <div class="wEng">${escapeHtml(item.en||"")}</div>
-    ${item.ru ? `<div class="wRus">${escapeHtml(item.ru)}</div>` : `<div style="height:20px"></div>`}
-    <div class="btnLine" style="justify-content:center;margin-top:10px">
-      <button class="btn" style="background:${color}" onclick="sayText('${jsQuote(item.en||"")}')">🔊 Say it</button>
-    </div>
-  `;
-  return wrap;
-}
-
-/** ======================
- *  WORKSHEETS (WS1–WS4)
- *  ====================== */
-function buildWorksheets(container, lesson){
-  const ws = lesson.worksheets || {};
-
-  // Alphabet lesson special: only WS1
-  if(lesson.show.alphabet){
-    if(ws.ws1) container.appendChild(wsChooseBlock("ws1", ws.ws1, lesson.color));
-    return;
-  }
-
-  if(ws.ws1) container.appendChild(wsChooseBlock("ws1", ws.ws1, lesson.color));
-  if(ws.ws2) container.appendChild(wsMatchingBlock("ws2", ws.ws2, lesson.color));
-  if(ws.ws3) container.appendChild(wsChooseBlock("ws3", ws.ws3, lesson.color)); // mini vocab quiz (choose)
-  if(ws.ws4) container.appendChild(wsReadingTFBlock("ws4", ws.ws4, lesson.color));
-}
-
-function wsChooseBlock(key, data, color){
-  const box = document.createElement("div");
-  box.style.marginTop = "14px";
-  box.innerHTML = `<h3 style="margin:0 0 10px">${escapeHtml(data.title)}</h3>`;
-  (data.items||[]).forEach((it, idx)=>{
-    const row = document.createElement("div");
-    row.className = "wsRow";
-    row.innerHTML = `
-      <div class="wsLabel">${escapeHtml(it.q)}</div>
-      <select data-ws="${key}" data-index="${idx}">
-        <option value="">-- choose --</option>
-        ${(it.options||[]).map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
-      </select>
-    `;
-    box.appendChild(row);
-  });
-  const btnLine = document.createElement("div");
-  btnLine.className = "btnLine";
-  btnLine.innerHTML = `
-    <button class="btn" style="background:${color}" onclick="checkWorksheet('${key}')">Check ✔</button>
-    <div class="statusText" id="status-${key}"></div>
-  `;
-  box.appendChild(btnLine);
-  return box;
-}
-
-function wsMatchingBlock(key, data, color){
-  const box = document.createElement("div");
-  box.style.marginTop = "14px";
-  box.innerHTML = `<h3 style="margin:0 0 10px">${escapeHtml(data.title)}</h3>
-                   <p class="hint" style="margin-top:-4px">Choose the correct word for each picture.</p>`;
-  (data.items||[]).forEach((it, idx)=>{
-    const row = document.createElement("div");
-    row.className = "wsRow";
-    row.innerHTML = `
-      <div class="wsLabel">${idx+1}) <span style="font-size:28px">${escapeHtml(it.pic||"")}</span></div>
-      <select data-ws="${key}" data-index="${idx}">
-        <option value="">-- choose --</option>
-        ${(it.options||[]).map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
-      </select>
-    `;
-    box.appendChild(row);
-  });
-  const btnLine = document.createElement("div");
-  btnLine.className = "btnLine";
-  btnLine.innerHTML = `
-    <button class="btn" style="background:${color}" onclick="checkWorksheet('${key}')">Check ✔</button>
-    <div class="statusText" id="status-${key}"></div>
-  `;
-  box.appendChild(btnLine);
-  return box;
-}
-
-function wsReadingTFBlock(key, data, color){
-  const box = document.createElement("div");
-  box.style.marginTop = "14px";
-  box.innerHTML = `<h3 style="margin:0 0 8px">${escapeHtml(data.title)}</h3>
-                   <div class="reading-dialogue">${data.dialogue || ""}</div>`;
-  (data.questions||[]).forEach((it, idx)=>{
-    const row = document.createElement("div");
-    row.className = "wsRow";
-    row.innerHTML = `
-      <div class="wsLabel">${idx+1}) ${escapeHtml(it.sentence)}</div>
-      <select data-ws="${key}" data-index="${idx}">
-        <option value="">-- choose --</option>
-        <option value="True">True</option>
-        <option value="False">False</option>
-      </select>
-    `;
-    box.appendChild(row);
-  });
-  const btnLine = document.createElement("div");
-  btnLine.className = "btnLine";
-  btnLine.innerHTML = `
-    <button class="btn" style="background:${color}" onclick="checkWorksheet('${key}')">Check ✔</button>
-    <div class="statusText" id="status-${key}"></div>
-  `;
-  box.appendChild(btnLine);
-  return box;
-}
-
-/** ======================
- *  CHECK + STARS
- *  ====================== */
-function checkWorksheet(key){
-  const ls = lessons.find(x=>x.id===currentLessonId);
-  if(!ls) return;
-  const ws = ls.worksheets?.[key];
-  if(!ws) return;
-
-  const selects = Array.from(document.querySelectorAll(`select[data-ws="${key}"]`));
-  let total = selects.length;
-  let correct = 0;
-
-  selects.forEach(sel=>{
-    const idx = Number(sel.getAttribute("data-index"));
-    const val = sel.value;
-
-    let ans = "";
-    if(key==="ws2"){
-      ans = (ws.items?.[idx]?.answer || "");
-    } else if(key==="ws4"){
-      ans = (ws.questions?.[idx]?.answer || "");
-    } else {
-      ans = (ws.items?.[idx]?.answer || "");
     }
 
-    if(val && val === ans){
-      correct++;
-      sel.style.borderColor = "rgba(11,122,60,.9)";
-      sel.style.background = "#eefaf2";
-    }else{
-      sel.style.borderColor = "rgba(179,38,30,.8)";
-      sel.style.background = "#fff1f0";
+    function setWho(){
+      const pill = $("whoPill");
+      const btn = $("logoutBtn");
+      if(state.student){
+        pill.textContent = `✅ ${state.student}`;
+        btn.style.display = "inline-flex";
+      }else{
+        pill.textContent = "Не вошли";
+        btn.style.display = "none";
+      }
     }
-  });
 
-  // stars: add +1 star for each correct answer (simple and clear)
-  addStars(ls.id, correct);
+    $("logoutBtn").addEventListener("click", ()=>{
+      state.student = null;
+      state.currentUnit = null;
+      state.currentLesson = 1;
+      setWho();
+      showScreen("screenLogin");
+    });
 
-  const st = document.getElementById(`status-${key}`);
-  if(st){
-    st.innerHTML = `<span class="${correct===total ? "ok":"bad"}">Correct: ${correct} / ${total}</span>`;
-  }
-
-  // refresh header stars line
-  const header = document.querySelector(".cardHeader .small b");
-  if(header) header.textContent = `You have ${getLessonStars(ls.id)} ⭐ in this lesson.`;
-}
-
-function addStars(lessonId, add){
-  const k = `aib_u1_l${lessonId}_stars`;
-  const cur = Number(localStorage.getItem(k) || "0");
-  localStorage.setItem(k, String(cur + add));
-}
-function getLessonStars(lessonId){
-  return Number(localStorage.getItem(`aib_u1_l${lessonId}_stars`) || "0");
-}
-function getTotalStars(){
-  return lessons.reduce((sum, ls)=>sum + getLessonStars(ls.id), 0);
-}
-
-function saveLessonResult(){
-  // here we just show a nice alert; stars already stored automatically
-  const ls = lessons.find(x=>x.id===currentLessonId);
-  if(!ls) return;
-  alert(`Saved ✅\n${ls.title}\nStars in lesson: ${getLessonStars(ls.id)}`);
-}
-
-function printLesson(){
-  window.print();
-}
-
-function goHome(){
-  stopKaraoke();
-  renderHome();
-}
-
-/** ======================
- *  TTS
- *  ====================== */
-function sayText(text){
-  try{
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US";
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  }catch(e){
-    alert("TTS not supported on this device/browser.");
-  }
-}
-
-/** ======================
- *  Karaoke (no audio)
- *  ====================== */
-function renderKaraoke(lesson){
-  const box = document.getElementById("karaokeBox");
-  if(!box) return;
-  box.innerHTML = (lesson.song.lines||[]).map((ln,i)=>(
-    `<div class="line ${i===0?"active":""}" data-line="${i}">${escapeHtml(ln)}</div>`
-  )).join("");
-}
-function startKaraoke(lessonId){
-  stopKaraoke();
-  const lesson = lessons.find(x=>x.id===lessonId);
-  if(!lesson?.song) return;
-
-  karaokeIndex = 0;
-  highlightKaraokeLine(karaokeIndex);
-
-  karaokeTimer = setInterval(()=>{
-    karaokeIndex++;
-    if(karaokeIndex >= lesson.song.lines.length){
-      stopKaraoke();
-      return;
+    /***********************
+     * LOGIN
+     ***********************/
+    function normalizeLogin(s){
+      return (s||"").trim().replace(/\s+/g," ");
     }
-    highlightKaraokeLine(karaokeIndex);
-  }, lesson.song.intervalMs || 900);
-}
-function highlightKaraokeLine(i){
-  const box = document.getElementById("karaokeBox");
-  if(!box) return;
-  box.querySelectorAll(".line").forEach(el=>{
-    el.classList.remove("active");
-  });
-  const el = box.querySelector(`.line[data-line="${i}"]`);
-  if(el){
-    el.classList.add("active");
-    el.scrollIntoView({behavior:"smooth", block:"nearest"});
-  }
-}
-function stopKaraoke(){
-  if(karaokeTimer){ clearInterval(karaokeTimer); karaokeTimer = null; }
-}
 
-/** ======================
- *  Helpers
- *  ====================== */
-function escapeHtml(s){
-  return String(s ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-function jsQuote(s){
-  return String(s ?? "").replaceAll("\\","\\\\").replaceAll("'","\\'");
-}
+    $("loginBtn").addEventListener("click", ()=>{
+      const name = normalizeLogin($("loginName").value);
+      const pin = ($("loginPin").value||"").trim();
+      if(!ALLOWED_LOGINS.includes(name)){
+        $("loginMsg").textContent = "❌ Доступ запрещён. Логин должен быть 3E L1 … 3E L15.";
+        return;
+      }
+      if(pin !== STUDENT_PIN){
+        $("loginMsg").textContent = "❌ Неверный PIN.";
+        return;
+      }
+      state.student = name;
+      $("loginMsg").textContent = "";
+      setWho();
+      markLastLogin();
+      buildMain();
+      showScreen("screenMain");
+    });
 
-// init
-renderHome();
-</script>
+    /***********************
+     * MAIN MENU
+     ***********************/
+    function buildUnitsRow(){
+      const row = $("unitsRow");
+      row.innerHTML = "";
+      APP_DATA.forEach(u=>{
+        const b = document.createElement("button");
+        b.className = "btn unit";
+        b.innerHTML = `📘 ${u.title} <span class="tiny">⭐ ${unitStars(u.unitId)}</span>`;
+        b.addEventListener("click", ()=>openUnit(u.unitId));
+        row.appendChild(b);
+      });
+    }
+
+    function buildProgressBox(){
+      const box = $("progressBox");
+      box.innerHTML = "";
+      const p = getProgress();
+      const last = p.lastLogin ? new Date(p.lastLogin).toLocaleString() : "—";
+      const div = document.createElement("div");
+      div.className = "section";
+      div.innerHTML = `
+        <h3>👤 ${state.student}</h3>
+        <p class="hint">Последний вход: <b>${last}</b></p>
+        <div class="row">
+          <span class="stars">⭐ Всего: ${totalStars()}</span>
+          ${APP_DATA.map(u=>`<span class="tag">${u.title}: ⭐ ${unitStars(u.unitId)}</span>`).join("")}
+        </div>
+      `;
+      box.appendChild(div);
+    }
+
+    function refreshChatTag(){
+      const tag = $("todayChatTag");
+      const p = getProgress();
+      const d = new Date().toISOString().slice(0,10); // YYYY-MM-DD
+      const used = !!p.chatDaily?.[d];
+      tag.textContent = used ? "🤖 Чат: лимит уже использован" : "🤖 Чат: доступно 1 вопрос";
+      tag.style.borderColor = used ? "rgba(214,40,40,.35)" : "rgba(43,147,72,.35)";
+      tag.style.background = used ? "#ffecec" : "#f4fff7";
+    }
+
+    function buildMain(){
+      $("totalStarsBadge").textContent = `⭐ ${totalStars()}`;
+      buildUnitsRow();
+      buildProgressBox();
+      refreshChatTag();
+      $("chatA").textContent = "";
+      $("chatQ").value = "";
+    }
+
+    /***********************
+     * AI CHAT (1 per day)
+     ***********************/
+    async function askChat(){
+      const q = ($("chatQ").value||"").trim();
+      if(!q){ $("chatA").textContent = "Напиши вопрос 😊"; return; }
+
+      const p = getProgress();
+      const d = new Date().toISOString().slice(0,10);
+      p.chatDaily = p.chatDaily || {};
+      if(p.chatDaily[d]){
+        $("chatA").textContent = "❌ Сегодня лимит чата уже использован (1 вопрос в день).";
+        refreshChatTag();
+        return;
+      }
+
+      // mark used now (чтобы не обойти при перезагрузке)
+      p.chatDaily[d] = true;
+      setProgress(p);
+      refreshChatTag();
+
+      // If endpoint set -> use it; else offline answer
+      if(CHAT_ENDPOINT){
+        try{
+          $("chatA").textContent = "…";
+          const res = await fetch(CHAT_ENDPOINT, {
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body: JSON.stringify({ question:q, student: state.student, dateISO: new Date().toISOString() })
+          });
+          const data = await res.json();
+          $("chatA").textContent = data.answer ? String(data.answer) : "Ответ не получен.";
+        }catch(e){
+          $("chatA").textContent = "⚠️ Не удалось подключиться к чату. (Проверь URL CHAT_ENDPOINT.)";
+        }
+      }else{
+        // Offline friendly reply
+        $("chatA").textContent =
+          "AI Bayan: Попробуй так 👇\n" +
+          "1) Прочитай правило (Grammar KM).\n" +
+          "2) Сделай Worksheet 1 (буквы) → Worksheet 2 (matching) → Worksheet 3 (choose).\n" +
+          "3) В Reading ответь True/False.\n" +
+          "Если хочешь — напиши слово, и я помогу с переводом и примером.";
+      }
+    }
+    $("chatAskBtn").addEventListener("click", askChat);
+
+    /***********************
+     * UNIT + LESSONS
+     ***********************/
+    function openUnit(unitId){
+      state.currentUnit = unitId;
+      state.currentLesson = 1;
+      buildUnit();
+      showScreen("screenUnit");
+    }
+
+    $("backToMainBtn").addEventListener("click", ()=>{
+      buildMain();
+      showScreen("screenMain");
+    });
+
+    $("printLessonBtn").addEventListener("click", ()=>{
+      window.print();
+    });
+
+    function buildLessonTabs(unit){
+      const tabs = $("lessonTabs");
+      tabs.innerHTML = "";
+      unit.lessons.forEach(les=>{
+        const t = document.createElement("button");
+        t.className = "tab" + (les.lessonId===state.currentLesson ? " active":"");
+        t.textContent = `Lesson ${les.lessonId}`;
+        t.addEventListener("click", ()=>{
+          state.currentLesson = les.lessonId;
+          buildUnit();
+        });
+        tabs.appendChild(t);
+      });
+    }
+
+    function refreshBadges(){
+      if(!state.student) return;
+      $("totalStarsBadge").textContent = `⭐ ${totalStars()}`;
+      if(state.currentUnit){
+        $("unitStarsBadge").textContent = `⭐ ${unitStars(state.currentUnit)}`;
+      }
+      // refresh unit buttons stars
+      const row = $("unitsRow");
+      if(row && row.children){
+        Array.from(row.children).forEach((btn,i)=>{
+          const u = APP_DATA[i];
+          if(u){
+            btn.innerHTML = `📘 ${u.title} <span class="tiny">⭐ ${unitStars(u.unitId)}</span>`;
+          }
+        });
+      }
+    }
+
+    // "AI Bayan" voice (Web Speech API)
+    function speakAI(text){
+      try{
+        const u = new SpeechSynthesisUtterance(text);
+        // Try pick English voice if available
+        const voices = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
+        const v = voices.find(v=>/en/i.test(v.lang)) || voices[0];
+        if(v) u.voice = v;
+        u.lang = (v && v.lang) ? v.lang : "en-US";
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        speechSynthesis.cancel();
+        speechSynthesis.speak(u);
+      }catch(e){
+        alert("На этом устройстве озвучка недоступна.");
+      }
+    }
+    // iOS/Android sometimes loads voices later
+    if("speechSynthesis" in window){
+      window.speechSynthesis.onvoiceschanged = ()=>{};
+    }
+
+    function buildUnit(){
+      const unit = APP_DATA.find(u=>u.unitId===state.currentUnit);
+      const les = unit.lessons.find(l=>l.lessonId===state.currentLesson);
+
+      $("unitTitle").textContent = unit.title;
+      $("unitSub").textContent = `${les.title} • 8 lessons внутри одного юнита`;
+      $("unitStarsBadge").textContent = `⭐ ${unitStars(unit.unitId)}`;
+
+      buildLessonTabs(unit);
+
+      const root = $("lessonContent");
+      root.innerHTML = "";
+
+      // Section 1: Visual Vocabulary
+      const s1 = document.createElement("div");
+      s1.className = "section";
+      s1.innerHTML = `
+        <h3>1) Visual Vocabulary</h3>
+        <p class="hint">Слова с переводом. Картинки сеткой (2 ряда). Нажми 🔊 — “AI Bayan” говорит слово.</p>
+        <div class="vGrid" id="vGrid"></div>
+      `;
+      root.appendChild(s1);
+
+      const vGrid = s1.querySelector("#vGrid");
+      les.vocab.forEach((w,idx)=>{
+        const item = document.createElement("div");
+        item.className = "vItem";
+        item.innerHTML = `
+          <div class="vPic" aria-hidden="true">${w.emoji || "🧸"}</div>
+          <div class="vSpeakRow">
+            <div>
+              <div class="vWord">${w.en}</div>
+              <div class="vRu">${w.ru}</div>
+            </div>
+            <button class="btn secondary small noPrint" title="Speak">🔊</button>
+          </div>
+        `;
+        item.querySelector("button").addEventListener("click", ()=>speakAI(w.en));
+        vGrid.appendChild(item);
+      });
+
+      // Section 2: Grammar KM (EN+RU)
+      const s2 = document.createElement("div");
+      s2.className = "section";
+      s2.innerHTML = `
+        <h3>2) ${les.grammar.enTitle}</h3>
+        <div class="qa">
+          <div style="flex:1">
+            <div><b>EN:</b> <span>${les.grammar.enRule}</span></div>
+            <div style="margin-top:8px"><b>RU:</b> <span>${les.grammar.ruRule}</span></div>
+          </div>
+        </div>
+      `;
+      root.appendChild(s2);
+
+      // Stars summary (lesson)
+      const lessonStars = getStars(unit.unitId, les.lessonId);
+      const starBox = document.createElement("div");
+      starBox.className = "section";
+      starBox.innerHTML = `
+        <h3>⭐ Stars for this lesson</h3>
+        <div class="row">
+          <span class="stars">⭐ ${lessonStars}</span>
+          <span class="tag">✅ правильный ответ = +1 ⭐</span>
+          <span class="tag">Сохраняется</span>
+        </div>
+      `;
+      root.appendChild(starBox);
+
+      // Worksheet 1: Missing letters
+      const s3 = document.createElement("div");
+      s3.className = "section";
+      s3.innerHTML = `
+        <h3>3) Worksheet 1 — Missing Letters</h3>
+        <p class="hint">Впиши слово полностью и нажми Check.</p>
+        <div id="ws1"></div>
+      `;
+      root.appendChild(s3);
+      const ws1 = s3.querySelector("#ws1");
+
+      les.ws1_missing.forEach((it,i)=>{
+        const itemKey = `ws1_${i}`;
+        const mark = getMark(unit.unitId, les.lessonId, itemKey);
+        const row = document.createElement("div");
+        row.className = "qa";
+        row.innerHTML = `
+          <div class="mark ${mark==="ok"?"ok":mark==="bad"?"bad":""}">${mark==="ok"?"✅":mark==="bad"?"✖":"•"}</div>
+          <div style="min-width:110px;font-weight:900">${it.prompt}</div>
+          <input class="input" style="min-width:180px" placeholder="answer" data-i="${i}" />
+          <button class="btn small">Check</button>
+        `;
+        const inp = row.querySelector("input");
+        const btn = row.querySelector("button");
+        // Restore previously correct value? (optional)
+        if(mark==="ok") inp.value = it.answer;
+
+        btn.addEventListener("click", ()=>{
+          const ans = (inp.value||"").trim().toLowerCase();
+          if(ans === it.answer.toLowerCase()){
+            if(getMark(unit.unitId, les.lessonId, itemKey)!=="ok"){
+              addStar(unit.unitId, les.lessonId, 1);
+            }
+            setMark(unit.unitId, les.lessonId, itemKey, "ok");
+          }else{
+            setMark(unit.unitId, les.lessonId, itemKey, "bad");
+          }
+          buildUnit(); // quick rerender to show marks
+        });
+
+        ws1.appendChild(row);
+      });
+
+      // Worksheet 2: Matching (pictures + words)
+      const s4 = document.createElement("div");
+      s4.className = "section";
+      s4.innerHTML = `
+        <h3>4) Worksheet 2 — Matching (Pictures + Words)</h3>
+        <p class="hint">Нажми картинку → потом слово. Сделай пары.</p>
+        <div class="matchWrap" id="matchWrap"></div>
+      `;
+      root.appendChild(s4);
+
+      const matchWrap = s4.querySelector("#matchWrap");
+      const left = document.createElement("div");
+      left.className = "matchCol";
+      const right = document.createElement("div");
+      right.className = "matchCol";
+      left.innerHTML = `<div style="font-weight:900;margin-bottom:8px">Pictures</div>`;
+      right.innerHTML = `<div style="font-weight:900;margin-bottom:8px">Words</div>`;
+
+      const pairs = les.vocab.slice(0,6).map((w,idx)=>({id:idx, ...w}));
+      const pics = [...pairs].sort(()=>Math.random()-0.5);
+      const words = [...pairs].sort(()=>Math.random()-0.5);
+
+      let selPic = null;
+      let selWord = null;
+
+      pics.forEach(p=>{
+        const k = `ws2_pic_${p.id}`;
+        const done = getMark(unit.unitId, les.lessonId, `ws2_done_${p.id}`)==="ok";
+        const el = document.createElement("div");
+        el.className = "matchItem" + (done?" done":"");
+        el.innerHTML = `<span>${p.emoji} <span class="tiny">#${p.id+1}</span></span><span class="tiny">${done?"✅":""}</span>`;
+        el.addEventListener("click", ()=>{
+          if(done) return;
+          Array.from(left.querySelectorAll(".matchItem")).forEach(x=>x.classList.remove("selected"));
+          el.classList.add("selected");
+          selPic = p;
+          tryPair();
+        });
+        left.appendChild(el);
+      });
+
+      words.forEach(w=>{
+        const done = getMark(unit.unitId, les.lessonId, `ws2_done_${w.id}`)==="ok";
+        const el = document.createElement("div");
+        el.className = "matchItem" + (done?" done":"");
+        el.innerHTML = `<span>${w.en}</span><span class="tiny">${done?"✅":""}</span>`;
+        el.addEventListener("click", ()=>{
+          if(done) return;
+          Array.from(right.querySelectorAll(".matchItem")).forEach(x=>x.classList.remove("selected"));
+          el.classList.add("selected");
+          selWord = w;
+          tryPair();
+        });
+        right.appendChild(el);
+      });
+
+      function tryPair(){
+        if(!selPic || !selWord) return;
+        const itemKey = `ws2_pair_${selPic.id}_${selWord.id}`;
+        const correct = (selPic.id === selWord.id);
+
+        if(correct){
+          // award only once for each id
+          if(getMark(unit.unitId, les.lessonId, `ws2_done_${selPic.id}`)!=="ok"){
+            addStar(unit.unitId, les.lessonId, 1);
+          }
+          setMark(unit.unitId, les.lessonId, `ws2_done_${selPic.id}`, "ok");
+        }else{
+          setMark(unit.unitId, les.lessonId, itemKey, "bad");
+        }
+        selPic = null; selWord = null;
+        buildUnit();
+      }
+
+      matchWrap.appendChild(left);
+      matchWrap.appendChild(right);
+
+      // Worksheet 3: Choose correct word (Grammar)
+      const s5 = document.createElement("div");
+      s5.className = "section";
+      s5.innerHTML = `
+        <h3>5) Worksheet 3 — Choose the Correct Word (Grammar)</h3>
+        <p class="hint">Выбери правильный вариант и нажми Check.</p>
+        <div id="ws3"></div>
+      `;
+      root.appendChild(s5);
+      const ws3 = s5.querySelector("#ws3");
+
+      les.ws3_choose.forEach((it,i)=>{
+        const itemKey = `ws3_${i}`;
+        const mark = getMark(unit.unitId, les.lessonId, itemKey);
+        const box = document.createElement("div");
+        box.className = "qa";
+        box.innerHTML = `
+          <div class="mark ${mark==="ok"?"ok":mark==="bad"?"bad":""}">${mark==="ok"?"✅":mark==="bad"?"✖":"•"}</div>
+          <div style="flex:1">
+            <div style="font-weight:900;margin-bottom:8px">${it.q}</div>
+            <div class="row" id="opts"></div>
+            <div class="row" style="margin-top:8px">
+              <button class="btn small">Check</button>
+            </div>
+          </div>
+        `;
+        const opts = box.querySelector("#opts");
+        const group = `g_${unit.unitId}_${les.lessonId}_${i}`;
+        it.options.forEach((op,idx)=>{
+          const lab = document.createElement("label");
+          lab.className = "tag";
+          lab.style.cursor = "pointer";
+          lab.innerHTML = `<input type="radio" name="${group}" value="${idx}" style="transform:scale(1.1)"> ${op}`;
+          opts.appendChild(lab);
+        });
+
+        const btn = box.querySelector("button");
+        btn.addEventListener("click", ()=>{
+          const chosen = box.querySelector(`input[name="${group}"]:checked`);
+          if(!chosen){ alert("Выбери вариант 🙂"); return; }
+          const val = Number(chosen.value);
+          if(val === it.correct){
+            if(getMark(unit.unitId, les.lessonId, itemKey)!=="ok"){
+              addStar(unit.unitId, les.lessonId, 1);
+            }
+            setMark(unit.unitId, les.lessonId, itemKey, "ok");
+          }else{
+            setMark(unit.unitId, les.lessonId, itemKey, "bad");
+          }
+          buildUnit();
+        });
+
+        ws3.appendChild(box);
+      });
+
+      // Worksheet 4: Reading mini dialog + 2 TF
+      const s6 = document.createElement("div");
+      s6.className = "section";
+      s6.innerHTML = `
+        <h3>6) Worksheet 4 — Reading Mini (Dialog)</h3>
+        <p class="hint">Прочитай диалог. Потом 2 вопроса True/False.</p>
+        <div class="qa" style="display:block">
+          <div style="font-weight:900;margin-bottom:8px">Dialog</div>
+          <div style="line-height:1.55" id="dialog"></div>
+        </div>
+        <div id="tfBox" style="margin-top:10px"></div>
+      `;
+      root.appendChild(s6);
+
+      s6.querySelector("#dialog").innerHTML = les.reading.dialog.map(x=>`<div>${x}</div>`).join("");
+
+      const tfBox = s6.querySelector("#tfBox");
+      les.reading.tf.forEach((tfi,i)=>{
+        const itemKey = `ws4_tf_${i}`;
+        const mark = getMark(unit.unitId, les.lessonId, itemKey);
+        const row = document.createElement("div");
+        row.className = "qa";
+        row.innerHTML = `
+          <div class="mark ${mark==="ok"?"ok":mark==="bad"?"bad":""}">${mark==="ok"?"✅":mark==="bad"?"✖":"•"}</div>
+          <div style="flex:1;font-weight:900">${tfi.q}</div>
+          <label class="tag" style="cursor:pointer"><input type="radio" name="tf_${i}" value="true"> True</label>
+          <label class="tag" style="cursor:pointer"><input type="radio" name="tf_${i}" value="false"> False</label>
+          <button class="btn small">Check</button>
+        `;
+        row.querySelector("button").addEventListener("click", ()=>{
+          const chosen = row.querySelector(`input[name="tf_${i}"]:checked`);
+          if(!chosen){ alert("Выбери True или False 🙂"); return; }
+          const val = (chosen.value === "true");
+          if(val === tfi.a){
+            if(getMark(unit.unitId, les.lessonId, itemKey)!=="ok"){
+              addStar(unit.unitId, les.lessonId, 1);
+            }
+            setMark(unit.unitId, les.lessonId, itemKey, "ok");
+          }else{
+            setMark(unit.unitId, les.lessonId, itemKey, "bad");
+          }
+          buildUnit();
+        });
+        tfBox.appendChild(row);
+      });
+
+      // Song Karaoke (if exists)
+      if(les.song && les.song.hasSong){
+        const s7 = document.createElement("div");
+        s7.className = "section";
+        s7.innerHTML = `
+          <h3>7) Song — Karaoke</h3>
+          <p class="hint">Кнопки: Start / Pause / Stop. Текст подсвечивается по времени.</p>
+          <div class="karaokeBox">
+            <audio id="aud" preload="metadata"></audio>
+            <div class="row noPrint" style="margin-bottom:10px">
+              <button class="btn small" id="kStart">▶ Start</button>
+              <button class="btn ghost small" id="kPause">⏸ Pause</button>
+              <button class="btn danger small" id="kStop">⏹ Stop</button>
+              <span class="tiny muted">Если нет mp3 — просто оставь текст.</span>
+            </div>
+            <div id="lyrics"></div>
+          </div>
+        `;
+        root.appendChild(s7);
+
+        const aud = s7.querySelector("#aud");
+        // If audioSrc empty -> no audio, only text highlight won't run
+        if(les.song.audioSrc){
+          aud.src = les.song.audioSrc;
+        }
+
+        const lyrics = s7.querySelector("#lyrics");
+        les.song.lines.forEach((ln,idx)=>{
+          const div = document.createElement("div");
+          div.className = "lyricLine";
+          div.dataset.idx = String(idx);
+          div.textContent = ln.text;
+          lyrics.appendChild(div);
+        });
+
+        const lines = les.song.lines;
+        function highlightByTime(t){
+          let active = 0;
+          for(let i=0;i<lines.length;i++){
+            if(t >= lines[i].t) active = i;
+          }
+          Array.from(lyrics.children).forEach((c,i)=>c.classList.toggle("active", i===active));
+        }
+
+        let tick = null;
+        function startTick(){
+          stopTick();
+          tick = setInterval(()=>highlightByTime(aud.currentTime||0), 150);
+        }
+        function stopTick(){
+          if(tick){ clearInterval(tick); tick=null; }
+        }
+
+        s7.querySelector("#kStart").addEventListener("click", async ()=>{
+          if(aud.src){
+            try{ await aud.play(); startTick(); }catch(e){ /* autoplay block */ }
+          }else{
+            // No audio -> just simulate
+            let t=0;
+            stopTick();
+            tick=setInterval(()=>{
+              t+=0.15; highlightByTime(t);
+              if(t> (lines[lines.length-1].t+4)) stopTick();
+            },150);
+          }
+        });
+        s7.querySelector("#kPause").addEventListener("click", ()=>{
+          if(aud.src) aud.pause();
+          stopTick();
+        });
+        s7.querySelector("#kStop").addEventListener("click", ()=>{
+          if(aud.src){ aud.pause(); aud.currentTime=0; }
+          stopTick();
+          Array.from(lyrics.children).forEach(c=>c.classList.remove("active"));
+        });
+
+        aud.addEventListener("ended", ()=>{ stopTick(); });
+      }
+
+      refreshBadges();
+    }
+
+    /***********************
+     * TEACHER JOURNAL
+     ***********************/
+    function openTeacher(){
+      showScreen("screenTeacher");
+      $("teacherMsg").textContent = "";
+      $("teacherTableWrap").style.display = "none";
+      $("teacherPin").value = "";
+    }
+    $("openTeacherBtn").addEventListener("click", openTeacher);
+    $("teacherBtn").addEventListener("click", openTeacher);
+    $("backTeacherBtn").addEventListener("click", ()=>{
+      if(state.student){ buildMain(); showScreen("screenMain"); }
+      else showScreen("screenLogin");
+    });
+
+    $("teacherLoginBtn").addEventListener("click", ()=>{
+      const pin = ($("teacherPin").value||"").trim();
+      if(pin !== TEACHER_PIN){
+        $("teacherMsg").textContent = "❌ Неверный PIN.";
+        return;
+      }
+      $("teacherMsg").textContent = "✅ Доступ разрешён.";
+      $("teacherTableWrap").style.display = "block";
+      buildTeacherTable();
+    });
+
+    function teacherReadStudentProgress(login){
+      const base = `AIB3_${login.replaceAll(" ","_")}`;
+      return loadJSON(`${base}_progress`, { stars:{}, marks:{}, lastLogin:null, chatDaily:{} });
+    }
+
+    function buildTeacherTable(){
+      const tb = $("teacherTbody");
+      tb.innerHTML = "";
+      ALLOWED_LOGINS.forEach(login=>{
+        const p = teacherReadStudentProgress(login);
+        const last = p.lastLogin ? new Date(p.lastLogin).toLocaleString() : "—";
+        const total = (()=>{ let s=0; for(const k in (p.stars||{})) s += (p.stars[k]||0); return s; })();
+        const perUnit = (u)=>{
+          let s=0;
+          for(const k in (p.stars||{})) if(k.startsWith(u+"_")) s += (p.stars[k]||0);
+          return s;
+        };
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08);font-weight:900">${login}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08)">${last}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08);font-weight:900">⭐ ${total}</td>
+          ${Array.from({length:8},(_,i)=>`<td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.08)">⭐ ${perUnit(i+1)}</td>`).join("")}
+        `;
+        tb.appendChild(tr);
+      });
+    }
+
+    $("teacherResetBtn").addEventListener("click", ()=>{
+      const pin = ($("teacherPin").value||"").trim();
+      if(pin !== TEACHER_PIN){
+        alert("Сначала введи PIN 3244.");
+        return;
+      }
+      if(!confirm("Сбросить прогресс у ВСЕХ учеников?")) return;
+      ALLOWED_LOGINS.forEach(login=>{
+        const base = `AIB3_${login.replaceAll(" ","_")}`;
+        localStorage.removeItem(`${base}_progress`);
+      });
+      buildTeacherTable();
+      alert("Готово ✅");
+    });
+
+    /***********************
+     * INIT
+     ***********************/
+    setWho();
+    // Enter key shortcuts
+    $("loginName").addEventListener("keydown",(e)=>{ if(e.key==="Enter") $("loginPin").focus(); });
+    $("loginPin").addEventListener("keydown",(e)=>{ if(e.key==="Enter") $("loginBtn").click(); });
+    $("chatQ").addEventListener("keydown",(e)=>{ if(e.key==="Enter") $("chatAskBtn").click(); });
+  </script>
 </body>
 </html>
