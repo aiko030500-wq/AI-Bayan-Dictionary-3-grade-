@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English with AI Bayan 4grade II</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:Verdana,sans-serif;
+  text-align:center;
+  color:#002D72;
+  background:#007D99;
+}
+
+/* 🔹 HEADER */
+header{
+  background:#005B73;
+  border-bottom:4px solid #FFD54F;
+  box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  padding:12px 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+header img.logo{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  border:4px solid #FFD54F;
+  background:white;
+  object-fit:cover;
+  object-position:center;
+  box-shadow:0 0 8px rgba(255,213,79,0.9);
+  margin-bottom:6px;
+}
+header h1{
+  color:#FFD54F;
+  font-size:1.8rem;
+  margin:4px 0 0;
+  text-shadow:0 0 12px rgba(255,255,180,0.8);
+}
+header h2{
+  color:#FFF8C0;
+  font-weight:bold;
+  font-size:1rem;
+  margin-bottom:6px;
+}
+
+/* LOGIN OVERLAY */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.55);
+  display:flex;align-items:center;justify-content:center;
+  z-index:999;
+}
+.overlay-card{
+  background:#fff;
+  border:3px solid #FFD54F;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 0 15px rgba(0,0,0,0.35);
+  width:90%;max-width:360px;
+  color:#002D72;
+}
+.overlay-card input{
+  width:100%;padding:8px;border-radius:8px;
+  border:1px solid #ccc;margin:6px 0;font-size:1rem;
+}
+.btn{
+  background:#005B73;color:#fff;border:none;
+  border-radius:10px;padding:8px 14px;font-weight:bold;
+  cursor:pointer;margin:6px;font-size:0.9rem;
+}
+.btn:hover{background:#FFD54F;color:#002D72;}
+
+main{padding:12px 8px 90px;}
+#mainMenu{display:none;}
+
+.topics-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+  max-width:780px;
+  margin:20px auto 15px;
+}
+.topic-btn{
+  background:white;
+  border:2px solid #004AAD;
+  border-radius:16px;
+  padding:12px;
+  font-size:0.9rem;
+  font-weight:bold;
+  color:#002D72;
+  cursor:pointer;
+  transition:0.25s all;
+  box-shadow:0 3px 6px rgba(0,0,0,0.15);
+  height:70px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+}
+.topic-btn:hover{
+  background:#004AAD;
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+#welcomeBox{
+  margin:16px auto 0;
+  background:white;
+  border:2px solid #FFD54F;
+  border-radius:10px;
+  max-width:680px;
+  padding:10px;
+  color:#002D72;
+  font-weight:bold;
+  box-shadow:0 3px 6px rgba(0,0,0,0.1);
+}
+
+#extraBtns{
+  margin-top:10px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.extra-btn{
+  background:white;
+  border:2px solid #004AAD;
+  border-radius:10px;
+  padding:8px 16px;
+  font-weight:bold;
+  color:#002D72;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,0.18);
+}
+.extra-btn:hover{background:#002D72;color:#fff;}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="overlay" id="loginOverlay">
+  <div class="overlay-card">
+    <h2>English with AI Bayan</h2>
+    <p>Enter your name and PIN:</p>
+    <input type="text" id="nameInput" placeholder="Name">
+    <input type="password" id="pinInput" placeholder="PIN" maxlength="4">
+    <button class="btn" onclick="checkLogin()">Enter</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <img src="logo.png" alt="AI Bayan logo" class="logo">
+  <h1>ENGLISH WITH AI BAYAN</h1>
+  <h2>4 GRADE II</h2>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div id="mainMenu">
+    <div id="welcomeBox">
+      <div id="welcomeText">Hello, Student!</div>
+      <div>Total stars in all lessons: <b><span id="totalStars">0</span> ⭐</b></div>
+    </div>
+
+    <div class="topics-grid">
+      <button class="topic-btn" onclick="openTheme(1)">🎨 Let’s Have Fun!</button>
+      <button class="topic-btn" onclick="openTheme(2)">🏃‍♂️ Sports and Exercises</button>
+      <button class="topic-btn" onclick="openTheme(3)">🌍 Sports Around the World</button>
+      <button class="topic-btn" onclick="openTheme(4)">🎵 Arts and Music</button>
+      <button class="topic-btn" onclick="openTheme(5)">⚽ Popular Team Sports</button>
+      <button class="topic-btn" onclick="openTheme(6)">🎻 Museum of Kazakh Instruments</button>
+      <button class="topic-btn" onclick="openTheme(7)">📜 Children’s Rights</button>
+      <button class="topic-btn" onclick="openTheme(8)">🧰 Different Jobs</button>
+      <button class="topic-btn" onclick="openTheme(9)">👩‍⚕️ Professions</button>
+      <button class="topic-btn" onclick="openTheme(10)">🏢 People at Work</button>
+      <button class="topic-btn" onclick="openTheme(11)">💬 What Do You Do?</button>
+      <button class="topic-btn" onclick="openTheme(12)">❤️ You Can Help!</button>
+      <button class="topic-btn" onclick="openTheme(13)">🎯 Final Challenge</button>
+    </div>
+
+    <div id="extraBtns">
+      <button class="extra-btn" onclick="openChat()">💬 AI Bayan Chat</button>
+      <button class="extra-btn" onclick="openTeacherJournal()">🏫 Teacher’s Journal</button>
+    </div>
+  </div>
+</main>
+
+<script>
+// 🌟 Разрешённые имена
+const allowedNames = [
+  "Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2",
+  "Ilyas2","Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2",
+  "Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2",
+  "B4","Arai2","Jury2","Jury1","Meyirim2"
+];
+
+// 🌟 Проверка имени и PIN
+function checkLogin(){
+  const nameInput = document.getElementById("nameInput").value.trim();
+  const pinInput = document.getElementById("pinInput").value.trim();
+  const nameLower = nameInput.toLowerCase();
+  const allowedLower = allowedNames.map(n => n.toLowerCase());
+
+  // 🔑 Новый PIN = 2844
+  if (allowedLower.includes(nameLower) && pinInput === "2844") {
+    document.getElementById("loginOverlay").style.display = "none";
+    document.getElementById("mainMenu").style.display = "block";
+    document.getElementById("welcomeText").innerText = "Hello, " + nameInput + "!";
+    localStorage.setItem("studentName", nameInput);
+  }
+  else if (nameLower === "teacher" && pinInput === "1402") {
+    document.getElementById("loginOverlay").style.display = "none";
+    document.getElementById("mainMenu").style.display = "block";
+    document.getElementById("welcomeText").innerText = "Hello, Teacher!";
+    localStorage.setItem("studentName", "Teacher");
+  }
+  else {
+    alert("❌ Wrong name or PIN. Please try again!");
+  }
+}
+
+// 🌟 Переходы
+function openTheme(n){ window.location.href = "theme" + n + ".html"; }
+function openChat(){ window.location.href = "chat.html"; }
+function openTeacherJournal(){ window.location.href = "teacher.html"; }
+</script>
+
+</body>
+</html>
