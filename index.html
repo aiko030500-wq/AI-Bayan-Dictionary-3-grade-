@@ -1,1213 +1,571 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>AI Bayan Dictionary 3gr</title>
   <style>
     :root{
-      --bg1:#e9fff6;
-      --bg2:#dff8ef;
+      --bg:#e8f5e9;
       --card:#ffffff;
-      --ink:#10334a;
-      --muted:#5c788d;
-
-      --green:#1b7a45;
-      --green2:#2fb36a;
-      --gold:#ffd54f;
-
-      --ok:#1e8f4c;
-      --bad:#c62828;
-
-      --shadow:0 14px 28px rgba(0,0,0,.10);
-      --shadow2:0 10px 18px rgba(0,0,0,.08);
-
-      --r1:22px;
-      --r2:28px;
+      --text:#143a1f;
+      --muted:#4b6b54;
+      --green:#2e7d32;
+      --green2:#43a047;
+      --border:#a5d6a7;
+      --shadow:0 8px 18px rgba(0,0,0,.10);
+      --radius:18px;
     }
-
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:var(--ink);
-    }
-    .wrap{max-width:820px;margin:0 auto;padding:16px}
-    .topBadge{
-      display:flex;align-items:center;gap:12px;
-      background:rgba(255,255,255,.75);
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:18px;
+    body{margin:0;font-family:system-ui,-apple-system,Arial;background:var(--bg);color:var(--text)}
+    header{
+      position:sticky;top:0;z-index:5;
+      background:linear-gradient(90deg,#d9f7dc,#f1fff2);
+      border-bottom:2px solid var(--border);
       padding:10px 12px;
-      box-shadow: var(--shadow2);
+      display:flex;gap:10px;align-items:center;justify-content:space-between;
     }
-    .logoMini{
-      width:44px;height:44px;border-radius:50%;
-      border:3px solid var(--gold);
-      overflow:hidden;background:#fff;flex:0 0 auto;
-      display:flex;align-items:center;justify-content:center;
-    }
-    .logoMini img{width:100%;height:100%;object-fit:cover}
-    .topTitle{display:flex;flex-direction:column;gap:2px}
-    .topTitle b{font-size:16px}
-    .topTitle small{color:var(--muted);font-weight:800}
-    .pill{
-      margin-left:auto;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:999px;
-      padding:8px 10px;
-      font-weight:900;
-      box-shadow: var(--shadow2);
-    }
-    .pill.ok{color:var(--ok)}
-    .pill.no{color:var(--bad)}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--border)}
+    .wrap{max-width:980px;margin:0 auto;padding:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    @media (max-width:720px){.grid{grid-template-columns:1fr}}
     .card{
-      background:var(--card);
-      border:1px solid rgba(0,0,0,.07);
-      border-radius: var(--r2);
-      box-shadow: var(--shadow);
-      padding:14px;
-      margin:14px 0;
+      background:var(--card);border:2px solid var(--border);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:12px;
     }
-    h1,h2,h3{margin:0}
-    .h2{font-size:22px;font-weight:1000}
-    .muted{color:var(--muted);font-weight:800}
-    .row{display:flex;gap:12px;flex-wrap:wrap}
-    .col{flex:1;min-width:220px}
-    .input{
-      width:100%;
-      border:1px solid rgba(0,0,0,.12);
-      border-radius:16px;
-      padding:12px 12px;
+    .title{font-size:18px;font-weight:800;margin:0 0 6px}
+    .muted{color:var(--muted);font-size:13px}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    input, textarea, select{
+      width:100%;padding:12px 12px;border-radius:14px;border:2px solid var(--border);
+      outline:none;background:#fff;
       font-size:16px;
-      outline:none;
-      background:#fff;
     }
-    .btn{
-      border:none;cursor:pointer;
-      border-radius:18px;
-      padding:12px 14px;
-      font-weight:1000;
-      box-shadow: var(--shadow2);
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      background:#fff;color:var(--ink);
-      border:1px solid rgba(0,0,0,.10);
+    textarea{min-height:88px;resize:vertical}
+    button{
+      border:none;border-radius:14px;padding:10px 12px;
+      background:var(--green2);color:#fff;font-weight:800;cursor:pointer;
+      box-shadow:0 6px 14px rgba(67,160,71,.22);
     }
-    .btn:active{transform:scale(.99)}
-    .btnGreen{
-      background: linear-gradient(180deg,#4fe28f,var(--green2));
-      color:#08321b;
-      border:none;
+    button.secondary{background:#fff;color:var(--text);border:2px solid var(--border);box-shadow:none}
+    button.danger{background:#d32f2f}
+    button.full{width:100%}
+    .divider{height:1px;background:rgba(0,0,0,.08);margin:10px 0}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      padding:7px 10px;border-radius:999px;border:2px solid var(--border);
+      background:#fff;cursor:pointer;font-weight:700;font-size:13px;
     }
-    .btnGold{
-      background: linear-gradient(180deg,#fff3c3,var(--gold));
-      color:#2a1e00;
-      border:none;
+    .chip.active{background:#c8f6cc}
+    .units{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    @media (max-width:720px){.units{grid-template-columns:1fr}}
+    .unitBtn{
+      text-align:left;background:#fff;color:var(--text);
+      border:2px solid var(--border);border-radius:var(--radius);
+      padding:12px;box-shadow:var(--shadow);cursor:pointer;
     }
-    .btnBlue{
-      background: linear-gradient(180deg,#84c8ff,#3f8ee8);
-      color:#062443;
-      border:none;
+    .unitBtn strong{display:block;font-size:16px}
+    .lessonList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    @media (max-width:720px){.lessonList{grid-template-columns:1fr}}
+    .lessonBtn{
+      background:#fff;color:var(--text);border:2px solid var(--border);
+      border-radius:var(--radius);padding:12px;cursor:pointer;box-shadow:var(--shadow);
+      text-align:left;
     }
-    .btnSmall{padding:10px 12px;border-radius:16px}
-
-    .menuBtn{
-      width:100%;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius: var(--r2);
-      box-shadow: var(--shadow);
-      padding:16px 14px;
-      margin:12px 0;
-      font-size:20px;
-      font-weight:1000;
-      display:flex;align-items:center;justify-content:space-between;
-      cursor:pointer;
-    }
-    .menuBtn .left{display:flex;align-items:center;gap:10px}
-    .tag{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:14px;
-      padding:7px 10px;
-      font-weight:1000;
-      color:var(--muted);
-      box-shadow: var(--shadow2);
-      white-space:nowrap;
-    }
-
-    .screen{display:none}
-    .screen.active{display:block}
-
-    .headerBar{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius: var(--r2);
-      box-shadow: var(--shadow);
-      padding:14px;
-      margin:14px 0;
-    }
-    .headerBar .top{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
-    .headerBar h2{font-size:22px;font-weight:1000}
-    .headerBar .meta{color:var(--muted);font-weight:900;margin-top:4px}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-
-    /* Vocabulary cards (2 columns) */
-    .grid2{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:12px;
-    }
-    @media (max-width:520px){ .grid2{grid-template-columns:1fr} }
-
-    .vCard{
-      background: linear-gradient(180deg,#eafff2,#f7fffb);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:20px;
-      padding:12px;
-      box-shadow: var(--shadow2);
-      text-align:center;
-    }
-    .picBox{
-      width:86px;height:86px;border-radius:18px;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.10);
-      box-shadow: 0 8px 14px rgba(0,0,0,.08);
-      margin:0 auto 8px;
-      display:flex;align-items:center;justify-content:center;
-      font-size:44px;
-    }
-    .vWord{font-size:22px;font-weight:1000;margin-top:2px}
-    .vRu{font-size:16px;font-weight:900;color:var(--muted);margin-top:2px}
-    .sayBtn{
-      margin-top:10px;
-      width:100%;
-    }
-
-    /* Sections */
-    .secTitle{
-      display:flex;align-items:center;gap:10px;
-      font-size:18px;font-weight:1000;color:#0b3d6d;
-      margin:0 0 10px 0;
-    }
-    .secBox{
-      background:#f7fbff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:22px;
-      padding:14px;
-      box-shadow: var(--shadow2);
-      margin-top:12px;
-    }
-
-    /* Grammar box */
-    .gBox{
-      background:#dff2ff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:18px;
-      padding:14px;
-      box-shadow: var(--shadow2);
-    }
-    .gRow{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:14px;
-      padding:10px 12px;
-      margin:10px 0;
-    }
-    .formula{
-      background:#fff6cf;
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:12px;
-      padding:10px 12px;
-      font-weight:900;
-      color:#2a1e00;
-      margin-top:10px;
-    }
-    ul{margin:8px 0 0 18px}
-    li{margin:6px 0}
-
-    /* Worksheets */
-    .wBox{
-      background:#fff;
-      border:2px dashed rgba(0,0,0,.18);
-      border-radius:20px;
-      padding:12px;
-      margin:12px 0;
-    }
-    .wHead{font-size:18px;font-weight:1000;margin:0 0 8px 0}
-    .wNote{color:var(--muted);font-weight:900;margin:0 0 10px 0}
-    .qRow{display:flex;gap:10px;align-items:center;margin:10px 0;flex-wrap:wrap}
-    .qRow label{font-weight:1000}
-    .short{max-width:320px}
-    .select{
-      border:1px solid rgba(0,0,0,.12);
-      border-radius:14px;
-      padding:10px 10px;
-      font-size:16px;
-      background:#fff;
-      outline:none;
-    }
-    .mark{
-      font-weight:1000;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.10);
-      background:#fff;
-      box-shadow: var(--shadow2);
-    }
-    .mark.ok{color:var(--ok)}
-    .mark.bad{color:var(--bad)}
-    .resultLine{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      margin-top:10px;
-      font-weight:1000;
-    }
-
-    /* Karaoke */
-    .karaBox{
-      background: linear-gradient(180deg,#fff,#f3fff8);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:22px;
-      padding:12px;
-      box-shadow: var(--shadow2);
-    }
-    .lyricLine{
-      padding:10px 10px;
-      border-radius:14px;
-      margin:8px 0;
-      font-weight:1000;
-      border:1px solid rgba(0,0,0,.06);
-      background:#fff;
-    }
-    .lyricLine.active{
-      background: linear-gradient(180deg,#fff3c3,var(--gold));
-      color:#2a1e00;
-      border:none;
-    }
-
-    /* Teacher journal table */
-    table{width:100%;border-collapse:separate;border-spacing:0 8px}
-    th{font-size:12px;color:var(--muted);text-align:left;padding:0 8px}
-    td{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.08);
-      padding:10px 8px;
-      border-radius:14px;
-      font-weight:900;
-    }
-    .tSmall{color:var(--muted);font-weight:900;font-size:12px}
-
-    /* Print */
+    .stars{font-size:18px}
+    .ok{color:#1b5e20;font-weight:800}
+    .hidden{display:none !important}
+    .printOnly{display:none}
     @media print{
-      .noPrint{display:none!important}
+      header,.noPrint{display:none !important}
       body{background:#fff}
       .wrap{max-width:100%;padding:0}
-      .card,.headerBar,.secBox,.wBox,.karaBox,.gBox{box-shadow:none!important}
+      .card{box-shadow:none;border:0;border-radius:0}
+      .printOnly{display:block}
     }
   </style>
 </head>
-
 <body>
+
+<header class="noPrint">
+  <div class="brand">AI Bayan Dictionary 3gr</div>
+  <div class="row" style="gap:8px">
+    <span class="pill" id="whoPill">Гость</span>
+    <button class="secondary" id="homeBtn">Главное меню</button>
+    <button class="secondary" id="logoutBtn">Выйти</button>
+  </div>
+</header>
+
 <div class="wrap">
 
-  <!-- TOP badge -->
-  <div class="topBadge noPrint">
-    <div class="logoMini"><img src="logo.png" alt="AI Bayan"/></div>
-    <div class="topTitle">
-      <b>AI Bayan Dictionary 3gr</b>
-      <small>8 units • stars saved</small>
-    </div>
-    <div id="loginPill" class="pill no">Not logged</div>
-  </div>
-
-  <!-- MAIN -->
-  <section class="screen active" id="screenMain">
-
-    <div class="card">
-      <div class="h2">Вход</div>
-      <div class="muted" style="margin-top:6px">Введите логин и пароль.</div>
-
-      <div class="row" style="margin-top:12px">
-        <div class="col">
-          <input id="loginInput" class="input" placeholder="Логин" autocomplete="off"/>
-        </div>
-        <div class="col">
-          <input id="pinInput" class="input" placeholder="Пароль" type="password" autocomplete="off"/>
-        </div>
+  <!-- LOGIN -->
+  <section id="screenLogin" class="card">
+    <h1 class="title">Вход</h1>
+    <div class="grid">
+      <div>
+        <div class="muted">Логин</div>
+        <input id="loginInput" autocomplete="off" />
       </div>
-
-      <div class="row" style="margin-top:12px;align-items:center">
-        <button class="btn btnGreen" onclick="doLogin()">Войти</button>
-        <button class="btn btnSmall" onclick="doLogout()">Выйти</button>
-        <div class="muted" style="margin-left:auto;font-weight:1000">
-          Total stars: <span id="totalStars">0</span> ⭐
-        </div>
-      </div>
-
-      <div style="margin-top:12px">
-        <button class="btn btnGold" onclick="openTeacherGate()">👩‍🏫 Журнал учителя</button>
+      <div>
+        <div class="muted">PIN</div>
+        <input id="pinInput" type="password" inputmode="numeric" />
       </div>
     </div>
+    <div class="divider"></div>
+    <button class="full" id="loginBtn">Войти</button>
+    <div class="muted" style="margin-top:8px">* Если PIN учителя — откроется журнал.</div>
+  </section>
 
+  <!-- MAIN MENU -->
+  <section id="screenMain" class="hidden">
     <div class="card">
-      <div class="h2">Units</div>
-      <div class="muted" style="margin-top:6px">Открой unit → внутри 8 lessons.</div>
+      <h2 class="title">Главное меню</h2>
+      <div class="muted">Выбери юнит или открой чат.</div>
 
-      <button class="menuBtn" onclick="goUnit(1)">
-        <div class="left">📗 Unit 1</div>
-        <div class="tag">⭐ <span id="u1s">0</span></div>
-      </button>
-      <button class="menuBtn" onclick="goUnit(2)"><div class="left">🎒 Unit 2</div><div class="tag">⭐ <span id="u2s">0</span></div></button>
-      <button class="menuBtn" onclick="goUnit(3)"><div class="left">👨‍👩‍👧 Unit 3</div><div class="tag">⭐ <span id="u3s">0</span></div></button>
-      <button class="menuBtn" onclick="goUnit(4)"><div class="left">⛅ Unit 4</div><div class="tag">⭐ <span id="u4s">0</span></div></button>
-      <button class="menuBtn" onclick="goUnit(5)"><div class="left">🎯 Unit 5</div><div class="tag">⭐ <span id="u5s">0</span></div></button>
-      <button class="menuBtn" onclick="goUnit(6)"><div class="left">🍎 Unit 6</div><div class="tag">⭐ <span id="u6s">0</span></div></button>
-      <button class="menuBtn" onclick="goUnit(7)"><div class="left">🏙️ Unit 7</div><div class="tag">⭐ <span id="u7s">0</span></div></button>
-      <button class="menuBtn" onclick="goUnit(8)"><div class="left">✈️ Unit 8</div><div class="tag">⭐ <span id="u8s">0</span></div></button>
+      <div class="divider"></div>
 
-      <!-- achievements + chat row (вниз возле чата) -->
-      <div class="row" style="margin-top:14px">
-        <button class="btn btnBlue" style="flex:1" onclick="openChat()">💬 AI Chat</button>
-        <div class="card" style="flex:1;margin:0;padding:12px;border-radius:18px;box-shadow:var(--shadow2)">
-          <div style="font-weight:1000">Достижения</div>
-          <div class="tSmall" style="margin-top:4px">✅/❌ сохраняются • Print каждого lesson</div>
-          <div style="margin-top:8px;font-weight:1000">
-            ⭐ Stars: <span id="achStars">0</span>
-          </div>
+      <!-- AI CHAT ONLY HERE -->
+      <div class="card" style="border-width:2px">
+        <div class="row" style="justify-content:space-between">
+          <strong>💬 Чат с ИИ</strong>
+          <span class="pill">только в главном меню</span>
         </div>
+        <div class="muted" style="margin:6px 0 10px">Напиши вопрос (демо-чат без сервера).</div>
+        <textarea id="chatInput" placeholder="Например: Explain 'What’s this? It’s a pencil.'"></textarea>
+        <div class="row" style="margin-top:8px">
+          <button id="chatSend">Отправить</button>
+          <button class="secondary" id="chatClear">Очистить</button>
+        </div>
+        <div class="divider"></div>
+        <div id="chatLog" class="muted" style="white-space:pre-wrap"></div>
       </div>
 
+      <div class="divider"></div>
+
+      <div class="units" id="unitGrid"></div>
     </div>
   </section>
 
   <!-- UNIT -->
-  <section class="screen" id="screenUnit">
-    <div class="headerBar noPrint">
-      <div class="top">
+  <section id="screenUnit" class="hidden">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
         <div>
-          <h2 id="unitTitle">Unit 1</h2>
-          <div class="meta">Stars in this unit: <span id="unitStars">0</span> ⭐</div>
+          <h2 class="title" id="unitTitle">Unit</h2>
+          <div class="muted">Внутри 8 тем (lessons).</div>
         </div>
-        <div class="tag">Student: <span id="who">—</span></div>
+        <button class="secondary" id="backToMain">← Назад</button>
       </div>
-      <div class="actions">
-        <button class="btn btnSmall" onclick="goMain()">← Main</button>
-        <button class="btn btnSmall" onclick="openChat()">💬 Chat</button>
-        <button class="btn btnSmall" onclick="openTeacherGate()">👩‍🏫 Journal</button>
-      </div>
+      <div class="divider"></div>
+      <div class="lessonList" id="lessonList"></div>
     </div>
-
-    <button class="menuBtn" onclick="openLesson(1)"><div class="left">Lesson 1</div><div class="tag">⭐ <span id="ls1">0</span></div></button>
-    <button class="menuBtn" onclick="openLesson(2)"><div class="left">Lesson 2</div><div class="tag">⭐ <span id="ls2">0</span></div></button>
-    <button class="menuBtn" onclick="openLesson(3)"><div class="left">Lesson 3</div><div class="tag">⭐ <span id="ls3">0</span></div></button>
-    <button class="menuBtn" onclick="openLesson(4)"><div class="left">Lesson 4</div><div class="tag">⭐ <span id="ls4">0</span></div></button>
-    <button class="menuBtn" onclick="openLesson(5)"><div class="left">Lesson 5</div><div class="tag">⭐ <span id="ls5">0</span></div></button>
-    <button class="menuBtn" onclick="openLesson(6)"><div class="left">Lesson 6</div><div class="tag">⭐ <span id="ls6">0</span></div></button>
-    <button class="menuBtn" onclick="openLesson(7)"><div class="left">Lesson 7</div><div class="tag">⭐ <span id="ls7">0</span></div></button>
-    <button class="menuBtn" onclick="openLesson(8)"><div class="left">Lesson 8</div><div class="tag">⭐ <span id="ls8">0</span></div></button>
   </section>
 
   <!-- LESSON -->
-  <section class="screen" id="screenLesson">
-    <div class="headerBar">
-      <div class="top">
+  <section id="screenLesson" class="hidden">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
         <div>
-          <h2 id="lessonTitle">Unit 1 — Lesson 1</h2>
-          <div class="meta">You have <span id="lessonStars">0</span> ⭐ in this lesson.</div>
+          <h2 class="title" id="lessonTitle">Lesson</h2>
+          <div class="muted" id="lessonSubtitle"></div>
         </div>
-        <div class="tag">Student: <span id="who2">—</span></div>
+        <div class="row">
+          <button class="secondary" id="backToUnit">← К юниту</button>
+          <button id="printLesson">🖨 Print</button>
+        </div>
       </div>
 
-      <div class="actions noPrint">
-        <button class="btn btnBlue" onclick="backToUnit()">← Back</button>
-        <button class="btn btnGold" onclick="printLesson()">🖨️ Print</button>
-        <button class="btn btnGreen" onclick="saveLessonStars()">Save Result ✅</button>
+      <div class="divider"></div>
+
+      <div class="printOnly">
+        <h2 id="printHeader" style="margin:0 0 8px">AI Bayan Dictionary 3gr</h2>
       </div>
+
+      <div id="lessonBody"></div>
+
+      <div class="divider"></div>
+
+      <div class="row" style="justify-content:space-between">
+        <div>
+          <div class="muted">Звёзды за lesson:</div>
+          <div class="stars" id="starView">☆☆☆</div>
+        </div>
+        <div class="row">
+          <button class="secondary" id="starMinus">-</button>
+          <button id="starPlus">+</button>
+        </div>
+      </div>
+
     </div>
-
-    <div id="lessonContent"></div>
   </section>
 
-  <!-- TEACHER -->
-  <section class="screen" id="screenTeacher">
-    <div class="headerBar noPrint">
-      <div class="top">
+  <!-- TEACHER JOURNAL -->
+  <section id="screenTeacher" class="hidden">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
         <div>
-          <h2>Teacher’s Journal</h2>
-          <div class="meta">Students 3E L1 — 3E L15</div>
+          <h2 class="title">Журнал учителя</h2>
+          <div class="muted">Логины, последний вход, звёзды.</div>
         </div>
-        <div class="tag">PIN required</div>
+        <button class="secondary" id="teacherBack">← Главное меню</button>
       </div>
-      <div class="actions">
-        <button class="btn btnSmall" onclick="goMain()">← Main</button>
-      </div>
-    </div>
-
-    <div class="card noPrint" id="teacherGate">
-      <div class="h2">Teacher PIN</div>
-      <div class="row" style="margin-top:12px">
-        <div class="col">
-          <input id="teacherPinInput" class="input" placeholder="Пароль" type="password"/>
-        </div>
-        <div class="col" style="display:flex;align-items:center;gap:10px">
-          <button class="btn btnGreen" onclick="enterTeacher()">Open</button>
-          <button class="btn" onclick="clearAllData()">Reset data</button>
-        </div>
-      </div>
-      <div class="tSmall" style="margin-top:10px">
-        Reset очищает звёзды/галочки (локально на телефоне).
-      </div>
-    </div>
-
-    <div class="card" id="teacherTableWrap" style="display:none">
-      <div class="h2">Progress</div>
-      <div class="muted" style="margin-top:6px">Stars + last login</div>
-
-      <div style="overflow:auto;margin-top:10px">
-        <table>
-          <thead>
-            <tr>
-              <th>Student</th>
-              <th>Total ⭐</th>
-              <th>Last login</th>
-              <th class="tSmall">Unit1 ⭐</th>
-            </tr>
-          </thead>
-          <tbody id="teacherRows"></tbody>
-        </table>
-      </div>
+      <div class="divider"></div>
+      <div id="teacherTable"></div>
+      <div class="divider"></div>
+      <button class="danger" id="resetAll">Сбросить прогресс (все)</button>
     </div>
   </section>
 
 </div>
 
 <script>
-/* =========================
-   DATA + STORAGE
-========================= */
-const STUDENTS = Array.from({length:15},(_,i)=>`3E L${i+1}`);
+/* ====== AUTH RULES ====== */
 const STUDENT_PIN = "2844";
 const TEACHER_PIN = "3244";
+const STUDENTS = Array.from({length:15}, (_,i)=>`3EL${i+1}`); // 3EL1..3EL15
 
-const LS = {
-  session: "aib3_session",
-  progress: "aib3_progress",  // per student
-  chat: "aib3_chatlimit"
-};
+/* ====== CONTENT SKELETON (8 units × 8 lessons) ====== */
+const UNITS = [
+  { id:1, title:"Unit 1 – Hello English!" },
+  { id:2, title:"Unit 2 – My school" },
+  { id:3, title:"Unit 3 – People I love" },
+  { id:4, title:"Unit 4 – Weather" },
+  { id:5, title:"Unit 5 – My free time" },
+  { id:6, title:"Unit 6 – Health" },
+  { id:7, title:"Unit 7 – Buildings!" },
+  { id:8, title:"Unit 8 – My holidays" },
+];
 
-function todayKey(){
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const LESSONS_8 = [
+  { id:1, name:"Topic 1 – Vocabulary", type:"vocab" },
+  { id:2, name:"Topic 2 – Grammar", type:"grammar" },
+  { id:3, name:"Topic 3 – Worksheet 1 (Quiz)", type:"quiz" },
+  { id:4, name:"Topic 4 – Reading mini (T/F)", type:"reading" },
+  { id:5, name:"Topic 5 – Matching (Picture–Word)", type:"match" },
+  { id:6, name:"Topic 6 – Choose / Fill", type:"choose" },
+  { id:7, name:"Topic 7 – Spelling (Missing letters)", type:"spelling" },
+  { id:8, name:"Topic 8 – Review", type:"review" },
+];
+
+/* ====== STATE ====== */
+let currentUser = null; // {role:'student'|'teacher', login:'3EL1'|...}
+let currentUnitId = null;
+let currentLessonId = null;
+
+/* ====== STORAGE HELPERS ====== */
+const LS_KEY = "AIB3_DICT_DATA_v1";
+function loadDB(){
+  try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {users:{}}; }
+  catch{ return {users:{}}; }
 }
-function safeJSONParse(s, fallback){
-  try{ return JSON.parse(s); }catch{ return fallback; }
-}
-function getSession(){
-  return safeJSONParse(localStorage.getItem(LS.session), {logged:false, user:null, lastLogin:null});
-}
-function setSession(s){
-  localStorage.setItem(LS.session, JSON.stringify(s));
-}
-function getAllProgress(){
-  const p = safeJSONParse(localStorage.getItem(LS.progress), {});
-  // ensure structure
-  for(const st of STUDENTS){
-    if(!p[st]) p[st] = { lastLogin:null, stars: makeStars(), marks:{} };
-    if(!p[st].stars) p[st].stars = makeStars();
-    if(!p[st].marks) p[st].marks = {};
+function saveDB(db){ localStorage.setItem(LS_KEY, JSON.stringify(db)); }
+
+function ensureUser(db, login){
+  if(!db.users[login]){
+    db.users[login] = {
+      lastLogin: null,
+      stars: {}, // key: "u{unit}l{lesson}" -> number 0..3
+    };
   }
-  localStorage.setItem(LS.progress, JSON.stringify(p));
-  return p;
+  return db.users[login];
 }
-function setAllProgress(p){
-  localStorage.setItem(LS.progress, JSON.stringify(p));
+function keyUL(unitId, lessonId){ return `u${unitId}l${lessonId}`; }
+
+/* ====== UI HELPERS ====== */
+const $ = (id)=>document.getElementById(id);
+function show(screenId){
+  ["screenLogin","screenMain","screenUnit","screenLesson","screenTeacher"].forEach(s=>{
+    $(s).classList.toggle("hidden", s!==screenId);
+  });
 }
-function makeStars(){
-  // 8 units x 8 lessons
-  const stars = {};
-  for(let u=1;u<=8;u++){
-    stars[u] = {};
-    for(let l=1;l<=8;l++) stars[u][l]=0;
-  }
-  return stars;
-}
-function totalStarsForStudent(pStudent){
-  let t=0;
-  for(let u=1;u<=8;u++) for(let l=1;l<=8;l++) t += (pStudent.stars?.[u]?.[l]||0);
-  return t;
-}
-function unitStarsForStudent(pStudent, u){
-  let t=0;
-  for(let l=1;l<=8;l++) t += (pStudent.stars?.[u]?.[l]||0);
-  return t;
+function setWho(){
+  if(!currentUser){ $("whoPill").textContent="Гость"; return; }
+  $("whoPill").textContent = currentUser.role==="teacher" ? "Учитель" : currentUser.login;
 }
 
-/* =========================
-   UI NAV
-========================= */
-let state = {
-  unit: 1,
-  lesson: 1
-};
-
-function show(id){
-  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  window.scrollTo({top:0,behavior:"instant"});
+/* ====== RENDER MAIN ====== */
+function renderUnits(){
+  const grid = $("unitGrid");
+  grid.innerHTML = "";
+  UNITS.forEach(u=>{
+    const b = document.createElement("button");
+    b.className = "unitBtn";
+    b.innerHTML = `<strong>${u.title}</strong><span class="muted">8 тем внутри</span>`;
+    b.onclick = ()=>openUnit(u.id);
+    grid.appendChild(b);
+  });
 }
 
-function goMain(){
-  refreshAllBadges();
-  show("screenMain");
-}
-
-function goUnit(u){
-  const sess = getSession();
-  if(!sess.logged){ alert("Сначала войдите."); return; }
-  state.unit = u;
-  refreshUnitScreen();
+/* ====== UNIT ====== */
+function openUnit(unitId){
+  currentUnitId = unitId;
+  const u = UNITS.find(x=>x.id===unitId);
+  $("unitTitle").textContent = u ? u.title : `Unit ${unitId}`;
+  renderLessons(unitId);
   show("screenUnit");
 }
-
-function backToUnit(){
-  refreshUnitScreen();
-  show("screenUnit");
+function renderLessons(unitId){
+  const list = $("lessonList");
+  list.innerHTML = "";
+  LESSONS_8.forEach(ls=>{
+    const btn = document.createElement("button");
+    btn.className = "lessonBtn";
+    const stars = getStars(unitId, ls.id);
+    btn.innerHTML = `
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+        <div>
+          <div style="font-weight:900">${ls.name}</div>
+          <div class="muted">Открыть</div>
+        </div>
+        <div class="stars">${"★".repeat(stars)}${"☆".repeat(3-stars)}</div>
+      </div>
+    `;
+    btn.onclick = ()=>openLesson(unitId, ls.id);
+    list.appendChild(btn);
+  });
 }
 
-function openLesson(l){
-  const sess = getSession();
-  if(!sess.logged){ alert("Сначала войдите."); return; }
-  state.lesson = l;
-  refreshLessonScreen();
+/* ====== LESSON CONTENT (placeholders) ====== */
+function lessonContent(unitId, lessonId){
+  const unit = UNITS.find(u=>u.id===unitId)?.title || `Unit ${unitId}`;
+  const lesson = LESSONS_8.find(l=>l.id===lessonId)?.name || `Lesson ${lessonId}`;
+
+  // Тут дальше мы просто будем заменять на твой контент по книге (слова/правила/упр).
+  if(lessonId===1){
+    return `
+      <div class="card">
+        <div class="muted">Vocabulary (пример-заглушка)</div>
+        <div class="divider"></div>
+        <div class="grid">
+          ${["word 1","word 2","word 3","word 4"].map(w=>`
+            <div class="card" style="border-width:2px">
+              <div style="font-weight:900">${w}</div>
+              <div class="muted">перевод</div>
+              <button onclick="speak('${w.replace(/'/g,"")}')">🔊</button>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+  if(lessonId===2){
+    return `
+      <div class="card">
+        <div class="muted">Grammar (пример-заглушка)</div>
+        <div class="divider"></div>
+        <div><b>Rule (EN):</b> What’s this? It’s a ...</div>
+        <div><b>Правило (RU):</b> Что это? Это ...</div>
+        <div class="divider"></div>
+        <div><b>Formula:</b> What’s this? → It’s a/an + noun</div>
+        <div class="divider"></div>
+        <div><b>Examples:</b></div>
+        <ul>
+          <li>What’s this? It’s a pencil.</li>
+          <li>What’s this? It’s an apple.</li>
+        </ul>
+      </div>
+    `;
+  }
+  if(lessonId===4){
+    return `
+      <div class="card">
+        <div class="muted">Reading mini (2 True/False)</div>
+        <div class="divider"></div>
+        <div style="font-weight:900">Mini text:</div>
+        <p>Hello! I’m Tom. I have a bag and a book. I’m at school.</p>
+        <div class="divider"></div>
+        <div style="font-weight:900">True / False</div>
+        <label class="row"><input type="checkbox" data-tf="1"> Tom has a bag.</label>
+        <label class="row"><input type="checkbox" data-tf="2"> Tom is at home.</label>
+        <div class="divider"></div>
+        <button onclick="checkTF()">Check</button>
+        <div id="tfResult" class="muted" style="margin-top:8px"></div>
+      </div>
+    `;
+  }
+  return `
+    <div class="card">
+      <div class="muted">${unit} • ${lesson}</div>
+      <div class="divider"></div>
+      <div>Контент этого лессона я заполню по книге (вокаб/упр/ридинг) — тут пока шаблон.</div>
+    </div>
+  `;
+}
+
+/* ====== OPEN LESSON ====== */
+function openLesson(unitId, lessonId){
+  currentUnitId = unitId;
+  currentLessonId = lessonId;
+  const u = UNITS.find(x=>x.id===unitId);
+  const l = LESSONS_8.find(x=>x.id===lessonId);
+  $("lessonTitle").textContent = `${u?.title || "Unit"} — ${l?.name || "Lesson"}`;
+  $("lessonSubtitle").textContent = `Unit ${unitId} • Lesson ${lessonId}`;
+  $("printHeader").textContent = `AI Bayan Dictionary 3gr — Unit ${unitId} • Lesson ${lessonId}`;
+  $("lessonBody").innerHTML = lessonContent(unitId, lessonId);
+  updateStarView();
   show("screenLesson");
 }
 
-function openTeacherGate(){
-  show("screenTeacher");
-  // gate shown by default
-  document.getElementById("teacherGate").style.display = "block";
-  document.getElementById("teacherTableWrap").style.display = "none";
-  document.getElementById("teacherPinInput").value = "";
+/* ====== STARS ====== */
+function getStars(unitId, lessonId){
+  if(!currentUser || currentUser.role!=="student") return 0;
+  const db = loadDB();
+  const u = ensureUser(db, currentUser.login);
+  return Math.max(0, Math.min(3, u.stars[keyUL(unitId,lessonId)] || 0));
+}
+function setStars(unitId, lessonId, val){
+  if(!currentUser || currentUser.role!=="student") return;
+  const db = loadDB();
+  const u = ensureUser(db, currentUser.login);
+  u.stars[keyUL(unitId,lessonId)] = Math.max(0, Math.min(3, val));
+  saveDB(db);
+}
+function updateStarView(){
+  const s = getStars(currentUnitId, currentLessonId);
+  $("starView").textContent = "★".repeat(s) + "☆".repeat(3-s);
 }
 
-/* =========================
-   LOGIN
-========================= */
-function doLogin(){
-  const login = (document.getElementById("loginInput").value || "").trim();
-  const pin = (document.getElementById("pinInput").value || "").trim();
-
-  if(!STUDENTS.includes(login)){ alert("Неверный логин."); return; }
-  if(pin !== STUDENT_PIN){ alert("Неверный пароль."); return; }
-
-  const p = getAllProgress();
-  p[login].lastLogin = new Date().toISOString();
-  setAllProgress(p);
-
-  setSession({logged:true, user:login, lastLogin: p[login].lastLogin});
-  refreshAllBadges();
-  alert("Вы вошли ✅");
-}
-
-function doLogout(){
-  setSession({logged:false, user:null, lastLogin:null});
-  refreshAllBadges();
-}
-
-/* =========================
-   CHAT 1 / DAY
-========================= */
-function openChat(){
-  const sess = getSession();
-  if(!sess.logged){ alert("Сначала войдите."); return; }
-
-  const key = `${sess.user}:${todayKey()}`;
-  const chatState = safeJSONParse(localStorage.getItem(LS.chat), {});
-  if(chatState[key]){ alert("Лимит: 1 вопрос в день ✅"); return; }
-
-  const q = prompt("Ask AI Bayan (1 question/day):");
-  if(!q) return;
-
-  chatState[key] = { askedAt: new Date().toISOString(), q:q };
-  localStorage.setItem(LS.chat, JSON.stringify(chatState));
-
-  // simple helper reply (offline)
-  alert("AI Bayan: Let’s practise! ✅\nTry to say it in English and repeat 3 times.");
-}
-
-/* =========================
-   TEACHER
-========================= */
-function enterTeacher(){
-  const pin = (document.getElementById("teacherPinInput").value||"").trim();
-  if(pin !== TEACHER_PIN){ alert("Неверный PIN."); return; }
-  document.getElementById("teacherGate").style.display = "none";
-  document.getElementById("teacherTableWrap").style.display = "block";
-  renderTeacherTable();
-}
-function renderTeacherTable(){
-  const p = getAllProgress();
-  const tbody = document.getElementById("teacherRows");
-  tbody.innerHTML = "";
-  for(const st of STUDENTS){
-    const ps = p[st];
-    const tr = document.createElement("tr");
-    const last = ps.lastLogin ? new Date(ps.lastLogin).toLocaleString() : "—";
-    tr.innerHTML = `
-      <td>${st}</td>
-      <td>${totalStarsForStudent(ps)} ⭐</td>
-      <td>${last}</td>
-      <td>${unitStarsForStudent(ps,1)} ⭐</td>
-    `;
-    tbody.appendChild(tr);
-  }
-}
-function clearAllData(){
-  if(!confirm("Reset all local data?")) return;
-  localStorage.removeItem(LS.progress);
-  localStorage.removeItem(LS.chat);
-  localStorage.removeItem(LS.session);
-  alert("Done.");
-  location.reload();
-}
-
-/* =========================
-   STARS + MARKS per lesson
-========================= */
-function getStudentProgress(){
-  const sess = getSession();
-  if(!sess.logged) return null;
-  const p = getAllProgress();
-  return { all:p, me:p[sess.user], user:sess.user };
-}
-
-function setLessonStars(u,l,stars){
-  const sp = getStudentProgress();
-  if(!sp) return;
-  sp.me.stars[u][l] = stars;
-  sp.me.lastLogin = new Date().toISOString();
-  sp.all[sp.user] = sp.me;
-  setAllProgress(sp.all);
-}
-
-function getLessonStars(u,l){
-  const sp = getStudentProgress();
-  if(!sp) return 0;
-  return sp.me.stars?.[u]?.[l] || 0;
-}
-
-function saveMarks(u,l,marksObj){
-  const sp = getStudentProgress();
-  if(!sp) return;
-  const key = `U${u}L${l}`;
-  sp.me.marks[key] = marksObj;
-  sp.me.lastLogin = new Date().toISOString();
-  sp.all[sp.user] = sp.me;
-  setAllProgress(sp.all);
-}
-function loadMarks(u,l){
-  const sp = getStudentProgress();
-  if(!sp) return null;
-  const key = `U${u}L${l}`;
-  return sp.me.marks?.[key] || null;
-}
-
-/* =========================
-   SPEECH (AI Bayan says)
-========================= */
+/* ====== SPEAK ====== */
 function speak(text){
   try{
-    speechSynthesis.cancel();
-    const ut = new SpeechSynthesisUtterance(text);
-    ut.lang = "en-US";
-    ut.rate = 0.92;
-    speechSynthesis.speak(ut);
-  }catch(e){
-    alert("Speech not supported on this device.");
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = "en-US";
+    speechSynthesis.speak(msg);
+  }catch(e){}
+}
+
+/* ====== TF CHECK (demo) ====== */
+function checkTF(){
+  // Correct: 1=true, 2=false
+  const c1 = document.querySelector('input[data-tf="1"]')?.checked;
+  const c2 = document.querySelector('input[data-tf="2"]')?.checked;
+  const ok = (c1===true && c2===false);
+  const out = $("tfResult");
+  if(out) out.innerHTML = ok ? "<span class='ok'>Correct ✅</span>" : "Try again ❌";
+}
+
+/* ====== TEACHER JOURNAL ====== */
+function renderTeacher(){
+  const db = loadDB();
+  const box = $("teacherTable");
+  const rows = STUDENTS.map(login=>{
+    const u = db.users[login] || {lastLogin:null, stars:{}};
+    // sum stars
+    let sum = 0;
+    for(const k in (u.stars||{})) sum += (u.stars[k]||0);
+    const last = u.lastLogin ? new Date(u.lastLogin).toLocaleString() : "—";
+    return `
+      <div class="card" style="border-width:2px;margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+          <div style="font-weight:900">${login}</div>
+          <div class="pill">⭐ ${sum}</div>
+        </div>
+        <div class="muted">Last login: ${last}</div>
+      </div>
+    `;
+  }).join("");
+  box.innerHTML = rows || "<div class='muted'>Нет данных.</div>";
+}
+
+/* ====== LOGIN ====== */
+function doLogin(){
+  const login = $("loginInput").value.trim();
+  const pin = $("pinInput").value.trim();
+
+  // teacher
+  if(pin === TEACHER_PIN){
+    currentUser = {role:"teacher", login:"TEACHER"};
+    setWho();
+    renderUnits();
+    show("screenMain");
+    // teacher can open journal by button in main? We'll show via Home then Journal button? We'll open teacher screen directly:
+    show("screenTeacher");
+    renderTeacher();
+    return;
   }
+
+  // student
+  if(pin === STUDENT_PIN && STUDENTS.includes(login)){
+    currentUser = {role:"student", login};
+    const db = loadDB();
+    const u = ensureUser(db, login);
+    u.lastLogin = new Date().toISOString();
+    saveDB(db);
+    setWho();
+    renderUnits();
+    show("screenMain");
+    return;
+  }
+
+  alert("Неверный логин или PIN");
 }
 
-/* =========================
-   LESSON CONTENT
-========================= */
-function lesson1HTML(){
-  // Visual vocabulary (2 columns)
-  const vocab = [
-    {w:"hello", ru:"привет", pic:"👋"},
-    {w:"goodbye", ru:"пока", pic:"👋"},
-    {w:"name", ru:"имя", pic:"🏷️"},
-    {w:"thank you", ru:"спасибо", pic:"🙏"},
-    {w:"I’m fine", ru:"у меня всё хорошо", pic:"😊"},
-    {w:"I’m from Kazakhstan", ru:"я из Казахстана", pic:"🇰🇿"}
-  ];
-
-  return `
-    <div class="card">
-      <div class="secTitle">🧠 Visual Vocabulary</div>
-      <div class="muted" style="margin-bottom:10px">Tap “Say it” — AI Bayan says the word.</div>
-
-      <div class="grid2">
-        ${vocab.map(v=>`
-          <div class="vCard">
-            <div class="picBox">${v.pic}</div>
-            <div class="vWord">${v.w}</div>
-            <div class="vRu">${v.ru}</div>
-            <button class="btn btnGreen sayBtn" onclick="speak('${escapeQuotes(v.w)}')">🔊 Say it</button>
-          </div>
-        `).join("")}
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="secTitle">📘 Grammar Key</div>
-      <div class="gBox">
-
-        <div class="gRow">
-          <b>1) What’s your name?</b><br/>
-          EN: What’s your name? / What is your name?<br/>
-          RU: Как тебя зовут?<br/>
-          <div class="formula">Formula: What’s your name? → My name’s + Name.</div>
-          <ul>
-            <li>My name’s Tim. — Меня зовут Тим.</li>
-            <li>My name’s Rosy. — Меня зовут Рози.</li>
-          </ul>
-        </div>
-
-        <div class="gRow">
-          <b>2) How old are you?</b><br/>
-          EN: How old are you?<br/>
-          RU: Сколько тебе лет?<br/>
-          <div class="formula">Formula: How old are you? → I’m + number.</div>
-          <ul>
-            <li>I’m seven. — Мне 7.</li>
-            <li>I’m eight. — Мне 8.</li>
-          </ul>
-        </div>
-
-        <div class="gRow">
-          <b>3) Where are you from?</b><br/>
-          EN: Where are you from?<br/>
-          RU: Откуда ты?<br/>
-          <div class="formula">Formula: Where are you from? → I’m from + country/city.</div>
-          <ul>
-            <li>I’m from Kazakhstan. — Я из Казахстана.</li>
-            <li>I’m from Aktau. — Я из Актау.</li>
-          </ul>
-        </div>
-
-        <div class="gRow">
-          <b>4) This / That / These / Those</b><br/>
-          EN: This is (pink). / That is (red). / These are (green). / Those are (blue).<br/>
-          RU: Это (розовое). / То (красное). / Эти (зелёные). / Те (синие).<br/>
-          <div class="formula">Formula: This/That is + singular. &nbsp;|&nbsp; These/Those are + plural.</div>
-          <ul>
-            <li>This is a book. — Это книга.</li>
-            <li>These are pens. — Это ручки.</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="secTitle">🧾 Worksheets (4 tasks)</div>
-
-      <div class="wBox" id="w1">
-        <div class="wHead">Worksheet 1 — Missing letters</div>
-        <div class="wNote">Write the missing letters.</div>
-
-        <div class="qRow"><label>1) h__lo</label><input class="input short" id="w1a1" /></div>
-        <div class="qRow"><label>2) g__dbye</label><input class="input short" id="w1a2" /></div>
-        <div class="qRow"><label>3) th__k you</label><input class="input short" id="w1a3" /></div>
-        <div class="qRow"><label>4) n__e</label><input class="input short" id="w1a4" /></div>
-
-        <div class="resultLine">
-          <button class="btn btnGreen" onclick="checkW1()">Check ✓</button>
-          <div>Correct: <span id="w1score">0</span> / 4</div>
-        </div>
-      </div>
-
-      <div class="wBox" id="w2">
-        <div class="wHead">Worksheet 2 — Matching picture and word</div>
-        <div class="wNote">Choose the correct word for each picture.</div>
-
-        <div class="qRow">
-          <span class="picBox" style="width:52px;height:52px;border-radius:14px;font-size:26px">👋</span>
-          <select class="select" id="w2a1">
-            <option value="">--choose--</option>
-            <option>hello</option><option>name</option><option>thank you</option>
-          </select>
-        </div>
-
-        <div class="qRow">
-          <span class="picBox" style="width:52px;height:52px;border-radius:14px;font-size:26px">🙏</span>
-          <select class="select" id="w2a2">
-            <option value="">--choose--</option>
-            <option>thank you</option><option>goodbye</option><option>I’m fine</option>
-          </select>
-        </div>
-
-        <div class="qRow">
-          <span class="picBox" style="width:52px;height:52px;border-radius:14px;font-size:26px">🏷️</span>
-          <select class="select" id="w2a3">
-            <option value="">--choose--</option>
-            <option>name</option><option>hello</option><option>goodbye</option>
-          </select>
-        </div>
-
-        <div class="resultLine">
-          <button class="btn btnGreen" onclick="checkW2()">Check ✓</button>
-          <div>Correct: <span id="w2score">0</span> / 3</div>
-        </div>
-      </div>
-
-      <div class="wBox" id="w3">
-        <div class="wHead">Worksheet 3 — Choose the correct word (Grammar)</div>
-        <div class="wNote">Choose the correct answer.</div>
-
-        <div class="qRow">
-          <label>1) ____ your name?</label>
-          <select class="select" id="w3a1">
-            <option value="">--choose--</option>
-            <option>What’s</option>
-            <option>Where</option>
-            <option>How</option>
-          </select>
-        </div>
-
-        <div class="qRow">
-          <label>2) ____ old are you?</label>
-          <select class="select" id="w3a2">
-            <option value="">--choose--</option>
-            <option>How</option>
-            <option>Where</option>
-            <option>What</option>
-          </select>
-        </div>
-
-        <div class="qRow">
-          <label>3) I’m ____ Kazakhstan.</label>
-          <select class="select" id="w3a3">
-            <option value="">--choose--</option>
-            <option>from</option>
-            <option>fine</option>
-            <option>name</option>
-          </select>
-        </div>
-
-        <div class="resultLine">
-          <button class="btn btnGreen" onclick="checkW3()">Check ✓</button>
-          <div>Correct: <span id="w3score">0</span> / 3</div>
-        </div>
-      </div>
-
-      <div class="wBox" id="w4">
-        <div class="wHead">Worksheet 4 — Reading mini (True/False)</div>
-        <div class="wNote">Read the mini dialogue. Answer True/False.</div>
-
-        <div class="card" style="margin:0;border-radius:18px;box-shadow:var(--shadow2)">
-          <div style="font-weight:1000">Mini dialogue</div>
-          <div class="muted" style="margin-top:6px;line-height:1.4">
-            Tim: Hello! What’s your name?<br/>
-            Rosy: My name’s Rosy. How old are you?<br/>
-            Tim: I’m seven. Where are you from?<br/>
-            Rosy: I’m from Kazakhstan. Goodbye!<br/>
-            Tim: Goodbye!
-          </div>
-        </div>
-
-        <div class="qRow" style="margin-top:10px">
-          <label>1) Rosy is from Kazakhstan.</label>
-          <select class="select" id="w4a1">
-            <option value="">--choose--</option>
-            <option>True</option><option>False</option>
-          </select>
-        </div>
-        <div class="qRow">
-          <label>2) Tim is nine.</label>
-          <select class="select" id="w4a2">
-            <option value="">--choose--</option>
-            <option>True</option><option>False</option>
-          </select>
-        </div>
-
-        <div class="resultLine">
-          <button class="btn btnGreen" onclick="checkW4()">Check ✓</button>
-          <div>Correct: <span id="w4score">0</span> / 2</div>
-        </div>
-      </div>
-
-      <div class="resultLine" style="margin-top:10px">
-        <div style="font-weight:1000">Lesson stars now: <span id="liveStars">0</span> ⭐</div>
-        <div class="tSmall">Stars counted from correct answers.</div>
-      </div>
-
-    </div>
-
-    <div class="card">
-      <div class="secTitle">🎵 Song Karaoke</div>
-      <div class="karaBox">
-        <div class="muted">Start/Stop and follow the highlighted line.</div>
-        <div id="karaokeLines" style="margin-top:10px"></div>
-
-        <div class="row" style="margin-top:12px">
-          <button class="btn btnGreen" onclick="karaokeStart()">▶ Start</button>
-          <button class="btn" onclick="karaokeStop()">⏹ Stop</button>
-        </div>
-      </div>
-    </div>
-  `;
+/* ====== CHAT (demo local) ====== */
+function chatAdd(role, text){
+  const log = $("chatLog");
+  const stamp = new Date().toLocaleTimeString();
+  log.textContent += `[${stamp}] ${role}: ${text}\n`;
+  log.scrollTop = log.scrollHeight;
+}
+function chatSend(){
+  const t = $("chatInput").value.trim();
+  if(!t) return;
+  chatAdd(currentUser?.role==="student" ? currentUser.login : "User", t);
+  $("chatInput").value = "";
+  // demo reply:
+  chatAdd("AI Bayan", "I can help! (demo) Write: 'Give me 5 words for Unit 1' or 'Explain this grammar.'");
 }
 
-function emptyLessonHTML(){
-  return `
-    <div class="card">
-      <div class="h2">Coming next</div>
-      <div class="muted" style="margin-top:8px">
-        Здесь будут такие же блоки: Visual Vocabulary (2 rows) → Grammar Key → Worksheets 1–4 → Karaoke.
-      </div>
-    </div>
-  `;
-}
-
-/* =========================
-   CHECKS + STARS (Lesson 1)
-========================= */
-let lessonLiveStars = 0;
-let karaokeTimer = null;
-let karaokeIndex = 0;
-const karaoke = [
-  {t:"Hello, hello!", ms:1200},
-  {t:"What’s your name?", ms:1400},
-  {t:"My name’s …", ms:1200},
-  {t:"Goodbye, goodbye!", ms:1400}
-];
-
-function initKaraokeUI(){
-  const box = document.getElementById("karaokeLines");
-  if(!box) return;
-  box.innerHTML = karaoke.map((l,i)=>`<div class="lyricLine" id="line${i}">${l.t}</div>`).join("");
-}
-function karaokeHighlight(i){
-  karaoke.forEach((_,idx)=>{
-    const el = document.getElementById("line"+idx);
-    if(el) el.classList.toggle("active", idx===i);
+/* ====== NAV ====== */
+$("loginBtn").onclick = doLogin;
+$("logoutBtn").onclick = ()=>{
+  currentUser = null;
+  currentUnitId = null; currentLessonId=null;
+  $("loginInput").value=""; $("pinInput").value="";
+  setWho();
+  show("screenLogin");
+};
+$("homeBtn").onclick = ()=>{
+  if(!currentUser){ show("screenLogin"); return; }
+  if(currentUser.role==="teacher"){ show("screenTeacher"); renderTeacher(); return; }
+  show("screenMain");
+};
+$("backToMain").onclick = ()=>show("screenMain");
+$("backToUnit").onclick = ()=>openUnit(currentUnitId);
+$("printLesson").onclick = ()=>window.print();
+$("starPlus").onclick = ()=>{
+  const s = getStars(currentUnitId, currentLessonId);
+  setStars(currentUnitId, currentLessonId, s+1);
+  updateStarView();
+};
+$("starMinus").onclick = ()=>{
+  const s = getStars(currentUnitId, currentLessonId);
+  setStars(currentUnitId, currentLessonId, s-1);
+  updateStarView();
+};
+$("teacherBack").onclick = ()=>{
+  // teacher view is journal only; go back to login? or main? we keep journal as home for teacher
+  show("screenTeacher");
+  renderTeacher();
+};
+$("resetAll").onclick = ()=>{
+  if(!confirm("Сбросить весь прогресс?")) return;
+  const db = loadDB();
+  STUDENTS.forEach(s=>{
+    if(db.users[s]) db.users[s].stars = {};
   });
-}
-function karaokeStart(){
-  karaokeStop();
-  karaokeIndex = 0;
-  karaokeHighlight(0);
-  speak(karaoke[0].t);
+  saveDB(db);
+  renderTeacher();
+};
 
-  karaokeTimer = setInterval(()=>{
-    karaokeIndex++;
-    if(karaokeIndex >= karaoke.length){
-      karaokeStop();
-      return;
-    }
-    karaokeHighlight(karaokeIndex);
-    speak(karaoke[karaokeIndex].t);
-  }, 1500);
-}
-function karaokeStop(){
-  if(karaokeTimer){ clearInterval(karaokeTimer); karaokeTimer=null; }
-  karaokeHighlight(-1);
-  try{ speechSynthesis.cancel(); }catch{}
-}
+$("chatSend").onclick = chatSend;
+$("chatClear").onclick = ()=>{ $("chatLog").textContent=""; };
 
-function normalize(s){ return (s||"").trim().toLowerCase(); }
-
-function markScore(elId, ok){
-  const el = document.getElementById(elId);
-  if(!el) return;
-  el.textContent = ok ? "✓" : "✗";
-  el.className = "mark " + (ok ? "ok" : "bad");
-}
-
-function updateLiveStars(){
-  const live = document.getElementById("liveStars");
-  if(live) live.textContent = lessonLiveStars;
-  document.getElementById("lessonStars").textContent = lessonLiveStars;
-}
-
-function restoreLesson1(){
-  const marks = loadMarks(1,1);
-  lessonLiveStars = getLessonStars(1,1) || 0;
-  updateLiveStars();
-
-  if(!marks) return;
-
-  // restore inputs
-  ["w1a1","w1a2","w1a3","w1a4","w2a1","w2a2","w2a3","w3a1","w3a2","w3a3","w4a1","w4a2"].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el && marks[id] !== undefined) el.value = marks[id];
-  });
-
-  // restore scores
-  if(marks._w1score!==undefined) document.getElementById("w1score").textContent = marks._w1score;
-  if(marks._w2score!==undefined) document.getElementById("w2score").textContent = marks._w2score;
-  if(marks._w3score!==undefined) document.getElementById("w3score").textContent = marks._w3score;
-  if(marks._w4score!==undefined) document.getElementById("w4score").textContent = marks._w4score;
-}
-
-function collectMarksLesson1(){
-  const obj = {};
-  ["w1a1","w1a2","w1a3","w1a4","w2a1","w2a2","w2a3","w3a1","w3a2","w3a3","w4a1","w4a2"].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) obj[id] = el.value;
-  });
-  obj._w1score = Number(document.getElementById("w1score")?.textContent||0);
-  obj._w2score = Number(document.getElementById("w2score")?.textContent||0);
-  obj._w3score = Number(document.getElementById("w3score")?.textContent||0);
-  obj._w4score = Number(document.getElementById("w4score")?.textContent||0);
-  return obj;
-}
-
-function checkW1(){
-  const a1 = normalize(document.getElementById("w1a1").value) === "hello";
-  const a2 = normalize(document.getElementById("w1a2").value) === "goodbye";
-  const a3 = normalize(document.getElementById("w1a3").value) === "thank you";
-  const a4 = normalize(document.getElementById("w1a4").value) === "name";
-  const score = [a1,a2,a3,a4].filter(Boolean).length;
-  document.getElementById("w1score").textContent = score;
-
-  recalcStars();
-  saveMarks(1,1, collectMarksLesson1());
-}
-
-function checkW2(){
-  const a1 = document.getElementById("w2a1").value === "hello";
-  const a2 = document.getElementById("w2a2").value === "thank you";
-  const a3 = document.getElementById("w2a3").value === "name";
-  const score = [a1,a2,a3].filter(Boolean).length;
-  document.getElementById("w2score").textContent = score;
-
-  recalcStars();
-  saveMarks(1,1, collectMarksLesson1());
-}
-
-function checkW3(){
-  const a1 = document.getElementById("w3a1").value === "What’s";
-  const a2 = document.getElementById("w3a2").value === "How";
-  const a3 = document.getElementById("w3a3").value === "from";
-  const score = [a1,a2,a3].filter(Boolean).length;
-  document.getElementById("w3score").textContent = score;
-
-  recalcStars();
-  saveMarks(1,1, collectMarksLesson1());
-}
-
-function checkW4(){
-  const a1 = document.getElementById("w4a1").value === "True";
-  const a2 = document.getElementById("w4a2").value === "False";
-  const score = [a1,a2].filter(Boolean).length;
-  document.getElementById("w4score").textContent = score;
-
-  recalcStars();
-  saveMarks(1,1, collectMarksLesson1());
-}
-
-function recalcStars(){
-  const w1 = Number(document.getElementById("w1score").textContent||0);
-  const w2 = Number(document.getElementById("w2score").textContent||0);
-  const w3 = Number(document.getElementById("w3score").textContent||0);
-  const w4 = Number(document.getElementById("w4score").textContent||0);
-
-  // Stars = sum of correct (max 4+3+3+2=12)
-  lessonLiveStars = w1+w2+w3+w4;
-  updateLiveStars();
-}
-
-function saveLessonStars(){
-  // save stars for current lesson
-  setLessonStars(state.unit, state.lesson, lessonLiveStars);
-  saveMarks(state.unit, state.lesson, collectMarksLesson1());
-  refreshAllBadges();
-  alert("Saved ✅");
-}
-
-/* =========================
-   PRINT
-========================= */
-function printLesson(){ window.print(); }
-
-/* =========================
-   RENDER SCREENS
-========================= */
-function refreshAllBadges(){
-  const sess = getSession();
-  const pill = document.getElementById("loginPill");
-  const p = getAllProgress();
-
-  if(sess.logged && sess.user){
-    pill.className = "pill ok";
-    pill.textContent = "Logged";
-  }else{
-    pill.className = "pill no";
-    pill.textContent = "Not logged";
-  }
-
-  let total = 0;
-  if(sess.logged && sess.user){
-    total = totalStarsForStudent(p[sess.user]);
-  }
-  document.getElementById("totalStars").textContent = total;
-  document.getElementById("achStars").textContent = total;
-
-  // unit stars on main
-  for(let u=1;u<=8;u++){
-    const el = document.getElementById(`u${u}s`);
-    if(!el) continue;
-    el.textContent = (sess.logged && sess.user) ? unitStarsForStudent(p[sess.user],u) : 0;
-  }
-}
-
-function refreshUnitScreen(){
-  const sess = getSession();
-  const sp = getStudentProgress();
-  document.getElementById("unitTitle").textContent = `Unit ${state.unit}`;
-  document.getElementById("who").textContent = sess.logged ? sess.user : "—";
-  document.getElementById("unitStars").textContent = sp ? unitStarsForStudent(sp.me, state.unit) : 0;
-
-  for(let l=1;l<=8;l++){
-    document.getElementById("ls"+l).textContent = sp ? (sp.me.stars[state.unit][l]||0) : 0;
-  }
-}
-
-function refreshLessonScreen(){
-  const sess = getSession();
-  document.getElementById("lessonTitle").textContent = `Unit ${state.unit} — Lesson ${state.lesson}`;
-  document.getElementById("who2").textContent = sess.logged ? sess.user : "—";
-
-  // content
-  const wrap = document.getElementById("lessonContent");
-  if(state.unit===1 && state.lesson===1){
-    wrap.innerHTML = lesson1HTML();
-    initKaraokeUI();
-    // load saved stars + marks
-    restoreLesson1();
-  }else{
-    wrap.innerHTML = emptyLessonHTML();
-    lessonLiveStars = getLessonStars(state.unit,state.lesson) || 0;
-    document.getElementById("lessonStars").textContent = lessonLiveStars;
-  }
-}
-
-function escapeQuotes(s){
-  return String(s).replace(/'/g,"\\'").replace(/"/g,'\\"');
-}
-
-/* =========================
-   INIT
-========================= */
-refreshAllBadges();
-const sess = getSession();
-if(sess.logged){
-  // show who in unit/lesson later
-}
+/* ====== INIT ====== */
+setWho();
+show("screenLogin");
 </script>
+
 </body>
 </html>
