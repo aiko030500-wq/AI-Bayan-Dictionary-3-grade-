@@ -493,11 +493,11 @@
           color:"#1565c0",   // синий
           icon:"😊",
           vocab:[
-            {word:"hello",ru:"привет",emoji:"👋",tts:"hello"},
-            {word:"goodbye",ru:"до свидания",emoji:"👋",tts:"goodbye"},
-            {word:"name",ru:"имя",emoji:"🧒",tts:"name"},
-            {word:"teacher",ru:"учитель",emoji:"👩‍🏫",tts:"teacher"},
-            {word:"friend",ru:"друг",emoji:"👫",tts:"friend"}
+            {word:"hello",   ru:"привет",        emoji:"👋", tts:"hello"},
+            {word:"goodbye", ru:"до свидания",   emoji:"👋", tts:"goodbye"},
+            {word:"name",    ru:"имя",           emoji:"🧒", tts:"name"},
+            {word:"teacher", ru:"учитель",       emoji:"👩‍🏫", tts:"teacher"},
+            {word:"friend",  ru:"друг",          emoji:"👫", tts:"friend"}
           ],
           grammar:{
             rule:`We ask about name with <strong>What's your name?</strong> and answer <strong>My name's...</strong>`,
@@ -514,15 +514,23 @@ Answer: My name's Ayan.`,
 – I'm Rosy. This is our teacher, Miss Jones.<br>
 – Hello, Miss Jones!`,
             questions:[
-              {q:"The boy's name is __.",options:["Billy","Tim","Ali"],answer:"Tim"},
-              {q:"The teacher's name is __.",options:["Miss Jones","Rosy","Mr Brown"],answer:"Miss Jones"}
+              {
+                q:"The boy's name is __.",
+                options:["Billy","Tim","Ali"],
+                answer:"Tim"
+              },
+              {
+                q:"The teacher's name is __.",
+                options:["Miss Jones","Rosy","Mr Brown"],
+                answer:"Miss Jones"
+              }
             ]
           },
           worksheets:{
             ws1:[
-              {prompt:"1) You say this when you meet a friend: __________",answer:"hello"},
-              {prompt:"2) You say this when you go home: __________",answer:"goodbye"},
-              {prompt:"3) Rosy is Tim's __________.",answer:"friend"}
+              {prompt:"1) You say this when you meet a friend: __________", answer:"hello"},
+              {prompt:"2) You say this when you go home: __________",       answer:"goodbye"},
+              {prompt:"3) Rosy is Tim's __________.",                        answer:"friend"}
             ],
             ws2:[
               {
@@ -537,8 +545,8 @@ Answer: My name's Ayan.`,
               }
             ],
             ws3:[
-              {prompt:"1) ___ for hello",answer:"H"},
-              {prompt:"2) ___ for name",answer:"N"}
+              {prompt:"1) ___ for hello", answer:"H"},
+              {prompt:"2) ___ for name",  answer:"N"}
             ],
             ws4:[
               {
@@ -550,83 +558,683 @@ Answer: My name's Ayan.`,
                 sentence:"2) The teacher's name is Mr Brown.",
                 options:["True","False"],
                 answer:"False"
+              },
+              {
+                sentence:"3) Miss Jones is the teacher.",
+                options:["True","False"],
+                answer:"True"
               }
             ]
           }
         },
-
-        /* Пример заготовок для остальных уроков Unit 1
-           (пока без контента – потом заполнишь по книге) */
         {
           id:"u1l2",
           title:"Lesson 2 – Alphabet & Spelling",
-          subtitle:"A–Z, spell your name",
-          color:"#1e88e5",
+          subtitle:"A–Z and spell your name",
+          color:"#1e88e5",   // ярко-синий для L2
           icon:"🔤",
-          vocab:[],
-          grammar:{rule:"",formula:"",examples:[]},
-          reading:{dialogue:"(по книге)",questions:[]},
-          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+          vocab:[
+            {word:"A a – apple",   ru:"А а – яблоко",    emoji:"🍎", tts:"A, apple"},
+            {word:"B b – bag",     ru:"Б б – сумка",     emoji:"🎒", tts:"B, bag"},
+            {word:"C c – cat",     ru:"С с – кот",       emoji:"🐱", tts:"C, cat"},
+            {word:"D d – desk",    ru:"Д д – парта",     emoji:"🪑", tts:"D, desk"},
+            {word:"E e – egg",     ru:"Э э – яйцо",      emoji:"🥚", tts:"E, egg"},
+            {word:"F f – fish",    ru:"Ф ф – рыба",      emoji:"🐟", tts:"F, fish"},
+            {word:"G g – girl",    ru:"Г г – девочка",   emoji:"👧", tts:"G, girl"},
+            {word:"H h – hat",     ru:"Х х – шляпа",     emoji:"👒", tts:"H, hat"},
+            {word:"I i – igloo",   ru:"И и – иглу",      emoji:"🏠", tts:"I, igloo"},
+            {word:"J j – juice",   ru:"Д ж – сок",       emoji:"🧃", tts:"J, juice"}
+          ],
+          grammar:{
+            rule:`We ask about spelling with <strong>How do you spell...?</strong> and answer letter by letter.`,
+            formula:`Question: How do you spell <strong>Tim</strong>?<br>
+Answer: T–I–M.<br><br>
+Question: How do you spell <strong>Rosy</strong>?<br>
+Answer: R–O–S–Y.`,
+            examples:[
+              "– How do you spell your name? – A–L–I.",
+              "– How do you spell 'cat'? – C–A–T."
+            ]
+          },
+          reading:{
+            dialogue:`– Hello, I'm Miss Jones. What's your name?<br>
+– My name's Billy.<br>
+– How do you spell your name, Billy?<br>
+– B–I–L–L–Y.<br>
+– Thank you, Billy!`,
+            questions:[
+              {
+                q:"The teacher's name is __.",
+                options:["Miss Brown","Miss Jones","Mr Jones"],
+                answer:"Miss Jones"
+              },
+              {
+                q:"Billy spells his name with the letter __ first.",
+                options:["B","L","Y"],
+                answer:"B"
+              }
+            ]
+          },
+          worksheets:{
+            ws1:[
+              {prompt:"1) A – a – __________ (яблоко)", answer:"apple"},
+              {prompt:"2) B – b – __________ (сумка)",  answer:"bag"},
+              {prompt:"3) C – c – __________ (кот)",    answer:"cat"},
+              {prompt:"4) D – d – __________ (парта)",  answer:"desk"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – __________ do you spell your name? – A–L–I.",
+                options:["Where","How","What"],
+                answer:"How"
+              },
+              {
+                sentence:"2) – How do you spell 'cat'? – __________.",
+                options:["C–A–T","K–A–T","C–E–T"],
+                answer:"C–A–T"
+              },
+              {
+                sentence:"3) – __________ your name? – My name's Dana.",
+                options:["What's","Where's","How's"],
+                answer:"What's"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for apple", answer:"A"},
+              {prompt:"2) ___ for bag",   answer:"B"},
+              {prompt:"3) ___ for cat",   answer:"C"},
+              {prompt:"4) ___ for fish",  answer:"F"}
+            ],
+            ws4:[
+              {
+                sentence:"1) Billy spells his name B–I–L–L–Y.",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) The teacher's name is Miss Brown.",
+                options:["True","False"],
+                answer:"False"
+              },
+              {
+                sentence:"3) They talk about spelling a name.",
+                options:["True","False"],
+                answer:"True"
+              }
+            ]
+          }
         },
         {
           id:"u1l3",
           title:"Lesson 3 – Song: Hello, hello!",
-          subtitle:"Song & actions",
-          color:"#5e35b1",
+          subtitle:"Song and feelings",
+          color:"#5e35b1",   // фиолетовый для L3
           icon:"🎵",
-          vocab:[],grammar:{rule:"",formula:"",examples:[]},
-          reading:{dialogue:"Song text (adapted)",questions:[]},
-          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+          vocab:[
+            {word:"hello",   ru:"привет",        emoji:"👋", tts:"hello"},
+            {word:"friends", ru:"друзья",        emoji:"👫", tts:"friends"},
+            {word:"happy",   ru:"счастливый",    emoji:"😊", tts:"happy"},
+            {word:"sad",     ru:"грустный",      emoji:"😢", tts:"sad"},
+            {word:"tired",   ru:"уставший",      emoji:"😴", tts:"tired"},
+            {word:"fine",    ru:"всё хорошо",    emoji:"🙂", tts:"fine"}
+          ],
+          grammar:{
+            rule:`We ask about feelings with <strong>How are you?</strong> and answer with <strong>I'm...</strong>.`,
+            formula:`Question: How are you?<br>
+Answer: I'm fine / I'm happy / I'm sad / I'm tired.`,
+            examples:[
+              "– How are you, Tim? – I'm happy, thanks.",
+              "– How are you, Rosy? – I'm tired."
+            ]
+          },
+          reading:{
+            dialogue:`🎵 <strong>Song: Hello, hello!</strong><br><br>
+Hello, hello, my friends today,<br>
+How are you? What do you say?<br>
+I'm happy, I'm fine, I smile at you,<br>
+Hello, hello, how are you?`,
+            questions:[
+              {
+                q:"In the song they say: \"Hello, hello, my __ today.\"",
+                options:["teacher","friends","family"],
+                answer:"friends"
+              },
+              {
+                q:"In the song the child is __.",
+                options:["sad","tired","happy"],
+                answer:"happy"
+              }
+            ]
+          },
+          worksheets:{
+            ws1:[
+              {prompt:"1) You say this when you meet someone: __________", answer:"hello"},
+              {prompt:"2) You feel good and you smile: __________",       answer:"happy"},
+              {prompt:"3) You feel not very good, you want to sleep: __________", answer:"tired"},
+              {prompt:"4) You talk to your __________ at school.",        answer:"friends"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – __________ are you, Rosy? – I'm fine, thanks.",
+                options:["What","How","Where"],
+                answer:"How"
+              },
+              {
+                sentence:"2) – How are you, Billy? – I'm __________.",
+                options:["friend","happy","teacher"],
+                answer:"happy"
+              },
+              {
+                sentence:"3) – How are you, Miss Jones? – I'm __________, thank you.",
+                options:["sad","fine","tired"],
+                answer:"fine"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for happy",   answer:"H"},
+              {prompt:"2) ___ for sad",     answer:"S"},
+              {prompt:"3) ___ for tired",   answer:"T"},
+              {prompt:"4) ___ for friends", answer:"F"}
+            ],
+            ws4:[
+              {
+                sentence:"1) In the song they say \"Hello, hello, my friends today\".",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) In the song the child is sad.",
+                options:["True","False"],
+                answer:"False"
+              },
+              {
+                sentence:"3) The song uses the question \"How are you?\".",
+                options:["True","False"],
+                answer:"True"
+              }
+            ]
+          }
         },
         {
           id:"u1l4",
           title:"Lesson 4 – Numbers 1–20",
           subtitle:"How old are you?",
-          color:"#00897b",
+          color:"#00897b",   // зелёно-бирюзовый для L4
           icon:"🔢",
-          vocab:[],grammar:{rule:"",formula:"",examples:[]},
-          reading:{dialogue:"Mini text with ages",questions:[]},
-          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+          vocab:[
+            {word:"one",   ru:"один",   emoji:"1️⃣", tts:"one"},
+            {word:"two",   ru:"два",    emoji:"2️⃣", tts:"two"},
+            {word:"three", ru:"три",    emoji:"3️⃣", tts:"three"},
+            {word:"four",  ru:"четыре", emoji:"4️⃣", tts:"four"},
+            {word:"five",  ru:"пять",   emoji:"5️⃣", tts:"five"},
+            {word:"six",   ru:"шесть",  emoji:"6️⃣", tts:"six"},
+            {word:"seven", ru:"семь",   emoji:"7️⃣", tts:"seven"},
+            {word:"eight", ru:"восемь", emoji:"8️⃣", tts:"eight"},
+            {word:"nine",  ru:"девять", emoji:"9️⃣", tts:"nine"},
+            {word:"ten",   ru:"десять", emoji:"🔟", tts:"ten"}
+          ],
+          grammar:{
+            rule:`We ask about age with <strong>How old are you?</strong> and answer with <strong>I'm ...</strong>.  
+For other people we say <strong>How old is he / she?</strong>`,
+            formula:`Question: How old are you?<br>
+Answer: I'm eight.<br><br>
+Question: How old is he?<br>
+Answer: He's nine.`,
+            examples:[
+              "– How old are you, Tim? – I'm seven.",
+              "– How old is Rosy? – She's eight."
+            ]
+          },
+          reading:{
+            dialogue:`– Hello, I'm Billy. I'm seven.<br>
+This is my friend Rosy. She's eight.<br>
+– How old are you, Tim?<br>
+– I'm nine!`,
+            questions:[
+              {
+                q:"Billy is __ years old.",
+                options:["six","seven","eight"],
+                answer:"seven"
+              },
+              {
+                q:"Tim is __ years old.",
+                options:["nine","ten","eight"],
+                answer:"nine"
+              }
+            ]
+          },
+          worksheets:{
+            ws1:[
+              {prompt:"1) 1 = __________", answer:"one"},
+              {prompt:"2) 3 = __________", answer:"three"},
+              {prompt:"3) 5 = __________", answer:"five"},
+              {prompt:"4) 8 = __________", answer:"eight"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – __________ are you? – I'm eight.",
+                options:["Where","How old","What"],
+                answer:"How old"
+              },
+              {
+                sentence:"2) – How old is Billy? – __________ seven.",
+                options:["He's","She's","I'm"],
+                answer:"He's"
+              },
+              {
+                sentence:"3) – How old is Rosy? – She's __________.",
+                options:["nine","eight","ten"],
+                answer:"eight"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for one",   answer:"O"},
+              {prompt:"2) ___ for two",   answer:"T"},
+              {prompt:"3) ___ for seven", answer:"S"},
+              {prompt:"4) ___ for nine",  answer:"N"}
+            ],
+            ws4:[
+              {
+                sentence:"1) Billy is seven years old.",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) Rosy is nine years old.",
+                options:["True","False"],
+                answer:"False"
+              },
+              {
+                sentence:"3) Tim is nine.",
+                options:["True","False"],
+                answer:"True"
+              }
+            ]
+          }
         },
         {
           id:"u1l5",
           title:"Lesson 5 – Colours",
-          subtitle:"red, blue, green...",
-          color:"#8e24aa",
+          subtitle:"What colour is it?",
+          color:"#8e24aa",   // фиолетовый для L5
           icon:"🎨",
-          vocab:[],grammar:{rule:"",formula:"",examples:[]},
-          reading:{dialogue:"Colour dialogue",questions:[]},
-          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+          vocab:[
+            {word:"red",    ru:"красный",     emoji:"🔴", tts:"red"},
+            {word:"blue",   ru:"синий",       emoji:"🔵", tts:"blue"},
+            {word:"yellow", ru:"жёлтый",      emoji:"🟡", tts:"yellow"},
+            {word:"green",  ru:"зелёный",     emoji:"🟢", tts:"green"},
+            {word:"orange", ru:"оранжевый",   emoji:"🟠", tts:"orange"},
+            {word:"pink",   ru:"розовый",     emoji:"🌸", tts:"pink"},
+            {word:"purple", ru:"фиолетовый",  emoji:"🟣", tts:"purple"},
+            {word:"brown",  ru:"коричневый",  emoji:"🟤", tts:"brown"},
+            {word:"black",  ru:"чёрный",      emoji:"⚫", tts:"black"},
+            {word:"white",  ru:"белый",       emoji:"⚪", tts:"white"}
+          ],
+          grammar:{
+            rule:`We ask about colour with <strong>What colour is it?</strong> for one thing and <strong>What colour are they?</strong> for many things.`,
+            formula:`One thing: What colour is it? – It's red.<br>
+Many things: What colour are they? – They're blue.`,
+            examples:[
+              "– What colour is the board? – It's green.",
+              "– What colour are the books? – They're yellow."
+            ]
+          },
+          reading:{
+            dialogue:`– Look, Rosy! I've got some balloons.<br>
+– Wow! What colour are they, Billy?<br>
+– This balloon is red and this balloon is blue.<br>
+– And that balloon?<br>
+– It's yellow!`,
+            questions:[
+              {
+                q:"Billy has balloons. One balloon is __ and one balloon is blue.",
+                options:["red","green","black"],
+                answer:"red"
+              },
+              {
+                q:"The yellow thing in the dialogue is a __.",
+                options:["board","balloon","bag"],
+                answer:"balloon"
+              }
+            ]
+          },
+          worksheets:{
+            ws1:[
+              {prompt:"1) 🍎 The apple is __________. (красный)",     answer:"red"},
+              {prompt:"2) 🌳 The tree is __________. (зелёный)",      answer:"green"},
+              {prompt:"3) ☀ The sun is __________. (жёлтый)",         answer:"yellow"},
+              {prompt:"4) 🧢 The hat is __________. (синий)",         answer:"blue"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – __________ colour is the board? – It's green.",
+                options:["What","Where","How"],
+                answer:"What"
+              },
+              {
+                sentence:"2) – What colour __________ the pencils? – They're orange.",
+                options:["is","are","am"],
+                answer:"are"
+              },
+              {
+                sentence:"3) – What colour is the bag? – __________ brown.",
+                options:["It's","They're","I'm"],
+                answer:"It's"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for red",    answer:"R"},
+              {prompt:"2) ___ for blue",   answer:"B"},
+              {prompt:"3) ___ for green",  answer:"G"},
+              {prompt:"4) ___ for pink",   answer:"P"}
+            ],
+            ws4:[
+              {
+                sentence:"1) Billy has some balloons.",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) In the dialogue, one balloon is red and one is blue.",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"3) The yellow thing in the dialogue is a bag.",
+                options:["True","False"],
+                answer:"False"
+              }
+            ]
+          }
         },
         {
           id:"u1l6",
           title:"Lesson 6 – Age & Country",
-          subtitle:"How old / Where from",
-          color:"#c62828",
+          subtitle:"How old is he? Where is she from?",
+          color:"#c62828",   // красный для L6
           icon:"🌍",
-          vocab:[],grammar:{rule:"",formula:"",examples:[]},
-          reading:{dialogue:"Mini dialogue",questions:[]},
-          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+          vocab:[
+            {word:"country",    ru:"страна",      emoji:"🗺️", tts:"country"},
+            {word:"from",       ru:"из, родом из",emoji:"➡️", tts:"from"},
+            {word:"Kazakhstan", ru:"Казахстан",   emoji:"🇰🇿", tts:"Kazakhstan"},
+            {word:"England",    ru:"Англия",      emoji:"🏴", tts:"England"},
+            {word:"Brazil",     ru:"Бразилия",    emoji:"🇧🇷", tts:"Brazil"},
+            {word:"Japan",      ru:"Япония",      emoji:"🇯🇵", tts:"Japan"},
+            {word:"American",   ru:"американец",  emoji:"🇺🇸", tts:"American"},
+            {word:"Kazakh",     ru:"казах",       emoji:"🇰🇿", tts:"Kazakh"},
+            {word:"English",    ru:"англичанин",  emoji:"🇬🇧", tts:"English"},
+            {word:"Brazilian",  ru:"бразилец",    emoji:"🇧🇷", tts:"Brazilian"},
+            {word:"Japanese",   ru:"японец",      emoji:"🇯🇵", tts:"Japanese"}
+          ],
+          grammar:{
+            rule:`We ask about age with <strong>How old is he / she?</strong> and about country with <strong>Where is he / she from?</strong>`,
+            formula:`Age: How old is he? – He's nine.<br>
+Age: How old is she? – She's eight.<br><br>
+Country: Where is he from? – He's from Kazakhstan.<br>
+Country: Where is she from? – She's from Japan.`,
+            examples:[
+              "– How old is Billy? – He's seven.",
+              "– Where is Rosy from? – She's from England."
+            ]
+          },
+          reading:{
+            dialogue:`– This is my friend Ayan. He's nine. He's from Kazakhstan.<br>
+– And this is Yuki. She's eight. She's from Japan.<br>
+– Wow! How old is Tim?<br>
+– He's nine. He's from England.`,
+            questions:[
+              {
+                q:"Ayan is from __.",
+                options:["Japan","Kazakhstan","England"],
+                answer:"Kazakhstan"
+              },
+              {
+                q:"Yuki is __ years old.",
+                options:["seven","eight","nine"],
+                answer:"eight"
+              }
+            ]
+          },
+          worksheets:{
+            ws1:[
+              {prompt:"1) He is from Kazakhstan. He is __________.", answer:"Kazakh"},
+              {prompt:"2) She is from England. She is __________.",   answer:"English"},
+              {prompt:"3) He is from Brazil. He is __________.",      answer:"Brazilian"},
+              {prompt:"4) She is from Japan. She is __________.",     answer:"Japanese"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – __________ old is he? – He's nine.",
+                options:["What","How","Where"],
+                answer:"How"
+              },
+              {
+                sentence:"2) – Where __________ she from? – She's from Japan.",
+                options:["are","is","am"],
+                answer:"is"
+              },
+              {
+                sentence:"3) – __________ is he from? – He's from Kazakhstan.",
+                options:["Where","How old","What"],
+                answer:"Where"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for Kazakhstan", answer:"K"},
+              {prompt:"2) ___ for England",    answer:"E"},
+              {prompt:"3) ___ for Japan",      answer:"J"},
+              {prompt:"4) ___ for Brazil",     answer:"B"}
+            ],
+            ws4:[
+              {
+                sentence:"1) Ayan is nine and he is from Kazakhstan.",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) Yuki is from Brazil.",
+                options:["True","False"],
+                answer:"False"
+              },
+              {
+                sentence:"3) Tim is nine and he is from England.",
+                options:["True","False"],
+                answer:"True"
+              }
+            ]
+          }
         },
         {
           id:"u1l7",
           title:"Lesson 7 – Project: About me",
-          subtitle:"My name, age, country",
-          color:"#6d4c41",
+          subtitle:"My name, age, country, favourite colour",
+          color:"#6d4c41",   // коричневый для L7
           icon:"📜",
-          vocab:[],grammar:{rule:"",formula:"",examples:[]},
-          reading:{dialogue:"Poster example",questions:[]},
-          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+          vocab:[
+            {word:"name",             ru:"имя",                  emoji:"🧒", tts:"name"},
+            {word:"age",              ru:"возраст",              emoji:"🎂", tts:"age"},
+            {word:"country",          ru:"страна",               emoji:"🗺️", tts:"country"},
+            {word:"from",             ru:"из, родом из",         emoji:"➡️", tts:"from"},
+            {word:"favourite colour", ru:"любимый цвет",         emoji:"🎨", tts:"favourite colour"},
+            {word:"hobby",            ru:"хобби",                emoji:"⚽", tts:"hobby"},
+            {word:"I’m",              ru:"я (есть)...",          emoji:"🙂", tts:"I'm"},
+            {word:"My name’s...",     ru:"Меня зовут...",        emoji:"📛", tts:"My name's"},
+            {word:"I’m from...",      ru:"Я из...",              emoji:"🌍", tts:"I'm from"},
+            {word:"I like...",        ru:"Мне нравится...",      emoji:"👍", tts:"I like"}
+          ],
+          grammar:{
+            rule:`We talk about ourselves with <strong>My name's...</strong>, <strong>I'm ...</strong>, <strong>I'm from...</strong>, <strong>My favourite colour is...</strong>.`,
+            formula:`My name's Ayan.<br>
+I'm eight.<br>
+I'm from Kazakhstan.<br>
+My favourite colour is blue.<br>
+I like football.`,
+            examples:[
+              "My name's Aylin. I'm nine.",
+              "I'm from Kazakhstan. My favourite colour is green."
+            ]
+          },
+          reading:{
+            dialogue:`Hello! My name's Ayan. I'm eight. I'm from Kazakhstan.<br>
+My favourite colour is blue and I like football.<br>
+This is my project: a picture of me and my friends at school.`,
+            questions:[
+              {
+                q:"Ayan is from __.",
+                options:["England","Japan","Kazakhstan"],
+                answer:"Kazakhstan"
+              },
+              {
+                q:"Ayan's favourite colour is __.",
+                options:["green","blue","red"],
+                answer:"blue"
+              }
+            ]
+          },
+          worksheets:{
+            ws1:[
+              {prompt:"1) My name's __________. (Ayan)",       answer:"Ayan"},
+              {prompt:"2) I'm __________ years old. (8)",      answer:"eight"},
+              {prompt:"3) I'm from __________. (страна)",      answer:"Kazakhstan"},
+              {prompt:"4) My favourite colour is __________.", answer:"blue"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – What's your name? – __________ Ayan.",
+                options:["My name's","I'm from","I like"],
+                answer:"My name's"
+              },
+              {
+                sentence:"2) – How old are you? – __________ eight.",
+                options:["I'm","My name's","I like"],
+                answer:"I'm"
+              },
+              {
+                sentence:"3) – Where are you from? – __________ from Kazakhstan.",
+                options:["I'm","I'm from","My name's"],
+                answer:"I'm from"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for name",    answer:"N"},
+              {prompt:"2) ___ for age",     answer:"A"},
+              {prompt:"3) ___ for country", answer:"C"},
+              {prompt:"4) ___ for colour",  answer:"C"}
+            ],
+            ws4:[
+              {
+                sentence:"1) Ayan is eight and he is from Kazakhstan.",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) Ayan's favourite colour is red.",
+                options:["True","False"],
+                answer:"False"
+              },
+              {
+                sentence:"3) In his project there is a picture of him and his friends at school.",
+                options:["True","False"],
+                answer:"True"
+              }
+            ]
+          }
         },
         {
           id:"u1l8",
           title:"Lesson 8 – Culture: At my school",
-          subtitle:"Classroom rules & prepositions",
-          color:"#9e9d24",
+          subtitle:"Classroom rules and places",
+          color:"#9e9d24",   // оливковый для L8
           icon:"🏫",
-          vocab:[],grammar:{rule:"",formula:"",examples:[]},
-          reading:{dialogue:"Culture dialogue",questions:[]},
-          worksheets:{ws1:[],ws2:[],ws3:[],ws4:[]}
+          vocab:[
+            {word:"sit down",        ru:"садитесь",            emoji:"🪑", tts:"sit down"},
+            {word:"stand up",        ru:"встаньте",            emoji:"🧍", tts:"stand up"},
+            {word:"be quiet",        ru:"тише",                emoji:"🤫", tts:"be quiet"},
+            {word:"listen",          ru:"слушайте",            emoji:"👂", tts:"listen"},
+            {word:"don’t talk",      ru:"не разговаривайте",   emoji:"🚫🗣️", tts:"don't talk"},
+            {word:"open your book",  ru:"откройте книгу",      emoji:"📖", tts:"open your book"},
+            {word:"close your book", ru:"закройте книгу",      emoji:"📕", tts:"close your book"},
+            {word:"in",              ru:"в (внутри)",          emoji:"📦", tts:"in"},
+            {word:"on",              ru:"на (поверхности)",    emoji:"🧊", tts:"on"},
+            {word:"under",           ru:"под",                 emoji:"⬇️", tts:"under"}
+          ],
+          grammar:{
+            rule:`We use <strong>classroom instructions</strong> to tell students what to do.<br>
+<strong>Stand up. Sit down. Open your book.</strong><br>
+We say <strong>Don't + verb</strong> for rules we mustn't do: <strong>Don't talk.</strong>`,
+            formula:`Instruction: Stand up. / Sit down. / Open your book.<br>
+Negative rule: Don't + verb → Don't talk. / Don't run.`,
+            examples:[
+              "Be quiet, please. Listen to the teacher.",
+              "Don't talk. Open your book and read."
+            ]
+          },
+          reading:{
+            dialogue:`Miss Jones is in the classroom.<br>
+"Stand up, please. Now sit down. Open your books and listen.<br>
+Don't talk, children. Be quiet, please!"<br>
+The children sit at their desks. Their bags are under the desks and their books are on the desks.`,
+            questions:[
+              {
+                q:"Miss Jones says: \"Don't __, children.\"",
+                options:["run","talk","listen"],
+                answer:"talk"
+              },
+              {
+                q:"The bags are __ the desks.",
+                options:["on","under","in"],
+                answer:"under"
+              }
+            ]
+          },
+          worksheets:{
+            ws1:[
+              {prompt:"1) The teacher wants silence: __________ (тише)",           answer:"be quiet"},
+              {prompt:"2) The teacher wants you to get up: __________ (встаньте)", answer:"stand up"},
+              {prompt:"3) The teacher wants you to sit on the chair: __________",  answer:"sit down"},
+              {prompt:"4) The teacher wants you to read: __________ your book.",   answer:"open"}
+            ],
+            ws2:[
+              {
+                sentence:"1) – __________ your book, please. – OK, Miss Jones.",
+                options:["Open","Don't open","Close"],
+                answer:"Open"
+              },
+              {
+                sentence:"2) – __________ talk, children. – Sorry, Miss Jones.",
+                options:["Don't","Be","Listen"],
+                answer:"Don't"
+              },
+              {
+                sentence:"3) – __________ up, class! – Yes, teacher.",
+                options:["Sit","Stand","Be"],
+                answer:"Stand"
+              }
+            ],
+            ws3:[
+              {prompt:"1) ___ for sit down",   answer:"S"},
+              {prompt:"2) ___ for stand up",   answer:"S"},
+              {prompt:"3) ___ for listen",     answer:"L"},
+              {prompt:"4) ___ for don't talk", answer:"D"}
+            ],
+            ws4:[
+              {
+                sentence:"1) Miss Jones says \"Open your books and listen.\"",
+                options:["True","False"],
+                answer:"True"
+              },
+              {
+                sentence:"2) The bags are on the desks.",
+                options:["True","False"],
+                answer:"False"
+              },
+              {
+                sentence:"3) The books are on the desks.",
+                options:["True","False"],
+                answer:"True"
+              }
+            ]
+          }
         }
       ]
     },
@@ -750,7 +1358,7 @@ Answer: My name's Ayan.`,
     $("unitIcon").textContent=u.icon;
     $("unitTitle").textContent=u.title;
     $("unitSubtitle").textContent=u.subtitle||"";
-    // считаем звездочки по юниту
+
     let unitStars=0;
     (u.lessons||[]).forEach(l=>{
       const lrec=rec.lessons[l.id];
@@ -760,7 +1368,7 @@ Answer: My name's Ayan.`,
 
     const list=$("lessonList");
     list.innerHTML="";
-    (u.lessons||[]).forEach((lesson,idx)=>{
+    (u.lessons||[]).forEach((lesson)=>{
       const lrec=rec.lessons[lesson.id]||{stars:0};
       const div=document.createElement("div");
       div.className="lesson-btn";
@@ -979,7 +1587,7 @@ Answer: My name's Ayan.`,
     data[currentUser.name]=rec;
     saveData(data);
 
-    $("lessonStars").textContent=`You have ${lrec.stars} ⭐ in this lesson.`;
+    $("lessonStars").textContent=`You have ${lrec.stars||0} ⭐ in this lesson.`;
     $("saveBtn").disabled=true;
     $("saveBtn").textContent="Result saved ✔";
     alert(`Saved! You earned ${gained} ⭐ in this lesson.`);
@@ -999,7 +1607,6 @@ Answer: My name's Ayan.`,
       container.textContent="No data yet.";
       return;
     }
-    // словарь: lessonId -> title
     const lessonTitles={};
     units.forEach(u=>{
       (u.lessons||[]).forEach(l=>{
@@ -1071,7 +1678,7 @@ Answer: My name's Ayan.`,
 
     $("chatQuestion").value="";
     $("chatInfo").textContent="Question sent to AI Bayan (demo). Only one question per unit.";
-    showMenu(); // обновить подпись (used)
+    showMenu();
 
     // сюда можно подключить твой Cloudflare Worker
     // fetch('https://your-worker-url', {method:'POST', body:JSON.stringify({student:currentUser.name, unit:unitId, question})})
