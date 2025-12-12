@@ -3,568 +3,1235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>AI Bayan Dictionary 3gr</title>
+  <title>AI Bayan Vocab 3 Grade</title>
   <style>
     :root{
-      --bg:#e8f5e9;
-      --card:#ffffff;
-      --text:#143a1f;
-      --muted:#4b6b54;
-      --green:#2e7d32;
-      --green2:#43a047;
-      --border:#a5d6a7;
-      --shadow:0 8px 18px rgba(0,0,0,.10);
-      --radius:18px;
+      --hero:#0b5e57;
+      --hero2:#064f49;
+      --gold:#f3c94b;
+      --bg:#eaf6f5;
+
+      --panel:#ffffff;
+      --panelBorder:#f0d37a;
+
+      --greenSoft:#eaf7e8;
+      --greenBorder:#b6e1b4;
+
+      --ink:#0b2f33;
+      --muted:#4a6b70;
+
+      --btnGreen:#155d22;
+      --btnGreen2:#1b6f2a;
+      --btnBlue:#1e5aa8;
+
+      --shadow:0 12px 26px rgba(0,0,0,.12);
+      --radius:22px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Arial;background:var(--bg);color:var(--text)}
-    header{
-      position:sticky;top:0;z-index:5;
-      background:linear-gradient(90deg,#d9f7dc,#f1fff2);
-      border-bottom:2px solid var(--border);
-      padding:10px 12px;
-      display:flex;gap:10px;align-items:center;justify-content:space-between;
+    body{margin:0;font-family:system-ui,-apple-system,Arial;background:var(--bg);color:var(--ink)}
+    .wrap{max-width:860px;margin:0 auto}
+
+    /* HERO (menu like screenshot) */
+    .hero{
+      background:linear-gradient(180deg,var(--hero),var(--hero2));
+      padding:18px 14px 24px;
+      position:relative;
+      border-bottom:4px solid rgba(255,255,255,.14);
     }
-    .brand{font-weight:800;letter-spacing:.2px}
-    .pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--border)}
-    .wrap{max-width:980px;margin:0 auto;padding:12px}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    @media (max-width:720px){.grid{grid-template-columns:1fr}}
-    .card{
-      background:var(--card);border:2px solid var(--border);border-radius:var(--radius);
-      box-shadow:var(--shadow);padding:12px;
+    .topbar{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+      color:#e9ffff;font-size:13px;opacity:.95;
     }
-    .title{font-size:18px;font-weight:800;margin:0 0 6px}
-    .muted{color:var(--muted);font-size:13px}
-    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    input, textarea, select{
-      width:100%;padding:12px 12px;border-radius:14px;border:2px solid var(--border);
-      outline:none;background:#fff;
+    .pill{
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.22);
+      padding:6px 10px;border-radius:999px;
+      font-weight:800;
+    }
+    .logoWrap{
+      display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:10px;
+    }
+    .logo{
+      width:120px;height:120px;border-radius:50%;
+      background:#fff;
+      border:6px solid #f2d36b;
+      box-shadow:0 10px 18px rgba(0,0,0,.18);
+      display:grid;place-items:center;
+      overflow:hidden;
+    }
+    .logo span{font-weight:900;color:#7a2b2b;font-size:18px;line-height:1.05;text-align:center}
+    .title{
+      text-align:center;
+      font-weight:900;
+      color:#ffd86b;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      font-size:30px;
+      margin:0;
+    }
+    .subtitle{
+      margin:2px 0 0;
+      text-align:center;
+      color:#e9ffff;
+      font-weight:900;
+      letter-spacing:.6px;
+      opacity:.95;
+      font-size:18px;
+    }
+
+    /* Screens */
+    .screen{display:none}
+    .screen.active{display:block}
+
+    /* Cards */
+    .content{padding:14px}
+    .mainCard{
+      background:var(--panel);
+      border:4px solid rgba(243,201,75,.75);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:14px;
+      margin-top:-18px;
+    }
+    .hello{
+      text-align:center;
+      font-weight:900;
+      font-size:22px;
+      margin:4px 0 0;
+    }
+    .starsLine{
+      text-align:center;
+      margin-top:8px;
+      font-weight:900;
+      color:#0f3b41;
       font-size:16px;
     }
-    textarea{min-height:88px;resize:vertical}
-    button{
-      border:none;border-radius:14px;padding:10px 12px;
-      background:var(--green2);color:#fff;font-weight:800;cursor:pointer;
-      box-shadow:0 6px 14px rgba(67,160,71,.22);
+    .starsLine .star{color:#d19a00}
+
+    .menu{
+      margin-top:12px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
     }
-    button.secondary{background:#fff;color:var(--text);border:2px solid var(--border);box-shadow:none}
-    button.danger{background:#d32f2f}
-    button.full{width:100%}
-    .divider{height:1px;background:rgba(0,0,0,.08);margin:10px 0}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{
-      padding:7px 10px;border-radius:999px;border:2px solid var(--border);
-      background:#fff;cursor:pointer;font-weight:700;font-size:13px;
+    .btn{
+      width:100%;
+      text-align:center;
+      padding:16px 12px;
+      border-radius:20px;
+      background:#fff;
+      border:2px solid #cfe3e7;
+      box-shadow:0 10px 20px rgba(0,0,0,.08);
+      font-size:18px;
+      font-weight:900;
+      color:#0f3b41;
+      cursor:pointer;
     }
-    .chip.active{background:#c8f6cc}
-    .units{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    @media (max-width:720px){.units{grid-template-columns:1fr}}
-    .unitBtn{
-      text-align:left;background:#fff;color:var(--text);
-      border:2px solid var(--border);border-radius:var(--radius);
-      padding:12px;box-shadow:var(--shadow);cursor:pointer;
+    .btn small{display:block;font-weight:800;color:var(--muted);margin-top:4px}
+    .btnPrimary{border-color:rgba(243,201,75,.8)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+
+    /* Login */
+    .loginCard{
+      background:#fff;border:2px solid #cfe3e7;border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:14px;
+      margin:14px;
     }
-    .unitBtn strong{display:block;font-size:16px}
-    .lessonList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    @media (max-width:720px){.lessonList{grid-template-columns:1fr}}
+    label{font-weight:800;color:var(--muted);font-size:13px}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:16px;
+      border:2px solid #cfe3e7;
+      outline:none;
+      font-size:16px;
+      margin:6px 0 10px;
+    }
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .action{
+      border:none;border-radius:16px;padding:12px 12px;
+      background:#0b6b73;color:#fff;font-weight:900;cursor:pointer;
+      flex:1;
+    }
+    .secondary{
+      background:#fff;color:#0f3b41;border:2px solid #cfe3e7;
+    }
+
+    /* Unit/Lessons panel */
+    .panel{
+      background:#fff;border:4px solid rgba(243,201,75,.75);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:14px;margin:14px;
+    }
+    .panel h2{margin:0 0 6px;font-size:20px}
+    .muted{color:var(--muted);font-weight:800;font-size:13px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+    @media(max-width:720px){.grid2{grid-template-columns:1fr}}
     .lessonBtn{
-      background:#fff;color:var(--text);border:2px solid var(--border);
-      border-radius:var(--radius);padding:12px;cursor:pointer;box-shadow:var(--shadow);
       text-align:left;
+      padding:12px;border-radius:18px;border:2px solid #cfe3e7;
+      background:#fff;box-shadow:0 10px 18px rgba(0,0,0,.06);
+      font-weight:900;cursor:pointer;
+      display:flex;justify-content:space-between;gap:10px;align-items:center;
     }
-    .stars{font-size:18px}
-    .ok{color:#1b5e20;font-weight:800}
-    .hidden{display:none !important}
+    .stars{white-space:nowrap;color:#d19a00}
+
+    /* Lesson inside (like screenshot) */
+    .lessonTop{
+      text-align:center;
+      padding:6px 0 8px;
+    }
+    .lessonUnitTitle{font-weight:900;font-size:22px;margin:0}
+    .lessonTopic{margin:4px 0 6px;font-weight:900;color:#0f3b41}
+    .youHave{margin:0;font-weight:900;color:#d19a00;font-size:18px}
+    .sectionBar{
+      display:flex;align-items:center;gap:10px;
+      background:#0b5c4f;
+      color:#fff;
+      padding:10px 12px;
+      border-radius:16px;
+      font-weight:900;
+      margin:12px 0 10px;
+    }
+    .hintText{margin:6px 0 10px;color:#1f3b35;font-weight:800}
+
+    .vocabGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .vocabCard{
+      background:var(--greenSoft);
+      border:2px solid var(--greenBorder);
+      border-radius:18px;
+      padding:10px;
+      text-align:center;
+    }
+    .vocabCard img{
+      width:86px;height:86px;object-fit:contain;
+      background:#fff;border-radius:16px;
+      padding:10px;border:2px solid #cfead0;
+    }
+    .vocabWord{font-size:22px;font-weight:900;margin:8px 0 0}
+    .vocabRu{color:#446;opacity:.85;font-weight:900;margin-top:2px}
+    .sayBtn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      margin-top:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:none;
+      background:var(--btnGreen);
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .grammarBox{
+      background:#dff2ff;
+      border:2px solid #a7d7ff;
+      border-radius:18px;
+      padding:12px;
+    }
+    .grammarTitle{font-weight:900;font-size:20px;margin:0 0 6px}
+    .grammarFormula{margin-top:8px;font-weight:900}
+    .grammarExamples{margin:8px 0 0;padding-left:18px;font-weight:900}
+
+    .wsBox{
+      background:#fff;
+      border:2px dashed #cfe3e7;
+      border-radius:18px;
+      padding:12px;
+      margin-top:10px;
+    }
+    .wsTitle{font-weight:900;font-size:18px;margin:0 0 6px}
+    .wsItem{display:flex;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap}
+    .wsItem input[type="text"]{max-width:320px}
+    .checkBtn{
+      margin-top:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:none;
+      background:var(--btnGreen);
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 10px 18px rgba(21,93,34,.18);
+    }
+    .scoreRight{
+      float:right;
+      font-weight:900;
+      color:#0f3b41;
+      margin-top:12px;
+    }
+    .resultLine{margin-top:8px;font-weight:900}
+    .okGreen{color:#1b5e20}
+    .badRed{color:#c62828}
+
+    .goodInput{border-color:#2e7d32!important;background:#f2fff1}
+    .badInput{border-color:#c62828!important;background:#fff3f3}
+
+    /* Bottom buttons (Back / Save) */
+    .bottomBar{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+    }
+    .btnBack{
+      flex:1;
+      border:none;
+      padding:14px 12px;
+      border-radius:18px;
+      background:var(--btnBlue);
+      color:#fff;
+      font-weight:900;
+      font-size:18px;
+      cursor:pointer;
+      box-shadow:0 10px 18px rgba(30,90,168,.18);
+    }
+    .btnSave{
+      flex:1;
+      border:none;
+      padding:14px 12px;
+      border-radius:18px;
+      background:var(--btnGreen2);
+      color:#fff;
+      font-weight:900;
+      font-size:18px;
+      cursor:pointer;
+      box-shadow:0 10px 18px rgba(27,111,42,.18);
+    }
+
+    .toolbarTop{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .miniBtn{
+      border:none;border-radius:14px;padding:10px 12px;
+      font-weight:900;cursor:pointer;
+      background:#fff;border:2px solid #cfe3e7;color:#0f3b41;
+    }
+    .miniBtn.green{background:var(--btnGreen);border:none;color:#fff}
+    .miniBtn.red{background:#c62828;border:none;color:#fff}
+
+    /* Print */
     .printOnly{display:none}
     @media print{
-      header,.noPrint{display:none !important}
-      body{background:#fff}
-      .wrap{max-width:100%;padding:0}
-      .card{box-shadow:none;border:0;border-radius:0}
+      .noPrint{display:none!important}
       .printOnly{display:block}
+      body{background:#fff}
+      .panel,.mainCard,.loginCard{box-shadow:none;border:0;border-radius:0;margin:0}
+      .content{padding:0}
+      .wsBox{border:1px solid #ddd}
     }
   </style>
 </head>
+
 <body>
 
-<header class="noPrint">
-  <div class="brand">AI Bayan Dictionary 3gr</div>
-  <div class="row" style="gap:8px">
-    <span class="pill" id="whoPill">Гость</span>
-    <button class="secondary" id="homeBtn">Главное меню</button>
-    <button class="secondary" id="logoutBtn">Выйти</button>
+<!-- HERO -->
+<div class="wrap noPrint">
+  <div class="hero">
+    <div class="topbar">
+      <div class="pill" id="whoPill">Guest</div>
+      <div class="pill" id="rolePill">Student</div>
+    </div>
+
+    <div class="logoWrap">
+      <div class="logo"><span>AI<br>Bayan</span></div>
+      <h1 class="title">AI Bayan Vocab</h1>
+      <div class="subtitle">3 Grade</div>
+    </div>
   </div>
-</header>
-
-<div class="wrap">
-
-  <!-- LOGIN -->
-  <section id="screenLogin" class="card">
-    <h1 class="title">Вход</h1>
-    <div class="grid">
-      <div>
-        <div class="muted">Логин</div>
-        <input id="loginInput" autocomplete="off" />
-      </div>
-      <div>
-        <div class="muted">PIN</div>
-        <input id="pinInput" type="password" inputmode="numeric" />
-      </div>
-    </div>
-    <div class="divider"></div>
-    <button class="full" id="loginBtn">Войти</button>
-    <div class="muted" style="margin-top:8px">* Если PIN учителя — откроется журнал.</div>
-  </section>
-
-  <!-- MAIN MENU -->
-  <section id="screenMain" class="hidden">
-    <div class="card">
-      <h2 class="title">Главное меню</h2>
-      <div class="muted">Выбери юнит или открой чат.</div>
-
-      <div class="divider"></div>
-
-      <!-- AI CHAT ONLY HERE -->
-      <div class="card" style="border-width:2px">
-        <div class="row" style="justify-content:space-between">
-          <strong>💬 Чат с ИИ</strong>
-          <span class="pill">только в главном меню</span>
-        </div>
-        <div class="muted" style="margin:6px 0 10px">Напиши вопрос (демо-чат без сервера).</div>
-        <textarea id="chatInput" placeholder="Например: Explain 'What’s this? It’s a pencil.'"></textarea>
-        <div class="row" style="margin-top:8px">
-          <button id="chatSend">Отправить</button>
-          <button class="secondary" id="chatClear">Очистить</button>
-        </div>
-        <div class="divider"></div>
-        <div id="chatLog" class="muted" style="white-space:pre-wrap"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="units" id="unitGrid"></div>
-    </div>
-  </section>
-
-  <!-- UNIT -->
-  <section id="screenUnit" class="hidden">
-    <div class="card">
-      <div class="row" style="justify-content:space-between">
-        <div>
-          <h2 class="title" id="unitTitle">Unit</h2>
-          <div class="muted">Внутри 8 тем (lessons).</div>
-        </div>
-        <button class="secondary" id="backToMain">← Назад</button>
-      </div>
-      <div class="divider"></div>
-      <div class="lessonList" id="lessonList"></div>
-    </div>
-  </section>
-
-  <!-- LESSON -->
-  <section id="screenLesson" class="hidden">
-    <div class="card">
-      <div class="row" style="justify-content:space-between">
-        <div>
-          <h2 class="title" id="lessonTitle">Lesson</h2>
-          <div class="muted" id="lessonSubtitle"></div>
-        </div>
-        <div class="row">
-          <button class="secondary" id="backToUnit">← К юниту</button>
-          <button id="printLesson">🖨 Print</button>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="printOnly">
-        <h2 id="printHeader" style="margin:0 0 8px">AI Bayan Dictionary 3gr</h2>
-      </div>
-
-      <div id="lessonBody"></div>
-
-      <div class="divider"></div>
-
-      <div class="row" style="justify-content:space-between">
-        <div>
-          <div class="muted">Звёзды за lesson:</div>
-          <div class="stars" id="starView">☆☆☆</div>
-        </div>
-        <div class="row">
-          <button class="secondary" id="starMinus">-</button>
-          <button id="starPlus">+</button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- TEACHER JOURNAL -->
-  <section id="screenTeacher" class="hidden">
-    <div class="card">
-      <div class="row" style="justify-content:space-between">
-        <div>
-          <h2 class="title">Журнал учителя</h2>
-          <div class="muted">Логины, последний вход, звёзды.</div>
-        </div>
-        <button class="secondary" id="teacherBack">← Главное меню</button>
-      </div>
-      <div class="divider"></div>
-      <div id="teacherTable"></div>
-      <div class="divider"></div>
-      <button class="danger" id="resetAll">Сбросить прогресс (все)</button>
-    </div>
-  </section>
-
 </div>
 
+<!-- LOGIN -->
+<section id="scrLogin" class="screen active">
+  <div class="loginCard">
+    <h2 style="margin:0 0 8px">Login</h2>
+    <div class="muted">Enter login and PIN</div>
+    <div style="height:10px"></div>
+
+    <label>Login</label>
+    <input id="loginInput" autocomplete="off" />
+
+    <label>PIN</label>
+    <input id="pinInput" type="password" inputmode="numeric" />
+
+    <div class="row">
+      <button class="action" id="loginBtn">Enter</button>
+      <button class="action secondary" id="demoBtn">Demo (3EL1)</button>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN MENU -->
+<section id="scrMain" class="screen">
+  <div class="content">
+    <div class="mainCard">
+      <p class="hello" id="helloText">Hello!</p>
+      <div class="starsLine">Total stars in all lessons: <span class="star" id="totalStars">0 ★</span></div>
+    </div>
+
+    <div class="menu">
+      <button class="btn btnPrimary" id="btnChat">💬 AI Chat <small>Only in Main Menu</small></button>
+      <button class="btn btnPrimary" id="btnJournal">📒 Teacher Journal</button>
+
+      <button class="btn" id="btnUnit1">✅ Unit 1</button>
+      <button class="btn" id="btnUnit2">Unit 2</button>
+      <button class="btn" id="btnUnit3">Unit 3</button>
+      <button class="btn" id="btnUnit4">Unit 4</button>
+      <button class="btn" id="btnUnit5">Unit 5</button>
+      <button class="btn" id="btnUnit6">Unit 6</button>
+      <button class="btn" id="btnUnit7">Unit 7</button>
+      <button class="btn" id="btnUnit8">Unit 8</button>
+
+      <button class="btn" id="logoutBtn">🚪 Log out</button>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHAT -->
+<section id="scrChat" class="screen">
+  <div class="panel">
+    <div class="toolbarTop noPrint">
+      <div>
+        <h2 style="margin:0">AI Chat</h2>
+        <div class="muted">Chat is only in Main Menu (opened from there)</div>
+      </div>
+      <button class="miniBtn" id="backFromChat">← Back</button>
+    </div>
+
+    <textarea id="chatInput" placeholder="Write your question..."></textarea>
+    <div class="row noPrint">
+      <button class="action" id="chatSend">Send</button>
+      <button class="action secondary" id="chatClear">Clear</button>
+    </div>
+
+    <div style="height:10px"></div>
+    <div class="muted" id="chatLog" style="white-space:pre-wrap"></div>
+  </div>
+</section>
+
+<!-- TEACHER JOURNAL -->
+<section id="scrJournal" class="screen">
+  <div class="panel">
+    <div class="toolbarTop noPrint">
+      <div>
+        <h2 style="margin:0">Teacher Journal</h2>
+        <div class="muted">Logins • last login • total stars</div>
+      </div>
+      <button class="miniBtn" id="backFromJournal">← Back</button>
+    </div>
+    <div id="journalList"></div>
+    <div class="row noPrint" style="margin-top:10px">
+      <button class="action" id="resetAll">Reset all progress</button>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 1: lessons list -->
+<section id="scrUnit1" class="screen">
+  <div class="panel">
+    <div class="toolbarTop noPrint">
+      <div>
+        <h2 style="margin:0">Unit 1 — Hello English!</h2>
+        <div class="muted">Open one lesson</div>
+      </div>
+      <button class="miniBtn" id="backUnit1">← Main Menu</button>
+    </div>
+    <div class="grid2" id="unit1LessonGrid"></div>
+  </div>
+</section>
+
+<!-- LESSON -->
+<section id="scrLesson" class="screen">
+  <div class="panel">
+    <div class="toolbarTop noPrint">
+      <div>
+        <h2 style="margin:0" id="lessonHeader">Unit 1</h2>
+        <div class="muted" id="lessonHeader2">Lesson</div>
+      </div>
+      <div class="row">
+        <button class="miniBtn" id="printBtn">🖨 Print</button>
+        <button class="miniBtn red" id="backLesson">Back</button>
+      </div>
+    </div>
+
+    <div class="printOnly">
+      <h2 style="margin:0 0 6px">AI Bayan Vocab 3 Grade</h2>
+      <div id="printTitle" style="font-weight:900;margin-bottom:10px"></div>
+      <hr>
+    </div>
+
+    <div id="lessonBody"></div>
+  </div>
+</section>
+
 <script>
-/* ====== AUTH RULES ====== */
-const STUDENT_PIN = "2844";
-const TEACHER_PIN = "3244";
-const STUDENTS = Array.from({length:15}, (_,i)=>`3EL${i+1}`); // 3EL1..3EL15
+  /* ================= AUTH ================= */
+  const STUDENT_PIN = "2844";
+  const TEACHER_PIN = "3244";
+  const STUDENTS = Array.from({length:15}, (_,i)=>`3EL${i+1}`);
+  const LS_KEY = "AIB_VOCAB3_APP_v1";
 
-/* ====== CONTENT SKELETON (8 units × 8 lessons) ====== */
-const UNITS = [
-  { id:1, title:"Unit 1 – Hello English!" },
-  { id:2, title:"Unit 2 – My school" },
-  { id:3, title:"Unit 3 – People I love" },
-  { id:4, title:"Unit 4 – Weather" },
-  { id:5, title:"Unit 5 – My free time" },
-  { id:6, title:"Unit 6 – Health" },
-  { id:7, title:"Unit 7 – Buildings!" },
-  { id:8, title:"Unit 8 – My holidays" },
-];
-
-const LESSONS_8 = [
-  { id:1, name:"Topic 1 – Vocabulary", type:"vocab" },
-  { id:2, name:"Topic 2 – Grammar", type:"grammar" },
-  { id:3, name:"Topic 3 – Worksheet 1 (Quiz)", type:"quiz" },
-  { id:4, name:"Topic 4 – Reading mini (T/F)", type:"reading" },
-  { id:5, name:"Topic 5 – Matching (Picture–Word)", type:"match" },
-  { id:6, name:"Topic 6 – Choose / Fill", type:"choose" },
-  { id:7, name:"Topic 7 – Spelling (Missing letters)", type:"spelling" },
-  { id:8, name:"Topic 8 – Review", type:"review" },
-];
-
-/* ====== STATE ====== */
-let currentUser = null; // {role:'student'|'teacher', login:'3EL1'|...}
-let currentUnitId = null;
-let currentLessonId = null;
-
-/* ====== STORAGE HELPERS ====== */
-const LS_KEY = "AIB3_DICT_DATA_v1";
-function loadDB(){
-  try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {users:{}}; }
-  catch{ return {users:{}}; }
-}
-function saveDB(db){ localStorage.setItem(LS_KEY, JSON.stringify(db)); }
-
-function ensureUser(db, login){
-  if(!db.users[login]){
-    db.users[login] = {
-      lastLogin: null,
-      stars: {}, // key: "u{unit}l{lesson}" -> number 0..3
-    };
+  function loadDB(){
+    try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {users:{}}; }
+    catch{ return {users:{}}; }
   }
-  return db.users[login];
-}
-function keyUL(unitId, lessonId){ return `u${unitId}l${lessonId}`; }
+  function saveDB(db){ localStorage.setItem(LS_KEY, JSON.stringify(db)); }
+  function ensureUser(db, login){
+    if(!db.users[login]){
+      db.users[login]={lastLogin:null, stars:{}, saved:{}}; // stars per lesson, saved results
+    }
+    return db.users[login];
+  }
+  function keyUL(unitId, lessonId){ return `u${unitId}l${lessonId}`; }
 
-/* ====== UI HELPERS ====== */
-const $ = (id)=>document.getElementById(id);
-function show(screenId){
-  ["screenLogin","screenMain","screenUnit","screenLesson","screenTeacher"].forEach(s=>{
-    $(s).classList.toggle("hidden", s!==screenId);
-  });
-}
-function setWho(){
-  if(!currentUser){ $("whoPill").textContent="Гость"; return; }
-  $("whoPill").textContent = currentUser.role==="teacher" ? "Учитель" : currentUser.login;
-}
+  let currentUser = null; // {role:'student'|'teacher', login:'3EL1'|...}
+  let currentLessonId = null;
 
-/* ====== RENDER MAIN ====== */
-function renderUnits(){
-  const grid = $("unitGrid");
-  grid.innerHTML = "";
-  UNITS.forEach(u=>{
-    const b = document.createElement("button");
-    b.className = "unitBtn";
-    b.innerHTML = `<strong>${u.title}</strong><span class="muted">8 тем внутри</span>`;
-    b.onclick = ()=>openUnit(u.id);
-    grid.appendChild(b);
-  });
-}
+  /* ================= NAV ================= */
+  const $ = (id)=>document.getElementById(id);
+  function show(id){
+    ["scrLogin","scrMain","scrChat","scrJournal","scrUnit1","scrLesson"].forEach(s=>{
+      $(s).classList.toggle("active", s===id);
+    });
+  }
+  function setWho(){
+    if(!currentUser){ $("whoPill").textContent="Guest"; $("rolePill").textContent="Student"; return; }
+    $("whoPill").textContent = currentUser.role==="teacher" ? "Teacher" : currentUser.login;
+    $("rolePill").textContent = currentUser.role==="teacher" ? "Teacher" : "Student";
+  }
 
-/* ====== UNIT ====== */
-function openUnit(unitId){
-  currentUnitId = unitId;
-  const u = UNITS.find(x=>x.id===unitId);
-  $("unitTitle").textContent = u ? u.title : `Unit ${unitId}`;
-  renderLessons(unitId);
-  show("screenUnit");
-}
-function renderLessons(unitId){
-  const list = $("lessonList");
-  list.innerHTML = "";
-  LESSONS_8.forEach(ls=>{
-    const btn = document.createElement("button");
-    btn.className = "lessonBtn";
-    const stars = getStars(unitId, ls.id);
-    btn.innerHTML = `
-      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+  /* ================= SPEAK ================= */
+  function speak(text){
+    try{
+      const msg = new SpeechSynthesisUtterance(text);
+      msg.lang = "en-US";
+      speechSynthesis.speak(msg);
+    }catch(e){}
+  }
+
+  /* ================= HELPERS ================= */
+  function escapeHTML(s){
+    return (s||"").toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+  function escapeJS(s){ return (s||"").toString().replaceAll("\\","\\\\").replaceAll("'","\\'"); }
+  function norm(s){ return (s||"").toString().trim().toLowerCase(); }
+  function shuffle(arr){
+    const a = arr.slice();
+    for(let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]]=[a[j],a[i]];
+    }
+    return a;
+  }
+
+  /* ================= STARS / TOTAL ================= */
+  function getLessonStars(lessonId){
+    if(!currentUser || currentUser.role!=="student") return 0;
+    const db = loadDB();
+    const u = ensureUser(db, currentUser.login);
+    return Math.max(0, Math.min(3, u.stars[keyUL(1,lessonId)] || 0));
+  }
+  function setLessonStars(lessonId, stars){
+    if(!currentUser || currentUser.role!=="student") return;
+    const db = loadDB();
+    const u = ensureUser(db, currentUser.login);
+    u.stars[keyUL(1,lessonId)] = Math.max(0, Math.min(3, stars));
+    saveDB(db);
+  }
+  function totalStarsAll(){
+    if(!currentUser || currentUser.role!=="student") return 0;
+    const db = loadDB();
+    const u = ensureUser(db, currentUser.login);
+    let sum=0;
+    for(const k in u.stars) sum += (u.stars[k]||0);
+    return sum;
+  }
+  function updateMainHeader(){
+    if(!currentUser){ return; }
+    $("helloText").textContent = currentUser.role==="teacher" ? "Hello, Teacher!" : `Hello, ${currentUser.login}!`;
+    $("totalStars").textContent = `${totalStarsAll()} ★`;
+  }
+
+  /* ================= UNIT 1 DATA (8 lessons) ================= */
+  const IMG = {
+    hello:"https://cdn-icons-png.flaticon.com/512/3143/3143643.png",
+    goodbye:"https://cdn-icons-png.flaticon.com/512/742/742751.png",
+    please:"https://cdn-icons-png.flaticon.com/512/1828/1828925.png",
+    thanks:"https://cdn-icons-png.flaticon.com/512/179/179386.png",
+
+    red:"https://cdn-icons-png.flaticon.com/512/2917/2917242.png",
+    blue:"https://cdn-icons-png.flaticon.com/512/2917/2917246.png",
+    green:"https://cdn-icons-png.flaticon.com/512/2917/2917241.png",
+    yellow:"https://cdn-icons-png.flaticon.com/512/2917/2917245.png",
+
+    one:"https://cdn-icons-png.flaticon.com/512/2611/2611555.png",
+    two:"https://cdn-icons-png.flaticon.com/512/2611/2611564.png",
+    three:"https://cdn-icons-png.flaticon.com/512/2611/2611571.png",
+    four:"https://cdn-icons-png.flaticon.com/512/2611/2611581.png",
+
+    five:"https://cdn-icons-png.flaticon.com/512/2611/2611590.png",
+    six:"https://cdn-icons-png.flaticon.com/512/2611/2611600.png",
+    seven:"https://cdn-icons-png.flaticon.com/512/2611/2611610.png",
+    eight:"https://cdn-icons-png.flaticon.com/512/2611/2611621.png",
+
+    name:"https://cdn-icons-png.flaticon.com/512/942/942748.png",
+    flag:"https://cdn-icons-png.flaticon.com/512/197/197484.png",
+    years:"https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    question:"https://cdn-icons-png.flaticon.com/512/471/471662.png",
+
+    book:"https://cdn-icons-png.flaticon.com/512/29/29302.png",
+    pen:"https://cdn-icons-png.flaticon.com/512/3097/3097995.png",
+    pencil:"https://cdn-icons-png.flaticon.com/512/3596/3596091.png",
+    bag:"https://cdn-icons-png.flaticon.com/512/584/584052.png",
+    desk:"https://cdn-icons-png.flaticon.com/512/2702/2702144.png",
+    board:"https://cdn-icons-png.flaticon.com/512/3039/3039394.png",
+  };
+
+  const UNIT1 = {
+    id:1,
+    title:"Unit 1 – Hello English!",
+    lessons:[
+      {
+        id:1,
+        title:"Lesson 1 – Greetings",
+        topic:"Greetings and polite words",
+        vocab:[
+          {en:"hello", ru:"привет", img:IMG.hello},
+          {en:"goodbye", ru:"пока", img:IMG.goodbye},
+          {en:"please", ru:"пожалуйста", img:IMG.please},
+          {en:"thank you", ru:"спасибо", img:IMG.thanks},
+        ],
+        grammar:{
+          title:"Greetings",
+          explain:"We use greetings to say hello and goodbye.",
+          formula:'Hello! / Goodbye! | Please. / Thank you.',
+          examples:["Hello!","Goodbye!","Please.","Thank you."]
+        }
+      },
+      {
+        id:2,
+        title:"Lesson 2 – My name",
+        topic:"Asking and saying your name",
+        vocab:[
+          {en:"name", ru:"имя", img:IMG.name},
+          {en:"what", ru:"что/какой", img:IMG.question},
+          {en:"my", ru:"мой/моя", img:IMG.name},
+          {en:"your", ru:"твой/ваш", img:IMG.name},
+        ],
+        grammar:{
+          title:"What’s your name?",
+          explain:'We ask: "What’s your name?" We answer: "My name is …"',
+          formula:'What’s your name? → My name is + Name.',
+          examples:["What’s your name?","My name is Amina.","My name is Timur."]
+        }
+      },
+      {
+        id:3,
+        title:"Lesson 3 – Colors",
+        topic:"Basic colors",
+        vocab:[
+          {en:"red", ru:"красный", img:IMG.red},
+          {en:"blue", ru:"синий", img:IMG.blue},
+          {en:"green", ru:"зелёный", img:IMG.green},
+          {en:"yellow", ru:"жёлтый", img:IMG.yellow},
+        ],
+        grammar:{
+          title:"This is / These are",
+          explain:'We use "This is" for one thing and "These are" for many things.',
+          formula:"This is + singular. | These are + plural.",
+          examples:["This is red.","These are blue pencils."]
+        }
+      },
+      {
+        id:4,
+        title:"Lesson 4 – Numbers 1–4",
+        topic:"Numbers 1–4",
+        vocab:[
+          {en:"one", ru:"один", img:IMG.one},
+          {en:"two", ru:"два", img:IMG.two},
+          {en:"three", ru:"три", img:IMG.three},
+          {en:"four", ru:"четыре", img:IMG.four},
+        ],
+        grammar:{
+          title:"How old are you?",
+          explain:'We ask: "How old are you?" We answer: "I’m …"',
+          formula:"How old are you? → I’m + number.",
+          examples:["How old are you?","I’m seven.","I’m eight."]
+        }
+      },
+      {
+        id:5,
+        title:"Lesson 5 – Numbers 5–8",
+        topic:"Numbers 5–8",
+        vocab:[
+          {en:"five", ru:"пять", img:IMG.five},
+          {en:"six", ru:"шесть", img:IMG.six},
+          {en:"seven", ru:"семь", img:IMG.seven},
+          {en:"eight", ru:"восемь", img:IMG.eight},
+        ],
+        grammar:{
+          title:"How old are you?",
+          explain:"We use numbers to say age.",
+          formula:"I’m + number.",
+          examples:["I’m five.","I’m six.","I’m eight."]
+        }
+      },
+      {
+        id:6,
+        title:"Lesson 6 – Classroom things",
+        topic:"Things in our classroom",
+        vocab:[
+          {en:"book", ru:"книга", img:IMG.book},
+          {en:"pen", ru:"ручка", img:IMG.pen},
+          {en:"pencil", ru:"карандаш", img:IMG.pencil},
+          {en:"bag", ru:"портфель", img:IMG.bag},
+        ],
+        grammar:{
+          title:"There is / There are",
+          explain:'We use "There is" for one thing and "There are" for many things.',
+          formula:"There is + a/an + singular noun. | There are + plural noun.",
+          examples:["There is a book on the desk.","There are three pens in my bag."]
+        }
+      },
+      {
+        id:7,
+        title:"Lesson 7 – Where are you from?",
+        topic:"Countries and answers",
+        vocab:[
+          {en:"from", ru:"из", img:IMG.flag},
+          {en:"Kazakhstan", ru:"Казахстан", img:IMG.flag},
+          {en:"Russia", ru:"Россия", img:IMG.flag},
+          {en:"England", ru:"Англия", img:IMG.flag},
+        ],
+        grammar:{
+          title:"Where are you from?",
+          explain:'We ask: "Where are you from?" We answer: "I’m from …"',
+          formula:"Where are you from? → I’m from + country.",
+          examples:["Where are you from?","I’m from Kazakhstan.","I’m from England."]
+        }
+      },
+      {
+        id:8,
+        title:"Lesson 8 – Review (Unit 1)",
+        topic:"Review: greetings, colors, numbers, classroom",
+        vocab:[
+          {en:"hello", ru:"привет", img:IMG.hello},
+          {en:"red", ru:"красный", img:IMG.red},
+          {en:"one", ru:"один", img:IMG.one},
+          {en:"book", ru:"книга", img:IMG.book},
+        ],
+        grammar:{
+          title:"Unit 1 Review",
+          explain:"Let’s review key sentences from Unit 1.",
+          formula:"Hello! | My name is … | I’m … | There is/are …",
+          examples:["Hello! My name is Dana.","I’m seven.","There is a book on the desk."]
+        }
+      },
+    ]
+  };
+
+  /* ================= WORKSHEET GENERATORS ================= */
+  function buildWorksheetsForLesson(lesson){
+    // WS1 Missing letters (4 items) from vocab
+    const ws1 = lesson.vocab.slice(0,4).map(v=>{
+      const w = v.en.toLowerCase();
+      // make a simple gap: hide 1-2 letters
+      let gap = w;
+      if(w.length>=4){
+        const idx = Math.max(1, Math.floor(w.length/2));
+        gap = w.slice(0,idx-1) + "__" + w.slice(idx+1);
+      }else{
+        gap = w[0] + "__";
+      }
+      return {gap, ans:w};
+    });
+
+    // WS2 Matching (3 items) dropdown: pick correct from mixed vocab
+    const vocabWords = lesson.vocab.map(x=>x.en);
+    const pool = shuffle(vocabWords.concat(vocabWords)).slice(0,6);
+    const ws2 = lesson.vocab.slice(0,3).map(v=>{
+      let opts = shuffle([v.en, pool[0], pool[1], pool[2]].filter(Boolean));
+      opts = Array.from(new Set(opts)).slice(0,4);
+      if(!opts.includes(v.en)) opts[0]=v.en;
+      return {img:v.img, ans:v.en, options:shuffle(opts)};
+    });
+
+    // WS3 Mini crossword (write the word) - 3 clues
+    const ws3 = lesson.vocab.slice(0,3).map(v=>{
+      const clue =
+        v.en==="hello" ? "You say it when you meet a friend." :
+        v.en==="goodbye" ? "You say it when you leave." :
+        v.en==="please" ? "A polite word when you ask." :
+        v.en==="thank you" ? "A polite word when someone helps you." :
+        v.en==="red" ? "A color like an apple." :
+        v.en==="blue" ? "A color like the sky." :
+        v.en==="green" ? "A color like grass." :
+        v.en==="yellow" ? "A color like the sun." :
+        v.en==="one" ? "Number: 1" :
+        v.en==="two" ? "Number: 2" :
+        v.en==="three" ? "Number: 3" :
+        v.en==="four" ? "Number: 4" :
+        v.en==="five" ? "Number: 5" :
+        v.en==="six" ? "Number: 6" :
+        v.en==="seven" ? "Number: 7" :
+        v.en==="eight" ? "Number: 8" :
+        v.en==="book" ? "You read it in class." :
+        v.en==="pen" ? "You write with it. (not a pencil)" :
+        v.en==="pencil" ? "You draw and write with it." :
+        v.en==="bag" ? "You carry books in it." :
+        "Write the word.";
+      return {clue, ans:v.en};
+    });
+
+    // WS4 Choose correct word (3 items) based on grammar
+    let ws4 = [];
+    if(lesson.grammar.title.includes("name")){
+      ws4 = [
+        {q:"What’s ___ name?", options:["your","my","from"], ans:"your"},
+        {q:"My name ___ Ali.", options:["is","are","am"], ans:"is"},
+        {q:"___ name is Amina.", options:["My","Those","There"], ans:"My"},
+      ];
+    }else if(lesson.grammar.title.includes("There is")){
+      ws4 = [
+        {q:"There ___ a book on the desk.", options:["is","are","am"], ans:"is"},
+        {q:"There ___ three pens in my bag.", options:["are","is","my"], ans:"are"},
+        {q:"There is a ___ on the wall.", options:["board","red","hello"], ans:"board"},
+      ];
+    }else if(lesson.grammar.title.includes("from")){
+      ws4 = [
+        {q:"Where are you ___?", options:["from","name","old"], ans:"from"},
+        {q:"I’m ___ Kazakhstan.", options:["from","is","are"], ans:"from"},
+        {q:"I’m from ___.", options:["England","book","seven"], ans:"England"},
+      ];
+    }else if(lesson.grammar.title.includes("old")){
+      ws4 = [
+        {q:"How old ___ you?", options:["are","is","am"], ans:"are"},
+        {q:"I’m ___.", options:["seven","hello","red"], ans:"seven"},
+        {q:"I’m ___ years old.", options:["eight","bag","please"], ans:"eight"},
+      ];
+    }else if(lesson.grammar.title.includes("This is")){
+      ws4 = [
+        {q:"This ___ red.", options:["is","are","am"], ans:"is"},
+        {q:"These ___ pencils.", options:["are","is","my"], ans:"are"},
+        {q:"This is ___.", options:["yellow","are","from"], ans:"yellow"},
+      ];
+    }else{
+      ws4 = [
+        {q:"Hello! ___ you.", options:["Thank","Thanks","Thank you"], ans:"Thank you"},
+        {q:"Please, ___ down.", options:["sit","bag","red"], ans:"sit"},
+        {q:"Goodbye! See you ___.", options:["soon","book","yellow"], ans:"soon"},
+      ];
+    }
+
+    return {ws1, ws2, ws3, ws4};
+  }
+
+  /* ================= RENDER UNIT 1 LIST ================= */
+  function renderUnit1Lessons(){
+    const grid = $("unit1LessonGrid");
+    grid.innerHTML = "";
+    UNIT1.lessons.forEach(ls=>{
+      const stars = getLessonStars(ls.id);
+      const btn = document.createElement("button");
+      btn.className = "lessonBtn";
+      btn.innerHTML = `
         <div>
-          <div style="font-weight:900">${ls.name}</div>
-          <div class="muted">Открыть</div>
+          <div style="font-size:16px">${escapeHTML(ls.title)}</div>
+          <div class="muted">${escapeHTML(ls.topic)}</div>
         </div>
         <div class="stars">${"★".repeat(stars)}${"☆".repeat(3-stars)}</div>
+      `;
+      btn.onclick = ()=>openLesson(ls.id);
+      grid.appendChild(btn);
+    });
+  }
+
+  /* ================= LESSON UI ================= */
+  function lessonTemplate(lesson){
+    const stars = getLessonStars(lesson.id);
+    const ws = buildWorksheetsForLesson(lesson);
+
+    // Build WS2 options per select
+    const ws2Html = ws.ws2.map((m,idx)=>`
+      <div class="wsItem">
+        <div style="font-weight:900;width:26px">${idx+1})</div>
+        <img src="${m.img}" alt="pic" style="width:46px;height:46px;object-fit:contain;background:#fff;border-radius:12px;padding:6px;border:2px solid #cfead0">
+        <select id="ws2_${idx}">
+          <option value="">--choose--</option>
+          ${m.options.map(o=>`<option value="${escapeHTML(o)}">${escapeHTML(o)}</option>`).join("")}
+        </select>
       </div>
-    `;
-    btn.onclick = ()=>openLesson(unitId, ls.id);
-    list.appendChild(btn);
-  });
-}
+    `).join("");
 
-/* ====== LESSON CONTENT (placeholders) ====== */
-function lessonContent(unitId, lessonId){
-  const unit = UNITS.find(u=>u.id===unitId)?.title || `Unit ${unitId}`;
-  const lesson = LESSONS_8.find(l=>l.id===lessonId)?.name || `Lesson ${lessonId}`;
-
-  // Тут дальше мы просто будем заменять на твой контент по книге (слова/правила/упр).
-  if(lessonId===1){
-    return `
-      <div class="card">
-        <div class="muted">Vocabulary (пример-заглушка)</div>
-        <div class="divider"></div>
-        <div class="grid">
-          ${["word 1","word 2","word 3","word 4"].map(w=>`
-            <div class="card" style="border-width:2px">
-              <div style="font-weight:900">${w}</div>
-              <div class="muted">перевод</div>
-              <button onclick="speak('${w.replace(/'/g,"")}')">🔊</button>
-            </div>
-          `).join("")}
+    const ws4Html = ws.ws4.map((q,idx)=>`
+      <div class="wsItem">
+        <div style="font-weight:900;width:26px">${idx+1})</div>
+        <div style="flex:1">
+          <div style="font-weight:900">${escapeHTML(q.q)}</div>
+          <select id="ws4_${idx}">
+            <option value="">--choose--</option>
+            ${q.options.map(o=>`<option value="${escapeHTML(o)}">${escapeHTML(o)}</option>`).join("")}
+          </select>
         </div>
       </div>
-    `;
-  }
-  if(lessonId===2){
+    `).join("");
+
     return `
-      <div class="card">
-        <div class="muted">Grammar (пример-заглушка)</div>
-        <div class="divider"></div>
-        <div><b>Rule (EN):</b> What’s this? It’s a ...</div>
-        <div><b>Правило (RU):</b> Что это? Это ...</div>
-        <div class="divider"></div>
-        <div><b>Formula:</b> What’s this? → It’s a/an + noun</div>
-        <div class="divider"></div>
-        <div><b>Examples:</b></div>
-        <ul>
-          <li>What’s this? It’s a pencil.</li>
-          <li>What’s this? It’s an apple.</li>
+      <div class="lessonTop">
+        <p class="lessonUnitTitle">${escapeHTML(UNIT1.title)}</p>
+        <div class="lessonTopic">${escapeHTML(lesson.topic)}</div>
+        <p class="youHave">You have ${stars} ★ in this lesson.</p>
+      </div>
+
+      <div class="sectionBar">🧠 <span>VOCABULARY — Picture Dictionary</span></div>
+      <div class="hintText">Tap the speaker to hear AI Bayan say the word in English.</div>
+
+      <div class="vocabGrid">
+        ${lesson.vocab.map(it=>`
+          <div class="vocabCard">
+            <img src="${it.img}" alt="${escapeHTML(it.en)}">
+            <div class="vocabWord">${escapeHTML(it.en)}</div>
+            <div class="vocabRu">${escapeHTML(it.ru)}</div>
+            <button class="sayBtn" onclick="speak('${escapeJS(it.en)}')">🔊 Say it</button>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="sectionBar">📘 <span>GRAMMAR — Key Rule</span></div>
+      <div class="grammarBox">
+        <p class="grammarTitle">${escapeHTML(lesson.grammar.title)}</p>
+        <div style="font-weight:900">${escapeHTML(lesson.grammar.explain)}</div>
+        <div class="grammarFormula"><b>Formula:</b> ${escapeHTML(lesson.grammar.formula)}</div>
+        <div style="margin-top:10px;font-weight:900">Examples:</div>
+        <ul class="grammarExamples">
+          ${lesson.grammar.examples.map(x=>`<li>${escapeHTML(x)}</li>`).join("")}
         </ul>
       </div>
-    `;
-  }
-  if(lessonId===4){
-    return `
-      <div class="card">
-        <div class="muted">Reading mini (2 True/False)</div>
-        <div class="divider"></div>
-        <div style="font-weight:900">Mini text:</div>
-        <p>Hello! I’m Tom. I have a bag and a book. I’m at school.</p>
-        <div class="divider"></div>
-        <div style="font-weight:900">True / False</div>
-        <label class="row"><input type="checkbox" data-tf="1"> Tom has a bag.</label>
-        <label class="row"><input type="checkbox" data-tf="2"> Tom is at home.</label>
-        <div class="divider"></div>
-        <button onclick="checkTF()">Check</button>
-        <div id="tfResult" class="muted" style="margin-top:8px"></div>
+
+      <div class="sectionBar">📄 <span>WORKSHEETS (4 tasks)</span></div>
+
+      <!-- WS1 -->
+      <div class="wsBox" id="ws1Box">
+        <div class="wsTitle">Worksheet 1 — Missing letters</div>
+        <div class="muted">Write the missing letters. (Use small letters.)</div>
+        ${ws.ws1.map((q,idx)=>`
+          <div class="wsItem">
+            <div style="font-weight:900;min-width:120px">${idx+1}) ${escapeHTML(q.gap)} →</div>
+            <input type="text" id="ws1_${idx}" placeholder="">
+          </div>
+        `).join("")}
+        <button class="checkBtn" onclick="checkWS1(${lesson.id})">Check ✔</button>
+        <span class="scoreRight" id="ws1Score">Correct: 0 / ${ws.ws1.length}</span>
+      </div>
+
+      <!-- WS2 -->
+      <div class="wsBox" id="ws2Box">
+        <div class="wsTitle">Worksheet 2 — Matching picture and word</div>
+        <div class="muted">Choose the correct word for each picture.</div>
+        ${ws2Html}
+        <button class="checkBtn" onclick="checkWS2(${lesson.id})">Check ✔</button>
+        <span class="scoreRight" id="ws2Score">Correct: 0 / ${ws.ws2.length}</span>
+      </div>
+
+      <!-- WS3 -->
+      <div class="wsBox" id="ws3Box">
+        <div class="wsTitle">Worksheet 3 — Mini crossword (write the word)</div>
+        <div class="muted">Read the clue. Write one word.</div>
+        ${ws.ws3.map((q,idx)=>`
+          <div class="wsItem" style="align-items:flex-start">
+            <div style="font-weight:900;min-width:26px">${idx+1})</div>
+            <div style="flex:1">
+              <div style="font-weight:900">${escapeHTML(q.clue)}</div>
+              <input type="text" id="ws3_${idx}" placeholder="">
+            </div>
+          </div>
+        `).join("")}
+        <button class="checkBtn" onclick="checkWS3(${lesson.id})">Check ✔</button>
+        <span class="scoreRight" id="ws3Score">Correct: 0 / ${ws.ws3.length}</span>
+      </div>
+
+      <!-- WS4 -->
+      <div class="wsBox" id="ws4Box">
+        <div class="wsTitle">Worksheet 4 — Choose the correct word</div>
+        <div class="muted">Choose the correct word to complete each sentence.</div>
+        ${ws4Html}
+        <button class="checkBtn" onclick="checkWS4(${lesson.id})">Check ✔</button>
+        <span class="scoreRight" id="ws4Score">Correct: 0 / ${ws.ws4.length}</span>
+      </div>
+
+      <div class="bottomBar noPrint">
+        <button class="btnBack" onclick="backToUnit1()">← Back</button>
+        <button class="btnSave" onclick="saveResult(${lesson.id})">Save Result ✔</button>
+      </div>
+
+      <div class="muted" style="margin-top:10px">
+        ⭐ Star rule: Save Result gives 1–3 stars (depends on total correct).
       </div>
     `;
   }
-  return `
-    <div class="card">
-      <div class="muted">${unit} • ${lesson}</div>
-      <div class="divider"></div>
-      <div>Контент этого лессона я заполню по книге (вокаб/упр/ридинг) — тут пока шаблон.</div>
-    </div>
-  `;
-}
 
-/* ====== OPEN LESSON ====== */
-function openLesson(unitId, lessonId){
-  currentUnitId = unitId;
-  currentLessonId = lessonId;
-  const u = UNITS.find(x=>x.id===unitId);
-  const l = LESSONS_8.find(x=>x.id===lessonId);
-  $("lessonTitle").textContent = `${u?.title || "Unit"} — ${l?.name || "Lesson"}`;
-  $("lessonSubtitle").textContent = `Unit ${unitId} • Lesson ${lessonId}`;
-  $("printHeader").textContent = `AI Bayan Dictionary 3gr — Unit ${unitId} • Lesson ${lessonId}`;
-  $("lessonBody").innerHTML = lessonContent(unitId, lessonId);
-  updateStarView();
-  show("screenLesson");
-}
+  function openLesson(lessonId){
+    currentLessonId = lessonId;
+    const lesson = UNIT1.lessons.find(x=>x.id===lessonId);
+    if(!lesson) return;
 
-/* ====== STARS ====== */
-function getStars(unitId, lessonId){
-  if(!currentUser || currentUser.role!=="student") return 0;
-  const db = loadDB();
-  const u = ensureUser(db, currentUser.login);
-  return Math.max(0, Math.min(3, u.stars[keyUL(unitId,lessonId)] || 0));
-}
-function setStars(unitId, lessonId, val){
-  if(!currentUser || currentUser.role!=="student") return;
-  const db = loadDB();
-  const u = ensureUser(db, currentUser.login);
-  u.stars[keyUL(unitId,lessonId)] = Math.max(0, Math.min(3, val));
-  saveDB(db);
-}
-function updateStarView(){
-  const s = getStars(currentUnitId, currentLessonId);
-  $("starView").textContent = "★".repeat(s) + "☆".repeat(3-s);
-}
+    $("lessonHeader").textContent = UNIT1.title;
+    $("lessonHeader2").textContent = lesson.title;
+    $("printTitle").textContent = `${UNIT1.title} — ${lesson.title}`;
 
-/* ====== SPEAK ====== */
-function speak(text){
-  try{
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.lang = "en-US";
-    speechSynthesis.speak(msg);
-  }catch(e){}
-}
+    $("lessonBody").innerHTML = lessonTemplate(lesson);
 
-/* ====== TF CHECK (demo) ====== */
-function checkTF(){
-  // Correct: 1=true, 2=false
-  const c1 = document.querySelector('input[data-tf="1"]')?.checked;
-  const c2 = document.querySelector('input[data-tf="2"]')?.checked;
-  const ok = (c1===true && c2===false);
-  const out = $("tfResult");
-  if(out) out.innerHTML = ok ? "<span class='ok'>Correct ✅</span>" : "Try again ❌";
-}
+    // store current worksheet data in window for checks
+    window.__CURRENT_WS = buildWorksheetsForLesson(lesson);
+    show("scrLesson");
+  }
 
-/* ====== TEACHER JOURNAL ====== */
-function renderTeacher(){
-  const db = loadDB();
-  const box = $("teacherTable");
-  const rows = STUDENTS.map(login=>{
-    const u = db.users[login] || {lastLogin:null, stars:{}};
-    // sum stars
-    let sum = 0;
-    for(const k in (u.stars||{})) sum += (u.stars[k]||0);
-    const last = u.lastLogin ? new Date(u.lastLogin).toLocaleString() : "—";
-    return `
-      <div class="card" style="border-width:2px;margin-bottom:10px">
+  function backToUnit1(){
+    renderUnit1Lessons();
+    show("scrUnit1");
+  }
+
+  $("printBtn").onclick = ()=>window.print();
+  $("backLesson").onclick = ()=>backToUnit1();
+
+  /* ================= CHECKS ================= */
+  function markInput(el, ok){
+    if(!el) return;
+    el.classList.remove("goodInput","badInput");
+    el.classList.add(ok ? "goodInput" : "badInput");
+  }
+
+  function checkWS1(lessonId){
+    const ws = window.__CURRENT_WS;
+    let ok=0;
+    ws.ws1.forEach((q,i)=>{
+      const el = document.getElementById(`ws1_${i}`);
+      const val = norm(el.value);
+      const good = val === norm(q.ans);
+      if(good) ok++;
+      markInput(el, good);
+    });
+    document.getElementById("ws1Score").textContent = `Correct: ${ok} / ${ws.ws1.length}`;
+    saveTempCheck(lessonId, "ws1", ok, ws.ws1.length);
+  }
+
+  function checkWS2(lessonId){
+    const ws = window.__CURRENT_WS;
+    let ok=0;
+    ws.ws2.forEach((q,i)=>{
+      const el = document.getElementById(`ws2_${i}`);
+      const val = el.value;
+      const good = norm(val) === norm(q.ans);
+      if(good) ok++;
+      markInput(el, good);
+    });
+    document.getElementById("ws2Score").textContent = `Correct: ${ok} / ${ws.ws2.length}`;
+    saveTempCheck(lessonId, "ws2", ok, ws.ws2.length);
+  }
+
+  function checkWS3(lessonId){
+    const ws = window.__CURRENT_WS;
+    let ok=0;
+    ws.ws3.forEach((q,i)=>{
+      const el = document.getElementById(`ws3_${i}`);
+      const val = norm(el.value);
+      const good = val === norm(q.ans);
+      if(good) ok++;
+      markInput(el, good);
+    });
+    document.getElementById("ws3Score").textContent = `Correct: ${ok} / ${ws.ws3.length}`;
+    saveTempCheck(lessonId, "ws3", ok, ws.ws3.length);
+  }
+
+  function checkWS4(lessonId){
+    const ws = window.__CURRENT_WS;
+    let ok=0;
+    ws.ws4.forEach((q,i)=>{
+      const el = document.getElementById(`ws4_${i}`);
+      const val = el.value;
+      const good = norm(val) === norm(q.ans);
+      if(good) ok++;
+      markInput(el, good);
+    });
+    document.getElementById("ws4Score").textContent = `Correct: ${ok} / ${ws.ws4.length}`;
+    saveTempCheck(lessonId, "ws4", ok, ws.ws4.length);
+  }
+
+  // temp check storage (per lesson open)
+  let tempChecks = {}; // lessonId -> {ws1:{ok,total},...}
+  function saveTempCheck(lessonId, wsKey, ok, total){
+    tempChecks[lessonId] = tempChecks[lessonId] || {};
+    tempChecks[lessonId][wsKey] = {ok,total};
+  }
+
+  function saveResult(lessonId){
+    if(!currentUser || currentUser.role!=="student"){
+      alert("Students only.");
+      return;
+    }
+    const checks = tempChecks[lessonId];
+    if(!checks){
+      alert("Press Check ✔ at least once.");
+      return;
+    }
+
+    // compute total correct
+    let okSum=0, totalSum=0;
+    ["ws1","ws2","ws3","ws4"].forEach(k=>{
+      if(checks[k]){
+        okSum += checks[k].ok;
+        totalSum += checks[k].total;
+      }
+    });
+    if(totalSum===0){
+      alert("Press Check ✔ first.");
+      return;
+    }
+
+    const ratio = okSum/totalSum; // 0..1
+    let stars = 1;
+    if(ratio>=0.85) stars=3;
+    else if(ratio>=0.55) stars=2;
+
+    // save stars + saved score
+    const db = loadDB();
+    const u = ensureUser(db, currentUser.login);
+    u.stars[keyUL(1,lessonId)] = Math.max(u.stars[keyUL(1,lessonId)]||0, stars); // keep best
+    u.saved[keyUL(1,lessonId)] = {ok:okSum,total:totalSum,stars,ts:new Date().toISOString()};
+    saveDB(db);
+
+    alert(`Saved ✅ Stars: ${stars} (Correct ${okSum}/${totalSum})`);
+
+    // re-render lesson top text + main totals
+    updateMainHeader();
+    backToUnit1();
+  }
+
+  /* ================= AI CHAT (local demo) ================= */
+  function chatAdd(role, text){
+    const stamp = new Date().toLocaleTimeString();
+    $("chatLog").textContent += `[${stamp}] ${role}: ${text}\n`;
+  }
+  function chatSend(){
+    const t = $("chatInput").value.trim();
+    if(!t) return;
+    chatAdd(currentUser?.role==="student" ? currentUser.login : "User", t);
+    $("chatInput").value="";
+    chatAdd("AI Bayan", "OK ✅ (demo). You can ask: 'Give me 5 words for Unit 1' or 'Explain There is / There are'.");
+  }
+
+  /* ================= JOURNAL ================= */
+  function renderJournal(){
+    const db = loadDB();
+    const box = $("journalList");
+    box.innerHTML = "";
+    STUDENTS.forEach(login=>{
+      const u = db.users[login] || {lastLogin:null, stars:{}};
+      let sum=0;
+      for(const k in (u.stars||{})) sum += (u.stars[k]||0);
+      const last = u.lastLogin ? new Date(u.lastLogin).toLocaleString() : "—";
+      const div = document.createElement("div");
+      div.className="wsBox";
+      div.style.borderStyle="solid";
+      div.innerHTML = `
         <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
           <div style="font-weight:900">${login}</div>
-          <div class="pill">⭐ ${sum}</div>
+          <div style="font-weight:900;color:#d19a00">${sum} ★</div>
         </div>
         <div class="muted">Last login: ${last}</div>
-      </div>
-    `;
-  }).join("");
-  box.innerHTML = rows || "<div class='muted'>Нет данных.</div>";
-}
-
-/* ====== LOGIN ====== */
-function doLogin(){
-  const login = $("loginInput").value.trim();
-  const pin = $("pinInput").value.trim();
-
-  // teacher
-  if(pin === TEACHER_PIN){
-    currentUser = {role:"teacher", login:"TEACHER"};
-    setWho();
-    renderUnits();
-    show("screenMain");
-    // teacher can open journal by button in main? We'll show via Home then Journal button? We'll open teacher screen directly:
-    show("screenTeacher");
-    renderTeacher();
-    return;
+      `;
+      box.appendChild(div);
+    });
   }
 
-  // student
-  if(pin === STUDENT_PIN && STUDENTS.includes(login)){
-    currentUser = {role:"student", login};
+  /* ================= LOGIN / BUTTONS ================= */
+  function doLogin(login, pin){
+    login = (login||"").trim();
+    pin = (pin||"").trim();
+
+    if(pin === TEACHER_PIN){
+      currentUser = {role:"teacher", login:"TEACHER"};
+      setWho();
+      show("scrMain");
+      updateMainHeader();
+      return;
+    }
+
+    if(pin === STUDENT_PIN && STUDENTS.includes(login)){
+      currentUser = {role:"student", login};
+      const db = loadDB();
+      const u = ensureUser(db, login);
+      u.lastLogin = new Date().toISOString();
+      saveDB(db);
+      setWho();
+      show("scrMain");
+      updateMainHeader();
+      return;
+    }
+
+    alert("Wrong login or PIN");
+  }
+
+  $("loginBtn").onclick = ()=>doLogin($("loginInput").value, $("pinInput").value);
+  $("demoBtn").onclick = ()=>doLogin("3EL1", STUDENT_PIN);
+
+  $("logoutBtn").onclick = ()=>{
+    currentUser=null; currentLessonId=null; tempChecks={};
+    $("loginInput").value=""; $("pinInput").value="";
+    setWho();
+    show("scrLogin");
+  };
+
+  $("btnChat").onclick = ()=>{
+    if(!currentUser){ show("scrLogin"); return; }
+    show("scrChat");
+  };
+  $("backFromChat").onclick = ()=>show("scrMain");
+  $("chatSend").onclick = chatSend;
+  $("chatClear").onclick = ()=>{$("chatLog").textContent="";};
+
+  $("btnJournal").onclick = ()=>{
+    if(!currentUser){ show("scrLogin"); return; }
+    if(currentUser.role!=="teacher"){
+      alert("Teacher only.");
+      return;
+    }
+    renderJournal();
+    show("scrJournal");
+  };
+  $("backFromJournal").onclick = ()=>show("scrMain");
+  $("resetAll").onclick = ()=>{
+    if(!currentUser || currentUser.role!=="teacher") return;
+    if(!confirm("Reset all progress?")) return;
     const db = loadDB();
-    const u = ensureUser(db, login);
-    u.lastLogin = new Date().toISOString();
+    STUDENTS.forEach(s=>{
+      if(db.users[s]){ db.users[s].stars = {}; db.users[s].saved = {}; }
+    });
     saveDB(db);
-    setWho();
-    renderUnits();
-    show("screenMain");
-    return;
-  }
+    renderJournal();
+  };
 
-  alert("Неверный логин или PIN");
-}
-
-/* ====== CHAT (demo local) ====== */
-function chatAdd(role, text){
-  const log = $("chatLog");
-  const stamp = new Date().toLocaleTimeString();
-  log.textContent += `[${stamp}] ${role}: ${text}\n`;
-  log.scrollTop = log.scrollHeight;
-}
-function chatSend(){
-  const t = $("chatInput").value.trim();
-  if(!t) return;
-  chatAdd(currentUser?.role==="student" ? currentUser.login : "User", t);
-  $("chatInput").value = "";
-  // demo reply:
-  chatAdd("AI Bayan", "I can help! (demo) Write: 'Give me 5 words for Unit 1' or 'Explain this grammar.'");
-}
-
-/* ====== NAV ====== */
-$("loginBtn").onclick = doLogin;
-$("logoutBtn").onclick = ()=>{
-  currentUser = null;
-  currentUnitId = null; currentLessonId=null;
-  $("loginInput").value=""; $("pinInput").value="";
-  setWho();
-  show("screenLogin");
-};
-$("homeBtn").onclick = ()=>{
-  if(!currentUser){ show("screenLogin"); return; }
-  if(currentUser.role==="teacher"){ show("screenTeacher"); renderTeacher(); return; }
-  show("screenMain");
-};
-$("backToMain").onclick = ()=>show("screenMain");
-$("backToUnit").onclick = ()=>openUnit(currentUnitId);
-$("printLesson").onclick = ()=>window.print();
-$("starPlus").onclick = ()=>{
-  const s = getStars(currentUnitId, currentLessonId);
-  setStars(currentUnitId, currentLessonId, s+1);
-  updateStarView();
-};
-$("starMinus").onclick = ()=>{
-  const s = getStars(currentUnitId, currentLessonId);
-  setStars(currentUnitId, currentLessonId, s-1);
-  updateStarView();
-};
-$("teacherBack").onclick = ()=>{
-  // teacher view is journal only; go back to login? or main? we keep journal as home for teacher
-  show("screenTeacher");
-  renderTeacher();
-};
-$("resetAll").onclick = ()=>{
-  if(!confirm("Сбросить весь прогресс?")) return;
-  const db = loadDB();
-  STUDENTS.forEach(s=>{
-    if(db.users[s]) db.users[s].stars = {};
+  $("btnUnit1").onclick = ()=>{
+    if(!currentUser){ show("scrLogin"); return; }
+    renderUnit1Lessons();
+    show("scrUnit1");
+  };
+  // Units 2-8 (placeholders)
+  ["btnUnit2","btnUnit3","btnUnit4","btnUnit5","btnUnit6","btnUnit7","btnUnit8"].forEach(id=>{
+    $(id).onclick = ()=>alert("Unit not filled yet. (Unit 1 is ready ✅)");
   });
-  saveDB(db);
-  renderTeacher();
-};
 
-$("chatSend").onclick = chatSend;
-$("chatClear").onclick = ()=>{ $("chatLog").textContent=""; };
+  $("backUnit1").onclick = ()=>show("scrMain");
 
-/* ====== INIT ====== */
-setWho();
-show("screenLogin");
+  /* ================= INIT ================= */
+  setWho();
 </script>
 
 </body>
