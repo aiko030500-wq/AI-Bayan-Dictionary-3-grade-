@@ -8,6 +8,7 @@
 <style>
 :root{
   --green:#0b6f78;
+  --green2:#0a5f67;
   --gold:#f3c84b;
   --bg:#eaf6f8;
   --ink:#0a3c42;
@@ -16,7 +17,7 @@
 body{
   margin:0;
   font-family:system-ui,Segoe UI,Arial;
-  background:linear-gradient(180deg,#0b6f78,#0a5f67);
+  background:linear-gradient(180deg,var(--green),var(--green2));
 }
 .app{max-width:760px;margin:auto;padding:14px;color:#fff}
 .card{
@@ -27,45 +28,64 @@ body{
   margin-bottom:16px;
   border:3px solid var(--gold);
 }
-.header{
-  text-align:center;
-}
-.header img{width:90px}
-h1,h2,h3{margin:6px 0}
+.center{text-align:center}
+.logo{width:90px}
 .btn{
   border:none;
   border-radius:14px;
-  padding:12px;
+  padding:12px 14px;
   font-weight:900;
   cursor:pointer;
 }
 .main{background:var(--green);color:#fff}
 .light{background:#fff;border:2px solid var(--green);color:var(--green)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.word{
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.vocab{
   background:var(--bg);
   border-radius:16px;
   padding:10px;
   text-align:center;
 }
-.word img{width:100%;border-radius:12px}
-.correct{border:3px solid #1aa06c}
-.wrong{border:3px solid #d62828}
-.hidden{display:none}
+.vocab img{width:100%;border-radius:12px}
+.matchCard{
+  background:var(--bg);
+  border-radius:16px;
+  padding:10px;
+  border:3px solid transparent;
+  position:relative;
+}
+.correct{border-color:#1aa06c}
+.wrong{border-color:#d62828}
+.icon{
+  position:absolute;
+  top:6px;
+  right:8px;
+  font-size:26px;
+}
+.star{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:40px;
+  animation:pop .6s ease forwards;
+}
+@keyframes pop{
+  0%{transform:translate(-50%,-50%) scale(0)}
+  60%{transform:translate(-50%,-50%) scale(1.3)}
+  100%{transform:translate(-50%,-50%) scale(1)}
+}
 .footer{text-align:center;font-size:12px;font-weight:800;opacity:.85}
+.print{display:none}
+
 @media print{
   body{background:#fff}
   .btn,.footer{display:none}
-  .card{page-break-inside:avoid}
-  body::after{
-    content:"AI BAYAN • 3 grade • 2025";
-    position:fixed;
-    bottom:40%;
-    left:10%;
-    font-size:32px;
-    opacity:.15;
-    transform:rotate(-30deg);
-  }
+  .print{display:block;text-align:center;font-weight:900;margin-top:40px}
 }
 </style>
 </head>
@@ -74,140 +94,204 @@ h1,h2,h3{margin:6px 0}
 <div class="app" id="app"></div>
 
 <script>
-/* ===== CONFIG ===== */
+/* ================= CONFIG ================= */
 const STUDENT_PIN="2844";
 const TEACHER_PIN="3234";
+const MAX_STUDENTS=15;
 
-/* ===== DATA: UNIT 1 ===== */
-const UNIT1=[
-{l:1,t:"Hello!",v:[
-["hello","привет","img/unit1/lesson1/hello.png"],
-["goodbye","пока","img/unit1/lesson1/goodbye.png"],
-["how are you","как дела","img/unit1/lesson1/how_are_you.png"],
-["fine","хорошо","img/unit1/lesson1/fine.png"]
-]},
-{l:2,t:"My name",v:[
-["my name is","меня зовут","img/unit1/lesson2/my_name_is.png"],
-["what’s your name","как тебя зовут","img/unit1/lesson2/whats_your_name.png"],
-["I’m","я","img/unit1/lesson2/im.png"],
-["this is","это","img/unit1/lesson2/this_is.png"]
-]},
-{l:3,t:"Alphabet",v:[
-["A","эй","img/unit1/lesson3/a.png"],
-["B","би","img/unit1/lesson3/b.png"],
-["C","си","img/unit1/lesson3/c.png"],
-["D","ди","img/unit1/lesson3/d.png"]
-]},
-{l:4,t:"Numbers 1–10",v:[
-["one","один","img/unit1/lesson4/one.png"],
-["two","два","img/unit1/lesson4/two.png"],
-["three","три","img/unit1/lesson4/three.png"],
-["ten","десять","img/unit1/lesson4/ten.png"]
-]},
-{l:5,t:"Numbers 11–20",v:[
-["eleven","11","img/unit1/lesson5/eleven.png"],
-["twelve","12","img/unit1/lesson5/twelve.png"],
-["fifteen","15","img/unit1/lesson5/fifteen.png"],
-["twenty","20","img/unit1/lesson5/twenty.png"]
-]},
-{l:6,t:"Colours",v:[
-["red","красный","img/unit1/lesson6/red.png"],
-["blue","синий","img/unit1/lesson6/blue.png"],
-["green","зелёный","img/unit1/lesson6/green.png"],
-["yellow","жёлтый","img/unit1/lesson6/yellow.png"]
-]},
-{l:7,t:"Countries",v:[
-["Kazakhstan","Казахстан","img/unit1/lesson7/kazakhstan.png"],
-["UK","Великобритания","img/unit1/lesson7/uk.png"],
-["USA","США","img/unit1/lesson7/usa.png"],
-["Russia","Россия","img/unit1/lesson7/russia.png"]
-]},
-{l:8,t:"About me",v:[
-["name","имя","img/unit1/lesson8/name.png"],
-["age","возраст","img/unit1/lesson8/age.png"],
-["country","страна","img/unit1/lesson8/country.png"],
-["favourite colour","любимый цвет","img/unit1/lesson8/colour.png"]
-]}
-];
+/* ================= DATA ================= */
+const UNIT1 = {
+  unit:1,
+  title:"Hello English",
+  lessons:[
+    {
+      id:1,
+      title:"Greetings",
+      vocab:[
+        {en:"hello",img:"img/unit1/lesson1/hello.png"},
+        {en:"goodbye",img:"img/unit1/lesson1/goodbye.png"},
+        {en:"how are you",img:"img/unit1/lesson1/how_are_you.png"},
+        {en:"fine",img:"img/unit1/lesson1/fine.png"}
+      ],
+      grammar:"We say hello when we meet. We say goodbye when we leave.",
+      reading:{
+        text:"I am Tom. I say hello.",
+        tf:[true,false]
+      },
+      song:true
+    },
+    {id:2,title:"My name",vocab:[],grammar:"What’s your name? I’m …",reading:null,song:false},
+    {id:3,title:"Alphabet",vocab:[],grammar:"Letters A–D",reading:null,song:false},
+    {id:4,title:"Numbers 1–10",vocab:[],grammar:"I’m + number",reading:null,song:false},
+    {id:5,title:"Numbers 11–20",vocab:[],grammar:"I’m + number",reading:null,song:false},
+    {id:6,title:"Colours",vocab:[],grammar:"It is + colour",reading:null,song:true},
+    {id:7,title:"Countries",vocab:[],grammar:"I’m from …",reading:null,song:false},
+    {id:8,title:"About me",vocab:[],grammar:"My name is …",reading:null,song:false}
+  ]
+};
 
-/* ===== STATE ===== */
+/* ================= STATE ================= */
 let user=null;
+let role=null;
+let stars=0;
+let used=false;
+let chatDate=localStorage.getItem("chatDate")||"";
 
-/* ===== UI ===== */
+/* ================= APP ================= */
 const app=document.getElementById("app");
 
-function renderLogin(){
+function loginScreen(){
 app.innerHTML=`
-<div class="card header">
-<img src="logo.png"><h2>AI BAYAN</h2>
-<input id="login" placeholder="Login (3EL1)" class="light"><br><br>
+<div class="card center">
+<img src="logo.png" class="logo">
+<h2>AI BAYAN</h2>
+<input id="login" placeholder="3EL1" class="light"><br><br>
 <input id="pin" type="password" placeholder="PIN" class="light"><br><br>
-<button class="btn main" onclick="login()">Enter</button>
+<button class="btn main" onclick="login()">ENTER</button>
 </div>`;
 }
 
 function login(){
-const pin=document.getElementById("pin").value;
-const log=document.getElementById("login").value;
-if(pin===STUDENT_PIN && /^3EL\d+$/.test(log)){user=log;renderMenu();return;}
-if(pin===TEACHER_PIN){user="TEACHER";renderMenu();return;}
+const l=login.value;
+const p=pin.value;
+if(p===STUDENT_PIN && /^3EL([1-9]|1[0-5])$/.test(l)){
+user=l;role="student";menu();return;
+}
+if(p===TEACHER_PIN){
+role="teacher";journal();return;
+}
 alert("Wrong login or PIN");
 }
 
-function renderMenu(){
+function menu(){
 app.innerHTML=`
-<div class="card header">
-<img src="logo.png">
-<h2>UNIT 1 • Hello English</h2>
-<p>Select lesson</p>
+<div class="card center">
+<img src="logo.png" class="logo">
+<h2>AI BAYAN • Grade 3</h2>
+<p>⭐ Stars: ${stars}</p>
 </div>
-${UNIT1.map(u=>`
 <div class="card">
-<h3>Lesson ${u.l}: ${u.t}</h3>
-<button class="btn main" onclick="renderLesson(${u.l})">Open</button>
-</div>`).join("")}
-<div class="footer">AI BAYAN • Grade 3</div>`;
+<button class="btn main" onclick="openUnit()">📘 Unit 1</button><br><br>
+<button class="btn light" onclick="chat()">💬 AI Bayan Chat</button><br><br>
+<button class="btn light" onclick="loginScreen()">🚪 Exit</button>
+</div>
+<div class="footer">AI BAYAN • Visual Vocabulary</div>`;
 }
 
-function renderLesson(n){
-const L=UNIT1[n-1];
+function openUnit(){
 app.innerHTML=`
-<div class="card header">
-<img src="logo.png">
-<h2>Lesson ${L.l}: ${L.t}</h2>
+<div class="card center">
+<h3>Unit 1 — ${UNIT1.title}</h3>
+</div>
+${UNIT1.lessons.map(l=>`
+<div class="card">
+<button class="btn main" onclick="lesson(${l.id})">Lesson ${l.id}: ${l.title}</button>
+</div>`).join("")}
+<button class="btn light" onclick="menu()">← Back</button>`;
+}
+
+function lesson(id){
+used=false;
+const L=UNIT1.lessons.find(x=>x.id===id);
+app.innerHTML=`
+<div class="card center">
+<img src="logo.png" class="logo">
+<h3>Lesson ${id}: ${L.title}</h3>
+<p>⭐ ${stars}</p>
 </div>
 
 <div class="card">
-<h3>Vocabulary</h3>
+<h4>Vocabulary</h4>
 <div class="grid">
-${L.v.map(w=>`
-<div class="word">
-<img src="${w[2]}">
-<b>${w[0]}</b><br>${w[1]}
+${L.vocab.map(v=>`
+<div class="vocab">
+<img src="${v.img}">
+<b>${v.en}</b>
 </div>`).join("")}
 </div>
 </div>
 
 <div class="card">
-<h3>Worksheet — choose word</h3>
-${L.v.map(w=>`
-<p>${w[1]} →
-<select onchange="check(this,'${w[0]}')">
-<option></option>
-${L.v.map(o=>`<option>${o[0]}</option>`).join("")}
-</select></p>`).join("")}
+<h4>Grammar</h4>
+<p>${L.grammar}</p>
 </div>
 
 <div class="card">
-<button class="btn main" onclick="window.print()">Print</button>
-<button class="btn light" onclick="renderMenu()">Back</button>
+<h4>Worksheet — Matching</h4>
+<div class="grid">
+${L.vocab.map((v,i)=>`
+<div class="matchCard" id="m${i}">
+<img src="${v.img}">
+<select onchange="check(${i},'${v.en}',this)">
+<option value="">choose</option>
+${shuffle(L.vocab.map(x=>x.en)).map(o=>`<option>${o}</option>`).join("")}
+</select>
+</div>`).join("")}
+</div>
+</div>
+
+${L.song?karaoke():""}
+
+<div class="card">
+<button class="btn main" onclick="finish()">Finish</button>
+<button class="btn light" onclick="window.print()">🖨 Print</button>
+</div>
+
+<div class="print">AI BAYAN • 3 grade • 2025</div>`;
+}
+
+function check(i,ans,sel){
+if(used)return;
+const c=document.getElementById("m"+i);
+if(sel.value===ans){
+c.classList.add("correct");
+c.innerHTML+=`<div class="icon">✅</div><div class="star">⭐</div>`;
+stars++;
+}else{
+c.classList.add("wrong");
+c.innerHTML+=`<div class="icon">❌</div>`;
+}
+sel.disabled=true;
+}
+
+function finish(){
+used=true;
+alert("Saved ⭐");
+menu();
+}
+
+function chat(){
+const today=new Date().toDateString();
+if(chatDate===today){
+alert("Only 1 question per day");
+return;
+}
+chatDate=today;
+localStorage.setItem("chatDate",today);
+alert("Hello! I am AI Bayan 😊");
+}
+
+function journal(){
+app.innerHTML=`
+<div class="card center">
+<h3>Teacher Journal</h3>
+<p>⭐ Total stars: ${stars}</p>
+<button class="btn light" onclick="loginScreen()">Exit</button>
 </div>`;
 }
 
-function check(sel,ans){
-sel.className=(sel.value===ans)?"correct":"wrong";
+function karaoke(){
+return `
+<div class="card">
+<h4>🎵 Song</h4>
+<audio controls src="audio/unit1_lesson1_song.mp3"></audio>
+</div>`;
 }
-renderLogin();
+
+function shuffle(a){return a.sort(()=>Math.random()-0.5);}
+
+/* START */
+loginScreen();
 </script>
 </body>
 </html>
