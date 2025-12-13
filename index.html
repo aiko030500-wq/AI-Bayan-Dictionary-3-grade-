@@ -353,16 +353,6 @@
       color: rgba(255,255,255,.90);
       padding: 12px 10px 0;
     }
-    .footerBar{
-      margin-top: 12px;
-      padding: 10px 8px;
-      background: rgba(0,0,0,.12);
-      border-radius: 14px;
-      text-align:center;
-      font-weight:900;
-      color:#fff;
-      font-size: 12px;
-    }
 
     @media (max-width:520px){
       .brandTitle{font-size:28px}
@@ -384,7 +374,7 @@ const TEACHER_PIN = "3244";
 const CLASS_CODE = "3E";
 const MAX_L = 15;
 
-// Unit 1 – 8 lessons (по фото)
+/* Unit 1 – 8 lessons */
 const UNIT1_LESSONS = [
   { id:"u1l1", title:"Lesson 1", subtitle:"Hello, hello!", vocabTopic:"Greetings", vocab:[
     {en:"hello", ru:"привет", emoji:"👋"},
@@ -484,7 +474,7 @@ const UNIT1_LESSONS = [
   }},
 ];
 
-// Units 2–8 пока как заготовки
+// Units 2–8 placeholders
 const UNITS = [
   {unit:1, title:"Unit 1 — Hello English!", lessons: UNIT1_LESSONS},
   {unit:2, title:"Unit 2 — My school", lessons: []},
@@ -508,26 +498,20 @@ function loadState(){
     if(raw) return JSON.parse(raw);
   }catch(e){}
   return {
-    user: null, // {type:'student'|'teacher', login:'3EL1'}
-    starsByLesson: {}, // lessonId -> number
-    teacherLog: [] // {ts, login, action, lessonId, stars}
+    user: null,
+    starsByLesson: {},
+    teacherLog: []
   };
 }
 function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-
-function nowStr(){
-  const d = new Date();
-  return d.toLocaleString();
-}
-function sumStars(){
-  return Object.values(state.starsByLesson || {}).reduce((a,b)=>a+(+b||0),0);
-}
+function nowStr(){ return new Date().toLocaleString(); }
+function sumStars(){ return Object.values(state.starsByLesson || {}).reduce((a,b)=>a+(+b||0),0); }
 
 /* ===============================
    ROUTER
 ================================ */
 const app = document.getElementById("app");
-let route = {page:"auth"}; // auth, menu, unit, lesson, chat, journal
+let route = {page:"auth"};
 
 function go(page, params={}){
   route = {page, ...params};
@@ -538,7 +522,6 @@ function go(page, params={}){
    AUTH HELPERS
 ================================ */
 function validStudentLogin(login){
-  // 3EL1 ... 3EL15
   if(!login) return false;
   const m = login.trim().match(/^3EL(\d{1,2})$/i);
   if(!m) return false;
@@ -581,7 +564,6 @@ function renderAuth(){
   app.innerHTML = `
     <div class="hero">
       <div class="logoWrap">
-        <!-- заменишь на свою картинку: ai-bayan.png -->
         <img src="ai-bayan.png" alt="AI Bayan" onerror="this.style.display='none'; this.parentElement.innerHTML='👧'; this.parentElement.style.fontSize='70px'; this.parentElement.style.color='#0b6f78'">
       </div>
       <div class="brandTitle">AI Bayan</div>
@@ -604,17 +586,15 @@ function renderAuth(){
           <button class="btn btnGhost" onclick="demoFill()">Quick fill</button>
         </div>
 
-        <div class="note">No hints on screen (as you asked).<br/>Teacher and student access are separated.</div>
+        <div class="note">No hints on screen.<br/>Teacher and student access are separated.</div>
       </div>
     </div>
   `;
 }
-
 function demoFill(){
   document.getElementById("login").value = "3EL1";
   document.getElementById("pin").value = STUDENT_PIN;
 }
-
 function handleLogin(){
   const login = (document.getElementById("login").value || "").trim();
   const pin = (document.getElementById("pin").value || "").trim();
@@ -634,7 +614,6 @@ function handleLogin(){
     go("menu");
     return;
   }
-
   alert("Wrong login or PIN.");
 }
 
@@ -677,7 +656,6 @@ function renderMenu(){
     <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
   `;
 }
-
 function logout(){
   state.teacherLog.push({ts: nowStr(), login: state.user?.login || "-", action:"logout"});
   state.user = null;
@@ -692,7 +670,6 @@ function renderUnit(unitNum){
   const u = UNITS.find(x=>x.unit===unitNum);
   if(!u) return go("menu");
 
-  // если пока пусто — покажем сообщение
   if(!u.lessons || u.lessons.length===0){
     app.innerHTML = `
       <div class="lessonHero">
@@ -787,9 +764,9 @@ function renderLesson(unitNum, lessonId){
       </div>
 
       <div class="vocabGrid">
-        ${L.vocab.map((w,i)=>`
+        ${L.vocab.map((w)=>`
           <div class="vCard">
-            <div class="vIcon">${w.emoji || "⭐"}</div>
+            <div class="vIcon">${escapeHtml(w.emoji || "⭐")}</div>
             <div class="vWord">${escapeHtml(w.en)}</div>
             <div class="vRu">${escapeHtml(w.ru)}</div>
             <button class="sayBtn" onclick="speak('${jsStr(w.en)}')">🔊 Say it</button>
@@ -809,7 +786,6 @@ function renderLesson(unitNum, lessonId){
       </div>
 
       <div class="sectionTitle">📝 WORKSHEETS (4 tasks)</div>
-
       ${renderWorksheetsHTML(L)}
 
       <div class="navRow">
@@ -823,36 +799,42 @@ function renderLesson(unitNum, lessonId){
   `;
 }
 
+/* ===============================
+   WORKSHEETS
+   ✅ Worksheet 2 = Matching with emojis for ALL vocabulary
+================================ */
 function renderWorksheetsHTML(L){
-  // Генерируем 4 задания на основе 4 слов (как в примере)
-  const words = L.vocab.map(v=>v.en.replace(/\?$/,"").toLowerCase());
+  const words = L.vocab.map(v => (v.en||"").replace(/\?$/,"").toLowerCase());
+  const emojis = L.vocab.map(v => v.emoji || "⭐");
+
   const w0 = words[0] || "hello";
   const w1 = words[1] || "goodbye";
   const w2 = words[2] || "fine";
   const w3 = words[3] || "name";
 
-  // missing letters
-  const miss = [w0,w1,w2,w3].map(w=>{
+  // Worksheet 1 — Missing letters (ALL words)
+  const miss = words.map(w=>{
+    if(!w) return "";
     if(w.length<3) return w;
     const idx = Math.max(1, Math.floor(w.length/2));
     return w.slice(0,idx) + "_" + w.slice(idx+1);
   });
 
-  // matching selects
-  const opts = shuffle([w0,w1,w2,w3]);
+  // Worksheet 2 — options = ALL words mixed
+  const optsAll = shuffle(words.filter(Boolean));
 
-  // mini crossword clues (simple)
+  // Worksheet 3 — 3 clues
   const clues = [
-    {clue:`Say it when you meet.`, ans:w0},
-    {clue:`Say it when you leave.`, ans:w1},
-    {clue:`How are you? — I’m …`, ans:w2.includes("fine")?w2:"fine"},
+    {clue:`Word 1:`, ans:w0},
+    {clue:`Word 2:`, ans:w1},
+    {clue:`Word 3:`, ans:(w2.includes("fine")?w2:w2 || "fine")},
   ];
 
-  // choose correct word (fill)
+  // Worksheet 4 — 3 sentences
   const sent = [
-    {text:`I say ____ when I meet you.`, ans:w0, options: shuffle([w0,w1,w2])},
-    {text:`I say ____ when I leave.`, ans:w1, options: shuffle([w1,w0,w3])},
-    {text:`How are you? — I’m ____.`, ans:w2.includes("fine")?w2:"fine", options: shuffle([w2,w0,w1])},
+    {text:`I say ____ (word 1).`, ans:w0, options: shuffle([w0,w1,w2].filter(Boolean))},
+    {text:`I say ____ (word 2).`, ans:w1, options: shuffle([w1,w0,w3].filter(Boolean))},
+    {text:`This is ____ (word 3).`, ans:(w2||w0), options: shuffle([w2,w0,w1].filter(Boolean))},
   ];
 
   return `
@@ -872,26 +854,39 @@ function renderWorksheetsHTML(L){
     </div>
 
     <div class="wsBox" id="ws2">
-      <h4>Worksheet 2 — Matching word</h4>
-      <p>Choose the correct word.</p>
-      ${[0,1,2].map(i=>`
-        <div class="qRow">
-          <div class="q">${i+1})</div>
-          <select class="select ws2sel" data-ans="${escapeHtml(words[i]||'')}">
-            <option value="">--choose--</option>
-            ${opts.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
-          </select>
-        </div>
-      `).join("")}
+      <h4>Worksheet 2 — Matching (emoji + word)</h4>
+      <p>Look at the picture. Choose the correct word.</p>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        ${words.map((w,i)=>`
+          <div class="qRow" style="align-items:stretch">
+            <div class="q" style="width:30px">${i+1})</div>
+
+            <div style="
+              width:64px;height:64px;border-radius:16px;
+              background:#f0fbfc;border:2px solid rgba(12,106,115,.18);
+              display:flex;align-items:center;justify-content:center;
+              font-size:36px;flex:0 0 auto;">
+              ${escapeHtml(emojis[i] || "⭐")}
+            </div>
+
+            <select class="select ws2sel" data-ans="${escapeHtml(w)}" style="flex:1;min-width:180px">
+              <option value="">--choose--</option>
+              ${optsAll.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
+            </select>
+          </div>
+        `).join("")}
+      </div>
+
       <div class="checkRow">
         <button class="checkBtn" onclick="checkWS2()">Check ✓</button>
-        <div class="scoreTxt" id="ws2score">Correct: 0 / 3</div>
+        <div class="scoreTxt" id="ws2score">Correct: 0 / ${words.length}</div>
       </div>
     </div>
 
     <div class="wsBox" id="ws3">
-      <h4>Worksheet 3 — Mini crossword (write the word)</h4>
-      <p>Read the clue. Write one word.</p>
+      <h4>Worksheet 3 — Write the word</h4>
+      <p>Write the word (3 items).</p>
       ${clues.map((c,i)=>`
         <div class="qRow">
           <div class="q">${i+1}) ${escapeHtml(c.clue)}</div>
@@ -931,6 +926,7 @@ function markInput(el, ok){
   el.style.borderColor = ok ? "rgba(26,160,108,.7)" : "rgba(214,40,40,.7)";
   el.style.background = ok ? "#f1fff7" : "#fff3f3";
 }
+
 function checkWS1(){
   const inputs = document.querySelectorAll(".ws1in");
   let c=0;
@@ -943,6 +939,7 @@ function checkWS1(){
   });
   document.getElementById("ws1score").textContent = `Correct: ${c} / ${inputs.length}`;
 }
+
 function checkWS2(){
   const sels = document.querySelectorAll(".ws2sel");
   let c=0;
@@ -955,6 +952,7 @@ function checkWS2(){
   });
   document.getElementById("ws2score").textContent = `Correct: ${c} / ${sels.length}`;
 }
+
 function checkWS3(){
   const inputs = document.querySelectorAll(".ws3in");
   let c=0;
@@ -967,6 +965,7 @@ function checkWS3(){
   });
   document.getElementById("ws3score").textContent = `Correct: ${c} / ${inputs.length}`;
 }
+
 function checkWS4(){
   const sels = document.querySelectorAll(".ws4sel");
   let c=0;
@@ -981,32 +980,27 @@ function checkWS4(){
 }
 
 function calcLessonStars(){
-  // Считаем "звёзды" как сумму правильных ответов по 4 worksheets (макс ~ 4+3+3+3=13)
   let total=0;
 
-  const ws1 = document.querySelectorAll(".ws1in");
-  ws1.forEach(inp=>{
+  document.querySelectorAll(".ws1in").forEach(inp=>{
     const ans=(inp.dataset.ans||"").trim().toLowerCase();
     const v=(inp.value||"").trim().toLowerCase();
     if(v && v===ans) total++;
   });
 
-  const ws2 = document.querySelectorAll(".ws2sel");
-  ws2.forEach(sel=>{
+  document.querySelectorAll(".ws2sel").forEach(sel=>{
     const ans=(sel.dataset.ans||"").trim().toLowerCase();
     const v=(sel.value||"").trim().toLowerCase();
     if(v && v===ans) total++;
   });
 
-  const ws3 = document.querySelectorAll(".ws3in");
-  ws3.forEach(inp=>{
+  document.querySelectorAll(".ws3in").forEach(inp=>{
     const ans=(inp.dataset.ans||"").trim().toLowerCase();
     const v=(inp.value||"").trim().toLowerCase();
     if(v && v===ans) total++;
   });
 
-  const ws4 = document.querySelectorAll(".ws4sel");
-  ws4.forEach(sel=>{
+  document.querySelectorAll(".ws4sel").forEach(sel=>{
     const ans=(sel.dataset.ans||"").trim().toLowerCase();
     const v=(sel.value||"").trim().toLowerCase();
     if(v && v===ans) total++;
@@ -1019,7 +1013,6 @@ function saveResult(lessonId){
   const stars = calcLessonStars();
   state.starsByLesson[lessonId] = stars;
 
-  // teacher log
   state.teacherLog.push({
     ts: nowStr(),
     login: state.user?.login || "-",
@@ -1030,21 +1023,18 @@ function saveResult(lessonId){
 
   saveState();
   alert(`Saved! Stars in this lesson: ${stars} ⭐`);
-  render(); // обновить badge
+  render();
 }
 
 /* ===============================
    PRINT
 ================================ */
-function printLesson(){
-  window.print();
-}
+function printLesson(){ window.print(); }
 
 /* ===============================
-   CHAT
+   CHAT (offline demo)
 ================================ */
 function renderChat(){
-  // простой чат-заглушка (можно потом подключить Cloudflare Worker)
   app.innerHTML = `
     <div class="lessonHero">
       <div class="lessonBanner">
@@ -1078,7 +1068,6 @@ function renderChat(){
     <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
   `;
 }
-
 function sendChat(){
   const inp = document.getElementById("chatIn");
   const msg = (inp.value||"").trim();
@@ -1092,7 +1081,6 @@ function sendChat(){
     </div>
   `;
 
-  // простые ответы (offline)
   const m = msg.toLowerCase();
   let reply = "Good! 😊";
   if(m.includes("name")) reply = "My name is AI Bayan.";
@@ -1114,7 +1102,6 @@ function sendChat(){
    TEACHER JOURNAL
 ================================ */
 function renderJournal(){
-  // доступ учителю полный; ученику — только просмотр своих сохранений (упрощённо)
   const isTeacher = state.user?.type==="teacher";
   const rows = (state.teacherLog||[]).slice().reverse();
 
@@ -1175,7 +1162,6 @@ function renderJournal(){
     <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
   `;
 }
-
 function resetAll(){
   if(!confirm("Reset all saved data?")) return;
   state.starsByLesson = {};
