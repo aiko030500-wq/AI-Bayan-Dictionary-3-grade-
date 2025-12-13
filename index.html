@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Bayan Vocabulary 3 Grade</title>
+
   <style>
     :root{
       --bg:#0b6f78;
@@ -33,256 +34,118 @@
     }
 
     /* TOP HERO */
-    .hero{
-      padding: 28px 18px 16px;
-      text-align:center;
-    }
+    .hero{padding: 28px 18px 16px;text-align:center;}
     .logoWrap{
-      width:170px;height:170px;
-      margin:0 auto 14px;
-      border-radius:999px;
+      width:170px;height:170px;margin:0 auto 14px;border-radius:999px;
       background: radial-gradient(circle at 50% 40%, #fff 0 62%, rgba(255,255,255,.15) 63% 100%);
       border: 6px solid rgba(243,200,75,.95);
       box-shadow: 0 12px 25px rgba(0,0,0,.25);
-      display:flex;align-items:center;justify-content:center;
-      overflow:hidden;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
     }
     .logoWrap img{width:100%;height:100%;object-fit:cover;display:block}
     .brandTitle{
-      font-weight: 900;
-      letter-spacing: .8px;
-      font-size: 34px;
-      line-height: 1.1;
-      color: var(--gold);
-      text-transform: uppercase;
-      text-shadow: 0 4px 10px rgba(0,0,0,.25);
+      font-weight: 900;letter-spacing: .8px;font-size: 34px;line-height: 1.1;
+      color: var(--gold);text-transform: uppercase;text-shadow: 0 4px 10px rgba(0,0,0,.25);
     }
-    .brandSub{
-      margin-top:6px;
-      font-weight: 800;
-      opacity:.95;
-      font-size: 16px;
-      letter-spacing:.6px;
-    }
+    .brandSub{margin-top:6px;font-weight: 800;opacity:.95;font-size: 16px;letter-spacing:.6px;}
 
     /* WHITE PANEL */
     .panel{
-      margin: 14px 14px 28px;
-      background: #fff;
-      border-radius: 26px;
-      padding: 14px 14px 18px;
-      box-shadow: var(--shadow);
-      color: var(--ink);
+      margin: 14px 14px 28px;background: #fff;border-radius: 26px;
+      padding: 14px 14px 18px;box-shadow: var(--shadow);color: var(--ink);
       border: 3px solid rgba(243,200,75,.65);
     }
     .helloCard{
       background: linear-gradient(180deg,#ffffff,#f4fbfc);
-      border-radius: 18px;
-      padding: 14px 14px;
-      text-align:center;
-      border: 2px solid rgba(12,106,115,.20);
-      margin-bottom: 12px;
+      border-radius: 18px;padding: 14px 14px;text-align:center;
+      border: 2px solid rgba(12,106,115,.20);margin-bottom: 12px;
     }
-    .helloCard .big{
-      font-size: 22px;
-      font-weight: 900;
-      margin-bottom: 4px;
-      color:#0b4f56;
-    }
-    .helloCard .starsLine{
-      font-weight: 800;
-      color:#134a50;
-    }
+    .helloCard .big{font-size: 22px;font-weight: 900;margin-bottom: 4px;color:#0b4f56;}
+    .helloCard .starsLine{font-weight: 800;color:#134a50;}
 
     /* MENU BUTTONS */
     .menuList{display:flex;flex-direction:column;gap:14px;margin-top:10px}
     .menuBtn{
-      background: var(--btn);
-      border-radius: 22px;
-      padding: 18px 16px;
-      font-size: 20px;
-      font-weight: 900;
-      text-align:center;
-      border: 3px solid rgba(12,106,115,.55);
-      color:#0a4a52;
-      box-shadow: 0 10px 18px rgba(0,0,0,.08);
-      user-select:none;
+      background: var(--btn);border-radius: 22px;padding: 18px 16px;font-size: 20px;
+      font-weight: 900;text-align:center;border: 3px solid rgba(12,106,115,.55);
+      color:#0a4a52;box-shadow: 0 10px 18px rgba(0,0,0,.08);user-select:none;
     }
     .menuBtn:active{transform: scale(.99)}
     .menuBtn small{display:block;font-weight:700;color:#30666d;margin-top:2px;font-size:13px}
 
     /* BOTTOM MINI BUTTONS */
-    .bottomRow{
-      margin-top: 16px;
-      display:flex;
-      gap: 12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
+    .bottomRow{margin-top: 16px;display:flex;gap: 12px;justify-content:center;flex-wrap:wrap;}
     .miniBtn{
-      background:#fff;
-      border-radius: 16px;
-      padding: 12px 14px;
-      font-weight: 900;
-      border: 3px solid rgba(12,106,115,.55);
-      color:#0a4a52;
-      min-width: 170px;
-      text-align:center;
-      box-shadow: 0 10px 18px rgba(0,0,0,.08);
+      background:#fff;border-radius: 16px;padding: 12px 14px;font-weight: 900;
+      border: 3px solid rgba(12,106,115,.55);color:#0a4a52;min-width: 170px;
+      text-align:center;box-shadow: 0 10px 18px rgba(0,0,0,.08);
     }
 
     /* AUTH SCREEN */
-    .auth{
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 16px 0 0;
-    }
+    .auth{max-width: 520px;margin: 0 auto;padding: 16px 0 0;}
     .authBox{
-      background:#fff;
-      border-radius: 22px;
-      padding: 16px;
-      border: 3px solid rgba(243,200,75,.55);
-      box-shadow: var(--shadow);
-      color: var(--ink);
+      background:#fff;border-radius: 22px;padding: 16px;border: 3px solid rgba(243,200,75,.55);
+      box-shadow: var(--shadow);color: var(--ink);
     }
     .field{margin:10px 0}
     .label{font-weight:900;color:#0a4a52;margin-bottom:6px}
     .input{
-      width:100%;
-      padding: 13px 12px;
-      border-radius: 14px;
-      border: 2px solid rgba(12,106,115,.25);
-      outline:none;
-      font-size: 16px;
+      width:100%;padding: 13px 12px;border-radius: 14px;border: 2px solid rgba(12,106,115,.25);
+      outline:none;font-size: 16px;
     }
-    .row{
-      display:flex;gap:10px;flex-wrap:wrap;
-    }
-    .row .btn{
-      flex:1;
-      min-width: 180px;
-    }
+    .row{display:flex;gap:10px;flex-wrap:wrap;}
+    .row .btn{flex:1;min-width: 180px;}
     .btn{
-      border:none;
-      border-radius: 16px;
-      padding: 14px 14px;
-      font-weight: 900;
-      font-size: 16px;
-      cursor:pointer;
-      box-shadow: 0 10px 18px rgba(0,0,0,.08);
+      border:none;border-radius: 16px;padding: 14px 14px;font-weight: 900;
+      font-size: 16px;cursor:pointer;box-shadow: 0 10px 18px rgba(0,0,0,.08);
     }
-    .btnPrimary{
-      background: linear-gradient(180deg,#0d7a83,#0b6168);
-      color:#fff;
-    }
-    .btnGhost{
-      background:#fff;
-      border: 3px solid rgba(12,106,115,.55);
-      color:#0a4a52;
-    }
-    .note{
-      margin-top:10px;
-      color:#567277;
-      font-size: 13px;
-      font-weight: 700;
-      text-align:center;
-    }
+    .btnPrimary{background: linear-gradient(180deg,#0d7a83,#0b6168);color:#fff;}
+    .btnGhost{background:#fff;border: 3px solid rgba(12,106,115,.55);color:#0a4a52;}
+    .note{margin-top:10px;color:#567277;font-size: 13px;font-weight: 700;text-align:center;}
 
     /* LESSON PAGE */
-    .lessonHero{
-      padding: 16px 14px 0;
-      color:#fff;
-    }
+    .lessonHero{padding: 16px 14px 0;color:#fff;}
     .lessonBanner{
-      border-radius: 26px;
-      padding: 18px 16px;
-      background: linear-gradient(90deg,#1a8d97,#0b6f78);
-      border: 3px solid rgba(243,200,75,.65);
-      box-shadow: 0 12px 25px rgba(0,0,0,.16);
-      display:flex;
-      gap: 14px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
+      border-radius: 26px;padding: 18px 16px;background: linear-gradient(90deg,#1a8d97,#0b6f78);
+      border: 3px solid rgba(243,200,75,.65);box-shadow: 0 12px 25px rgba(0,0,0,.16);
+      display:flex;gap: 14px;align-items:center;justify-content:space-between;flex-wrap:wrap;
     }
-    .lessonBanner .title{
-      font-size: 22px;
-      font-weight: 1000;
-      letter-spacing:.2px;
-    }
-    .lessonBanner .sub{
-      font-size: 14px;
-      font-weight: 800;
-      opacity:.95;
-      margin-top:4px;
-    }
+    .lessonBanner .title{font-size: 22px;font-weight: 1000;letter-spacing:.2px;}
+    .lessonBanner .sub{font-size: 14px;font-weight: 800;opacity:.95;margin-top:4px;}
     .badge{
-      background: rgba(255,255,255,.18);
-      border: 2px solid rgba(255,255,255,.22);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-weight: 900;
-      white-space:nowrap;
+      background: rgba(255,255,255,.18);border: 2px solid rgba(255,255,255,.22);
+      padding: 8px 12px;border-radius: 999px;font-weight: 900;white-space:nowrap;
     }
     .lessonPanel{
-      margin: 12px 14px 28px;
-      background:#fff;
-      color:var(--ink);
-      border-radius: 26px;
-      padding: 14px;
-      border: 3px solid rgba(243,200,75,.65);
+      margin: 12px 14px 28px;background:#fff;color:var(--ink);
+      border-radius: 26px;padding: 14px;border: 3px solid rgba(243,200,75,.65);
       box-shadow: var(--shadow);
     }
     .sectionTitle{
-      display:flex;align-items:center;gap:10px;
-      padding: 12px 12px;
-      background: linear-gradient(90deg,#0b6f78,#15909b);
-      color:#fff;
-      border-radius: 18px;
-      font-weight: 1000;
-      font-size: 16px;
-      margin: 10px 0 12px;
-      border: 2px solid rgba(0,0,0,.06);
+      display:flex;align-items:center;gap:10px;padding: 12px 12px;
+      background: linear-gradient(90deg,#0b6f78,#15909b);color:#fff;border-radius: 18px;
+      font-weight: 1000;font-size: 16px;margin: 10px 0 12px;border: 2px solid rgba(0,0,0,.06);
     }
-    .vocabGrid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
+    .vocabGrid{display:grid;grid-template-columns: repeat(2, minmax(0, 1fr));gap: 12px;}
     .vCard{
-      background: #eef9fb;
-      border-radius: 18px;
-      padding: 12px;
-      border: 2px solid rgba(12,106,115,.18);
+      background: #eef9fb;border-radius: 18px;padding: 12px;border: 2px solid rgba(12,106,115,.18);
       text-align:center;
     }
     .vIcon{
-      width:72px;height:72px;border-radius:16px;
-      background:#fff;
-      margin: 0 auto 8px;
-      display:flex;align-items:center;justify-content:center;
-      border: 2px solid rgba(0,0,0,.06);
+      width:72px;height:72px;border-radius:16px;background:#fff;margin: 0 auto 8px;
+      display:flex;align-items:center;justify-content:center;border: 2px solid rgba(0,0,0,.06);
       font-size: 36px;
     }
     .vWord{font-weight:1000;font-size:20px;color:#0a4a52;text-transform:lowercase}
     .vRu{font-weight:900;color:#3d6167;margin-top:2px}
     .sayBtn{
-      margin-top:10px;
-      border:none;
-      background: linear-gradient(180deg,#0b6f78,#0a5b62);
-      color:#fff;
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 1000;
-      cursor:pointer;
-      width: 100%;
+      margin-top:10px;border:none;background: linear-gradient(180deg,#0b6f78,#0a5b62);color:#fff;
+      padding: 10px 12px;border-radius: 999px;font-weight: 1000;cursor:pointer;width: 100%;
     }
+
     .ruleBox{
-      background:#eaf6ff;
-      border: 2px solid rgba(40,120,190,.20);
-      border-radius: 18px;
-      padding: 14px;
-      color:#103a4a;
+      background:#eaf6ff;border: 2px solid rgba(40,120,190,.20);
+      border-radius: 18px;padding: 14px;color:#103a4a;
     }
     .ruleBox h3{margin:0 0 8px;font-size:18px}
     .ruleBox p{margin:6px 0;font-weight:700;color:#285463}
@@ -290,68 +153,39 @@
     .ruleBox li{margin:6px 0;font-weight:800}
 
     .wsBox{
-      border-radius: 18px;
-      border: 2px dashed rgba(0,0,0,.25);
-      padding: 12px;
-      margin: 12px 0;
-      background:#fff;
+      border-radius: 18px;border: 2px dashed rgba(0,0,0,.25);
+      padding: 12px;margin: 12px 0;background:#fff;
     }
     .wsBox h4{margin:0 0 6px;font-size:18px;color:#0a4a52}
     .wsBox p{margin:0 0 10px;color:#4b666c;font-weight:700}
     .qRow{display:flex;gap:10px;align-items:center;margin:8px 0;flex-wrap:wrap}
     .qRow .q{font-weight:900}
     .qRow input[type="text"]{
-      flex:1;min-width: 160px;
-      padding: 10px 10px;
-      border-radius: 12px;
-      border: 2px solid rgba(12,106,115,.22);
-      outline:none;
+      flex:1;min-width: 160px;padding: 10px 10px;border-radius: 12px;
+      border: 2px solid rgba(12,106,115,.22);outline:none;
     }
     .select{
-      flex:1;min-width: 200px;
-      padding: 10px 10px;
-      border-radius: 12px;
-      border: 2px solid rgba(12,106,115,.22);
-      outline:none;
-      background:#fff;
-      font-weight:800;
+      flex:1;min-width: 200px;padding: 10px 10px;border-radius: 12px;
+      border: 2px solid rgba(12,106,115,.22);outline:none;background:#fff;font-weight:800;
     }
     .checkRow{
       display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
       margin-top: 10px;
     }
     .checkBtn{
-      border:none;
-      background: linear-gradient(180deg,#0b6f78,#0a5b62);
-      color:#fff;
-      padding: 12px 14px;
-      border-radius: 16px;
-      font-weight: 1000;
-      cursor:pointer;
-      min-width: 140px;
+      border:none;background: linear-gradient(180deg,#0b6f78,#0a5b62);color:#fff;
+      padding: 12px 14px;border-radius: 16px;font-weight: 1000;cursor:pointer;min-width: 140px;
     }
     .scoreTxt{font-weight:1000;color:#0a4a52}
 
-    .navRow{
-      display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-top: 14px;
-    }
+    .navRow{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-top: 14px;}
     .navRow .btn{flex:1;min-width: 160px}
-    .btnBlue{
-      background: linear-gradient(180deg,#1f7bd0,#195a9e);
-      color:#fff;
-    }
-    .btnGreen{
-      background: linear-gradient(180deg,#1aa06c,#137e53);
-      color:#fff;
-    }
+    .btnBlue{background: linear-gradient(180deg,#1f7bd0,#195a9e);color:#fff;}
+    .btnGreen{background: linear-gradient(180deg,#1aa06c,#137e53);color:#fff;}
 
     .footerLine{
-      margin-top: 12px;
-      text-align:center;
-      font-size: 12px;
-      font-weight: 900;
-      color: rgba(255,255,255,.90);
-      padding: 12px 10px 0;
+      margin-top: 12px;text-align:center;font-size: 12px;font-weight: 900;
+      color: rgba(255,255,255,.90);padding: 12px 10px 0;
     }
 
     @media (max-width:520px){
@@ -359,12 +193,30 @@
       .menuBtn{font-size:18px}
       .vocabGrid{grid-template-columns:1fr 1fr}
     }
+
+    /* PRINT: печатаем только lessonPanel (в уроке) */
+    @media print{
+      body{background:#fff !important;color:#000 !important;}
+      .hero,.footerLine,.lessonHero,.navRow,.bottomRow{display:none !important;}
+      .lessonPanel{margin:0 !important;border:none !important;box-shadow:none !important;}
+      .wsBox{page-break-inside:avoid;}
+    }
   </style>
 </head>
+
 <body>
   <div class="app" id="app"></div>
 
 <script>
+/* ====== SHOW JS ERROR ON PAGE (VERY HELPFUL) ====== */
+window.onerror = function(msg, src, line, col){
+  document.body.innerHTML =
+    "<pre style='white-space:pre-wrap;font:16px/1.4 system-ui;padding:16px;background:#fff;color:#b00020'>" +
+    "JS ERROR:\\n" + msg + "\\n\\nLine: " + line + "  Col: " + col + "\\n" +
+    (src ? ("Source: " + src + "\\n") : "") +
+    "</pre>";
+};
+
 /* ===============================
    CONFIG
 ================================ */
@@ -374,8 +226,8 @@ const TEACHER_PIN = "3244";
 const CLASS_CODE = "3E";
 const MAX_L = 15;
 
-  /* ===============================
-   Unit 1 – Hello English!
+/* ===============================
+   DATA: Unit 1–8 (FULL)
 ================================ */
 const UNIT1_LESSONS = [
   { id:"u1l1", title:"Lesson 1", subtitle:"Hello, hello!", vocabTopic:"Greetings", vocab:[
@@ -476,9 +328,6 @@ const UNIT1_LESSONS = [
   }},
 ];
 
-/* ===============================
-   Unit 2 – My school
-================================ */
 const UNIT2_LESSONS = [
   {id:"u2l1",title:"Lesson 1",subtitle:"Classroom",vocabTopic:"Things",vocab:[
     {en:"book",ru:"книга",emoji:"📘"},
@@ -538,9 +387,6 @@ const UNIT2_LESSONS = [
   grammar:{title:"My school",rule:"We describe our school.",formula:"I like my school.",examples:["I like my school."]}},
 ];
 
-/* ===============================
-   Unit 3 – People I love
-================================ */
 const UNIT3_LESSONS = [
   {id:"u3l1",title:"Lesson 1",subtitle:"My family",vocabTopic:"Family",vocab:[
     {en:"mum",ru:"мама",emoji:"👩"},
@@ -600,9 +446,6 @@ const UNIT3_LESSONS = [
   grammar:{title:"My family",rule:"We make a poster.",formula:"This is my …",examples:["This is my family."]}},
 ];
 
-  /* ===============================
-   Unit 4 – Weather
-================================ */
 const UNIT4_LESSONS = [
   {id:"u4l1",title:"Lesson 1",subtitle:"Weather today",vocabTopic:"Weather",vocab:[
     {en:"sunny",ru:"солнечно",emoji:"☀️"},
@@ -662,9 +505,6 @@ const UNIT4_LESSONS = [
   grammar:{title:"My chart",rule:"We make a weather chart.",formula:"Today: sun.",examples:["Today: rain."]}},
 ];
 
-/* ===============================
-   Unit 5 – My free time
-================================ */
 const UNIT5_LESSONS = [
   {id:"u5l1",title:"Lesson 1",subtitle:"Hobbies",vocabTopic:"Hobbies",vocab:[
     {en:"read",ru:"читать",emoji:"📖"},
@@ -724,9 +564,6 @@ const UNIT5_LESSONS = [
   grammar:{title:"Because",rule:"We give a reason.",formula:"I like … because …",examples:["I like football because it’s fun."]}},
 ];
 
-/* ===============================
-   Unit 6 – Health
-================================ */
 const UNIT6_LESSONS = [
   {id:"u6l1",title:"Lesson 1",subtitle:"My body",vocabTopic:"Body",vocab:[
     {en:"head",ru:"голова",emoji:"🙂"},
@@ -786,9 +623,6 @@ const UNIT6_LESSONS = [
   grammar:{title:"My rules",rule:"We write rules.",formula:"I should …",examples:["I should drink water."]}},
 ];
 
-/* ===============================
-   Unit 7 – Buildings
-================================ */
 const UNIT7_LESSONS = [
   {id:"u7l1",title:"Lesson 1",subtitle:"My town",vocabTopic:"Places",vocab:[
     {en:"school",ru:"школа",emoji:"🏫"},
@@ -848,9 +682,6 @@ const UNIT7_LESSONS = [
   grammar:{title:"My map",rule:"We describe a map.",formula:"The school is near …",examples:["The park is near the school."]}},
 ];
 
-/* ===============================
-   Unit 8 – My holidays
-================================ */
 const UNIT8_LESSONS = [
   {id:"u8l1",title:"Lesson 1",subtitle:"Months",vocabTopic:"Months",vocab:[
     {en:"January",ru:"январь",emoji:"❄️"},
@@ -910,8 +741,10 @@ const UNIT8_LESSONS = [
   grammar:{title:"My story",rule:"We tell a short story.",formula:"I was in … It was great.",examples:["I was at the sea. It was great."]}},
 ];
 
-// Units 2–8 placeholder
-  const UNITS = [
+/* ===============================
+   UNITS
+================================ */
+const UNITS = [
   {unit:1, title:"Unit 1 — Hello English!", lessons: UNIT1_LESSONS},
   {unit:2, title:"Unit 2 — My school", lessons: UNIT2_LESSONS},
   {unit:3, title:"Unit 3 — People I love", lessons: UNIT3_LESSONS},
@@ -922,7 +755,7 @@ const UNIT8_LESSONS = [
   {unit:8, title:"Unit 8 — My holidays", lessons: UNIT8_LESSONS},
 ];
 
-const STORAGE_KEY = "aib_voc_3g_state_v1";
+const STORAGE_KEY = "aib_voc_3g_state_v2";
 
 /* ===============================
    STATE
@@ -934,20 +767,26 @@ function loadState(){
     if(raw) return JSON.parse(raw);
   }catch(e){}
   return {
-    user: null,
-    starsByLesson: {},
-    teacherLog: []
+    user: null, // {type:'student'|'teacher', login:'3EL1'}
+    starsByLesson: {}, // lessonId -> number
+    teacherLog: [] // {ts, login, action, lessonId, stars}
   };
 }
 function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-function nowStr(){ return new Date().toLocaleString(); }
-function sumStars(){ return Object.values(state.starsByLesson || {}).reduce((a,b)=>a+(+b||0),0); }
+
+function nowStr(){
+  const d = new Date();
+  return d.toLocaleString();
+}
+function sumStars(){
+  return Object.values(state.starsByLesson || {}).reduce((a,b)=>a+(+b||0),0);
+}
 
 /* ===============================
    ROUTER
 ================================ */
 const app = document.getElementById("app");
-let route = {page:"auth"};
+let route = {page:"auth"}; // auth, menu, unit, lesson, chat, journal
 
 function go(page, params={}){
   route = {page, ...params};
@@ -1000,7 +839,8 @@ function renderAuth(){
   app.innerHTML = `
     <div class="hero">
       <div class="logoWrap">
-        <img src="ai-bayan.png" alt="AI Bayan" onerror="this.style.display='none'; this.parentElement.innerHTML='👧'; this.parentElement.style.fontSize='70px'; this.parentElement.style.color='#0b6f78'">
+        <img src="ai-bayan.png" alt="AI Bayan"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='👧'; this.parentElement.style.fontSize='70px'; this.parentElement.style.color='#0b6f78'">
       </div>
       <div class="brandTitle">AI Bayan</div>
       <div class="brandSub">Vocabulary • Grade 3</div>
@@ -1027,10 +867,12 @@ function renderAuth(){
     </div>
   `;
 }
+
 function demoFill(){
   document.getElementById("login").value = "3EL1";
   document.getElementById("pin").value = STUDENT_PIN;
 }
+
 function handleLogin(){
   const login = (document.getElementById("login").value || "").trim();
   const pin = (document.getElementById("pin").value || "").trim();
@@ -1050,6 +892,7 @@ function handleLogin(){
     go("menu");
     return;
   }
+
   alert("Wrong login or PIN.");
 }
 
@@ -1061,7 +904,8 @@ function renderMenu(){
   app.innerHTML = `
     <div class="hero">
       <div class="logoWrap">
-        <img src="ai-bayan.png" alt="AI Bayan" onerror="this.style.display='none'; this.parentElement.innerHTML='👧'; this.parentElement.style.fontSize='70px'; this.parentElement.style.color='#0b6f78'">
+        <img src="ai-bayan.png" alt="AI Bayan"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='👧'; this.parentElement.style.fontSize='70px'; this.parentElement.style.color='#0b6f78'">
       </div>
       <div class="brandTitle">ENGLISH WITH AI BAYAN</div>
       <div class="brandSub">AI Bayan Vocabulary — Grade 3</div>
@@ -1092,6 +936,7 @@ function renderMenu(){
     <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
   `;
 }
+
 function logout(){
   state.teacherLog.push({ts: nowStr(), login: state.user?.login || "-", action:"logout"});
   state.user = null;
@@ -1106,35 +951,6 @@ function renderUnit(unitNum){
   const u = UNITS.find(x=>x.unit===unitNum);
   if(!u) return go("menu");
 
-  if(!u.lessons || u.lessons.length===0){
-    app.innerHTML = `
-      <div class="lessonHero">
-        <div class="lessonBanner">
-          <div>
-            <div class="title">${escapeHtml(u.title)}</div>
-            <div class="sub">Lessons will be added</div>
-          </div>
-          <div class="badge">⭐ Total: ${sumStars()}</div>
-        </div>
-      </div>
-
-      <div class="lessonPanel">
-        <div class="sectionTitle">ℹ️ Unit is empty now</div>
-        <p style="margin:0;font-weight:800;color:#3d6167">
-          Send photos of Unit ${unitNum} (8 lessons) and I will fill it exactly like Unit 1.
-        </p>
-
-        <div class="navRow">
-          <button class="btn btnBlue" onclick="go('menu')">← Back</button>
-          <button class="btn btnGhost" onclick="go('chat')">💬 AI Bayan Chat</button>
-        </div>
-      </div>
-
-      <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
-    `;
-    return;
-  }
-
   app.innerHTML = `
     <div class="lessonHero">
       <div class="lessonBanner">
@@ -1148,7 +964,7 @@ function renderUnit(unitNum){
 
     <div class="lessonPanel">
       <div class="menuList" style="margin-top:0">
-        ${u.lessons.map((L,idx)=>`
+        ${(u.lessons||[]).map((L,idx)=>`
           <div class="menuBtn" onclick="go('lesson',{unit:${u.unit}, lessonId:'${L.id}'})">
             📗 Lesson ${idx+1} — ${escapeHtml(L.subtitle)}
             <small>${escapeHtml(L.vocabTopic)}</small>
@@ -1168,7 +984,7 @@ function renderUnit(unitNum){
 }
 
 /* ===============================
-   LESSON UI (Unit 1)
+   LESSON UI
 ================================ */
 function renderLesson(unitNum, lessonId){
   const u = UNITS.find(x=>x.unit===unitNum);
@@ -1200,11 +1016,11 @@ function renderLesson(unitNum, lessonId){
       </div>
 
       <div class="vocabGrid">
-        ${L.vocab.map((w)=>`
+        ${(L.vocab||[]).map(w=>`
           <div class="vCard">
             <div class="vIcon">${escapeHtml(w.emoji || "⭐")}</div>
             <div class="vWord">${escapeHtml(w.en)}</div>
-            <div class="vRu">${escapeHtml(w.ru)}</div>
+            <div class="vRu">${escapeHtml(w.ru || "")}</div>
             <button class="sayBtn" onclick="speak('${jsStr(w.en)}')">🔊 Say it</button>
           </div>
         `).join("")}
@@ -1212,16 +1028,16 @@ function renderLesson(unitNum, lessonId){
 
       <div class="sectionTitle">📘 GRAMMAR — Key Rule</div>
       <div class="ruleBox">
-        <h3>${escapeHtml(L.grammar.title)}</h3>
-        <p>${escapeHtml(L.grammar.rule)}</p>
-        <p><b>Formula:</b> ${escapeHtml(L.grammar.formula)}</p>
+        <h3>${escapeHtml(L.grammar?.title || "Grammar")}</h3>
+        <p>${escapeHtml(L.grammar?.rule || "")}</p>
+        <p><b>Formula:</b> ${escapeHtml(L.grammar?.formula || "")}</p>
         <p><b>Examples:</b></p>
         <ul>
-          ${L.grammar.examples.map(e=>`<li>${escapeHtml(e)}</li>`).join("")}
+          ${(L.grammar?.examples || []).map(e=>`<li>${escapeHtml(e)}</li>`).join("")}
         </ul>
       </div>
 
-      <div class="sectionTitle">📝 WORKSHEETS (4 tasks)</div>
+      <div class="sectionTitle">📝 WORKSHEETS (auto for all words)</div>
       ${renderWorksheetsHTML(L)}
 
       <div class="navRow">
@@ -1236,42 +1052,32 @@ function renderLesson(unitNum, lessonId){
 }
 
 /* ===============================
-   WORKSHEETS
-   ✅ Worksheet 2 = Matching with emojis for ALL vocabulary
+   WORKSHEETS (FOR ALL WORDS)
 ================================ */
 function renderWorksheetsHTML(L){
-  // ВСЕ слова урока
-  const words = (L.vocab||[])
-    .map(v => (v.en||"").trim())
-    .filter(Boolean);
-
-  // helper: нормализуем для ответов (убираем лишние пробелы, приводим к lower)
+  const words = (L.vocab||[]).map(v => (v.en||"").trim()).filter(Boolean);
   const norm = (s)=> String(s).trim().toLowerCase();
 
-  // --- Worksheet 1: Missing letters (для всех слов)
+  // WS1 missing letters for all words
   const missing = words.map(w=>{
     const clean = w.replace(/\?$/,"");
     const low = clean.toLowerCase();
-    // пропуск в середине, но не трогаем короткие слова/буквы
     if(low.length < 3) return {show: clean, ans: clean};
     const idx = Math.max(1, Math.floor(low.length/2));
     const show = clean.slice(0, idx) + "_" + clean.slice(idx+1);
     return {show, ans: clean};
   });
 
-  // --- Worksheet 2: Matching (картинки/эмоджи + выбор слова)
-  // делаем варианты = все слова, перемешиваем
+  // WS2 options for selects = all words
   const opts = shuffle(words.map(w=>w.replace(/\?$/,"")));
 
-  // --- Worksheet 3: Mini “Write the word” (подсказка = русский перевод)
-  // (вместо кроссворда — проще и стабильнее, тоже на все слова)
+  // WS3 russian hint -> write english
   const ruHints = (L.vocab||[]).map(v=>({
     ru: v.ru || "",
-    ans: v.en || ""
+    ans: (v.en || "").replace(/\?$/,"")
   }));
 
-  // --- Worksheet 4: Choose correct word in sentence (на все слова)
-  // строим простые предложения по шаблонам
+  // WS4 simple sentences
   const templates = [
     "I say ____ .",
     "This is ____ .",
@@ -1279,12 +1085,9 @@ function renderWorksheetsHTML(L){
     "I have ____ .",
     "It is ____ ."
   ];
-
-  // для каждого слова берём шаблон по кругу
   const sent = words.map((w, i)=>{
-    const t = templates[i % templates.length];
     const ans = w.replace(/\?$/,"");
-    // 3 опции: правильная + 2 случайных (или меньше, если слов мало)
+    const t = templates[i % templates.length];
     let pool = words.map(x=>x.replace(/\?$/,""));
     pool = shuffle(pool.filter(x => norm(x)!==norm(ans)));
     const wrongs = pool.slice(0, Math.min(2, pool.length));
@@ -1314,7 +1117,7 @@ function renderWorksheetsHTML(L){
       ${(L.vocab||[]).map((v,i)=>`
         <div class="qRow">
           <div class="q">${i+1}) <span style="font-size:28px">${escapeHtml(v.emoji||"⭐")}</span></div>
-          <select class="select ws2sel" data-ans="${escapeHtml(v.en.replace(/\?$/,""))}">
+          <select class="select ws2sel" data-ans="${escapeHtml((v.en||"").replace(/\?$/,""))}">
             <option value="">--choose--</option>
             ${opts.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
           </select>
@@ -1332,79 +1135,12 @@ function renderWorksheetsHTML(L){
       ${ruHints.map((h,i)=>`
         <div class="qRow">
           <div class="q">${i+1}) ${escapeHtml(h.ru)} →</div>
-          <input type="text" class="ws3in" data-ans="${escapeHtml(h.ans.replace(/\?$/,""))}"/>
+          <input type="text" class="ws3in" data-ans="${escapeHtml(h.ans)}"/>
         </div>
       `).join("")}
       <div class="checkRow">
         <button class="checkBtn" onclick="checkWS3()">Check ✓</button>
         <div class="scoreTxt" id="ws3score">Correct: 0 / ${ruHints.length}</div>
-      </div>
-    </div>
-
-    <div class="wsBox" id="ws4">
-      <h4>Worksheet 4 — Choose the correct word</h4>
-      <p>Choose the correct word to complete each sentence.</p>
-      ${sent.map((s,i)=>`
-        <div class="qRow">
-          <div class="q">${i+1}) ${escapeHtml(s.text)}</div>
-          <select class="select ws4sel" data-ans="${escapeHtml(s.ans)}">
-            <option value="">--choose--</option>
-            ${s.options.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
-          </select>
-        </div>
-      `).join("")}
-      <div class="checkRow">
-        <button class="checkBtn" onclick="checkWS4()">Check ✓</button>
-        <div class="scoreTxt" id="ws4score">Correct: 0 / ${sent.length}</div>
-      </div>
-    </div>
-  `;
-}
-
-
-    <div class="wsBox" id="ws2">
-      <h4>Worksheet 2 — Matching (emoji + word)</h4>
-      <p>Look at the picture. Choose the correct word.</p>
-
-      <div style="display:flex;flex-direction:column;gap:10px">
-        ${words.map((w,i)=>`
-          <div class="qRow" style="align-items:stretch">
-            <div class="q" style="width:30px">${i+1})</div>
-
-            <div style="
-              width:64px;height:64px;border-radius:16px;
-              background:#f0fbfc;border:2px solid rgba(12,106,115,.18);
-              display:flex;align-items:center;justify-content:center;
-              font-size:36px;flex:0 0 auto;">
-              ${escapeHtml(emojis[i] || "⭐")}
-            </div>
-
-            <select class="select ws2sel" data-ans="${escapeHtml(w)}" style="flex:1;min-width:180px">
-              <option value="">--choose--</option>
-              ${optsAll.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
-            </select>
-          </div>
-        `).join("")}
-      </div>
-
-      <div class="checkRow">
-        <button class="checkBtn" onclick="checkWS2()">Check ✓</button>
-        <div class="scoreTxt" id="ws2score">Correct: 0 / ${words.length}</div>
-      </div>
-    </div>
-
-    <div class="wsBox" id="ws3">
-      <h4>Worksheet 3 — Write the word</h4>
-      <p>Write the word (3 items).</p>
-      ${clues.map((c,i)=>`
-        <div class="qRow">
-          <div class="q">${i+1}) ${escapeHtml(c.clue)}</div>
-          <input type="text" class="ws3in" data-ans="${escapeHtml(c.ans)}"/>
-        </div>
-      `).join("")}
-      <div class="checkRow">
-        <button class="checkBtn" onclick="checkWS3()">Check ✓</button>
-        <div class="scoreTxt" id="ws3score">Correct: 0 / ${clues.length}</div>
       </div>
     </div>
 
@@ -1446,7 +1182,8 @@ function checkWS1(){
     if(ok) c++;
     markInput(inp, ok);
   });
-  document.getElementById("ws1score").textContent = `Correct: ${c} / ${inputs.length}`;
+  const el = document.getElementById("ws1score");
+  if(el) el.textContent = `Correct: ${c} / ${inputs.length}`;
 }
 
 function checkWS2(){
@@ -1459,7 +1196,8 @@ function checkWS2(){
     if(ok) c++;
     markInput(sel, ok);
   });
-  document.getElementById("ws2score").textContent = `Correct: ${c} / ${sels.length}`;
+  const el = document.getElementById("ws2score");
+  if(el) el.textContent = `Correct: ${c} / ${sels.length}`;
 }
 
 function checkWS3(){
@@ -1472,7 +1210,8 @@ function checkWS3(){
     if(ok) c++;
     markInput(inp, ok);
   });
-  document.getElementById("ws3score").textContent = `Correct: ${c} / ${inputs.length}`;
+  const el = document.getElementById("ws3score");
+  if(el) el.textContent = `Correct: ${c} / ${inputs.length}`;
 }
 
 function checkWS4(){
@@ -1485,7 +1224,8 @@ function checkWS4(){
     if(ok) c++;
     markInput(sel, ok);
   });
-  document.getElementById("ws4score").textContent = `Correct: ${c} / ${sels.length}`;
+  const el = document.getElementById("ws4score");
+  if(el) el.textContent = `Correct: ${c} / ${sels.length}`;
 }
 
 function calcLessonStars(){
@@ -1538,10 +1278,12 @@ function saveResult(lessonId){
 /* ===============================
    PRINT
 ================================ */
-function printLesson(){ window.print(); }
+function printLesson(){
+  window.print();
+}
 
 /* ===============================
-   CHAT (offline demo)
+   CHAT
 ================================ */
 function renderChat(){
   app.innerHTML = `
@@ -1577,6 +1319,7 @@ function renderChat(){
     <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
   `;
 }
+
 function sendChat(){
   const inp = document.getElementById("chatIn");
   const msg = (inp.value||"").trim();
@@ -1671,6 +1414,7 @@ function renderJournal(){
     <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
   `;
 }
+
 function resetAll(){
   if(!confirm("Reset all saved data?")) return;
   state.starsByLesson = {};
@@ -1704,5 +1448,6 @@ function shuffle(arr){
 ================================ */
 go(state.user ? "menu" : "auth");
 </script>
+
 </body>
 </html>
