@@ -1240,54 +1240,127 @@ function renderLesson(unitNum, lessonId){
    ✅ Worksheet 2 = Matching with emojis for ALL vocabulary
 ================================ */
 function renderWorksheetsHTML(L){
-  const words = L.vocab.map(v => (v.en||"").replace(/\?$/,"").toLowerCase());
-  const emojis = L.vocab.map(v => v.emoji || "⭐");
+  // ВСЕ слова урока
+  const words = (L.vocab||[])
+    .map(v => (v.en||"").trim())
+    .filter(Boolean);
 
-  const w0 = words[0] || "hello";
-  const w1 = words[1] || "goodbye";
-  const w2 = words[2] || "fine";
-  const w3 = words[3] || "name";
+  // helper: нормализуем для ответов (убираем лишние пробелы, приводим к lower)
+  const norm = (s)=> String(s).trim().toLowerCase();
 
-  // Worksheet 1 — Missing letters (ALL words)
-  const miss = words.map(w=>{
-    if(!w) return "";
-    if(w.length<3) return w;
-    const idx = Math.max(1, Math.floor(w.length/2));
-    return w.slice(0,idx) + "_" + w.slice(idx+1);
+  // --- Worksheet 1: Missing letters (для всех слов)
+  const missing = words.map(w=>{
+    const clean = w.replace(/\?$/,"");
+    const low = clean.toLowerCase();
+    // пропуск в середине, но не трогаем короткие слова/буквы
+    if(low.length < 3) return {show: clean, ans: clean};
+    const idx = Math.max(1, Math.floor(low.length/2));
+    const show = clean.slice(0, idx) + "_" + clean.slice(idx+1);
+    return {show, ans: clean};
   });
 
-  // Worksheet 2 — options = ALL words mixed
-  const optsAll = shuffle(words.filter(Boolean));
+  // --- Worksheet 2: Matching (картинки/эмоджи + выбор слова)
+  // делаем варианты = все слова, перемешиваем
+  const opts = shuffle(words.map(w=>w.replace(/\?$/,"")));
 
-  // Worksheet 3 — 3 clues
-  const clues = [
-    {clue:`Word 1:`, ans:w0},
-    {clue:`Word 2:`, ans:w1},
-    {clue:`Word 3:`, ans:(w2.includes("fine")?w2:w2 || "fine")},
+  // --- Worksheet 3: Mini “Write the word” (подсказка = русский перевод)
+  // (вместо кроссворда — проще и стабильнее, тоже на все слова)
+  const ruHints = (L.vocab||[]).map(v=>({
+    ru: v.ru || "",
+    ans: v.en || ""
+  }));
+
+  // --- Worksheet 4: Choose correct word in sentence (на все слова)
+  // строим простые предложения по шаблонам
+  const templates = [
+    "I say ____ .",
+    "This is ____ .",
+    "I like ____ .",
+    "I have ____ .",
+    "It is ____ ."
   ];
 
-  // Worksheet 4 — 3 sentences
-  const sent = [
-    {text:`I say ____ (word 1).`, ans:w0, options: shuffle([w0,w1,w2].filter(Boolean))},
-    {text:`I say ____ (word 2).`, ans:w1, options: shuffle([w1,w0,w3].filter(Boolean))},
-    {text:`This is ____ (word 3).`, ans:(w2||w0), options: shuffle([w2,w0,w1].filter(Boolean))},
-  ];
+  // для каждого слова берём шаблон по кругу
+  const sent = words.map((w, i)=>{
+    const t = templates[i % templates.length];
+    const ans = w.replace(/\?$/,"");
+    // 3 опции: правильная + 2 случайных (или меньше, если слов мало)
+    let pool = words.map(x=>x.replace(/\?$/,""));
+    pool = shuffle(pool.filter(x => norm(x)!==norm(ans)));
+    const wrongs = pool.slice(0, Math.min(2, pool.length));
+    const options = shuffle([ans, ...wrongs]);
+    return {text: t, ans, options};
+  });
 
   return `
     <div class="wsBox" id="ws1">
       <h4>Worksheet 1 — Missing letters</h4>
       <p>Write the missing letters. (Use small letters.)</p>
-      ${miss.map((m,i)=>`
+      ${missing.map((m,i)=>`
         <div class="qRow">
-          <div class="q">${i+1}) ${escapeHtml(m)} →</div>
-          <input type="text" data-ans="${escapeHtml(words[i]||'')}" class="ws1in"/>
+          <div class="q">${i+1}) ${escapeHtml(m.show)} →</div>
+          <input type="text" data-ans="${escapeHtml(m.ans)}" class="ws1in"/>
         </div>
       `).join("")}
       <div class="checkRow">
         <button class="checkBtn" onclick="checkWS1()">Check ✓</button>
-        <div class="scoreTxt" id="ws1score">Correct: 0 / ${miss.length}</div>
+        <div class="scoreTxt" id="ws1score">Correct: 0 / ${missing.length}</div>
       </div>
     </div>
+
+    <div class="wsBox" id="ws2">
+      <h4>Worksheet 2 — Matching (emoji + word)</h4>
+      <p>Match the picture (emoji) with the correct word.</p>
+      ${(L.vocab||[]).map((v,i)=>`
+        <div class="qRow">
+          <div class="q">${i+1}) <span style="font-size:28px">${escapeHtml(v.emoji||"⭐")}</span></div>
+          <select class="select ws2sel" data-ans="${escapeHtml(v.en.replace(/\?$/,""))}">
+            <option value="">--choose--</option>
+            ${opts.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
+          </select>
+        </div>
+      `).join("")}
+      <div class="checkRow">
+        <button class="checkBtn" onclick="checkWS2()">Check ✓</button>
+        <div class="scoreTxt" id="ws2score">Correct: 0 / ${(L.vocab||[]).length}</div>
+      </div>
+    </div>
+
+    <div class="wsBox" id="ws3">
+      <h4>Worksheet 3 — Write the word</h4>
+      <p>Write the English word. (Use the Russian hint.)</p>
+      ${ruHints.map((h,i)=>`
+        <div class="qRow">
+          <div class="q">${i+1}) ${escapeHtml(h.ru)} →</div>
+          <input type="text" class="ws3in" data-ans="${escapeHtml(h.ans.replace(/\?$/,""))}"/>
+        </div>
+      `).join("")}
+      <div class="checkRow">
+        <button class="checkBtn" onclick="checkWS3()">Check ✓</button>
+        <div class="scoreTxt" id="ws3score">Correct: 0 / ${ruHints.length}</div>
+      </div>
+    </div>
+
+    <div class="wsBox" id="ws4">
+      <h4>Worksheet 4 — Choose the correct word</h4>
+      <p>Choose the correct word to complete each sentence.</p>
+      ${sent.map((s,i)=>`
+        <div class="qRow">
+          <div class="q">${i+1}) ${escapeHtml(s.text)}</div>
+          <select class="select ws4sel" data-ans="${escapeHtml(s.ans)}">
+            <option value="">--choose--</option>
+            ${s.options.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
+          </select>
+        </div>
+      `).join("")}
+      <div class="checkRow">
+        <button class="checkBtn" onclick="checkWS4()">Check ✓</button>
+        <div class="scoreTxt" id="ws4score">Correct: 0 / ${sent.length}</div>
+      </div>
+    </div>
+  `;
+}
+
 
     <div class="wsBox" id="ws2">
       <h4>Worksheet 2 — Matching (emoji + word)</h4>
