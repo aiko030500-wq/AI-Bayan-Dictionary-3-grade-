@@ -1,1453 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Bayan Vocabulary 3 Grade</title>
+<meta charset="UTF-8">
+<title>AI BAYAN • Visual Vocabulary • Grade 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --bg:#0b6f78;
-      --bg2:#0a5f67;
-      --gold:#f3c84b;
-      --card:#ffffff;
-      --ink:#0c2a2f;
-      --muted:#5b6b70;
-      --btn:#ffffff;
-      --btnBorder:#0c6a73;
-      --shadow:0 10px 25px rgba(0,0,0,.12);
-      --radius:22px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg,var(--bg),var(--bg2));
-      color:#fff;
-    }
-    a{color:inherit;text-decoration:none}
-    .app{
-      max-width: 760px;
-      margin: 0 auto;
-      min-height: 100vh;
-      padding-bottom: 34px;
-    }
-
-    /* TOP HERO */
-    .hero{padding: 28px 18px 16px;text-align:center;}
-    .logoWrap{
-      width:170px;height:170px;margin:0 auto 14px;border-radius:999px;
-      background: radial-gradient(circle at 50% 40%, #fff 0 62%, rgba(255,255,255,.15) 63% 100%);
-      border: 6px solid rgba(243,200,75,.95);
-      box-shadow: 0 12px 25px rgba(0,0,0,.25);
-      display:flex;align-items:center;justify-content:center;overflow:hidden;
-    }
-    .logoWrap img{width:100%;height:100%;object-fit:cover;display:block}
-    .brandTitle{
-      font-weight: 900;letter-spacing: .8px;font-size: 34px;line-height: 1.1;
-      color: var(--gold);text-transform: uppercase;text-shadow: 0 4px 10px rgba(0,0,0,.25);
-    }
-    .brandSub{margin-top:6px;font-weight: 800;opacity:.95;font-size: 16px;letter-spacing:.6px;}
-
-    /* WHITE PANEL */
-    .panel{
-      margin: 14px 14px 28px;background: #fff;border-radius: 26px;
-      padding: 14px 14px 18px;box-shadow: var(--shadow);color: var(--ink);
-      border: 3px solid rgba(243,200,75,.65);
-    }
-    .helloCard{
-      background: linear-gradient(180deg,#ffffff,#f4fbfc);
-      border-radius: 18px;padding: 14px 14px;text-align:center;
-      border: 2px solid rgba(12,106,115,.20);margin-bottom: 12px;
-    }
-    .helloCard .big{font-size: 22px;font-weight: 900;margin-bottom: 4px;color:#0b4f56;}
-    .helloCard .starsLine{font-weight: 800;color:#134a50;}
-
-    /* MENU BUTTONS */
-    .menuList{display:flex;flex-direction:column;gap:14px;margin-top:10px}
-    .menuBtn{
-      background: var(--btn);border-radius: 22px;padding: 18px 16px;font-size: 20px;
-      font-weight: 900;text-align:center;border: 3px solid rgba(12,106,115,.55);
-      color:#0a4a52;box-shadow: 0 10px 18px rgba(0,0,0,.08);user-select:none;
-    }
-    .menuBtn:active{transform: scale(.99)}
-    .menuBtn small{display:block;font-weight:700;color:#30666d;margin-top:2px;font-size:13px}
-
-    /* BOTTOM MINI BUTTONS */
-    .bottomRow{margin-top: 16px;display:flex;gap: 12px;justify-content:center;flex-wrap:wrap;}
-    .miniBtn{
-      background:#fff;border-radius: 16px;padding: 12px 14px;font-weight: 900;
-      border: 3px solid rgba(12,106,115,.55);color:#0a4a52;min-width: 170px;
-      text-align:center;box-shadow: 0 10px 18px rgba(0,0,0,.08);
-    }
-
-    /* AUTH SCREEN */
-    .auth{max-width: 520px;margin: 0 auto;padding: 16px 0 0;}
-    .authBox{
-      background:#fff;border-radius: 22px;padding: 16px;border: 3px solid rgba(243,200,75,.55);
-      box-shadow: var(--shadow);color: var(--ink);
-    }
-    .field{margin:10px 0}
-    .label{font-weight:900;color:#0a4a52;margin-bottom:6px}
-    .input{
-      width:100%;padding: 13px 12px;border-radius: 14px;border: 2px solid rgba(12,106,115,.25);
-      outline:none;font-size: 16px;
-    }
-    .row{display:flex;gap:10px;flex-wrap:wrap;}
-    .row .btn{flex:1;min-width: 180px;}
-    .btn{
-      border:none;border-radius: 16px;padding: 14px 14px;font-weight: 900;
-      font-size: 16px;cursor:pointer;box-shadow: 0 10px 18px rgba(0,0,0,.08);
-    }
-    .btnPrimary{background: linear-gradient(180deg,#0d7a83,#0b6168);color:#fff;}
-    .btnGhost{background:#fff;border: 3px solid rgba(12,106,115,.55);color:#0a4a52;}
-    .note{margin-top:10px;color:#567277;font-size: 13px;font-weight: 700;text-align:center;}
-
-    /* LESSON PAGE */
-    .lessonHero{padding: 16px 14px 0;color:#fff;}
-    .lessonBanner{
-      border-radius: 26px;padding: 18px 16px;background: linear-gradient(90deg,#1a8d97,#0b6f78);
-      border: 3px solid rgba(243,200,75,.65);box-shadow: 0 12px 25px rgba(0,0,0,.16);
-      display:flex;gap: 14px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-    }
-    .lessonBanner .title{font-size: 22px;font-weight: 1000;letter-spacing:.2px;}
-    .lessonBanner .sub{font-size: 14px;font-weight: 800;opacity:.95;margin-top:4px;}
-    .badge{
-      background: rgba(255,255,255,.18);border: 2px solid rgba(255,255,255,.22);
-      padding: 8px 12px;border-radius: 999px;font-weight: 900;white-space:nowrap;
-    }
-    .lessonPanel{
-      margin: 12px 14px 28px;background:#fff;color:var(--ink);
-      border-radius: 26px;padding: 14px;border: 3px solid rgba(243,200,75,.65);
-      box-shadow: var(--shadow);
-    }
-    .sectionTitle{
-      display:flex;align-items:center;gap:10px;padding: 12px 12px;
-      background: linear-gradient(90deg,#0b6f78,#15909b);color:#fff;border-radius: 18px;
-      font-weight: 1000;font-size: 16px;margin: 10px 0 12px;border: 2px solid rgba(0,0,0,.06);
-    }
-    .vocabGrid{display:grid;grid-template-columns: repeat(2, minmax(0, 1fr));gap: 12px;}
-    .vCard{
-      background: #eef9fb;border-radius: 18px;padding: 12px;border: 2px solid rgba(12,106,115,.18);
-      text-align:center;
-    }
-    .vIcon{
-      width:72px;height:72px;border-radius:16px;background:#fff;margin: 0 auto 8px;
-      display:flex;align-items:center;justify-content:center;border: 2px solid rgba(0,0,0,.06);
-      font-size: 36px;
-    }
-    .vWord{font-weight:1000;font-size:20px;color:#0a4a52;text-transform:lowercase}
-    .vRu{font-weight:900;color:#3d6167;margin-top:2px}
-    .sayBtn{
-      margin-top:10px;border:none;background: linear-gradient(180deg,#0b6f78,#0a5b62);color:#fff;
-      padding: 10px 12px;border-radius: 999px;font-weight: 1000;cursor:pointer;width: 100%;
-    }
-
-    .ruleBox{
-      background:#eaf6ff;border: 2px solid rgba(40,120,190,.20);
-      border-radius: 18px;padding: 14px;color:#103a4a;
-    }
-    .ruleBox h3{margin:0 0 8px;font-size:18px}
-    .ruleBox p{margin:6px 0;font-weight:700;color:#285463}
-    .ruleBox ul{margin:8px 0 0 18px}
-    .ruleBox li{margin:6px 0;font-weight:800}
-
-    .wsBox{
-      border-radius: 18px;border: 2px dashed rgba(0,0,0,.25);
-      padding: 12px;margin: 12px 0;background:#fff;
-    }
-    .wsBox h4{margin:0 0 6px;font-size:18px;color:#0a4a52}
-    .wsBox p{margin:0 0 10px;color:#4b666c;font-weight:700}
-    .qRow{display:flex;gap:10px;align-items:center;margin:8px 0;flex-wrap:wrap}
-    .qRow .q{font-weight:900}
-    .qRow input[type="text"]{
-      flex:1;min-width: 160px;padding: 10px 10px;border-radius: 12px;
-      border: 2px solid rgba(12,106,115,.22);outline:none;
-    }
-    .select{
-      flex:1;min-width: 200px;padding: 10px 10px;border-radius: 12px;
-      border: 2px solid rgba(12,106,115,.22);outline:none;background:#fff;font-weight:800;
-    }
-    .checkRow{
-      display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
-      margin-top: 10px;
-    }
-    .checkBtn{
-      border:none;background: linear-gradient(180deg,#0b6f78,#0a5b62);color:#fff;
-      padding: 12px 14px;border-radius: 16px;font-weight: 1000;cursor:pointer;min-width: 140px;
-    }
-    .scoreTxt{font-weight:1000;color:#0a4a52}
-
-    .navRow{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-top: 14px;}
-    .navRow .btn{flex:1;min-width: 160px}
-    .btnBlue{background: linear-gradient(180deg,#1f7bd0,#195a9e);color:#fff;}
-    .btnGreen{background: linear-gradient(180deg,#1aa06c,#137e53);color:#fff;}
-
-    .footerLine{
-      margin-top: 12px;text-align:center;font-size: 12px;font-weight: 900;
-      color: rgba(255,255,255,.90);padding: 12px 10px 0;
-    }
-
-    @media (max-width:520px){
-      .brandTitle{font-size:28px}
-      .menuBtn{font-size:18px}
-      .vocabGrid{grid-template-columns:1fr 1fr}
-    }
-
-    /* PRINT: печатаем только lessonPanel (в уроке) */
-    @media print{
-      body{background:#fff !important;color:#000 !important;}
-      .hero,.footerLine,.lessonHero,.navRow,.bottomRow{display:none !important;}
-      .lessonPanel{margin:0 !important;border:none !important;box-shadow:none !important;}
-      .wsBox{page-break-inside:avoid;}
-    }
-  </style>
+<style>
+:root{
+  --green:#0b6f78;
+  --gold:#f3c84b;
+  --bg:#eaf6f8;
+  --ink:#0a3c42;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Arial;
+  background:linear-gradient(180deg,#0b6f78,#0a5f67);
+}
+.app{max-width:760px;margin:auto;padding:14px;color:#fff}
+.card{
+  background:#fff;
+  color:var(--ink);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:16px;
+  border:3px solid var(--gold);
+}
+.header{
+  text-align:center;
+}
+.header img{width:90px}
+h1,h2,h3{margin:6px 0}
+.btn{
+  border:none;
+  border-radius:14px;
+  padding:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.main{background:var(--green);color:#fff}
+.light{background:#fff;border:2px solid var(--green);color:var(--green)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.word{
+  background:var(--bg);
+  border-radius:16px;
+  padding:10px;
+  text-align:center;
+}
+.word img{width:100%;border-radius:12px}
+.correct{border:3px solid #1aa06c}
+.wrong{border:3px solid #d62828}
+.hidden{display:none}
+.footer{text-align:center;font-size:12px;font-weight:800;opacity:.85}
+@media print{
+  body{background:#fff}
+  .btn,.footer{display:none}
+  .card{page-break-inside:avoid}
+  body::after{
+    content:"AI BAYAN • 3 grade • 2025";
+    position:fixed;
+    bottom:40%;
+    left:10%;
+    font-size:32px;
+    opacity:.15;
+    transform:rotate(-30deg);
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="app" id="app"></div>
+<div class="app" id="app"></div>
 
 <script>
-/* ====== SHOW JS ERROR ON PAGE (VERY HELPFUL) ====== */
-window.onerror = function(msg, src, line, col){
-  document.body.innerHTML =
-    "<pre style='white-space:pre-wrap;font:16px/1.4 system-ui;padding:16px;background:#fff;color:#b00020'>" +
-    "JS ERROR:\\n" + msg + "\\n\\nLine: " + line + "  Col: " + col + "\\n" +
-    (src ? ("Source: " + src + "\\n") : "") +
-    "</pre>";
-};
+/* ===== CONFIG ===== */
+const STUDENT_PIN="2844";
+const TEACHER_PIN="3234";
 
-/* ===============================
-   CONFIG
-================================ */
-const APP_TITLE = "AI Bayan Vocabulary 3 Grade";
-const STUDENT_PIN = "2844";
-const TEACHER_PIN = "3244";
-const CLASS_CODE = "3E";
-const MAX_L = 15;
-
-/* ===============================
-   DATA: Unit 1–8 (FULL)
-================================ */
-const UNIT1_LESSONS = [
-  { id:"u1l1", title:"Lesson 1", subtitle:"Hello, hello!", vocabTopic:"Greetings", vocab:[
-    {en:"hello", ru:"привет", emoji:"👋"},
-    {en:"goodbye", ru:"пока", emoji:"👋"},
-    {en:"how are you?", ru:"как дела?", emoji:"😊"},
-    {en:"fine, thank you", ru:"хорошо, спасибо", emoji:"👍"},
-  ],
-  grammar:{
-    title:"Hello / Goodbye",
-    rule:"We say hello when we meet. We say goodbye when we leave.",
-    formula:"Hello! / Goodbye!",
-    examples:["Hello! I’m Tom.","Goodbye! See you!"]
-  }},
-  { id:"u1l2", title:"Lesson 2", subtitle:"My name is…", vocabTopic:"Names", vocab:[
-    {en:"my name is…", ru:"меня зовут…", emoji:"🧒"},
-    {en:"what’s your name?", ru:"как тебя зовут?", emoji:"❓"},
-    {en:"I’m…", ru:"я…", emoji:"🙋‍♀️"},
-    {en:"this is…", ru:"это…", emoji:"👉"},
-  ],
-  grammar:{
-    title:"What’s your name?",
-    rule:"We ask and answer about names.",
-    formula:"What’s your name? — I’m …",
-    examples:["What’s your name? — I’m Aisha."]
-  }},
-  { id:"u1l3", title:"Lesson 3", subtitle:"The alphabet", vocabTopic:"Alphabet", vocab:[
-    {en:"A", ru:"эй", emoji:"🅰️"},
-    {en:"B", ru:"би", emoji:"🅱️"},
-    {en:"C", ru:"си", emoji:"🌊"},
-    {en:"D", ru:"ди", emoji:"🔤"},
-  ],
-  grammar:{
-    title:"Spell your name",
-    rule:"We spell names using letters.",
-    formula:"A – B – C",
-    examples:["A – I – S – H – A"]
-  }},
-  { id:"u1l4", title:"Lesson 4", subtitle:"Numbers 1–10", vocabTopic:"Numbers", vocab:[
-    {en:"one", ru:"один", emoji:"1️⃣"},
-    {en:"two", ru:"два", emoji:"2️⃣"},
-    {en:"three", ru:"три", emoji:"3️⃣"},
-    {en:"ten", ru:"десять", emoji:"🔟"},
-  ],
-  grammar:{
-    title:"How old are you?",
-    rule:"We ask about age.",
-    formula:"How old are you? — I’m …",
-    examples:["I’m eight."]
-  }},
-  { id:"u1l5", title:"Lesson 5", subtitle:"Numbers 11–20", vocabTopic:"Numbers", vocab:[
-    {en:"eleven", ru:"одиннадцать", emoji:"1️⃣1️⃣"},
-    {en:"twelve", ru:"двенадцать", emoji:"1️⃣2️⃣"},
-    {en:"fifteen", ru:"пятнадцать", emoji:"1️⃣5️⃣"},
-    {en:"twenty", ru:"двадцать", emoji:"2️⃣0️⃣"},
-  ],
-  grammar:{
-    title:"I’m …",
-    rule:"We say age with numbers.",
-    formula:"I’m + number",
-    examples:["I’m twelve."]
-  }},
-  { id:"u1l6", title:"Lesson 6", subtitle:"Colours", vocabTopic:"Colours", vocab:[
-    {en:"red", ru:"красный", emoji:"🟥"},
-    {en:"blue", ru:"синий", emoji:"🟦"},
-    {en:"green", ru:"зелёный", emoji:"🟩"},
-    {en:"yellow", ru:"жёлтый", emoji:"🟨"},
-  ],
-  grammar:{
-    title:"This is …",
-    rule:"We name colours.",
-    formula:"This is + colour",
-    examples:["This is red."]
-  }},
-  { id:"u1l7", title:"Lesson 7", subtitle:"Where are you from?", vocabTopic:"Countries", vocab:[
-    {en:"I’m from Kazakhstan", ru:"я из Казахстана", emoji:"🇰🇿"},
-    {en:"I’m from the UK", ru:"я из Великобритании", emoji:"🇬🇧"},
-    {en:"I’m from Russia", ru:"я из России", emoji:"🇷🇺"},
-    {en:"I’m from the USA", ru:"я из США", emoji:"🇺🇸"},
-  ],
-  grammar:{
-    title:"Where are you from?",
-    rule:"We talk about countries.",
-    formula:"I’m from …",
-    examples:["I’m from Kazakhstan."]
-  }},
-  { id:"u1l8", title:"Project", subtitle:"My poster", vocabTopic:"Poster", vocab:[
-    {en:"name", ru:"имя", emoji:"🏷️"},
-    {en:"age", ru:"возраст", emoji:"🎂"},
-    {en:"country", ru:"страна", emoji:"🌍"},
-    {en:"favourite colour", ru:"любимый цвет", emoji:"🎨"},
-  ],
-  grammar:{
-    title:"My poster",
-    rule:"We write about ourselves.",
-    formula:"My name’s … I’m …",
-    examples:["My name’s Aigerim. I’m ten."]
-  }},
+/* ===== DATA: UNIT 1 ===== */
+const UNIT1=[
+{l:1,t:"Hello!",v:[
+["hello","привет","img/unit1/lesson1/hello.png"],
+["goodbye","пока","img/unit1/lesson1/goodbye.png"],
+["how are you","как дела","img/unit1/lesson1/how_are_you.png"],
+["fine","хорошо","img/unit1/lesson1/fine.png"]
+]},
+{l:2,t:"My name",v:[
+["my name is","меня зовут","img/unit1/lesson2/my_name_is.png"],
+["what’s your name","как тебя зовут","img/unit1/lesson2/whats_your_name.png"],
+["I’m","я","img/unit1/lesson2/im.png"],
+["this is","это","img/unit1/lesson2/this_is.png"]
+]},
+{l:3,t:"Alphabet",v:[
+["A","эй","img/unit1/lesson3/a.png"],
+["B","би","img/unit1/lesson3/b.png"],
+["C","си","img/unit1/lesson3/c.png"],
+["D","ди","img/unit1/lesson3/d.png"]
+]},
+{l:4,t:"Numbers 1–10",v:[
+["one","один","img/unit1/lesson4/one.png"],
+["two","два","img/unit1/lesson4/two.png"],
+["three","три","img/unit1/lesson4/three.png"],
+["ten","десять","img/unit1/lesson4/ten.png"]
+]},
+{l:5,t:"Numbers 11–20",v:[
+["eleven","11","img/unit1/lesson5/eleven.png"],
+["twelve","12","img/unit1/lesson5/twelve.png"],
+["fifteen","15","img/unit1/lesson5/fifteen.png"],
+["twenty","20","img/unit1/lesson5/twenty.png"]
+]},
+{l:6,t:"Colours",v:[
+["red","красный","img/unit1/lesson6/red.png"],
+["blue","синий","img/unit1/lesson6/blue.png"],
+["green","зелёный","img/unit1/lesson6/green.png"],
+["yellow","жёлтый","img/unit1/lesson6/yellow.png"]
+]},
+{l:7,t:"Countries",v:[
+["Kazakhstan","Казахстан","img/unit1/lesson7/kazakhstan.png"],
+["UK","Великобритания","img/unit1/lesson7/uk.png"],
+["USA","США","img/unit1/lesson7/usa.png"],
+["Russia","Россия","img/unit1/lesson7/russia.png"]
+]},
+{l:8,t:"About me",v:[
+["name","имя","img/unit1/lesson8/name.png"],
+["age","возраст","img/unit1/lesson8/age.png"],
+["country","страна","img/unit1/lesson8/country.png"],
+["favourite colour","любимый цвет","img/unit1/lesson8/colour.png"]
+]}
 ];
 
-const UNIT2_LESSONS = [
-  {id:"u2l1",title:"Lesson 1",subtitle:"Classroom",vocabTopic:"Things",vocab:[
-    {en:"book",ru:"книга",emoji:"📘"},
-    {en:"pen",ru:"ручка",emoji:"🖊️"},
-    {en:"pencil",ru:"карандаш",emoji:"✏️"},
-    {en:"bag",ru:"рюкзак",emoji:"🎒"},
-  ],
-  grammar:{title:"This is",rule:"We name classroom things.",formula:"This is a …",examples:["This is a book."]}},
-  {id:"u2l2",title:"Lesson 2",subtitle:"School subjects",vocabTopic:"Subjects",vocab:[
-    {en:"English",ru:"английский",emoji:"🇬🇧"},
-    {en:"Maths",ru:"математика",emoji:"➗"},
-    {en:"Art",ru:"ИЗО",emoji:"🎨"},
-    {en:"PE",ru:"физкультура",emoji:"⚽"},
-  ],
-  grammar:{title:"I like",rule:"We talk about likes.",formula:"I like …",examples:["I like English."]}},
-  {id:"u2l3",title:"Lesson 3",subtitle:"Days",vocabTopic:"Days",vocab:[
-    {en:"Monday",ru:"понедельник",emoji:"📅"},
-    {en:"Tuesday",ru:"вторник",emoji:"📅"},
-    {en:"Wednesday",ru:"среда",emoji:"📅"},
-    {en:"Friday",ru:"пятница",emoji:"🎉"},
-  ],
-  grammar:{title:"On Monday",rule:"We talk about days.",formula:"On Monday, I …",examples:["On Monday, I have English."]}},
-  {id:"u2l4",title:"Lesson 4",subtitle:"Instructions",vocabTopic:"Commands",vocab:[
-    {en:"sit down",ru:"садись",emoji:"🪑"},
-    {en:"stand up",ru:"встань",emoji:"🧍"},
-    {en:"open your book",ru:"открой книгу",emoji:"📖"},
-    {en:"listen",ru:"слушай",emoji:"👂"},
-  ],
-  grammar:{title:"Imperatives",rule:"We give commands.",formula:"Sit down.",examples:["Listen!"]}},
-  {id:"u2l5",title:"Lesson 5",subtitle:"People at school",vocabTopic:"People",vocab:[
-    {en:"teacher",ru:"учитель",emoji:"🧑‍🏫"},
-    {en:"student",ru:"ученик",emoji:"👦"},
-    {en:"class",ru:"класс",emoji:"🏫"},
-    {en:"friend",ru:"друг",emoji:"🤝"},
-  ],
-  grammar:{title:"This is my…",rule:"We talk about people.",formula:"This is my …",examples:["This is my teacher."]}},
-  {id:"u2l6",title:"Lesson 6",subtitle:"My timetable",vocabTopic:"Timetable",vocab:[
-    {en:"lesson",ru:"урок",emoji:"📚"},
-    {en:"break",ru:"перемена",emoji:"⏸️"},
-    {en:"today",ru:"сегодня",emoji:"📅"},
-    {en:"school",ru:"школа",emoji:"🏫"},
-  ],
-  grammar:{title:"Today I have",rule:"We talk about today.",formula:"Today I have …",examples:["Today I have Maths."]}},
-  {id:"u2l7",title:"Lesson 7",subtitle:"My bag",vocabTopic:"Things",vocab:[
-    {en:"notebook",ru:"тетрадь",emoji:"📓"},
-    {en:"ruler",ru:"линейка",emoji:"📏"},
-    {en:"eraser",ru:"ластик",emoji:"🧽"},
-    {en:"pencil case",ru:"пенал",emoji:"👜"},
-  ],
-  grammar:{title:"I have got",rule:"We say what we have.",formula:"I have got a …",examples:["I have got a bag."]}},
-  {id:"u2l8",title:"Project",subtitle:"My school",vocabTopic:"Project",vocab:[
-    {en:"school",ru:"школа",emoji:"🏫"},
-    {en:"class",ru:"класс",emoji:"👫"},
-    {en:"teacher",ru:"учитель",emoji:"🧑‍🏫"},
-    {en:"friend",ru:"друг",emoji:"🤝"},
-  ],
-  grammar:{title:"My school",rule:"We describe our school.",formula:"I like my school.",examples:["I like my school."]}},
-];
+/* ===== STATE ===== */
+let user=null;
 
-const UNIT3_LESSONS = [
-  {id:"u3l1",title:"Lesson 1",subtitle:"My family",vocabTopic:"Family",vocab:[
-    {en:"mum",ru:"мама",emoji:"👩"},
-    {en:"dad",ru:"папа",emoji:"👨"},
-    {en:"sister",ru:"сестра",emoji:"👧"},
-    {en:"brother",ru:"брат",emoji:"👦"},
-  ],
-  grammar:{title:"This is my",rule:"We talk about family.",formula:"This is my …",examples:["This is my mum."]}},
-  {id:"u3l2",title:"Lesson 2",subtitle:"Feelings",vocabTopic:"Feelings",vocab:[
-    {en:"happy",ru:"счастливый",emoji:"😁"},
-    {en:"sad",ru:"грустный",emoji:"😢"},
-    {en:"tired",ru:"уставший",emoji:"😴"},
-    {en:"hungry",ru:"голодный",emoji:"🍽️"},
-  ],
-  grammar:{title:"I am",rule:"We talk about feelings.",formula:"I am …",examples:["I am happy."]}},
-  {id:"u3l3",title:"Lesson 3",subtitle:"Friends",vocabTopic:"Friends",vocab:[
-    {en:"friend",ru:"друг",emoji:"🤝"},
-    {en:"boy",ru:"мальчик",emoji:"👦"},
-    {en:"girl",ru:"девочка",emoji:"👧"},
-    {en:"classmate",ru:"одноклассник",emoji:"🏫"},
-  ],
-  grammar:{title:"We are",rule:"We talk about friends.",formula:"We are friends.",examples:["We are classmates."]}},
-  {id:"u3l4",title:"Lesson 4",subtitle:"Pets",vocabTopic:"Pets",vocab:[
-    {en:"cat",ru:"кот",emoji:"🐱"},
-    {en:"dog",ru:"собака",emoji:"🐶"},
-    {en:"fish",ru:"рыбка",emoji:"🐟"},
-    {en:"bird",ru:"птица",emoji:"🐦"},
-  ],
-  grammar:{title:"I have got",rule:"We talk about pets.",formula:"I have got a …",examples:["I have got a cat."]}},
-  {id:"u3l5",title:"Lesson 5",subtitle:"Adjectives",vocabTopic:"Adjectives",vocab:[
-    {en:"kind",ru:"добрый",emoji:"💛"},
-    {en:"funny",ru:"весёлый",emoji:"😄"},
-    {en:"smart",ru:"умный",emoji:"🧠"},
-    {en:"nice",ru:"милый",emoji:"😊"},
-  ],
-  grammar:{title:"He / She is",rule:"We describe people.",formula:"He is …",examples:["She is kind."]}},
-  {id:"u3l6",title:"Lesson 6",subtitle:"My friends",vocabTopic:"Friends",vocab:[
-    {en:"play",ru:"играть",emoji:"⚽"},
-    {en:"help",ru:"помогать",emoji:"🤝"},
-    {en:"share",ru:"делиться",emoji:"🎁"},
-    {en:"talk",ru:"говорить",emoji:"💬"},
-  ],
-  grammar:{title:"We like",rule:"We talk about actions.",formula:"We like to …",examples:["We like to play."]}},
-  {id:"u3l7",title:"Lesson 7",subtitle:"My family home",vocabTopic:"Home",vocab:[
-    {en:"house",ru:"дом",emoji:"🏠"},
-    {en:"room",ru:"комната",emoji:"🛏️"},
-    {en:"kitchen",ru:"кухня",emoji:"🍳"},
-    {en:"bedroom",ru:"спальня",emoji:"🛌"},
-  ],
-  grammar:{title:"There is",rule:"We talk about rooms.",formula:"There is a …",examples:["There is a kitchen."]}},
-  {id:"u3l8",title:"Project",subtitle:"My family poster",vocabTopic:"Project",vocab:[
-    {en:"family",ru:"семья",emoji:"👨‍👩‍👧‍👦"},
-    {en:"name",ru:"имя",emoji:"🏷️"},
-    {en:"age",ru:"возраст",emoji:"🎂"},
-    {en:"pet",ru:"питомец",emoji:"🐶"},
-  ],
-  grammar:{title:"My family",rule:"We make a poster.",formula:"This is my …",examples:["This is my family."]}},
-];
+/* ===== UI ===== */
+const app=document.getElementById("app");
 
-const UNIT4_LESSONS = [
-  {id:"u4l1",title:"Lesson 1",subtitle:"Weather today",vocabTopic:"Weather",vocab:[
-    {en:"sunny",ru:"солнечно",emoji:"☀️"},
-    {en:"rainy",ru:"дождливо",emoji:"🌧️"},
-    {en:"windy",ru:"ветрено",emoji:"🌬️"},
-    {en:"cloudy",ru:"облачно",emoji:"☁️"},
-  ],
-  grammar:{title:"It’s …",rule:"We talk about weather.",formula:"It’s sunny/rainy.",examples:["It’s sunny today."]}},
-  {id:"u4l2",title:"Lesson 2",subtitle:"Seasons",vocabTopic:"Seasons",vocab:[
-    {en:"spring",ru:"весна",emoji:"🌸"},
-    {en:"summer",ru:"лето",emoji:"🌞"},
-    {en:"autumn",ru:"осень",emoji:"🍂"},
-    {en:"winter",ru:"зима",emoji:"❄️"},
-  ],
-  grammar:{title:"In + season",rule:"We talk about seasons.",formula:"In summer, it’s …",examples:["In winter, it’s cold."]}},
-  {id:"u4l3",title:"Lesson 3",subtitle:"Temperature",vocabTopic:"Hot & Cold",vocab:[
-    {en:"hot",ru:"жарко",emoji:"🔥"},
-    {en:"cold",ru:"холодно",emoji:"🥶"},
-    {en:"warm",ru:"тепло",emoji:"🌤️"},
-    {en:"cool",ru:"прохладно",emoji:"🧊"},
-  ],
-  grammar:{title:"It’s hot/cold",rule:"We talk about temperature.",formula:"It’s hot.",examples:["It’s cold today."]}},
-  {id:"u4l4",title:"Lesson 4",subtitle:"Clothes",vocabTopic:"Clothes",vocab:[
-    {en:"coat",ru:"пальто",emoji:"🧥"},
-    {en:"hat",ru:"шапка",emoji:"🧢"},
-    {en:"boots",ru:"ботинки",emoji:"👢"},
-    {en:"umbrella",ru:"зонт",emoji:"☂️"},
-  ],
-  grammar:{title:"Put on",rule:"We say what to wear.",formula:"Put on a …",examples:["Put on a coat."]}},
-  {id:"u4l5",title:"Lesson 5",subtitle:"Activities",vocabTopic:"Activities",vocab:[
-    {en:"play",ru:"играть",emoji:"⚽"},
-    {en:"walk",ru:"гулять",emoji:"🚶"},
-    {en:"swim",ru:"плавать",emoji:"🏊"},
-    {en:"stay home",ru:"быть дома",emoji:"🏠"},
-  ],
-  grammar:{title:"I can",rule:"We talk about abilities.",formula:"I can …",examples:["I can swim."]}},
-  {id:"u4l6",title:"Lesson 6",subtitle:"Weather question",vocabTopic:"Questions",vocab:[
-    {en:"what’s the weather like?",ru:"какая погода?",emoji:"❓"},
-    {en:"today",ru:"сегодня",emoji:"📅"},
-    {en:"outside",ru:"на улице",emoji:"🌳"},
-    {en:"now",ru:"сейчас",emoji:"⏰"},
-  ],
-  grammar:{title:"What’s the weather like?",rule:"We ask about weather.",formula:"What’s the weather like?",examples:["It’s sunny."]}},
-  {id:"u4l7",title:"Lesson 7",subtitle:"More weather",vocabTopic:"Weather",vocab:[
-    {en:"snowy",ru:"снег",emoji:"🌨️"},
-    {en:"stormy",ru:"буря",emoji:"⛈️"},
-    {en:"foggy",ru:"туман",emoji:"🌫️"},
-    {en:"icy",ru:"ледяной",emoji:"🧊"},
-  ],
-  grammar:{title:"It’s …",rule:"More weather words.",formula:"It’s snowy.",examples:["It’s foggy today."]}},
-  {id:"u4l8",title:"Project",subtitle:"Weather chart",vocabTopic:"Project",vocab:[
-    {en:"sun",ru:"солнце",emoji:"☀️"},
-    {en:"rain",ru:"дождь",emoji:"🌧️"},
-    {en:"wind",ru:"ветер",emoji:"🌬️"},
-    {en:"snow",ru:"снег",emoji:"❄️"},
-  ],
-  grammar:{title:"My chart",rule:"We make a weather chart.",formula:"Today: sun.",examples:["Today: rain."]}},
-];
-
-const UNIT5_LESSONS = [
-  {id:"u5l1",title:"Lesson 1",subtitle:"Hobbies",vocabTopic:"Hobbies",vocab:[
-    {en:"read",ru:"читать",emoji:"📖"},
-    {en:"draw",ru:"рисовать",emoji:"🎨"},
-    {en:"dance",ru:"танцевать",emoji:"💃"},
-    {en:"sing",ru:"петь",emoji:"🎤"},
-  ],
-  grammar:{title:"I like to",rule:"We talk about hobbies.",formula:"I like to read.",examples:["I like to draw."]}},
-  {id:"u5l2",title:"Lesson 2",subtitle:"Sports",vocabTopic:"Sports",vocab:[
-    {en:"football",ru:"футбол",emoji:"⚽"},
-    {en:"basketball",ru:"баскетбол",emoji:"🏀"},
-    {en:"tennis",ru:"теннис",emoji:"🎾"},
-    {en:"run",ru:"бегать",emoji:"🏃"},
-  ],
-  grammar:{title:"I play",rule:"We talk about sports.",formula:"I play football.",examples:["I play tennis."]}},
-  {id:"u5l3",title:"Lesson 3",subtitle:"Toys",vocabTopic:"Toys",vocab:[
-    {en:"ball",ru:"мяч",emoji:"⚽"},
-    {en:"doll",ru:"кукла",emoji:"🪆"},
-    {en:"car",ru:"машинка",emoji:"🚗"},
-    {en:"game",ru:"игра",emoji:"🎮"},
-  ],
-  grammar:{title:"I have got",rule:"We talk about toys.",formula:"I have got a ball.",examples:["I have got a doll."]}},
-  {id:"u5l4",title:"Lesson 4",subtitle:"After school",vocabTopic:"Activities",vocab:[
-    {en:"homework",ru:"домашка",emoji:"📝"},
-    {en:"help",ru:"помогать",emoji:"🤝"},
-    {en:"watch TV",ru:"смотреть ТВ",emoji:"📺"},
-    {en:"play outside",ru:"играть на улице",emoji:"🛝"},
-  ],
-  grammar:{title:"I do",rule:"We talk about routines.",formula:"I do homework.",examples:["I watch TV."]}},
-  {id:"u5l5",title:"Lesson 5",subtitle:"Time",vocabTopic:"Time",vocab:[
-    {en:"morning",ru:"утро",emoji:"🌅"},
-    {en:"afternoon",ru:"день",emoji:"🌇"},
-    {en:"evening",ru:"вечер",emoji:"🌆"},
-    {en:"night",ru:"ночь",emoji:"🌙"},
-  ],
-  grammar:{title:"In the …",rule:"We talk about time.",formula:"In the morning…",examples:["In the evening, I read."]}},
-  {id:"u5l6",title:"Lesson 6",subtitle:"Daily routine",vocabTopic:"Routine",vocab:[
-    {en:"play",ru:"играть",emoji:"🎮"},
-    {en:"read",ru:"читать",emoji:"📖"},
-    {en:"go",ru:"ходить",emoji:"🚶"},
-    {en:"sleep",ru:"спать",emoji:"😴"},
-  ],
-  grammar:{title:"I + verb",rule:"We talk about routine.",formula:"I play.",examples:["I sleep at night."]}},
-  {id:"u5l7",title:"Lesson 7",subtitle:"Weekend",vocabTopic:"Weekend",vocab:[
-    {en:"Saturday",ru:"суббота",emoji:"📅"},
-    {en:"Sunday",ru:"воскресенье",emoji:"📅"},
-    {en:"park",ru:"парк",emoji:"🌳"},
-    {en:"cinema",ru:"кинотеатр",emoji:"🎬"},
-  ],
-  grammar:{title:"On Saturday",rule:"We talk about weekend.",formula:"On Sunday…",examples:["On Sunday, I go to the park."]}},
-  {id:"u5l8",title:"Project",subtitle:"My hobby",vocabTopic:"Project",vocab:[
-    {en:"hobby",ru:"хобби",emoji:"⭐"},
-    {en:"favourite",ru:"любимый",emoji:"💛"},
-    {en:"like",ru:"нравится",emoji:"👍"},
-    {en:"because",ru:"потому что",emoji:"➡️"},
-  ],
-  grammar:{title:"Because",rule:"We give a reason.",formula:"I like … because …",examples:["I like football because it’s fun."]}},
-];
-
-const UNIT6_LESSONS = [
-  {id:"u6l1",title:"Lesson 1",subtitle:"My body",vocabTopic:"Body",vocab:[
-    {en:"head",ru:"голова",emoji:"🙂"},
-    {en:"hand",ru:"рука",emoji:"✋"},
-    {en:"leg",ru:"нога",emoji:"🦵"},
-    {en:"eye",ru:"глаз",emoji:"👁️"},
-  ],
-  grammar:{title:"I’ve got",rule:"We talk about body.",formula:"I’ve got two hands.",examples:["I’ve got two eyes."]}},
-  {id:"u6l2",title:"Lesson 2",subtitle:"Face",vocabTopic:"Face",vocab:[
-    {en:"nose",ru:"нос",emoji:"👃"},
-    {en:"mouth",ru:"рот",emoji:"👄"},
-    {en:"ear",ru:"ухо",emoji:"👂"},
-    {en:"hair",ru:"волосы",emoji:"💇"},
-  ],
-  grammar:{title:"My …",rule:"We name body parts.",formula:"My hair is …",examples:["My hair is brown."]}},
-  {id:"u6l3",title:"Lesson 3",subtitle:"Healthy food",vocabTopic:"Food",vocab:[
-    {en:"apple",ru:"яблоко",emoji:"🍎"},
-    {en:"milk",ru:"молоко",emoji:"🥛"},
-    {en:"water",ru:"вода",emoji:"💧"},
-    {en:"vegetables",ru:"овощи",emoji:"🥦"},
-  ],
-  grammar:{title:"I eat / drink",rule:"Food and drinks.",formula:"I eat apples.",examples:["I drink water."]}},
-  {id:"u6l4",title:"Lesson 4",subtitle:"Illness",vocabTopic:"Sick",vocab:[
-    {en:"cold",ru:"простуда",emoji:"🤧"},
-    {en:"headache",ru:"головная боль",emoji:"🤕"},
-    {en:"toothache",ru:"зубная боль",emoji:"🦷"},
-    {en:"fever",ru:"температура",emoji:"🌡️"},
-  ],
-  grammar:{title:"I’ve got a …",rule:"We talk about illness.",formula:"I’ve got a headache.",examples:["I’ve got a cold."]}},
-  {id:"u6l5",title:"Lesson 5",subtitle:"Doctor",vocabTopic:"Doctor",vocab:[
-    {en:"doctor",ru:"врач",emoji:"🧑‍⚕️"},
-    {en:"medicine",ru:"лекарство",emoji:"💊"},
-    {en:"rest",ru:"отдых",emoji:"🛌"},
-    {en:"sleep",ru:"сон",emoji:"😴"},
-  ],
-  grammar:{title:"You should",rule:"We give advice.",formula:"You should rest.",examples:["You should drink water."]}},
-  {id:"u6l6",title:"Lesson 6",subtitle:"Habits",vocabTopic:"Habits",vocab:[
-    {en:"wash hands",ru:"мыть руки",emoji:"🧼"},
-    {en:"brush teeth",ru:"чистить зубы",emoji:"🪥"},
-    {en:"exercise",ru:"упражнения",emoji:"🏃"},
-    {en:"eat well",ru:"хорошо питаться",emoji:"🥗"},
-  ],
-  grammar:{title:"I always",rule:"We talk about habits.",formula:"I always wash hands.",examples:["I always brush teeth."]}},
-  {id:"u6l7",title:"Lesson 7",subtitle:"Good or bad",vocabTopic:"Health",vocab:[
-    {en:"healthy",ru:"здоровый",emoji:"💚"},
-    {en:"unhealthy",ru:"вредный",emoji:"⚠️"},
-    {en:"good",ru:"хорошо",emoji:"✅"},
-    {en:"bad",ru:"плохо",emoji:"❌"},
-  ],
-  grammar:{title:"It’s healthy",rule:"We describe food.",formula:"It’s healthy.",examples:["Fruit is healthy."]}},
-  {id:"u6l8",title:"Project",subtitle:"My health rules",vocabTopic:"Rules",vocab:[
-    {en:"drink",ru:"пить",emoji:"🥛"},
-    {en:"sleep",ru:"спать",emoji:"😴"},
-    {en:"wash",ru:"мыть",emoji:"🧼"},
-    {en:"eat",ru:"есть",emoji:"🍎"},
-  ],
-  grammar:{title:"My rules",rule:"We write rules.",formula:"I should …",examples:["I should drink water."]}},
-];
-
-const UNIT7_LESSONS = [
-  {id:"u7l1",title:"Lesson 1",subtitle:"My town",vocabTopic:"Places",vocab:[
-    {en:"school",ru:"школа",emoji:"🏫"},
-    {en:"park",ru:"парк",emoji:"🌳"},
-    {en:"shop",ru:"магазин",emoji:"🛍️"},
-    {en:"hospital",ru:"больница",emoji:"🏥"},
-  ],
-  grammar:{title:"There is",rule:"We talk about places.",formula:"There is a …",examples:["There is a park."]}},
-  {id:"u7l2",title:"Lesson 2",subtitle:"More places",vocabTopic:"Places",vocab:[
-    {en:"cinema",ru:"кинотеатр",emoji:"🎬"},
-    {en:"library",ru:"библиотека",emoji:"📚"},
-    {en:"cafe",ru:"кафе",emoji:"☕"},
-    {en:"bank",ru:"банк",emoji:"🏦"},
-  ],
-  grammar:{title:"It’s near",rule:"We say where places are.",formula:"It’s near the …",examples:["The cafe is near the park."]}},
-  {id:"u7l3",title:"Lesson 3",subtitle:"Directions",vocabTopic:"Directions",vocab:[
-    {en:"left",ru:"налево",emoji:"⬅️"},
-    {en:"right",ru:"направо",emoji:"➡️"},
-    {en:"go straight",ru:"прямо",emoji:"⬆️"},
-    {en:"stop",ru:"стоп",emoji:"🛑"},
-  ],
-  grammar:{title:"Go …",rule:"We give directions.",formula:"Go left.",examples:["Go straight."]}},
-  {id:"u7l4",title:"Lesson 4",subtitle:"At the shop",vocabTopic:"Shop",vocab:[
-    {en:"bread",ru:"хлеб",emoji:"🍞"},
-    {en:"milk",ru:"молоко",emoji:"🥛"},
-    {en:"egg",ru:"яйцо",emoji:"🥚"},
-    {en:"juice",ru:"сок",emoji:"🧃"},
-  ],
-  grammar:{title:"I want",rule:"We ask politely.",formula:"I want … please.",examples:["I want milk."]}},
-  {id:"u7l5",title:"Lesson 5",subtitle:"Transport",vocabTopic:"Transport",vocab:[
-    {en:"bus",ru:"автобус",emoji:"🚌"},
-    {en:"car",ru:"машина",emoji:"🚗"},
-    {en:"bike",ru:"велосипед",emoji:"🚲"},
-    {en:"walk",ru:"идти пешком",emoji:"🚶"},
-  ],
-  grammar:{title:"I go by",rule:"We talk about transport.",formula:"I go by bus.",examples:["I walk to school."]}},
-  {id:"u7l6",title:"Lesson 6",subtitle:"Prepositions",vocabTopic:"Place",vocab:[
-    {en:"in",ru:"в",emoji:"📦"},
-    {en:"on",ru:"на",emoji:"📌"},
-    {en:"under",ru:"под",emoji:"⬇️"},
-    {en:"next to",ru:"рядом",emoji:"↔️"},
-  ],
-  grammar:{title:"Where is it?",rule:"We say where things are.",formula:"It’s on the desk.",examples:["It’s under the chair."]}},
-  {id:"u7l7",title:"Lesson 7",subtitle:"My address",vocabTopic:"Address",vocab:[
-    {en:"street",ru:"улица",emoji:"🛣️"},
-    {en:"house",ru:"дом",emoji:"🏠"},
-    {en:"number",ru:"номер",emoji:"🔢"},
-    {en:"city",ru:"город",emoji:"🏙️"},
-  ],
-  grammar:{title:"I live in",rule:"We talk about home.",formula:"I live in …",examples:["I live in Aktau."]}},
-  {id:"u7l8",title:"Project",subtitle:"My town map",vocabTopic:"Map",vocab:[
-    {en:"map",ru:"карта",emoji:"🗺️"},
-    {en:"place",ru:"место",emoji:"📍"},
-    {en:"near",ru:"рядом",emoji:"📌"},
-    {en:"far",ru:"далеко",emoji:"🛰️"},
-  ],
-  grammar:{title:"My map",rule:"We describe a map.",formula:"The school is near …",examples:["The park is near the school."]}},
-];
-
-const UNIT8_LESSONS = [
-  {id:"u8l1",title:"Lesson 1",subtitle:"Months",vocabTopic:"Months",vocab:[
-    {en:"January",ru:"январь",emoji:"❄️"},
-    {en:"March",ru:"март",emoji:"🌸"},
-    {en:"June",ru:"июнь",emoji:"🌞"},
-    {en:"December",ru:"декабрь",emoji:"🎄"},
-  ],
-  grammar:{title:"In + month",rule:"We talk about months.",formula:"In December …",examples:["In December, I celebrate."]}},
-  {id:"u8l2",title:"Lesson 2",subtitle:"Holidays",vocabTopic:"Holidays",vocab:[
-    {en:"birthday",ru:"день рождения",emoji:"🎂"},
-    {en:"New Year",ru:"Новый год",emoji:"🎆"},
-    {en:"holiday",ru:"каникулы",emoji:"🎉"},
-    {en:"gift",ru:"подарок",emoji:"🎁"},
-  ],
-  grammar:{title:"It’s my …",rule:"We talk about holidays.",formula:"It’s my birthday.",examples:["It’s New Year!"]}},
-  {id:"u8l3",title:"Lesson 3",subtitle:"Travel",vocabTopic:"Travel",vocab:[
-    {en:"travel",ru:"путешествовать",emoji:"✈️"},
-    {en:"train",ru:"поезд",emoji:"🚆"},
-    {en:"plane",ru:"самолёт",emoji:"✈️"},
-    {en:"hotel",ru:"отель",emoji:"🏨"},
-  ],
-  grammar:{title:"I want to",rule:"We talk about plans.",formula:"I want to travel.",examples:["I want to go by plane."]}},
-  {id:"u8l4",title:"Lesson 4",subtitle:"At the beach",vocabTopic:"Beach",vocab:[
-    {en:"sea",ru:"море",emoji:"🌊"},
-    {en:"sand",ru:"песок",emoji:"🏖️"},
-    {en:"sun",ru:"солнце",emoji:"☀️"},
-    {en:"swim",ru:"плавать",emoji:"🏊"},
-  ],
-  grammar:{title:"I can",rule:"We talk about holiday activities.",formula:"I can swim.",examples:["I can swim in the sea."]}},
-  {id:"u8l5",title:"Lesson 5",subtitle:"Winter holidays",vocabTopic:"Winter",vocab:[
-    {en:"snow",ru:"снег",emoji:"❄️"},
-    {en:"skate",ru:"кататься на коньках",emoji:"⛸️"},
-    {en:"ski",ru:"лыжи",emoji:"🎿"},
-    {en:"cold",ru:"холодно",emoji:"🥶"},
-  ],
-  grammar:{title:"It’s cold",rule:"We talk about winter.",formula:"It’s snowy.",examples:["It’s cold in winter."]}},
-  {id:"u8l6",title:"Lesson 6",subtitle:"Past simple",vocabTopic:"Past",vocab:[
-    {en:"was",ru:"был/была",emoji:"⏳"},
-    {en:"were",ru:"были",emoji:"⏳"},
-    {en:"happy",ru:"счастливый",emoji:"😁"},
-    {en:"fun",ru:"весело",emoji:"🎈"},
-  ],
-  grammar:{title:"I was / We were",rule:"We talk about past.",formula:"I was happy.",examples:["We were at home."]}},
-  {id:"u8l7",title:"Lesson 7",subtitle:"Holiday activities",vocabTopic:"Activities",vocab:[
-    {en:"visit",ru:"посещать",emoji:"📍"},
-    {en:"play",ru:"играть",emoji:"🎮"},
-    {en:"eat",ru:"есть",emoji:"🍽️"},
-    {en:"take photos",ru:"фотографировать",emoji:"📸"},
-  ],
-  grammar:{title:"I like to",rule:"We talk about holidays.",formula:"I like to play.",examples:["I like to take photos."]}},
-  {id:"u8l8",title:"Project",subtitle:"My holiday story",vocabTopic:"Story",vocab:[
-    {en:"place",ru:"место",emoji:"📍"},
-    {en:"with",ru:"с",emoji:"👫"},
-    {en:"was",ru:"был/была",emoji:"⏳"},
-    {en:"great",ru:"классно",emoji:"⭐"},
-  ],
-  grammar:{title:"My story",rule:"We tell a short story.",formula:"I was in … It was great.",examples:["I was at the sea. It was great."]}},
-];
-
-/* ===============================
-   UNITS
-================================ */
-const UNITS = [
-  {unit:1, title:"Unit 1 — Hello English!", lessons: UNIT1_LESSONS},
-  {unit:2, title:"Unit 2 — My school", lessons: UNIT2_LESSONS},
-  {unit:3, title:"Unit 3 — People I love", lessons: UNIT3_LESSONS},
-  {unit:4, title:"Unit 4 — Weather", lessons: UNIT4_LESSONS},
-  {unit:5, title:"Unit 5 — My free time", lessons: UNIT5_LESSONS},
-  {unit:6, title:"Unit 6 — Health", lessons: UNIT6_LESSONS},
-  {unit:7, title:"Unit 7 — Buildings", lessons: UNIT7_LESSONS},
-  {unit:8, title:"Unit 8 — My holidays", lessons: UNIT8_LESSONS},
-];
-
-const STORAGE_KEY = "aib_voc_3g_state_v2";
-
-/* ===============================
-   STATE
-================================ */
-let state = loadState();
-function loadState(){
-  try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(raw) return JSON.parse(raw);
-  }catch(e){}
-  return {
-    user: null, // {type:'student'|'teacher', login:'3EL1'}
-    starsByLesson: {}, // lessonId -> number
-    teacherLog: [] // {ts, login, action, lessonId, stars}
-  };
-}
-function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-
-function nowStr(){
-  const d = new Date();
-  return d.toLocaleString();
-}
-function sumStars(){
-  return Object.values(state.starsByLesson || {}).reduce((a,b)=>a+(+b||0),0);
+function renderLogin(){
+app.innerHTML=`
+<div class="card header">
+<img src="logo.png"><h2>AI BAYAN</h2>
+<input id="login" placeholder="Login (3EL1)" class="light"><br><br>
+<input id="pin" type="password" placeholder="PIN" class="light"><br><br>
+<button class="btn main" onclick="login()">Enter</button>
+</div>`;
 }
 
-/* ===============================
-   ROUTER
-================================ */
-const app = document.getElementById("app");
-let route = {page:"auth"}; // auth, menu, unit, lesson, chat, journal
-
-function go(page, params={}){
-  route = {page, ...params};
-  render();
+function login(){
+const pin=document.getElementById("pin").value;
+const log=document.getElementById("login").value;
+if(pin===STUDENT_PIN && /^3EL\d+$/.test(log)){user=log;renderMenu();return;}
+if(pin===TEACHER_PIN){user="TEACHER";renderMenu();return;}
+alert("Wrong login or PIN");
 }
 
-/* ===============================
-   AUTH HELPERS
-================================ */
-function validStudentLogin(login){
-  if(!login) return false;
-  const m = login.trim().match(/^3EL(\d{1,2})$/i);
-  if(!m) return false;
-  const n = parseInt(m[1],10);
-  return n>=1 && n<=MAX_L;
-}
-
-/* ===============================
-   SPEAK
-================================ */
-function speak(text){
-  try{
-    if(!("speechSynthesis" in window)) return alert("Speech is not supported on this device.");
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US";
-    u.rate = 0.95;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(u);
-  }catch(e){}
-}
-
-/* ===============================
-   RENDER
-================================ */
-function render(){
-  if(route.page==="auth") return renderAuth();
-  if(!state.user) return renderAuth();
-  if(route.page==="menu") return renderMenu();
-  if(route.page==="unit") return renderUnit(route.unit);
-  if(route.page==="lesson") return renderLesson(route.unit, route.lessonId);
-  if(route.page==="chat") return renderChat();
-  if(route.page==="journal") return renderJournal();
-  renderMenu();
-}
-
-/* ===============================
-   AUTH UI
-================================ */
-function renderAuth(){
-  app.innerHTML = `
-    <div class="hero">
-      <div class="logoWrap">
-        <img src="ai-bayan.png" alt="AI Bayan"
-          onerror="this.style.display='none'; this.parentElement.innerHTML='👧'; this.parentElement.style.fontSize='70px'; this.parentElement.style.color='#0b6f78'">
-      </div>
-      <div class="brandTitle">AI Bayan</div>
-      <div class="brandSub">Vocabulary • Grade 3</div>
-    </div>
-
-    <div class="panel auth">
-      <div class="authBox">
-        <div class="field">
-          <div class="label">Login</div>
-          <input class="input" id="login" placeholder=""/>
-        </div>
-        <div class="field">
-          <div class="label">PIN</div>
-          <input class="input" id="pin" placeholder="" type="password"/>
-        </div>
-
-        <div class="row">
-          <button class="btn btnPrimary" onclick="handleLogin()">Enter</button>
-          <button class="btn btnGhost" onclick="demoFill()">Quick fill</button>
-        </div>
-
-        <div class="note">No hints on screen.<br/>Teacher and student access are separated.</div>
-      </div>
-    </div>
-  `;
-}
-
-function demoFill(){
-  document.getElementById("login").value = "3EL1";
-  document.getElementById("pin").value = STUDENT_PIN;
-}
-
-function handleLogin(){
-  const login = (document.getElementById("login").value || "").trim();
-  const pin = (document.getElementById("pin").value || "").trim();
-
-  if(pin === TEACHER_PIN){
-    state.user = {type:"teacher", login:"TEACHER"};
-    state.teacherLog.push({ts: nowStr(), login:"TEACHER", action:"login"});
-    saveState();
-    go("menu");
-    return;
-  }
-
-  if(pin === STUDENT_PIN && validStudentLogin(login)){
-    state.user = {type:"student", login: login.toUpperCase()};
-    state.teacherLog.push({ts: nowStr(), login: state.user.login, action:"student_login"});
-    saveState();
-    go("menu");
-    return;
-  }
-
-  alert("Wrong login or PIN.");
-}
-
-/* ===============================
-   MENU UI
-================================ */
 function renderMenu(){
-  const who = state.user.type==="teacher" ? "Teacher" : state.user.login;
-  app.innerHTML = `
-    <div class="hero">
-      <div class="logoWrap">
-        <img src="ai-bayan.png" alt="AI Bayan"
-          onerror="this.style.display='none'; this.parentElement.innerHTML='👧'; this.parentElement.style.fontSize='70px'; this.parentElement.style.color='#0b6f78'">
-      </div>
-      <div class="brandTitle">ENGLISH WITH AI BAYAN</div>
-      <div class="brandSub">AI Bayan Vocabulary — Grade 3</div>
-    </div>
-
-    <div class="panel">
-      <div class="helloCard">
-        <div class="big">Hello, ${escapeHtml(who)}!</div>
-        <div class="starsLine">Total stars in all lessons: ${sumStars()} ⭐</div>
-      </div>
-
-      <div class="menuList">
-        ${UNITS.map(u=>`
-          <div class="menuBtn" onclick="go('unit',{unit:${u.unit}})">
-            📘 ${escapeHtml(u.title)}
-            <small>Open Unit ${u.unit}</small>
-          </div>
-        `).join("")}
-      </div>
-
-      <div class="bottomRow">
-        <div class="miniBtn" onclick="go('chat')">💬 AI Bayan Chat</div>
-        <div class="miniBtn" onclick="go('journal')">🏫 Teacher’s Journal</div>
-        <div class="miniBtn" onclick="logout()">🚪 Exit</div>
-      </div>
-    </div>
-
-    <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
-  `;
+app.innerHTML=`
+<div class="card header">
+<img src="logo.png">
+<h2>UNIT 1 • Hello English</h2>
+<p>Select lesson</p>
+</div>
+${UNIT1.map(u=>`
+<div class="card">
+<h3>Lesson ${u.l}: ${u.t}</h3>
+<button class="btn main" onclick="renderLesson(${u.l})">Open</button>
+</div>`).join("")}
+<div class="footer">AI BAYAN • Grade 3</div>`;
 }
 
-function logout(){
-  state.teacherLog.push({ts: nowStr(), login: state.user?.login || "-", action:"logout"});
-  state.user = null;
-  saveState();
-  go("auth");
+function renderLesson(n){
+const L=UNIT1[n-1];
+app.innerHTML=`
+<div class="card header">
+<img src="logo.png">
+<h2>Lesson ${L.l}: ${L.t}</h2>
+</div>
+
+<div class="card">
+<h3>Vocabulary</h3>
+<div class="grid">
+${L.v.map(w=>`
+<div class="word">
+<img src="${w[2]}">
+<b>${w[0]}</b><br>${w[1]}
+</div>`).join("")}
+</div>
+</div>
+
+<div class="card">
+<h3>Worksheet — choose word</h3>
+${L.v.map(w=>`
+<p>${w[1]} →
+<select onchange="check(this,'${w[0]}')">
+<option></option>
+${L.v.map(o=>`<option>${o[0]}</option>`).join("")}
+</select></p>`).join("")}
+</div>
+
+<div class="card">
+<button class="btn main" onclick="window.print()">Print</button>
+<button class="btn light" onclick="renderMenu()">Back</button>
+</div>`;
 }
 
-/* ===============================
-   UNIT UI
-================================ */
-function renderUnit(unitNum){
-  const u = UNITS.find(x=>x.unit===unitNum);
-  if(!u) return go("menu");
-
-  app.innerHTML = `
-    <div class="lessonHero">
-      <div class="lessonBanner">
-        <div>
-          <div class="title">${escapeHtml(u.title)}</div>
-          <div class="sub">Choose a lesson</div>
-        </div>
-        <div class="badge">⭐ Total: ${sumStars()}</div>
-      </div>
-    </div>
-
-    <div class="lessonPanel">
-      <div class="menuList" style="margin-top:0">
-        ${(u.lessons||[]).map((L,idx)=>`
-          <div class="menuBtn" onclick="go('lesson',{unit:${u.unit}, lessonId:'${L.id}'})">
-            📗 Lesson ${idx+1} — ${escapeHtml(L.subtitle)}
-            <small>${escapeHtml(L.vocabTopic)}</small>
-          </div>
-        `).join("")}
-      </div>
-
-      <div class="bottomRow">
-        <div class="miniBtn" onclick="go('menu')">← Main menu</div>
-        <div class="miniBtn" onclick="go('chat')">💬 AI Bayan Chat</div>
-        <div class="miniBtn" onclick="go('journal')">🏫 Teacher’s Journal</div>
-      </div>
-    </div>
-
-    <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
-  `;
+function check(sel,ans){
+sel.className=(sel.value===ans)?"correct":"wrong";
 }
-
-/* ===============================
-   LESSON UI
-================================ */
-function renderLesson(unitNum, lessonId){
-  const u = UNITS.find(x=>x.unit===unitNum);
-  if(!u) return go("menu");
-  const L = (u.lessons||[]).find(x=>x.id===lessonId);
-  if(!L) return go("unit",{unit:unitNum});
-
-  const stars = state.starsByLesson[lessonId] || 0;
-
-  app.innerHTML = `
-    <div class="lessonHero">
-      <div class="lessonBanner">
-        <div>
-          <div class="title">${escapeHtml(u.title)} — ${escapeHtml(L.title)}</div>
-          <div class="sub">${escapeHtml(L.subtitle)}</div>
-        </div>
-        <div class="badge">⭐ You have ${stars} in this lesson</div>
-      </div>
-    </div>
-
-    <div class="lessonPanel">
-      <div style="text-align:center;font-weight:1000;color:#0a4a52;margin-top:6px">
-        ${escapeHtml(L.vocabTopic)}
-      </div>
-
-      <div class="sectionTitle">🧠 VOCABULARY — Picture Dictionary</div>
-      <div style="margin:-2px 0 10px;color:#4b666c;font-weight:800">
-        Tap “Say it” to hear AI Bayan say the word in English.
-      </div>
-
-      <div class="vocabGrid">
-        ${(L.vocab||[]).map(w=>`
-          <div class="vCard">
-            <div class="vIcon">${escapeHtml(w.emoji || "⭐")}</div>
-            <div class="vWord">${escapeHtml(w.en)}</div>
-            <div class="vRu">${escapeHtml(w.ru || "")}</div>
-            <button class="sayBtn" onclick="speak('${jsStr(w.en)}')">🔊 Say it</button>
-          </div>
-        `).join("")}
-      </div>
-
-      <div class="sectionTitle">📘 GRAMMAR — Key Rule</div>
-      <div class="ruleBox">
-        <h3>${escapeHtml(L.grammar?.title || "Grammar")}</h3>
-        <p>${escapeHtml(L.grammar?.rule || "")}</p>
-        <p><b>Formula:</b> ${escapeHtml(L.grammar?.formula || "")}</p>
-        <p><b>Examples:</b></p>
-        <ul>
-          ${(L.grammar?.examples || []).map(e=>`<li>${escapeHtml(e)}</li>`).join("")}
-        </ul>
-      </div>
-
-      <div class="sectionTitle">📝 WORKSHEETS (auto for all words)</div>
-      ${renderWorksheetsHTML(L)}
-
-      <div class="navRow">
-        <button class="btn btnBlue" onclick="go('unit',{unit:${unitNum}})">← Back</button>
-        <button class="btn btnGreen" onclick="saveResult('${lessonId}')">Save Result ✓</button>
-        <button class="btn btnGhost" onclick="printLesson()">🖨 Print</button>
-      </div>
-    </div>
-
-    <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
-  `;
-}
-
-/* ===============================
-   WORKSHEETS (FOR ALL WORDS)
-================================ */
-function renderWorksheetsHTML(L){
-  const words = (L.vocab||[]).map(v => (v.en||"").trim()).filter(Boolean);
-  const norm = (s)=> String(s).trim().toLowerCase();
-
-  // WS1 missing letters for all words
-  const missing = words.map(w=>{
-    const clean = w.replace(/\?$/,"");
-    const low = clean.toLowerCase();
-    if(low.length < 3) return {show: clean, ans: clean};
-    const idx = Math.max(1, Math.floor(low.length/2));
-    const show = clean.slice(0, idx) + "_" + clean.slice(idx+1);
-    return {show, ans: clean};
-  });
-
-  // WS2 options for selects = all words
-  const opts = shuffle(words.map(w=>w.replace(/\?$/,"")));
-
-  // WS3 russian hint -> write english
-  const ruHints = (L.vocab||[]).map(v=>({
-    ru: v.ru || "",
-    ans: (v.en || "").replace(/\?$/,"")
-  }));
-
-  // WS4 simple sentences
-  const templates = [
-    "I say ____ .",
-    "This is ____ .",
-    "I like ____ .",
-    "I have ____ .",
-    "It is ____ ."
-  ];
-  const sent = words.map((w, i)=>{
-    const ans = w.replace(/\?$/,"");
-    const t = templates[i % templates.length];
-    let pool = words.map(x=>x.replace(/\?$/,""));
-    pool = shuffle(pool.filter(x => norm(x)!==norm(ans)));
-    const wrongs = pool.slice(0, Math.min(2, pool.length));
-    const options = shuffle([ans, ...wrongs]);
-    return {text: t, ans, options};
-  });
-
-  return `
-    <div class="wsBox" id="ws1">
-      <h4>Worksheet 1 — Missing letters</h4>
-      <p>Write the missing letters. (Use small letters.)</p>
-      ${missing.map((m,i)=>`
-        <div class="qRow">
-          <div class="q">${i+1}) ${escapeHtml(m.show)} →</div>
-          <input type="text" data-ans="${escapeHtml(m.ans)}" class="ws1in"/>
-        </div>
-      `).join("")}
-      <div class="checkRow">
-        <button class="checkBtn" onclick="checkWS1()">Check ✓</button>
-        <div class="scoreTxt" id="ws1score">Correct: 0 / ${missing.length}</div>
-      </div>
-    </div>
-
-    <div class="wsBox" id="ws2">
-      <h4>Worksheet 2 — Matching (emoji + word)</h4>
-      <p>Match the picture (emoji) with the correct word.</p>
-      ${(L.vocab||[]).map((v,i)=>`
-        <div class="qRow">
-          <div class="q">${i+1}) <span style="font-size:28px">${escapeHtml(v.emoji||"⭐")}</span></div>
-          <select class="select ws2sel" data-ans="${escapeHtml((v.en||"").replace(/\?$/,""))}">
-            <option value="">--choose--</option>
-            ${opts.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
-          </select>
-        </div>
-      `).join("")}
-      <div class="checkRow">
-        <button class="checkBtn" onclick="checkWS2()">Check ✓</button>
-        <div class="scoreTxt" id="ws2score">Correct: 0 / ${(L.vocab||[]).length}</div>
-      </div>
-    </div>
-
-    <div class="wsBox" id="ws3">
-      <h4>Worksheet 3 — Write the word</h4>
-      <p>Write the English word. (Use the Russian hint.)</p>
-      ${ruHints.map((h,i)=>`
-        <div class="qRow">
-          <div class="q">${i+1}) ${escapeHtml(h.ru)} →</div>
-          <input type="text" class="ws3in" data-ans="${escapeHtml(h.ans)}"/>
-        </div>
-      `).join("")}
-      <div class="checkRow">
-        <button class="checkBtn" onclick="checkWS3()">Check ✓</button>
-        <div class="scoreTxt" id="ws3score">Correct: 0 / ${ruHints.length}</div>
-      </div>
-    </div>
-
-    <div class="wsBox" id="ws4">
-      <h4>Worksheet 4 — Choose the correct word</h4>
-      <p>Choose the correct word to complete each sentence.</p>
-      ${sent.map((s,i)=>`
-        <div class="qRow">
-          <div class="q">${i+1}) ${escapeHtml(s.text)}</div>
-          <select class="select ws4sel" data-ans="${escapeHtml(s.ans)}">
-            <option value="">--choose--</option>
-            ${s.options.map(o=>`<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
-          </select>
-        </div>
-      `).join("")}
-      <div class="checkRow">
-        <button class="checkBtn" onclick="checkWS4()">Check ✓</button>
-        <div class="scoreTxt" id="ws4score">Correct: 0 / ${sent.length}</div>
-      </div>
-    </div>
-  `;
-}
-
-/* ===============================
-   CHECKERS + STARS
-================================ */
-function markInput(el, ok){
-  el.style.borderColor = ok ? "rgba(26,160,108,.7)" : "rgba(214,40,40,.7)";
-  el.style.background = ok ? "#f1fff7" : "#fff3f3";
-}
-
-function checkWS1(){
-  const inputs = document.querySelectorAll(".ws1in");
-  let c=0;
-  inputs.forEach(inp=>{
-    const ans = (inp.dataset.ans||"").trim().toLowerCase();
-    const v = (inp.value||"").trim().toLowerCase();
-    const ok = v===ans;
-    if(ok) c++;
-    markInput(inp, ok);
-  });
-  const el = document.getElementById("ws1score");
-  if(el) el.textContent = `Correct: ${c} / ${inputs.length}`;
-}
-
-function checkWS2(){
-  const sels = document.querySelectorAll(".ws2sel");
-  let c=0;
-  sels.forEach(sel=>{
-    const ans=(sel.dataset.ans||"").trim().toLowerCase();
-    const v=(sel.value||"").trim().toLowerCase();
-    const ok = v===ans;
-    if(ok) c++;
-    markInput(sel, ok);
-  });
-  const el = document.getElementById("ws2score");
-  if(el) el.textContent = `Correct: ${c} / ${sels.length}`;
-}
-
-function checkWS3(){
-  const inputs = document.querySelectorAll(".ws3in");
-  let c=0;
-  inputs.forEach(inp=>{
-    const ans=(inp.dataset.ans||"").trim().toLowerCase();
-    const v=(inp.value||"").trim().toLowerCase();
-    const ok=v===ans;
-    if(ok) c++;
-    markInput(inp, ok);
-  });
-  const el = document.getElementById("ws3score");
-  if(el) el.textContent = `Correct: ${c} / ${inputs.length}`;
-}
-
-function checkWS4(){
-  const sels = document.querySelectorAll(".ws4sel");
-  let c=0;
-  sels.forEach(sel=>{
-    const ans=(sel.dataset.ans||"").trim().toLowerCase();
-    const v=(sel.value||"").trim().toLowerCase();
-    const ok=v===ans;
-    if(ok) c++;
-    markInput(sel, ok);
-  });
-  const el = document.getElementById("ws4score");
-  if(el) el.textContent = `Correct: ${c} / ${sels.length}`;
-}
-
-function calcLessonStars(){
-  let total=0;
-
-  document.querySelectorAll(".ws1in").forEach(inp=>{
-    const ans=(inp.dataset.ans||"").trim().toLowerCase();
-    const v=(inp.value||"").trim().toLowerCase();
-    if(v && v===ans) total++;
-  });
-
-  document.querySelectorAll(".ws2sel").forEach(sel=>{
-    const ans=(sel.dataset.ans||"").trim().toLowerCase();
-    const v=(sel.value||"").trim().toLowerCase();
-    if(v && v===ans) total++;
-  });
-
-  document.querySelectorAll(".ws3in").forEach(inp=>{
-    const ans=(inp.dataset.ans||"").trim().toLowerCase();
-    const v=(inp.value||"").trim().toLowerCase();
-    if(v && v===ans) total++;
-  });
-
-  document.querySelectorAll(".ws4sel").forEach(sel=>{
-    const ans=(sel.dataset.ans||"").trim().toLowerCase();
-    const v=(sel.value||"").trim().toLowerCase();
-    if(v && v===ans) total++;
-  });
-
-  return total;
-}
-
-function saveResult(lessonId){
-  const stars = calcLessonStars();
-  state.starsByLesson[lessonId] = stars;
-
-  state.teacherLog.push({
-    ts: nowStr(),
-    login: state.user?.login || "-",
-    action: "save_result",
-    lessonId,
-    stars
-  });
-
-  saveState();
-  alert(`Saved! Stars in this lesson: ${stars} ⭐`);
-  render();
-}
-
-/* ===============================
-   PRINT
-================================ */
-function printLesson(){
-  window.print();
-}
-
-/* ===============================
-   CHAT
-================================ */
-function renderChat(){
-  app.innerHTML = `
-    <div class="lessonHero">
-      <div class="lessonBanner">
-        <div>
-          <div class="title">AI Bayan Chat</div>
-          <div class="sub">Ask simple questions</div>
-        </div>
-        <div class="badge">⭐ Total: ${sumStars()}</div>
-      </div>
-    </div>
-
-    <div class="lessonPanel">
-      <div class="sectionTitle">💬 Chat</div>
-
-      <div id="chatBox" style="background:#f6fbfc;border:2px solid rgba(12,106,115,.18);border-radius:18px;padding:12px;min-height:220px;">
-        <div style="font-weight:900;color:#2f6168">AI Bayan:</div>
-        <div style="margin:6px 0 12px;font-weight:800;color:#375f66">Hello! Ask me: “What’s your name?” or “How old are you?”</div>
-      </div>
-
-      <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
-        <input id="chatIn" class="input" style="flex:1;min-width:220px" placeholder="Type here..." />
-        <button class="btn btnPrimary" style="min-width:140px" onclick="sendChat()">Send</button>
-      </div>
-
-      <div class="navRow">
-        <button class="btn btnBlue" onclick="go('menu')">← Back</button>
-        <button class="btn btnGhost" onclick="go('journal')">🏫 Teacher’s Journal</button>
-      </div>
-    </div>
-
-    <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
-  `;
-}
-
-function sendChat(){
-  const inp = document.getElementById("chatIn");
-  const msg = (inp.value||"").trim();
-  if(!msg) return;
-
-  const box = document.getElementById("chatBox");
-  box.innerHTML += `
-    <div style="margin-top:10px">
-      <div style="font-weight:900;color:#0a4a52">${escapeHtml(state.user?.login || "You")}:</div>
-      <div style="font-weight:800;color:#375f66">${escapeHtml(msg)}</div>
-    </div>
-  `;
-
-  const m = msg.toLowerCase();
-  let reply = "Good! 😊";
-  if(m.includes("name")) reply = "My name is AI Bayan.";
-  else if(m.includes("how old")) reply = "I’m ten.";
-  else if(m.includes("from")) reply = "I’m from Kazakhstan.";
-  else if(m.includes("hello")) reply = "Hello!";
-
-  box.innerHTML += `
-    <div style="margin-top:10px">
-      <div style="font-weight:900;color:#2f6168">AI Bayan:</div>
-      <div style="font-weight:800;color:#375f66">${escapeHtml(reply)}</div>
-    </div>
-  `;
-  box.scrollTop = box.scrollHeight;
-  inp.value = "";
-}
-
-/* ===============================
-   TEACHER JOURNAL
-================================ */
-function renderJournal(){
-  const isTeacher = state.user?.type==="teacher";
-  const rows = (state.teacherLog||[]).slice().reverse();
-
-  app.innerHTML = `
-    <div class="lessonHero">
-      <div class="lessonBanner">
-        <div>
-          <div class="title">Teacher’s Journal</div>
-          <div class="sub">${isTeacher ? "Full access" : "View only"}</div>
-        </div>
-        <div class="badge">⭐ Total: ${sumStars()}</div>
-      </div>
-    </div>
-
-    <div class="lessonPanel">
-      <div class="sectionTitle">📒 Logs</div>
-
-      <div style="overflow:auto;border:2px solid rgba(12,106,115,.18);border-radius:18px;">
-        <table style="width:100%;border-collapse:collapse;font-weight:800;color:#0a4a52">
-          <thead>
-            <tr style="background:#f0fbfc">
-              <th style="padding:10px;border-bottom:2px solid rgba(0,0,0,.06);text-align:left">Time</th>
-              <th style="padding:10px;border-bottom:2px solid rgba(0,0,0,.06);text-align:left">Login</th>
-              <th style="padding:10px;border-bottom:2px solid rgba(0,0,0,.06);text-align:left">Action</th>
-              <th style="padding:10px;border-bottom:2px solid rgba(0,0,0,.06);text-align:left">Lesson</th>
-              <th style="padding:10px;border-bottom:2px solid rgba(0,0,0,.06);text-align:left">Stars</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${rows.map(r=>{
-              if(!isTeacher && r.login !== state.user.login) return "";
-              return `
-                <tr>
-                  <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.06);color:#365f66">${escapeHtml(r.ts||"")}</td>
-                  <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.06)">${escapeHtml(r.login||"")}</td>
-                  <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.06)">${escapeHtml(r.action||"")}</td>
-                  <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.06)">${escapeHtml(r.lessonId||"")}</td>
-                  <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.06)">${escapeHtml(String(r.stars ?? ""))}</td>
-                </tr>
-              `;
-            }).join("")}
-          </tbody>
-        </table>
-      </div>
-
-      ${isTeacher ? `
-        <div class="bottomRow">
-          <div class="miniBtn" onclick="resetAll()">🧹 Reset all data</div>
-        </div>
-      ` : ``}
-
-      <div class="navRow">
-        <button class="btn btnBlue" onclick="go('menu')">← Back</button>
-        <button class="btn btnGhost" onclick="go('chat')">💬 AI Bayan Chat</button>
-      </div>
-    </div>
-
-    <div class="footerLine">Students: 3EL1–3EL15 | Student PIN 2844 | Teacher PIN 3244</div>
-  `;
-}
-
-function resetAll(){
-  if(!confirm("Reset all saved data?")) return;
-  state.starsByLesson = {};
-  state.teacherLog.push({ts: nowStr(), login:"TEACHER", action:"reset_all"});
-  saveState();
-  render();
-}
-
-/* ===============================
-   UTIL
-================================ */
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g, m => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-  }[m]));
-}
-function jsStr(s){
-  return String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'");
-}
-function shuffle(arr){
-  const a = arr.slice();
-  for(let i=a.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
-  }
-  return a;
-}
-
-/* ===============================
-   START
-================================ */
-go(state.user ? "menu" : "auth");
+renderLogin();
 </script>
-
 </body>
 </html>
