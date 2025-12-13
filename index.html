@@ -374,7 +374,9 @@ const TEACHER_PIN = "3244";
 const CLASS_CODE = "3E";
 const MAX_L = 15;
 
-/* Unit 1 – 8 lessons */
+  /* ===============================
+   Unit 1 – Hello English!
+================================ */
 const UNIT1_LESSONS = [
   { id:"u1l1", title:"Lesson 1", subtitle:"Hello, hello!", vocabTopic:"Greetings", vocab:[
     {en:"hello", ru:"привет", emoji:"👋"},
@@ -385,8 +387,8 @@ const UNIT1_LESSONS = [
   grammar:{
     title:"Hello / Goodbye",
     rule:"We say hello when we meet. We say goodbye when we leave.",
-    formula:"Hello, I’m … | Goodbye.",
-    examples:["Hello! I’m Rosy.","Goodbye! See you!"]
+    formula:"Hello! / Goodbye!",
+    examples:["Hello! I’m Tom.","Goodbye! See you!"]
   }},
   { id:"u1l2", title:"Lesson 2", subtitle:"My name is…", vocabTopic:"Names", vocab:[
     {en:"my name is…", ru:"меня зовут…", emoji:"🧒"},
@@ -396,9 +398,9 @@ const UNIT1_LESSONS = [
   ],
   grammar:{
     title:"What’s your name?",
-    rule:'We ask: "What’s your name?" We answer: "My name’s … / I’m …".',
-    formula:"What’s your name? → I’m … / My name’s …",
-    examples:["What’s your name? — I’m Tim.","My name’s Rosy."]
+    rule:"We ask and answer about names.",
+    formula:"What’s your name? — I’m …",
+    examples:["What’s your name? — I’m Aisha."]
   }},
   { id:"u1l3", title:"Lesson 3", subtitle:"The alphabet", vocabTopic:"Alphabet", vocab:[
     {en:"A", ru:"эй", emoji:"🅰️"},
@@ -408,11 +410,11 @@ const UNIT1_LESSONS = [
   ],
   grammar:{
     title:"Spell your name",
-    rule:"We can spell names using letters.",
-    formula:"It’s … → A - B - C",
-    examples:["My name’s Aisha. A - I - S - H - A.","It’s Tim. T - I - M."]
+    rule:"We spell names using letters.",
+    formula:"A – B – C",
+    examples:["A – I – S – H – A"]
   }},
-  { id:"u1l4", title:"Lesson 4", subtitle:"Numbers 1–10", vocabTopic:"Numbers 1–10", vocab:[
+  { id:"u1l4", title:"Lesson 4", subtitle:"Numbers 1–10", vocabTopic:"Numbers", vocab:[
     {en:"one", ru:"один", emoji:"1️⃣"},
     {en:"two", ru:"два", emoji:"2️⃣"},
     {en:"three", ru:"три", emoji:"3️⃣"},
@@ -420,21 +422,21 @@ const UNIT1_LESSONS = [
   ],
   grammar:{
     title:"How old are you?",
-    rule:'We ask: "How old are you?" We answer: "I’m …".',
-    formula:"How old are you? → I’m (ten).",
-    examples:["How old are you? — I’m ten.","I’m eight."]
+    rule:"We ask about age.",
+    formula:"How old are you? — I’m …",
+    examples:["I’m eight."]
   }},
-  { id:"u1l5", title:"Lesson 5", subtitle:"Numbers 11–20", vocabTopic:"Numbers 11–20", vocab:[
+  { id:"u1l5", title:"Lesson 5", subtitle:"Numbers 11–20", vocabTopic:"Numbers", vocab:[
     {en:"eleven", ru:"одиннадцать", emoji:"1️⃣1️⃣"},
     {en:"twelve", ru:"двенадцать", emoji:"1️⃣2️⃣"},
     {en:"fifteen", ru:"пятнадцать", emoji:"1️⃣5️⃣"},
     {en:"twenty", ru:"двадцать", emoji:"2️⃣0️⃣"},
   ],
   grammar:{
-    title:"I’m … (age)",
-    rule:"Use numbers to say your age.",
-    formula:"I’m + number.",
-    examples:["I’m twelve.","I’m fifteen."]
+    title:"I’m …",
+    rule:"We say age with numbers.",
+    formula:"I’m + number",
+    examples:["I’m twelve."]
   }},
   { id:"u1l6", title:"Lesson 6", subtitle:"Colours", vocabTopic:"Colours", vocab:[
     {en:"red", ru:"красный", emoji:"🟥"},
@@ -443,10 +445,10 @@ const UNIT1_LESSONS = [
     {en:"yellow", ru:"жёлтый", emoji:"🟨"},
   ],
   grammar:{
-    title:"This is … (colour)",
-    rule:'We say: "This is red." / "It is blue."',
-    formula:"This is + colour. | It is + colour.",
-    examples:["This is red.","It is blue."]
+    title:"This is …",
+    rule:"We name colours.",
+    formula:"This is + colour",
+    examples:["This is red."]
   }},
   { id:"u1l7", title:"Lesson 7", subtitle:"Where are you from?", vocabTopic:"Countries", vocab:[
     {en:"I’m from Kazakhstan", ru:"я из Казахстана", emoji:"🇰🇿"},
@@ -456,11 +458,11 @@ const UNIT1_LESSONS = [
   ],
   grammar:{
     title:"Where are you from?",
-    rule:'We ask: "Where are you from?" We answer: "I’m from …".',
-    formula:"Where are you from? → I’m from …",
-    examples:["Where are you from? — I’m from Kazakhstan.","I’m from the UK."]
+    rule:"We talk about countries.",
+    formula:"I’m from …",
+    examples:["I’m from Kazakhstan."]
   }},
-  { id:"u1l8", title:"Project", subtitle:"I can make a poster", vocabTopic:"Poster words", vocab:[
+  { id:"u1l8", title:"Project", subtitle:"My poster", vocabTopic:"Poster", vocab:[
     {en:"name", ru:"имя", emoji:"🏷️"},
     {en:"age", ru:"возраст", emoji:"🎂"},
     {en:"country", ru:"страна", emoji:"🌍"},
@@ -468,22 +470,456 @@ const UNIT1_LESSONS = [
   ],
   grammar:{
     title:"My poster",
-    rule:"We can write simple sentences about us.",
-    formula:"My name’s … . I’m … . I’m from … . My favourite colour is … .",
-    examples:["My name’s Aigerim. I’m ten. I’m from Kazakhstan. My favourite colour is blue."]
+    rule:"We write about ourselves.",
+    formula:"My name’s … I’m …",
+    examples:["My name’s Aigerim. I’m ten."]
   }},
 ];
 
-// Units 2–8 placeholders
-const UNITS = [
+/* ===============================
+   Unit 2 – My school
+================================ */
+const UNIT2_LESSONS = [
+  {id:"u2l1",title:"Lesson 1",subtitle:"Classroom",vocabTopic:"Things",vocab:[
+    {en:"book",ru:"книга",emoji:"📘"},
+    {en:"pen",ru:"ручка",emoji:"🖊️"},
+    {en:"pencil",ru:"карандаш",emoji:"✏️"},
+    {en:"bag",ru:"рюкзак",emoji:"🎒"},
+  ],
+  grammar:{title:"This is",rule:"We name classroom things.",formula:"This is a …",examples:["This is a book."]}},
+  {id:"u2l2",title:"Lesson 2",subtitle:"School subjects",vocabTopic:"Subjects",vocab:[
+    {en:"English",ru:"английский",emoji:"🇬🇧"},
+    {en:"Maths",ru:"математика",emoji:"➗"},
+    {en:"Art",ru:"ИЗО",emoji:"🎨"},
+    {en:"PE",ru:"физкультура",emoji:"⚽"},
+  ],
+  grammar:{title:"I like",rule:"We talk about likes.",formula:"I like …",examples:["I like English."]}},
+  {id:"u2l3",title:"Lesson 3",subtitle:"Days",vocabTopic:"Days",vocab:[
+    {en:"Monday",ru:"понедельник",emoji:"📅"},
+    {en:"Tuesday",ru:"вторник",emoji:"📅"},
+    {en:"Wednesday",ru:"среда",emoji:"📅"},
+    {en:"Friday",ru:"пятница",emoji:"🎉"},
+  ],
+  grammar:{title:"On Monday",rule:"We talk about days.",formula:"On Monday, I …",examples:["On Monday, I have English."]}},
+  {id:"u2l4",title:"Lesson 4",subtitle:"Instructions",vocabTopic:"Commands",vocab:[
+    {en:"sit down",ru:"садись",emoji:"🪑"},
+    {en:"stand up",ru:"встань",emoji:"🧍"},
+    {en:"open your book",ru:"открой книгу",emoji:"📖"},
+    {en:"listen",ru:"слушай",emoji:"👂"},
+  ],
+  grammar:{title:"Imperatives",rule:"We give commands.",formula:"Sit down.",examples:["Listen!"]}},
+  {id:"u2l5",title:"Lesson 5",subtitle:"People at school",vocabTopic:"People",vocab:[
+    {en:"teacher",ru:"учитель",emoji:"🧑‍🏫"},
+    {en:"student",ru:"ученик",emoji:"👦"},
+    {en:"class",ru:"класс",emoji:"🏫"},
+    {en:"friend",ru:"друг",emoji:"🤝"},
+  ],
+  grammar:{title:"This is my…",rule:"We talk about people.",formula:"This is my …",examples:["This is my teacher."]}},
+  {id:"u2l6",title:"Lesson 6",subtitle:"My timetable",vocabTopic:"Timetable",vocab:[
+    {en:"lesson",ru:"урок",emoji:"📚"},
+    {en:"break",ru:"перемена",emoji:"⏸️"},
+    {en:"today",ru:"сегодня",emoji:"📅"},
+    {en:"school",ru:"школа",emoji:"🏫"},
+  ],
+  grammar:{title:"Today I have",rule:"We talk about today.",formula:"Today I have …",examples:["Today I have Maths."]}},
+  {id:"u2l7",title:"Lesson 7",subtitle:"My bag",vocabTopic:"Things",vocab:[
+    {en:"notebook",ru:"тетрадь",emoji:"📓"},
+    {en:"ruler",ru:"линейка",emoji:"📏"},
+    {en:"eraser",ru:"ластик",emoji:"🧽"},
+    {en:"pencil case",ru:"пенал",emoji:"👜"},
+  ],
+  grammar:{title:"I have got",rule:"We say what we have.",formula:"I have got a …",examples:["I have got a bag."]}},
+  {id:"u2l8",title:"Project",subtitle:"My school",vocabTopic:"Project",vocab:[
+    {en:"school",ru:"школа",emoji:"🏫"},
+    {en:"class",ru:"класс",emoji:"👫"},
+    {en:"teacher",ru:"учитель",emoji:"🧑‍🏫"},
+    {en:"friend",ru:"друг",emoji:"🤝"},
+  ],
+  grammar:{title:"My school",rule:"We describe our school.",formula:"I like my school.",examples:["I like my school."]}},
+];
+
+/* ===============================
+   Unit 3 – People I love
+================================ */
+const UNIT3_LESSONS = [
+  {id:"u3l1",title:"Lesson 1",subtitle:"My family",vocabTopic:"Family",vocab:[
+    {en:"mum",ru:"мама",emoji:"👩"},
+    {en:"dad",ru:"папа",emoji:"👨"},
+    {en:"sister",ru:"сестра",emoji:"👧"},
+    {en:"brother",ru:"брат",emoji:"👦"},
+  ],
+  grammar:{title:"This is my",rule:"We talk about family.",formula:"This is my …",examples:["This is my mum."]}},
+  {id:"u3l2",title:"Lesson 2",subtitle:"Feelings",vocabTopic:"Feelings",vocab:[
+    {en:"happy",ru:"счастливый",emoji:"😁"},
+    {en:"sad",ru:"грустный",emoji:"😢"},
+    {en:"tired",ru:"уставший",emoji:"😴"},
+    {en:"hungry",ru:"голодный",emoji:"🍽️"},
+  ],
+  grammar:{title:"I am",rule:"We talk about feelings.",formula:"I am …",examples:["I am happy."]}},
+  {id:"u3l3",title:"Lesson 3",subtitle:"Friends",vocabTopic:"Friends",vocab:[
+    {en:"friend",ru:"друг",emoji:"🤝"},
+    {en:"boy",ru:"мальчик",emoji:"👦"},
+    {en:"girl",ru:"девочка",emoji:"👧"},
+    {en:"classmate",ru:"одноклассник",emoji:"🏫"},
+  ],
+  grammar:{title:"We are",rule:"We talk about friends.",formula:"We are friends.",examples:["We are classmates."]}},
+  {id:"u3l4",title:"Lesson 4",subtitle:"Pets",vocabTopic:"Pets",vocab:[
+    {en:"cat",ru:"кот",emoji:"🐱"},
+    {en:"dog",ru:"собака",emoji:"🐶"},
+    {en:"fish",ru:"рыбка",emoji:"🐟"},
+    {en:"bird",ru:"птица",emoji:"🐦"},
+  ],
+  grammar:{title:"I have got",rule:"We talk about pets.",formula:"I have got a …",examples:["I have got a cat."]}},
+  {id:"u3l5",title:"Lesson 5",subtitle:"Adjectives",vocabTopic:"Adjectives",vocab:[
+    {en:"kind",ru:"добрый",emoji:"💛"},
+    {en:"funny",ru:"весёлый",emoji:"😄"},
+    {en:"smart",ru:"умный",emoji:"🧠"},
+    {en:"nice",ru:"милый",emoji:"😊"},
+  ],
+  grammar:{title:"He / She is",rule:"We describe people.",formula:"He is …",examples:["She is kind."]}},
+  {id:"u3l6",title:"Lesson 6",subtitle:"My friends",vocabTopic:"Friends",vocab:[
+    {en:"play",ru:"играть",emoji:"⚽"},
+    {en:"help",ru:"помогать",emoji:"🤝"},
+    {en:"share",ru:"делиться",emoji:"🎁"},
+    {en:"talk",ru:"говорить",emoji:"💬"},
+  ],
+  grammar:{title:"We like",rule:"We talk about actions.",formula:"We like to …",examples:["We like to play."]}},
+  {id:"u3l7",title:"Lesson 7",subtitle:"My family home",vocabTopic:"Home",vocab:[
+    {en:"house",ru:"дом",emoji:"🏠"},
+    {en:"room",ru:"комната",emoji:"🛏️"},
+    {en:"kitchen",ru:"кухня",emoji:"🍳"},
+    {en:"bedroom",ru:"спальня",emoji:"🛌"},
+  ],
+  grammar:{title:"There is",rule:"We talk about rooms.",formula:"There is a …",examples:["There is a kitchen."]}},
+  {id:"u3l8",title:"Project",subtitle:"My family poster",vocabTopic:"Project",vocab:[
+    {en:"family",ru:"семья",emoji:"👨‍👩‍👧‍👦"},
+    {en:"name",ru:"имя",emoji:"🏷️"},
+    {en:"age",ru:"возраст",emoji:"🎂"},
+    {en:"pet",ru:"питомец",emoji:"🐶"},
+  ],
+  grammar:{title:"My family",rule:"We make a poster.",formula:"This is my …",examples:["This is my family."]}},
+];
+
+  /* ===============================
+   Unit 4 – Weather
+================================ */
+const UNIT4_LESSONS = [
+  {id:"u4l1",title:"Lesson 1",subtitle:"Weather today",vocabTopic:"Weather",vocab:[
+    {en:"sunny",ru:"солнечно",emoji:"☀️"},
+    {en:"rainy",ru:"дождливо",emoji:"🌧️"},
+    {en:"windy",ru:"ветрено",emoji:"🌬️"},
+    {en:"cloudy",ru:"облачно",emoji:"☁️"},
+  ],
+  grammar:{title:"It’s …",rule:"We talk about weather.",formula:"It’s sunny/rainy.",examples:["It’s sunny today."]}},
+  {id:"u4l2",title:"Lesson 2",subtitle:"Seasons",vocabTopic:"Seasons",vocab:[
+    {en:"spring",ru:"весна",emoji:"🌸"},
+    {en:"summer",ru:"лето",emoji:"🌞"},
+    {en:"autumn",ru:"осень",emoji:"🍂"},
+    {en:"winter",ru:"зима",emoji:"❄️"},
+  ],
+  grammar:{title:"In + season",rule:"We talk about seasons.",formula:"In summer, it’s …",examples:["In winter, it’s cold."]}},
+  {id:"u4l3",title:"Lesson 3",subtitle:"Temperature",vocabTopic:"Hot & Cold",vocab:[
+    {en:"hot",ru:"жарко",emoji:"🔥"},
+    {en:"cold",ru:"холодно",emoji:"🥶"},
+    {en:"warm",ru:"тепло",emoji:"🌤️"},
+    {en:"cool",ru:"прохладно",emoji:"🧊"},
+  ],
+  grammar:{title:"It’s hot/cold",rule:"We talk about temperature.",formula:"It’s hot.",examples:["It’s cold today."]}},
+  {id:"u4l4",title:"Lesson 4",subtitle:"Clothes",vocabTopic:"Clothes",vocab:[
+    {en:"coat",ru:"пальто",emoji:"🧥"},
+    {en:"hat",ru:"шапка",emoji:"🧢"},
+    {en:"boots",ru:"ботинки",emoji:"👢"},
+    {en:"umbrella",ru:"зонт",emoji:"☂️"},
+  ],
+  grammar:{title:"Put on",rule:"We say what to wear.",formula:"Put on a …",examples:["Put on a coat."]}},
+  {id:"u4l5",title:"Lesson 5",subtitle:"Activities",vocabTopic:"Activities",vocab:[
+    {en:"play",ru:"играть",emoji:"⚽"},
+    {en:"walk",ru:"гулять",emoji:"🚶"},
+    {en:"swim",ru:"плавать",emoji:"🏊"},
+    {en:"stay home",ru:"быть дома",emoji:"🏠"},
+  ],
+  grammar:{title:"I can",rule:"We talk about abilities.",formula:"I can …",examples:["I can swim."]}},
+  {id:"u4l6",title:"Lesson 6",subtitle:"Weather question",vocabTopic:"Questions",vocab:[
+    {en:"what’s the weather like?",ru:"какая погода?",emoji:"❓"},
+    {en:"today",ru:"сегодня",emoji:"📅"},
+    {en:"outside",ru:"на улице",emoji:"🌳"},
+    {en:"now",ru:"сейчас",emoji:"⏰"},
+  ],
+  grammar:{title:"What’s the weather like?",rule:"We ask about weather.",formula:"What’s the weather like?",examples:["It’s sunny."]}},
+  {id:"u4l7",title:"Lesson 7",subtitle:"More weather",vocabTopic:"Weather",vocab:[
+    {en:"snowy",ru:"снег",emoji:"🌨️"},
+    {en:"stormy",ru:"буря",emoji:"⛈️"},
+    {en:"foggy",ru:"туман",emoji:"🌫️"},
+    {en:"icy",ru:"ледяной",emoji:"🧊"},
+  ],
+  grammar:{title:"It’s …",rule:"More weather words.",formula:"It’s snowy.",examples:["It’s foggy today."]}},
+  {id:"u4l8",title:"Project",subtitle:"Weather chart",vocabTopic:"Project",vocab:[
+    {en:"sun",ru:"солнце",emoji:"☀️"},
+    {en:"rain",ru:"дождь",emoji:"🌧️"},
+    {en:"wind",ru:"ветер",emoji:"🌬️"},
+    {en:"snow",ru:"снег",emoji:"❄️"},
+  ],
+  grammar:{title:"My chart",rule:"We make a weather chart.",formula:"Today: sun.",examples:["Today: rain."]}},
+];
+
+/* ===============================
+   Unit 5 – My free time
+================================ */
+const UNIT5_LESSONS = [
+  {id:"u5l1",title:"Lesson 1",subtitle:"Hobbies",vocabTopic:"Hobbies",vocab:[
+    {en:"read",ru:"читать",emoji:"📖"},
+    {en:"draw",ru:"рисовать",emoji:"🎨"},
+    {en:"dance",ru:"танцевать",emoji:"💃"},
+    {en:"sing",ru:"петь",emoji:"🎤"},
+  ],
+  grammar:{title:"I like to",rule:"We talk about hobbies.",formula:"I like to read.",examples:["I like to draw."]}},
+  {id:"u5l2",title:"Lesson 2",subtitle:"Sports",vocabTopic:"Sports",vocab:[
+    {en:"football",ru:"футбол",emoji:"⚽"},
+    {en:"basketball",ru:"баскетбол",emoji:"🏀"},
+    {en:"tennis",ru:"теннис",emoji:"🎾"},
+    {en:"run",ru:"бегать",emoji:"🏃"},
+  ],
+  grammar:{title:"I play",rule:"We talk about sports.",formula:"I play football.",examples:["I play tennis."]}},
+  {id:"u5l3",title:"Lesson 3",subtitle:"Toys",vocabTopic:"Toys",vocab:[
+    {en:"ball",ru:"мяч",emoji:"⚽"},
+    {en:"doll",ru:"кукла",emoji:"🪆"},
+    {en:"car",ru:"машинка",emoji:"🚗"},
+    {en:"game",ru:"игра",emoji:"🎮"},
+  ],
+  grammar:{title:"I have got",rule:"We talk about toys.",formula:"I have got a ball.",examples:["I have got a doll."]}},
+  {id:"u5l4",title:"Lesson 4",subtitle:"After school",vocabTopic:"Activities",vocab:[
+    {en:"homework",ru:"домашка",emoji:"📝"},
+    {en:"help",ru:"помогать",emoji:"🤝"},
+    {en:"watch TV",ru:"смотреть ТВ",emoji:"📺"},
+    {en:"play outside",ru:"играть на улице",emoji:"🛝"},
+  ],
+  grammar:{title:"I do",rule:"We talk about routines.",formula:"I do homework.",examples:["I watch TV."]}},
+  {id:"u5l5",title:"Lesson 5",subtitle:"Time",vocabTopic:"Time",vocab:[
+    {en:"morning",ru:"утро",emoji:"🌅"},
+    {en:"afternoon",ru:"день",emoji:"🌇"},
+    {en:"evening",ru:"вечер",emoji:"🌆"},
+    {en:"night",ru:"ночь",emoji:"🌙"},
+  ],
+  grammar:{title:"In the …",rule:"We talk about time.",formula:"In the morning…",examples:["In the evening, I read."]}},
+  {id:"u5l6",title:"Lesson 6",subtitle:"Daily routine",vocabTopic:"Routine",vocab:[
+    {en:"play",ru:"играть",emoji:"🎮"},
+    {en:"read",ru:"читать",emoji:"📖"},
+    {en:"go",ru:"ходить",emoji:"🚶"},
+    {en:"sleep",ru:"спать",emoji:"😴"},
+  ],
+  grammar:{title:"I + verb",rule:"We talk about routine.",formula:"I play.",examples:["I sleep at night."]}},
+  {id:"u5l7",title:"Lesson 7",subtitle:"Weekend",vocabTopic:"Weekend",vocab:[
+    {en:"Saturday",ru:"суббота",emoji:"📅"},
+    {en:"Sunday",ru:"воскресенье",emoji:"📅"},
+    {en:"park",ru:"парк",emoji:"🌳"},
+    {en:"cinema",ru:"кинотеатр",emoji:"🎬"},
+  ],
+  grammar:{title:"On Saturday",rule:"We talk about weekend.",formula:"On Sunday…",examples:["On Sunday, I go to the park."]}},
+  {id:"u5l8",title:"Project",subtitle:"My hobby",vocabTopic:"Project",vocab:[
+    {en:"hobby",ru:"хобби",emoji:"⭐"},
+    {en:"favourite",ru:"любимый",emoji:"💛"},
+    {en:"like",ru:"нравится",emoji:"👍"},
+    {en:"because",ru:"потому что",emoji:"➡️"},
+  ],
+  grammar:{title:"Because",rule:"We give a reason.",formula:"I like … because …",examples:["I like football because it’s fun."]}},
+];
+
+/* ===============================
+   Unit 6 – Health
+================================ */
+const UNIT6_LESSONS = [
+  {id:"u6l1",title:"Lesson 1",subtitle:"My body",vocabTopic:"Body",vocab:[
+    {en:"head",ru:"голова",emoji:"🙂"},
+    {en:"hand",ru:"рука",emoji:"✋"},
+    {en:"leg",ru:"нога",emoji:"🦵"},
+    {en:"eye",ru:"глаз",emoji:"👁️"},
+  ],
+  grammar:{title:"I’ve got",rule:"We talk about body.",formula:"I’ve got two hands.",examples:["I’ve got two eyes."]}},
+  {id:"u6l2",title:"Lesson 2",subtitle:"Face",vocabTopic:"Face",vocab:[
+    {en:"nose",ru:"нос",emoji:"👃"},
+    {en:"mouth",ru:"рот",emoji:"👄"},
+    {en:"ear",ru:"ухо",emoji:"👂"},
+    {en:"hair",ru:"волосы",emoji:"💇"},
+  ],
+  grammar:{title:"My …",rule:"We name body parts.",formula:"My hair is …",examples:["My hair is brown."]}},
+  {id:"u6l3",title:"Lesson 3",subtitle:"Healthy food",vocabTopic:"Food",vocab:[
+    {en:"apple",ru:"яблоко",emoji:"🍎"},
+    {en:"milk",ru:"молоко",emoji:"🥛"},
+    {en:"water",ru:"вода",emoji:"💧"},
+    {en:"vegetables",ru:"овощи",emoji:"🥦"},
+  ],
+  grammar:{title:"I eat / drink",rule:"Food and drinks.",formula:"I eat apples.",examples:["I drink water."]}},
+  {id:"u6l4",title:"Lesson 4",subtitle:"Illness",vocabTopic:"Sick",vocab:[
+    {en:"cold",ru:"простуда",emoji:"🤧"},
+    {en:"headache",ru:"головная боль",emoji:"🤕"},
+    {en:"toothache",ru:"зубная боль",emoji:"🦷"},
+    {en:"fever",ru:"температура",emoji:"🌡️"},
+  ],
+  grammar:{title:"I’ve got a …",rule:"We talk about illness.",formula:"I’ve got a headache.",examples:["I’ve got a cold."]}},
+  {id:"u6l5",title:"Lesson 5",subtitle:"Doctor",vocabTopic:"Doctor",vocab:[
+    {en:"doctor",ru:"врач",emoji:"🧑‍⚕️"},
+    {en:"medicine",ru:"лекарство",emoji:"💊"},
+    {en:"rest",ru:"отдых",emoji:"🛌"},
+    {en:"sleep",ru:"сон",emoji:"😴"},
+  ],
+  grammar:{title:"You should",rule:"We give advice.",formula:"You should rest.",examples:["You should drink water."]}},
+  {id:"u6l6",title:"Lesson 6",subtitle:"Habits",vocabTopic:"Habits",vocab:[
+    {en:"wash hands",ru:"мыть руки",emoji:"🧼"},
+    {en:"brush teeth",ru:"чистить зубы",emoji:"🪥"},
+    {en:"exercise",ru:"упражнения",emoji:"🏃"},
+    {en:"eat well",ru:"хорошо питаться",emoji:"🥗"},
+  ],
+  grammar:{title:"I always",rule:"We talk about habits.",formula:"I always wash hands.",examples:["I always brush teeth."]}},
+  {id:"u6l7",title:"Lesson 7",subtitle:"Good or bad",vocabTopic:"Health",vocab:[
+    {en:"healthy",ru:"здоровый",emoji:"💚"},
+    {en:"unhealthy",ru:"вредный",emoji:"⚠️"},
+    {en:"good",ru:"хорошо",emoji:"✅"},
+    {en:"bad",ru:"плохо",emoji:"❌"},
+  ],
+  grammar:{title:"It’s healthy",rule:"We describe food.",formula:"It’s healthy.",examples:["Fruit is healthy."]}},
+  {id:"u6l8",title:"Project",subtitle:"My health rules",vocabTopic:"Rules",vocab:[
+    {en:"drink",ru:"пить",emoji:"🥛"},
+    {en:"sleep",ru:"спать",emoji:"😴"},
+    {en:"wash",ru:"мыть",emoji:"🧼"},
+    {en:"eat",ru:"есть",emoji:"🍎"},
+  ],
+  grammar:{title:"My rules",rule:"We write rules.",formula:"I should …",examples:["I should drink water."]}},
+];
+
+/* ===============================
+   Unit 7 – Buildings
+================================ */
+const UNIT7_LESSONS = [
+  {id:"u7l1",title:"Lesson 1",subtitle:"My town",vocabTopic:"Places",vocab:[
+    {en:"school",ru:"школа",emoji:"🏫"},
+    {en:"park",ru:"парк",emoji:"🌳"},
+    {en:"shop",ru:"магазин",emoji:"🛍️"},
+    {en:"hospital",ru:"больница",emoji:"🏥"},
+  ],
+  grammar:{title:"There is",rule:"We talk about places.",formula:"There is a …",examples:["There is a park."]}},
+  {id:"u7l2",title:"Lesson 2",subtitle:"More places",vocabTopic:"Places",vocab:[
+    {en:"cinema",ru:"кинотеатр",emoji:"🎬"},
+    {en:"library",ru:"библиотека",emoji:"📚"},
+    {en:"cafe",ru:"кафе",emoji:"☕"},
+    {en:"bank",ru:"банк",emoji:"🏦"},
+  ],
+  grammar:{title:"It’s near",rule:"We say where places are.",formula:"It’s near the …",examples:["The cafe is near the park."]}},
+  {id:"u7l3",title:"Lesson 3",subtitle:"Directions",vocabTopic:"Directions",vocab:[
+    {en:"left",ru:"налево",emoji:"⬅️"},
+    {en:"right",ru:"направо",emoji:"➡️"},
+    {en:"go straight",ru:"прямо",emoji:"⬆️"},
+    {en:"stop",ru:"стоп",emoji:"🛑"},
+  ],
+  grammar:{title:"Go …",rule:"We give directions.",formula:"Go left.",examples:["Go straight."]}},
+  {id:"u7l4",title:"Lesson 4",subtitle:"At the shop",vocabTopic:"Shop",vocab:[
+    {en:"bread",ru:"хлеб",emoji:"🍞"},
+    {en:"milk",ru:"молоко",emoji:"🥛"},
+    {en:"egg",ru:"яйцо",emoji:"🥚"},
+    {en:"juice",ru:"сок",emoji:"🧃"},
+  ],
+  grammar:{title:"I want",rule:"We ask politely.",formula:"I want … please.",examples:["I want milk."]}},
+  {id:"u7l5",title:"Lesson 5",subtitle:"Transport",vocabTopic:"Transport",vocab:[
+    {en:"bus",ru:"автобус",emoji:"🚌"},
+    {en:"car",ru:"машина",emoji:"🚗"},
+    {en:"bike",ru:"велосипед",emoji:"🚲"},
+    {en:"walk",ru:"идти пешком",emoji:"🚶"},
+  ],
+  grammar:{title:"I go by",rule:"We talk about transport.",formula:"I go by bus.",examples:["I walk to school."]}},
+  {id:"u7l6",title:"Lesson 6",subtitle:"Prepositions",vocabTopic:"Place",vocab:[
+    {en:"in",ru:"в",emoji:"📦"},
+    {en:"on",ru:"на",emoji:"📌"},
+    {en:"under",ru:"под",emoji:"⬇️"},
+    {en:"next to",ru:"рядом",emoji:"↔️"},
+  ],
+  grammar:{title:"Where is it?",rule:"We say where things are.",formula:"It’s on the desk.",examples:["It’s under the chair."]}},
+  {id:"u7l7",title:"Lesson 7",subtitle:"My address",vocabTopic:"Address",vocab:[
+    {en:"street",ru:"улица",emoji:"🛣️"},
+    {en:"house",ru:"дом",emoji:"🏠"},
+    {en:"number",ru:"номер",emoji:"🔢"},
+    {en:"city",ru:"город",emoji:"🏙️"},
+  ],
+  grammar:{title:"I live in",rule:"We talk about home.",formula:"I live in …",examples:["I live in Aktau."]}},
+  {id:"u7l8",title:"Project",subtitle:"My town map",vocabTopic:"Map",vocab:[
+    {en:"map",ru:"карта",emoji:"🗺️"},
+    {en:"place",ru:"место",emoji:"📍"},
+    {en:"near",ru:"рядом",emoji:"📌"},
+    {en:"far",ru:"далеко",emoji:"🛰️"},
+  ],
+  grammar:{title:"My map",rule:"We describe a map.",formula:"The school is near …",examples:["The park is near the school."]}},
+];
+
+/* ===============================
+   Unit 8 – My holidays
+================================ */
+const UNIT8_LESSONS = [
+  {id:"u8l1",title:"Lesson 1",subtitle:"Months",vocabTopic:"Months",vocab:[
+    {en:"January",ru:"январь",emoji:"❄️"},
+    {en:"March",ru:"март",emoji:"🌸"},
+    {en:"June",ru:"июнь",emoji:"🌞"},
+    {en:"December",ru:"декабрь",emoji:"🎄"},
+  ],
+  grammar:{title:"In + month",rule:"We talk about months.",formula:"In December …",examples:["In December, I celebrate."]}},
+  {id:"u8l2",title:"Lesson 2",subtitle:"Holidays",vocabTopic:"Holidays",vocab:[
+    {en:"birthday",ru:"день рождения",emoji:"🎂"},
+    {en:"New Year",ru:"Новый год",emoji:"🎆"},
+    {en:"holiday",ru:"каникулы",emoji:"🎉"},
+    {en:"gift",ru:"подарок",emoji:"🎁"},
+  ],
+  grammar:{title:"It’s my …",rule:"We talk about holidays.",formula:"It’s my birthday.",examples:["It’s New Year!"]}},
+  {id:"u8l3",title:"Lesson 3",subtitle:"Travel",vocabTopic:"Travel",vocab:[
+    {en:"travel",ru:"путешествовать",emoji:"✈️"},
+    {en:"train",ru:"поезд",emoji:"🚆"},
+    {en:"plane",ru:"самолёт",emoji:"✈️"},
+    {en:"hotel",ru:"отель",emoji:"🏨"},
+  ],
+  grammar:{title:"I want to",rule:"We talk about plans.",formula:"I want to travel.",examples:["I want to go by plane."]}},
+  {id:"u8l4",title:"Lesson 4",subtitle:"At the beach",vocabTopic:"Beach",vocab:[
+    {en:"sea",ru:"море",emoji:"🌊"},
+    {en:"sand",ru:"песок",emoji:"🏖️"},
+    {en:"sun",ru:"солнце",emoji:"☀️"},
+    {en:"swim",ru:"плавать",emoji:"🏊"},
+  ],
+  grammar:{title:"I can",rule:"We talk about holiday activities.",formula:"I can swim.",examples:["I can swim in the sea."]}},
+  {id:"u8l5",title:"Lesson 5",subtitle:"Winter holidays",vocabTopic:"Winter",vocab:[
+    {en:"snow",ru:"снег",emoji:"❄️"},
+    {en:"skate",ru:"кататься на коньках",emoji:"⛸️"},
+    {en:"ski",ru:"лыжи",emoji:"🎿"},
+    {en:"cold",ru:"холодно",emoji:"🥶"},
+  ],
+  grammar:{title:"It’s cold",rule:"We talk about winter.",formula:"It’s snowy.",examples:["It’s cold in winter."]}},
+  {id:"u8l6",title:"Lesson 6",subtitle:"Past simple",vocabTopic:"Past",vocab:[
+    {en:"was",ru:"был/была",emoji:"⏳"},
+    {en:"were",ru:"были",emoji:"⏳"},
+    {en:"happy",ru:"счастливый",emoji:"😁"},
+    {en:"fun",ru:"весело",emoji:"🎈"},
+  ],
+  grammar:{title:"I was / We were",rule:"We talk about past.",formula:"I was happy.",examples:["We were at home."]}},
+  {id:"u8l7",title:"Lesson 7",subtitle:"Holiday activities",vocabTopic:"Activities",vocab:[
+    {en:"visit",ru:"посещать",emoji:"📍"},
+    {en:"play",ru:"играть",emoji:"🎮"},
+    {en:"eat",ru:"есть",emoji:"🍽️"},
+    {en:"take photos",ru:"фотографировать",emoji:"📸"},
+  ],
+  grammar:{title:"I like to",rule:"We talk about holidays.",formula:"I like to play.",examples:["I like to take photos."]}},
+  {id:"u8l8",title:"Project",subtitle:"My holiday story",vocabTopic:"Story",vocab:[
+    {en:"place",ru:"место",emoji:"📍"},
+    {en:"with",ru:"с",emoji:"👫"},
+    {en:"was",ru:"был/была",emoji:"⏳"},
+    {en:"great",ru:"классно",emoji:"⭐"},
+  ],
+  grammar:{title:"My story",rule:"We tell a short story.",formula:"I was in … It was great.",examples:["I was at the sea. It was great."]}},
+];
+
+// Units 2–8 placeholder
+  const UNITS = [
   {unit:1, title:"Unit 1 — Hello English!", lessons: UNIT1_LESSONS},
-  {unit:2, title:"Unit 2 — My school", lessons: []},
-  {unit:3, title:"Unit 3 — People I love", lessons: []},
-  {unit:4, title:"Unit 4 — Weather", lessons: []},
-  {unit:5, title:"Unit 5 — My free time", lessons: []},
-  {unit:6, title:"Unit 6 — Health", lessons: []},
-  {unit:7, title:"Unit 7 — Buildings", lessons: []},
-  {unit:8, title:"Unit 8 — My holidays", lessons: []},
+  {unit:2, title:"Unit 2 — My school", lessons: UNIT2_LESSONS},
+  {unit:3, title:"Unit 3 — People I love", lessons: UNIT3_LESSONS},
+  {unit:4, title:"Unit 4 — Weather", lessons: UNIT4_LESSONS},
+  {unit:5, title:"Unit 5 — My free time", lessons: UNIT5_LESSONS},
+  {unit:6, title:"Unit 6 — Health", lessons: UNIT6_LESSONS},
+  {unit:7, title:"Unit 7 — Buildings", lessons: UNIT7_LESSONS},
+  {unit:8, title:"Unit 8 — My holidays", lessons: UNIT8_LESSONS},
 ];
 
 const STORAGE_KEY = "aib_voc_3g_state_v1";
