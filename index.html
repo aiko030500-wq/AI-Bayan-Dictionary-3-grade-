@@ -479,15 +479,712 @@ const UNIT1 = [
   }
 ];
 
+  /* ===================== UNITS 2–8 (8 lessons each) ===================== */
+
+const UNIT2 = [
+  {
+    id:"u2l1", unit:2, lessonIndex:0, title:"Lesson 1", subtitle:"School things", vocabTopic:"School",
+    vocab:[{en:"book",ru:"книга"},{en:"pen",ru:"ручка"},{en:"pencil",ru:"карандаш"},{en:"bag",ru:"рюкзак"}],
+    grammar:{title:"This is…",rule:'We say: "This is my book."',formula:"This is + noun.",mcq:[
+      {q:"Choose the word: книга",options:["book","pen","pencil","bag"],ans:"book"},
+      {q:"Choose the word: ручка",options:["book","pen","pencil","bag"],ans:"pen"},
+    ]},
+    reading:{text:["This is my bag.","It is blue."],tf:[
+      {q:"The bag is blue.",ans:true},{q:"The bag is red.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u2l2", unit:2, lessonIndex:1, title:"Lesson 2", subtitle:"In the classroom", vocabTopic:"Classroom",
+    vocab:[{en:"desk",ru:"парта"},{en:"chair",ru:"стул"},{en:"board",ru:"доска"},{en:"window",ru:"окно"}],
+    grammar:{title:"There is…",rule:'We say: "There is a desk."',formula:"There is + a/an + noun.",mcq:[
+      {q:"Choose the word: парта",options:["desk","chair","board","window"],ans:"desk"},
+      {q:"Choose the word: стул",options:["desk","chair","board","window"],ans:"chair"},
+    ]},
+    reading:{text:["There is a desk.","There is a chair."],tf:[
+      {q:"There is a desk.",ans:true},{q:"There is a bed.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u2l3", unit:2, lessonIndex:2, title:"Lesson 3", subtitle:"School people", vocabTopic:"People",
+    vocab:[{en:"teacher",ru:"учитель"},{en:"student",ru:"ученик"},{en:"friend",ru:"друг"},{en:"class",ru:"класс"}],
+    grammar:{title:"He/She is…",rule:'We say: "She is a teacher."',formula:"She/He is + a/an + noun.",mcq:[
+      {q:"Choose the word: учитель",options:["teacher","student","friend","class"],ans:"teacher"},
+      {q:"Choose the word: ученик",options:["teacher","student","friend","class"],ans:"student"},
+    ]},
+    reading:{text:["She is a teacher.","He is a student."],tf:[
+      {q:"She is a teacher.",ans:true},{q:"He is a doctor.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u2l4", unit:2, lessonIndex:3, title:"Lesson 4", subtitle:"My timetable", vocabTopic:"Time",
+    vocab:[{en:"Monday",ru:"понедельник"},{en:"Tuesday",ru:"вторник"},{en:"English",ru:"английский"},{en:"Maths",ru:"математика"}],
+    grammar:{title:"I have…",rule:'We say: "I have English on Monday."',formula:"I have + subject.",mcq:[
+      {q:"Choose the word: понедельник",options:["Monday","Tuesday","English","Maths"],ans:"Monday"},
+      {q:"Choose the word: английский",options:["Monday","Tuesday","English","Maths"],ans:"English"},
+    ]},
+    reading:{text:["I have English.","I have Maths."],tf:[
+      {q:"The text has English.",ans:true},{q:"The text has Sunday.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u2l5", unit:2, lessonIndex:4, title:"Lesson 5", subtitle:"School rules", vocabTopic:"Rules",
+    vocab:[{en:"listen",ru:"слушать"},{en:"sit",ru:"сидеть"},{en:"stand",ru:"вставать"},{en:"write",ru:"писать"}],
+    grammar:{title:"Let’s…",rule:'We say: "Let’s listen!"',formula:"Let’s + verb.",mcq:[
+      {q:"Choose the word: слушать",options:["listen","sit","stand","write"],ans:"listen"},
+      {q:"Choose the word: писать",options:["listen","sit","stand","write"],ans:"write"},
+    ]},
+    reading:{text:["Let’s listen.","Let’s write."],tf:[
+      {q:"The text says “listen”.",ans:true},{q:"The text says “run”.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u2l6", unit:2, lessonIndex:5, title:"Lesson 6", subtitle:"My classroom", vocabTopic:"Classroom",
+    vocab:[{en:"big",ru:"большой"},{en:"small",ru:"маленький"},{en:"clean",ru:"чистый"},{en:"new",ru:"новый"}],
+    grammar:{title:"It is…",rule:'We say: "It is big."',formula:"It is + adjective.",mcq:[
+      {q:"Choose the word: большой",options:["big","small","clean","new"],ans:"big"},
+      {q:"Choose the word: чистый",options:["big","small","clean","new"],ans:"clean"},
+    ]},
+    reading:{text:["My classroom is big.","It is clean."],tf:[
+      {q:"The classroom is big.",ans:true},{q:"The classroom is dirty.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u2l7", unit:2, lessonIndex:6, title:"Lesson 7", subtitle:"At break time", vocabTopic:"Break",
+    vocab:[{en:"play",ru:"играть"},{en:"run",ru:"бегать"},{en:"jump",ru:"прыгать"},{en:"talk",ru:"говорить"}],
+    grammar:{title:"I can…",rule:'We say: "I can run."',formula:"I can + verb.",mcq:[
+      {q:"Choose the word: бегать",options:["play","run","jump","talk"],ans:"run"},
+      {q:"Choose the word: говорить",options:["play","run","jump","talk"],ans:"talk"},
+    ]},
+    reading:{text:["I can play.","I can jump."],tf:[
+      {q:"The text says “jump”.",ans:true},{q:"The text says “sleep”.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u2l8", unit:2, lessonIndex:7, title:"Lesson 8", subtitle:"School project", vocabTopic:"Project",
+    vocab:[{en:"my school",ru:"моя школа"},{en:"my class",ru:"мой класс"},{en:"my teacher",ru:"мой учитель"},{en:"my friend",ru:"мой друг"}],
+    grammar:{title:"My…",rule:'We say: "My school is nice."',formula:"My + noun + is + adjective.",mcq:[
+      {q:"Choose the word: моя школа",options:["my school","my class","my teacher","my friend"],ans:"my school"},
+      {q:"Choose the word: мой друг",options:["my school","my class","my teacher","my friend"],ans:"my friend"},
+    ]},
+    reading:{text:["My school is nice.","My class is big."],tf:[
+      {q:"The school is nice.",ans:true},{q:"The class is small.",ans:false}
+    ]},
+    song:null
+  },
+];
+
+const UNIT3 = [
+  {
+    id:"u3l1", unit:3, lessonIndex:0, title:"Lesson 1", subtitle:"My family", vocabTopic:"Family",
+    vocab:[{en:"mother",ru:"мама"},{en:"father",ru:"папа"},{en:"sister",ru:"сестра"},{en:"brother",ru:"брат"}],
+    grammar:{title:"This is…",rule:'We say: "This is my mother."',formula:"This is my + family word.",mcq:[
+      {q:"Choose the word: мама",options:["mother","father","sister","brother"],ans:"mother"},
+      {q:"Choose the word: папа",options:["mother","father","sister","brother"],ans:"father"},
+    ]},
+    reading:{text:["This is my mother.","This is my father."],tf:[
+      {q:"The text has mother.",ans:true},{q:"The text has teacher.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u3l2", unit:3, lessonIndex:1, title:"Lesson 2", subtitle:"Grandparents", vocabTopic:"Family",
+    vocab:[{en:"grandma",ru:"бабушка"},{en:"grandpa",ru:"дедушка"},{en:"family",ru:"семья"},{en:"love",ru:"любить"}],
+    grammar:{title:"I love…",rule:'We say: "I love my grandma."',formula:"I love + noun.",mcq:[
+      {q:"Choose the word: бабушка",options:["grandma","grandpa","family","love"],ans:"grandma"},
+      {q:"Choose the word: семья",options:["grandma","grandpa","family","love"],ans:"family"},
+    ]},
+    reading:{text:["I love my family.","I love my grandma."],tf:[
+      {q:"The text has family.",ans:true},{q:"The text has bus.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u3l3", unit:3, lessonIndex:2, title:"Lesson 3", subtitle:"Friends", vocabTopic:"Friends",
+    vocab:[{en:"friend",ru:"друг"},{en:"happy",ru:"счастливый"},{en:"kind",ru:"добрый"},{en:"funny",ru:"весёлый"}],
+    grammar:{title:"He/She is…",rule:'We say: "She is kind."',formula:"He/She is + adjective.",mcq:[
+      {q:"Choose the word: друг",options:["friend","happy","kind","funny"],ans:"friend"},
+      {q:"Choose the word: добрый",options:["friend","happy","kind","funny"],ans:"kind"},
+    ]},
+    reading:{text:["My friend is funny.","She is kind."],tf:[
+      {q:"The friend is funny.",ans:true},{q:"The friend is sad.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u3l4", unit:3, lessonIndex:3, title:"Lesson 4", subtitle:"Pets", vocabTopic:"Pets",
+    vocab:[{en:"cat",ru:"кот"},{en:"dog",ru:"собака"},{en:"fish",ru:"рыбка"},{en:"bird",ru:"птица"}],
+    grammar:{title:"I have…",rule:'We say: "I have a cat."',formula:"I have a/an + pet.",mcq:[
+      {q:"Choose the word: кот",options:["cat","dog","fish","bird"],ans:"cat"},
+      {q:"Choose the word: собака",options:["cat","dog","fish","bird"],ans:"dog"},
+    ]},
+    reading:{text:["I have a dog.","I have a cat."],tf:[
+      {q:"The text has dog.",ans:true},{q:"The text has tiger.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u3l5", unit:3, lessonIndex:4, title:"Lesson 5", subtitle:"Feelings", vocabTopic:"Feelings",
+    vocab:[{en:"happy",ru:"счастливый"},{en:"sad",ru:"грустный"},{en:"tired",ru:"уставший"},{en:"fine",ru:"хорошо"}],
+    grammar:{title:"How are you?",rule:'We answer: "I’m happy / I’m fine."',formula:"How are you? → I’m …",mcq:[
+      {q:"Choose the word: грустный",options:["happy","sad","tired","fine"],ans:"sad"},
+      {q:"Choose the word: уставший",options:["happy","sad","tired","fine"],ans:"tired"},
+    ]},
+    reading:{text:["How are you?","I’m fine."],tf:[
+      {q:"The answer is fine.",ans:true},{q:"The answer is ten.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u3l6", unit:3, lessonIndex:5, title:"Lesson 6", subtitle:"My best friend", vocabTopic:"Friends",
+    vocab:[{en:"name",ru:"имя"},{en:"age",ru:"возраст"},{en:"from",ru:"из"},{en:"like",ru:"любить"}],
+    grammar:{title:"He/She likes…",rule:'We say: "She likes apples."',formula:"He/She likes + noun.",mcq:[
+      {q:"Choose the word: имя",options:["name","age","from","like"],ans:"name"},
+      {q:"Choose the word: любить",options:["name","age","from","like"],ans:"like"},
+    ]},
+    reading:{text:["My friend is Ali.","He likes games."],tf:[
+      {q:"He likes games.",ans:true},{q:"He likes milk.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u3l7", unit:3, lessonIndex:6, title:"Lesson 7", subtitle:"Family activities", vocabTopic:"Activities",
+    vocab:[{en:"eat",ru:"есть"},{en:"play",ru:"играть"},{en:"walk",ru:"гулять"},{en:"watch",ru:"смотреть"}],
+    grammar:{title:"We…",rule:'We say: "We play."',formula:"We + verb.",mcq:[
+      {q:"Choose the word: гулять",options:["eat","play","walk","watch"],ans:"walk"},
+      {q:"Choose the word: смотреть",options:["eat","play","walk","watch"],ans:"watch"},
+    ]},
+    reading:{text:["We play.","We walk."],tf:[
+      {q:"We walk.",ans:true},{q:"We fly.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u3l8", unit:3, lessonIndex:7, title:"Lesson 8", subtitle:"Project", vocabTopic:"Project",
+    vocab:[{en:"my family",ru:"моя семья"},{en:"my pet",ru:"мой питомец"},{en:"my friend",ru:"мой друг"},{en:"I love…",ru:"я люблю…"}],
+    grammar:{title:"Simple sentences",rule:"We can write about people we love.",formula:"I love… / This is…",mcq:[
+      {q:"Choose the word: моя семья",options:["my family","my pet","my friend","I love…"],ans:"my family"},
+      {q:"Choose the word: мой питомец",options:["my family","my pet","my friend","I love…"],ans:"my pet"},
+    ]},
+    reading:{text:["I love my family.","This is my pet."],tf:[
+      {q:"The text has family.",ans:true},{q:"The text has hospital.",ans:false}
+    ]},
+    song:null
+  },
+];
+
+const UNIT4 = [
+  {
+    id:"u4l1", unit:4, lessonIndex:0, title:"Lesson 1", subtitle:"Sunny day", vocabTopic:"Weather",
+    vocab:[{en:"sunny",ru:"солнечно"},{en:"sun",ru:"солнце"},{en:"hot",ru:"жарко"},{en:"summer",ru:"лето"}],
+    grammar:{title:"It is…",rule:'We say: "It is sunny."',formula:"It is + weather.",mcq:[
+      {q:"Choose the word: солнечно",options:["sunny","sun","hot","summer"],ans:"sunny"},
+      {q:"Choose the word: жарко",options:["sunny","sun","hot","summer"],ans:"hot"},
+    ]},
+    reading:{text:["It is sunny.","It is hot."],tf:[
+      {q:"It is sunny.",ans:true},{q:"It is snowy.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u4l2", unit:4, lessonIndex:1, title:"Lesson 2", subtitle:"Rainy day", vocabTopic:"Weather",
+    vocab:[{en:"rainy",ru:"дождливо"},{en:"rain",ru:"дождь"},{en:"wet",ru:"мокро"},{en:"umbrella",ru:"зонт"}],
+    grammar:{title:"I have…",rule:'We say: "I have an umbrella."',formula:"I have a/an + noun.",mcq:[
+      {q:"Choose the word: дождь",options:["rainy","rain","wet","umbrella"],ans:"rain"},
+      {q:"Choose the word: зонт",options:["rainy","rain","wet","umbrella"],ans:"umbrella"},
+    ]},
+    reading:{text:["It is rainy.","I have an umbrella."],tf:[
+      {q:"The text has umbrella.",ans:true},{q:"The text has pencil.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u4l3", unit:4, lessonIndex:2, title:"Lesson 3", subtitle:"Cloudy day", vocabTopic:"Weather",
+    vocab:[{en:"cloudy",ru:"облачно"},{en:"cloud",ru:"облако"},{en:"cool",ru:"прохладно"},{en:"jacket",ru:"куртка"}],
+    grammar:{title:"Wear…",rule:'We say: "Wear a jacket."',formula:"Wear + noun.",mcq:[
+      {q:"Choose the word: облако",options:["cloudy","cloud","cool","jacket"],ans:"cloud"},
+      {q:"Choose the word: куртка",options:["cloudy","cloud","cool","jacket"],ans:"jacket"},
+    ]},
+    reading:{text:["It is cloudy.","Wear a jacket."],tf:[
+      {q:"It is cloudy.",ans:true},{q:"It is sunny.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u4l4", unit:4, lessonIndex:3, title:"Lesson 4", subtitle:"Windy day", vocabTopic:"Weather",
+    vocab:[{en:"windy",ru:"ветрено"},{en:"wind",ru:"ветер"},{en:"kite",ru:"воздушный змей"},{en:"cold",ru:"холодно"}],
+    grammar:{title:"I can…",rule:'We say: "I can fly a kite."',formula:"I can + verb.",mcq:[
+      {q:"Choose the word: ветер",options:["windy","wind","kite","cold"],ans:"wind"},
+      {q:"Choose the word: змей",options:["windy","wind","kite","cold"],ans:"kite"},
+    ]},
+    reading:{text:["It is windy.","I can fly a kite."],tf:[
+      {q:"The text has kite.",ans:true},{q:"The text has fish.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u4l5", unit:4, lessonIndex:4, title:"Lesson 5", subtitle:"Snowy day", vocabTopic:"Weather",
+    vocab:[{en:"snowy",ru:"снежно"},{en:"snow",ru:"снег"},{en:"winter",ru:"зима"},{en:"hat",ru:"шапка"}],
+    grammar:{title:"Put on…",rule:'We say: "Put on a hat."',formula:"Put on + noun.",mcq:[
+      {q:"Choose the word: снег",options:["snowy","snow","winter","hat"],ans:"snow"},
+      {q:"Choose the word: шапка",options:["snowy","snow","winter","hat"],ans:"hat"},
+    ]},
+    reading:{text:["It is snowy.","Put on a hat."],tf:[
+      {q:"It is snowy.",ans:true},{q:"It is hot.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u4l6", unit:4, lessonIndex:5, title:"Lesson 6", subtitle:"Seasons", vocabTopic:"Seasons",
+    vocab:[{en:"spring",ru:"весна"},{en:"summer",ru:"лето"},{en:"autumn",ru:"осень"},{en:"winter",ru:"зима"}],
+    grammar:{title:"My favourite…",rule:'We say: "My favourite season is summer."',formula:"My favourite season is …",mcq:[
+      {q:"Choose the word: осень",options:["spring","summer","autumn","winter"],ans:"autumn"},
+      {q:"Choose the word: зима",options:["spring","summer","autumn","winter"],ans:"winter"},
+    ]},
+    reading:{text:["My favourite season is summer."],tf:[
+      {q:"Favourite season is summer.",ans:true},{q:"Favourite season is Monday.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u4l7", unit:4, lessonIndex:6, title:"Lesson 7", subtitle:"Clothes", vocabTopic:"Clothes",
+    vocab:[{en:"coat",ru:"пальто"},{en:"boots",ru:"сапоги"},{en:"dress",ru:"платье"},{en:"T-shirt",ru:"футболка"}],
+    grammar:{title:"I wear…",rule:'We say: "I wear boots."',formula:"I wear + clothes.",mcq:[
+      {q:"Choose the word: сапоги",options:["coat","boots","dress","T-shirt"],ans:"boots"},
+      {q:"Choose the word: футболка",options:["coat","boots","dress","T-shirt"],ans:"T-shirt"},
+    ]},
+    reading:{text:["I wear a coat.","I wear boots."],tf:[
+      {q:"The text has boots.",ans:true},{q:"The text has chair.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u4l8", unit:4, lessonIndex:7, title:"Lesson 8", subtitle:"Weather project", vocabTopic:"Project",
+    vocab:[{en:"today",ru:"сегодня"},{en:"weather",ru:"погода"},{en:"sunny",ru:"солнечно"},{en:"rainy",ru:"дождливо"}],
+    grammar:{title:"Today is…",rule:'We say: "Today is sunny."',formula:"Today is + weather.",mcq:[
+      {q:"Choose the word: сегодня",options:["today","weather","sunny","rainy"],ans:"today"},
+      {q:"Choose the word: погода",options:["today","weather","sunny","rainy"],ans:"weather"},
+    ]},
+    reading:{text:["Today is sunny.","It is warm."],tf:[
+      {q:"Today is sunny.",ans:true},{q:"Today is snowy.",ans:false}
+    ]},
+    song:null
+  },
+];
+
+const UNIT5 = [
+  {
+    id:"u5l1", unit:5, lessonIndex:0, title:"Lesson 1", subtitle:"Hobbies", vocabTopic:"Hobbies",
+    vocab:[{en:"play",ru:"играть"},{en:"draw",ru:"рисовать"},{en:"read",ru:"читать"},{en:"sing",ru:"петь"}],
+    grammar:{title:"I like…",rule:'We say: "I like to read."',formula:"I like to + verb.",mcq:[
+      {q:"Choose the word: читать",options:["play","draw","read","sing"],ans:"read"},
+      {q:"Choose the word: петь",options:["play","draw","read","sing"],ans:"sing"},
+    ]},
+    reading:{text:["I like to read.","I like to draw."],tf:[
+      {q:"The text has read.",ans:true},{q:"The text has fly.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u5l2", unit:5, lessonIndex:1, title:"Lesson 2", subtitle:"Sports", vocabTopic:"Sports",
+    vocab:[{en:"football",ru:"футбол"},{en:"run",ru:"бегать"},{en:"jump",ru:"прыгать"},{en:"swim",ru:"плавать"}],
+    grammar:{title:"I can…",rule:'We say: "I can swim."',formula:"I can + verb.",mcq:[
+      {q:"Choose the word: плавать",options:["football","run","jump","swim"],ans:"swim"},
+      {q:"Choose the word: бегать",options:["football","run","jump","swim"],ans:"run"},
+    ]},
+    reading:{text:["I can run.","I can swim."],tf:[
+      {q:"The text has swim.",ans:true},{q:"The text has sleep.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u5l3", unit:5, lessonIndex:2, title:"Lesson 3", subtitle:"Toys", vocabTopic:"Toys",
+    vocab:[{en:"ball",ru:"мяч"},{en:"doll",ru:"кукла"},{en:"car",ru:"машинка"},{en:"kite",ru:"змей"}],
+    grammar:{title:"This is…",rule:'We say: "This is a ball."',formula:"This is a/an + toy.",mcq:[
+      {q:"Choose the word: мяч",options:["ball","doll","car","kite"],ans:"ball"},
+      {q:"Choose the word: кукла",options:["ball","doll","car","kite"],ans:"doll"},
+    ]},
+    reading:{text:["This is a ball.","This is a doll."],tf:[
+      {q:"The text has ball.",ans:true},{q:"The text has umbrella.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u5l4", unit:5, lessonIndex:3, title:"Lesson 4", subtitle:"Music", vocabTopic:"Music",
+    vocab:[{en:"music",ru:"музыка"},{en:"song",ru:"песня"},{en:"dance",ru:"танцевать"},{en:"happy",ru:"счастливый"}],
+    grammar:{title:"Let’s…",rule:'We say: "Let’s dance!"',formula:"Let’s + verb.",mcq:[
+      {q:"Choose the word: танцевать",options:["music","song","dance","happy"],ans:"dance"},
+      {q:"Choose the word: песня",options:["music","song","dance","happy"],ans:"song"},
+    ]},
+    reading:{text:["Let’s dance!","It is a song."],tf:[
+      {q:"The text says dance.",ans:true},{q:"The text says winter.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u5l5", unit:5, lessonIndex:4, title:"Lesson 5", subtitle:"At the park", vocabTopic:"Park",
+    vocab:[{en:"park",ru:"парк"},{en:"tree",ru:"дерево"},{en:"bench",ru:"скамейка"},{en:"playground",ru:"площадка"}],
+    grammar:{title:"There is…",rule:'We say: "There is a tree."',formula:"There is a/an + noun.",mcq:[
+      {q:"Choose the word: дерево",options:["park","tree","bench","playground"],ans:"tree"},
+      {q:"Choose the word: парк",options:["park","tree","bench","playground"],ans:"park"},
+    ]},
+    reading:{text:["There is a tree.","There is a bench."],tf:[
+      {q:"There is a tree.",ans:true},{q:"There is a train.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u5l6", unit:5, lessonIndex:5, title:"Lesson 6", subtitle:"Weekend", vocabTopic:"Weekend",
+    vocab:[{en:"Saturday",ru:"суббота"},{en:"Sunday",ru:"воскресенье"},{en:"fun",ru:"весело"},{en:"rest",ru:"отдых"}],
+    grammar:{title:"On Saturday…",rule:'We say: "On Saturday I play."',formula:"On + day + I + verb.",mcq:[
+      {q:"Choose the word: воскресенье",options:["Saturday","Sunday","fun","rest"],ans:"Sunday"},
+      {q:"Choose the word: отдых",options:["Saturday","Sunday","fun","rest"],ans:"rest"},
+    ]},
+    reading:{text:["On Sunday I rest."],tf:[
+      {q:"The text has Sunday.",ans:true},{q:"The text has Tuesday.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u5l7", unit:5, lessonIndex:6, title:"Lesson 7", subtitle:"My favourite", vocabTopic:"Favourite",
+    vocab:[{en:"favourite",ru:"любимый"},{en:"game",ru:"игра"},{en:"book",ru:"книга"},{en:"sport",ru:"спорт"}],
+    grammar:{title:"My favourite…",rule:'We say: "My favourite game is football."',formula:"My favourite + noun + is …",mcq:[
+      {q:"Choose the word: любимый",options:["favourite","game","book","sport"],ans:"favourite"},
+      {q:"Choose the word: спорт",options:["favourite","game","book","sport"],ans:"sport"},
+    ]},
+    reading:{text:["My favourite book is a comic."],tf:[
+      {q:"The text has favourite.",ans:true},{q:"The text has hospital.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u5l8", unit:5, lessonIndex:7, title:"Lesson 8", subtitle:"Project", vocabTopic:"Project",
+    vocab:[{en:"I like…",ru:"мне нравится…"}, {en:"I can…",ru:"я умею…"}, {en:"play",ru:"играть"}, {en:"read",ru:"читать"}],
+    grammar:{title:"About me",rule:"We can write about free time.",formula:"I like… / I can…",mcq:[
+      {q:"Choose the word: мне нравится…",options:["I like…","I can…","play","read"],ans:"I like…"},
+      {q:"Choose the word: я умею…",options:["I like…","I can…","play","read"],ans:"I can…"},
+    ]},
+    reading:{text:["I like to read.","I can play football."],tf:[
+      {q:"The text has read.",ans:true},{q:"The text has snow.",ans:false}
+    ]},
+    song:null
+  },
+];
+
+const UNIT6 = [
+  {
+    id:"u6l1", unit:6, lessonIndex:0, title:"Lesson 1", subtitle:"Body", vocabTopic:"Body",
+    vocab:[{en:"head",ru:"голова"},{en:"hand",ru:"рука"},{en:"leg",ru:"нога"},{en:"eye",ru:"глаз"}],
+    grammar:{title:"My…",rule:'We say: "My head hurts."',formula:"My + body part + hurts.",mcq:[
+      {q:"Choose the word: голова",options:["head","hand","leg","eye"],ans:"head"},
+      {q:"Choose the word: нога",options:["head","hand","leg","eye"],ans:"leg"},
+    ]},
+    reading:{text:["My leg hurts."],tf:[
+      {q:"The text has leg.",ans:true},{q:"The text has desk.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u6l2", unit:6, lessonIndex:1, title:"Lesson 2", subtitle:"Healthy food", vocabTopic:"Food",
+    vocab:[{en:"apple",ru:"яблоко"},{en:"milk",ru:"молоко"},{en:"water",ru:"вода"},{en:"bread",ru:"хлеб"}],
+    grammar:{title:"I eat/drink",rule:'We say: "I drink water."',formula:"I eat… / I drink…",mcq:[
+      {q:"Choose the word: вода",options:["apple","milk","water","bread"],ans:"water"},
+      {q:"Choose the word: молоко",options:["apple","milk","water","bread"],ans:"milk"},
+    ]},
+    reading:{text:["I drink water.","I eat an apple."],tf:[
+      {q:"The text has water.",ans:true},{q:"The text has umbrella.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u6l3", unit:6, lessonIndex:2, title:"Lesson 3", subtitle:"Doctor", vocabTopic:"Health",
+    vocab:[{en:"doctor",ru:"врач"},{en:"hospital",ru:"больница"},{en:"medicine",ru:"лекарство"},{en:"help",ru:"помощь"}],
+    grammar:{title:"Go to…",rule:'We say: "Go to the doctor."',formula:"Go to + person/place.",mcq:[
+      {q:"Choose the word: врач",options:["doctor","hospital","medicine","help"],ans:"doctor"},
+      {q:"Choose the word: больница",options:["doctor","hospital","medicine","help"],ans:"hospital"},
+    ]},
+    reading:{text:["Go to the doctor.","He can help."],tf:[
+      {q:"The text has doctor.",ans:true},{q:"The text has kite.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u6l4", unit:6, lessonIndex:3, title:"Lesson 4", subtitle:"Feelings", vocabTopic:"Feelings",
+    vocab:[{en:"tired",ru:"уставший"},{en:"sad",ru:"грустный"},{en:"happy",ru:"счастливый"},{en:"fine",ru:"хорошо"}],
+    grammar:{title:"I’m …",rule:'We say: "I’m tired."',formula:"I’m + adjective.",mcq:[
+      {q:"Choose the word: уставший",options:["tired","sad","happy","fine"],ans:"tired"},
+      {q:"Choose the word: хорошо",options:["tired","sad","happy","fine"],ans:"fine"},
+    ]},
+    reading:{text:["I’m fine.","I’m happy."],tf:[
+      {q:"The text has fine.",ans:true},{q:"The text has ten.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u6l5", unit:6, lessonIndex:4, title:"Lesson 5", subtitle:"Sports & health", vocabTopic:"Sports",
+    vocab:[{en:"run",ru:"бегать"},{en:"swim",ru:"плавать"},{en:"jump",ru:"прыгать"},{en:"strong",ru:"сильный"}],
+    grammar:{title:"Healthy",rule:"Sport is good for health.",formula:"I run / I swim.",mcq:[
+      {q:"Choose the word: плавать",options:["run","swim","jump","strong"],ans:"swim"},
+      {q:"Choose the word: сильный",options:["run","swim","jump","strong"],ans:"strong"},
+    ]},
+    reading:{text:["I run.","I am strong."],tf:[
+      {q:"The text has run.",ans:true},{q:"The text has winter.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u6l6", unit:6, lessonIndex:5, title:"Lesson 6", subtitle:"Clean", vocabTopic:"Hygiene",
+    vocab:[{en:"wash",ru:"мыть"},{en:"soap",ru:"мыло"},{en:"teeth",ru:"зубы"},{en:"clean",ru:"чистый"}],
+    grammar:{title:"I wash…",rule:'We say: "I wash my hands."',formula:"I wash my …",mcq:[
+      {q:"Choose the word: мыть",options:["wash","soap","teeth","clean"],ans:"wash"},
+      {q:"Choose the word: мыло",options:["wash","soap","teeth","clean"],ans:"soap"},
+    ]},
+    reading:{text:["I wash my hands.","I clean my teeth."],tf:[
+      {q:"The text has wash.",ans:true},{q:"The text has bus.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u6l7", unit:6, lessonIndex:6, title:"Lesson 7", subtitle:"Clothes", vocabTopic:"Clothes",
+    vocab:[{en:"hat",ru:"шапка"},{en:"coat",ru:"пальто"},{en:"boots",ru:"сапоги"},{en:"T-shirt",ru:"футболка"}],
+    grammar:{title:"Put on…",rule:'We say: "Put on a coat."',formula:"Put on + clothes.",mcq:[
+      {q:"Choose the word: пальто",options:["hat","coat","boots","T-shirt"],ans:"coat"},
+      {q:"Choose the word: сапоги",options:["hat","coat","boots","T-shirt"],ans:"boots"},
+    ]},
+    reading:{text:["Put on a coat.","It is cold."],tf:[
+      {q:"The text has coat.",ans:true},{q:"The text has sunny.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u6l8", unit:6, lessonIndex:7, title:"Lesson 8", subtitle:"Project", vocabTopic:"Project",
+    vocab:[{en:"healthy",ru:"здоровый"},{en:"water",ru:"вода"},{en:"sport",ru:"спорт"},{en:"doctor",ru:"врач"}],
+    grammar:{title:"Healthy day",rule:"We can write about health.",formula:"I drink… I play…",mcq:[
+      {q:"Choose the word: вода",options:["healthy","water","sport","doctor"],ans:"water"},
+      {q:"Choose the word: врач",options:["healthy","water","sport","doctor"],ans:"doctor"},
+    ]},
+    reading:{text:["I drink water.","I play sport."],tf:[
+      {q:"The text has water.",ans:true},{q:"The text has chair.",ans:false}
+    ]},
+    song:null
+  },
+];
+
+const UNIT7 = [
+  {
+    id:"u7l1", unit:7, lessonIndex:0, title:"Lesson 1", subtitle:"My house", vocabTopic:"Home",
+    vocab:[{en:"house",ru:"дом"},{en:"room",ru:"комната"},{en:"bed",ru:"кровать"},{en:"door",ru:"дверь"}],
+    grammar:{title:"This is…",rule:'We say: "This is my house."',formula:"This is my + noun.",mcq:[
+      {q:"Choose the word: дом",options:["house","room","bed","door"],ans:"house"},
+      {q:"Choose the word: дверь",options:["house","room","bed","door"],ans:"door"},
+    ]},
+    reading:{text:["This is my room.","This is my bed."],tf:[
+      {q:"The text has room.",ans:true},{q:"The text has plane.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u7l2", unit:7, lessonIndex:1, title:"Lesson 2", subtitle:"My city", vocabTopic:"City",
+    vocab:[{en:"city",ru:"город"},{en:"street",ru:"улица"},{en:"road",ru:"дорога"},{en:"bridge",ru:"мост"}],
+    grammar:{title:"On the…",rule:'We say: "On the street…"',formula:"On the + noun…",mcq:[
+      {q:"Choose the word: улица",options:["city","street","road","bridge"],ans:"street"},
+      {q:"Choose the word: мост",options:["city","street","road","bridge"],ans:"bridge"},
+    ]},
+    reading:{text:["On the street there is a shop."],tf:[
+      {q:"The text has street.",ans:true},{q:"The text has snow.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u7l3", unit:7, lessonIndex:2, title:"Lesson 3", subtitle:"Places", vocabTopic:"Places",
+    vocab:[{en:"school",ru:"школа"},{en:"shop",ru:"магазин"},{en:"park",ru:"парк"},{en:"hospital",ru:"больница"}],
+    grammar:{title:"There is…",rule:'We say: "There is a park."',formula:"There is a/an + place.",mcq:[
+      {q:"Choose the word: парк",options:["school","shop","park","hospital"],ans:"park"},
+      {q:"Choose the word: магазин",options:["school","shop","park","hospital"],ans:"shop"},
+    ]},
+    reading:{text:["There is a school.","There is a park."],tf:[
+      {q:"There is a park.",ans:true},{q:"There is a zoo.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u7l4", unit:7, lessonIndex:3, title:"Lesson 4", subtitle:"In the shop", vocabTopic:"Shop",
+    vocab:[{en:"buy",ru:"покупать"},{en:"money",ru:"деньги"},{en:"food",ru:"еда"},{en:"toy",ru:"игрушка"}],
+    grammar:{title:"I want…",rule:'We say: "I want a toy."',formula:"I want + noun.",mcq:[
+      {q:"Choose the word: игрушка",options:["buy","money","food","toy"],ans:"toy"},
+      {q:"Choose the word: деньги",options:["buy","money","food","toy"],ans:"money"},
+    ]},
+    reading:{text:["I want food.","I want a toy."],tf:[
+      {q:"The text has toy.",ans:true},{q:"The text has winter.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u7l5", unit:7, lessonIndex:4, title:"Lesson 5", subtitle:"Transport", vocabTopic:"Transport",
+    vocab:[{en:"bus",ru:"автобус"},{en:"car",ru:"машина"},{en:"train",ru:"поезд"},{en:"plane",ru:"самолёт"}],
+    grammar:{title:"I go by…",rule:'We say: "I go by bus."',formula:"I go by + transport.",mcq:[
+      {q:"Choose the word: поезд",options:["bus","car","train","plane"],ans:"train"},
+      {q:"Choose the word: самолёт",options:["bus","car","train","plane"],ans:"plane"},
+    ]},
+    reading:{text:["I go by bus.","I go by car."],tf:[
+      {q:"The text has bus.",ans:true},{q:"The text has fish.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u7l6", unit:7, lessonIndex:5, title:"Lesson 6", subtitle:"My room", vocabTopic:"Home",
+    vocab:[{en:"table",ru:"стол"},{en:"chair",ru:"стул"},{en:"window",ru:"окно"},{en:"lamp",ru:"лампа"}],
+    grammar:{title:"There is…",rule:'We say: "There is a table."',formula:"There is a/an + thing.",mcq:[
+      {q:"Choose the word: лампа",options:["table","chair","window","lamp"],ans:"lamp"},
+      {q:"Choose the word: стул",options:["table","chair","window","lamp"],ans:"chair"},
+    ]},
+    reading:{text:["There is a chair.","There is a lamp."],tf:[
+      {q:"There is a lamp.",ans:true},{q:"There is a kite.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u7l7", unit:7, lessonIndex:6, title:"Lesson 7", subtitle:"Big or small", vocabTopic:"Adjectives",
+    vocab:[{en:"big",ru:"большой"},{en:"small",ru:"маленький"},{en:"tall",ru:"высокий"},{en:"new",ru:"новый"}],
+    grammar:{title:"It is…",rule:'We say: "It is big."',formula:"It is + adjective.",mcq:[
+      {q:"Choose the word: высокий",options:["big","small","tall","new"],ans:"tall"},
+      {q:"Choose the word: новый",options:["big","small","tall","new"],ans:"new"},
+    ]},
+    reading:{text:["The building is tall.","The house is new."],tf:[
+      {q:"The building is tall.",ans:true},{q:"The house is old.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u7l8", unit:7, lessonIndex:7, title:"Lesson 8", subtitle:"Building project", vocabTopic:"Project",
+    vocab:[{en:"my street",ru:"моя улица"},{en:"my house",ru:"мой дом"},{en:"my school",ru:"моя школа"},{en:"my city",ru:"мой город"}],
+    grammar:{title:"My…",rule:"We can write about places.",formula:"My … is …",mcq:[
+      {q:"Choose the word: моя улица",options:["my street","my house","my school","my city"],ans:"my street"},
+      {q:"Choose the word: мой город",options:["my street","my house","my school","my city"],ans:"my city"},
+    ]},
+    reading:{text:["My city is big.","My school is nice."],tf:[
+      {q:"My city is big.",ans:true},{q:"My school is small.",ans:false}
+    ]},
+    song:null
+  },
+];
+
+const UNIT8 = [
+  {
+    id:"u8l1", unit:8, lessonIndex:0, title:"Lesson 1", subtitle:"Holiday time", vocabTopic:"Holidays",
+    vocab:[{en:"holiday",ru:"каникулы"},{en:"travel",ru:"путешествовать"},{en:"fun",ru:"весело"},{en:"photo",ru:"фото"}],
+    grammar:{title:"I like…",rule:'We say: "I like my holidays."',formula:"I like + noun.",mcq:[
+      {q:"Choose the word: каникулы",options:["holiday","travel","fun","photo"],ans:"holiday"},
+      {q:"Choose the word: фото",options:["holiday","travel","fun","photo"],ans:"photo"},
+    ]},
+    reading:{text:["I like my holiday.","It is fun!"],tf:[
+      {q:"Holiday is fun.",ans:true},{q:"Holiday is rainy.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u8l2", unit:8, lessonIndex:1, title:"Lesson 2", subtitle:"At the beach", vocabTopic:"Beach",
+    vocab:[{en:"beach",ru:"пляж"},{en:"sea",ru:"море"},{en:"sand",ru:"песок"},{en:"swim",ru:"плавать"}],
+    grammar:{title:"I can…",rule:'We say: "I can swim."',formula:"I can + verb.",mcq:[
+      {q:"Choose the word: море",options:["beach","sea","sand","swim"],ans:"sea"},
+      {q:"Choose the word: песок",options:["beach","sea","sand","swim"],ans:"sand"},
+    ]},
+    reading:{text:["I swim in the sea.","The sand is hot."],tf:[
+      {q:"The text has sea.",ans:true},{q:"The text has snow.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u8l3", unit:8, lessonIndex:2, title:"Lesson 3", subtitle:"In the mountains", vocabTopic:"Mountains",
+    vocab:[{en:"mountain",ru:"горы"},{en:"lake",ru:"озеро"},{en:"tree",ru:"дерево"},{en:"hike",ru:"поход"}],
+    grammar:{title:"Let’s…",rule:'We say: "Let’s hike!"',formula:"Let’s + verb.",mcq:[
+      {q:"Choose the word: озеро",options:["mountain","lake","tree","hike"],ans:"lake"},
+      {q:"Choose the word: поход",options:["mountain","lake","tree","hike"],ans:"hike"},
+    ]},
+    reading:{text:["Let’s hike!","We see a lake."],tf:[
+      {q:"The text has lake.",ans:true},{q:"The text has bus.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u8l4", unit:8, lessonIndex:3, title:"Lesson 4", subtitle:"Travel", vocabTopic:"Travel",
+    vocab:[{en:"ticket",ru:"билет"},{en:"bag",ru:"сумка"},{en:"train",ru:"поезд"},{en:"hotel",ru:"отель"}],
+    grammar:{title:"I have…",rule:'We say: "I have a ticket."',formula:"I have a/an + noun.",mcq:[
+      {q:"Choose the word: билет",options:["ticket","bag","train","hotel"],ans:"ticket"},
+      {q:"Choose the word: поезд",options:["ticket","bag","train","hotel"],ans:"train"},
+    ]},
+    reading:{text:["I have a ticket.","I go by train."],tf:[
+      {q:"The text has ticket.",ans:true},{q:"The text has umbrella.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u8l5", unit:8, lessonIndex:4, title:"Lesson 5", subtitle:"Food on holiday", vocabTopic:"Food",
+    vocab:[{en:"ice cream",ru:"мороженое"},{en:"juice",ru:"сок"},{en:"cake",ru:"торт"},{en:"water",ru:"вода"}],
+    grammar:{title:"I eat/drink",rule:'We say: "I eat ice cream."',formula:"I eat… / I drink…",mcq:[
+      {q:"Choose the word: сок",options:["ice cream","juice","cake","water"],ans:"juice"},
+      {q:"Choose the word: вода",options:["ice cream","juice","cake","water"],ans:"water"},
+    ]},
+    reading:{text:["I eat ice cream.","I drink juice."],tf:[
+      {q:"The text has ice cream.",ans:true},{q:"The text has doctor.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u8l6", unit:8, lessonIndex:5, title:"Lesson 6", subtitle:"Souvenirs", vocabTopic:"Souvenirs",
+    vocab:[{en:"gift",ru:"подарок"},{en:"toy",ru:"игрушка"},{en:"magnet",ru:"магнит"},{en:"shop",ru:"магазин"}],
+    grammar:{title:"I buy…",rule:'We say: "I buy a gift."',formula:"I buy + noun.",mcq:[
+      {q:"Choose the word: подарок",options:["gift","toy","magnet","shop"],ans:"gift"},
+      {q:"Choose the word: магнит",options:["gift","toy","magnet","shop"],ans:"magnet"},
+    ]},
+    reading:{text:["I buy a gift.","I buy a magnet."],tf:[
+      {q:"The text has gift.",ans:true},{q:"The text has winter.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u8l7", unit:8, lessonIndex:6, title:"Lesson 7", subtitle:"Family trip", vocabTopic:"Family",
+    vocab:[{en:"family",ru:"семья"},{en:"car",ru:"машина"},{en:"map",ru:"карта"},{en:"happy",ru:"счастливый"}],
+    grammar:{title:"We…",rule:'We say: "We travel."',formula:"We + verb.",mcq:[
+      {q:"Choose the word: семья",options:["family","car","map","happy"],ans:"family"},
+      {q:"Choose the word: карта",options:["family","car","map","happy"],ans:"map"},
+    ]},
+    reading:{text:["We travel by car.","We are happy."],tf:[
+      {q:"They travel by car.",ans:true},{q:"They travel by plane.",ans:false}
+    ]},
+    song:null
+  },
+  {
+    id:"u8l8", unit:8, lessonIndex:7, title:"Lesson 8", subtitle:"Holiday project", vocabTopic:"Project",
+    vocab:[{en:"my holiday",ru:"мои каникулы"},{en:"place",ru:"место"},{en:"I went…",ru:"я ездил…"},{en:"I liked…",ru:"мне понравилось…"}],
+    grammar:{title:"Past simple (easy)",rule:"We can say: I went to … / I liked …",formula:"I went to … / I liked …",mcq:[
+      {q:"Choose the word: место",options:["my holiday","place","I went…","I liked…"],ans:"place"},
+      {q:"Choose the word: мне понравилось…",options:["my holiday","place","I went…","I liked…"],ans:"I liked…"},
+    ]},
+    reading:{text:["I went to the beach.","I liked the sea."],tf:[
+      {q:"I went to the beach.",ans:true},{q:"I went to the hospital.",ans:false}
+    ]},
+    song:null
+  },
+];
+
+/* ===================== FINAL UNITS LIST ===================== */
+/* ВАЖНО: UNIT1 должен быть выше (у тебя уже есть). Тут добавляем 2–8. */
 const UNITS = [
   {unit:1, title:"Unit 1 — Hello English!", lessons: UNIT1},
-  {unit:2, title:"Unit 2 — My school", lessons: []},
-  {unit:3, title:"Unit 3 — People I love", lessons: []},
-  {unit:4, title:"Unit 4 — Weather", lessons: []},
-  {unit:5, title:"Unit 5 — My free time", lessons: []},
-  {unit:6, title:"Unit 6 — Health", lessons: []},
-  {unit:7, title:"Unit 7 — Buildings", lessons: []},
-  {unit:8, title:"Unit 8 — My holidays", lessons: []},
+  {unit:2, title:"Unit 2 — My school", lessons: UNIT2},
+  {unit:3, title:"Unit 3 — People I love", lessons: UNIT3},
+  {unit:4, title:"Unit 4 — Weather", lessons: UNIT4},
+  {unit:5, title:"Unit 5 — My free time", lessons: UNIT5},
+  {unit:6, title:"Unit 6 — Health", lessons: UNIT6},
+  {unit:7, title:"Unit 7 — Buildings", lessons: UNIT7},
+  {unit:8, title:"Unit 8 — My holidays", lessons: UNIT8},
 ];
 
 /* ===================== DB ===================== */
